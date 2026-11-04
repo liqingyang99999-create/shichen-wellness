@@ -15,6 +15,8 @@ import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.SystemClock;
 import android.provider.Settings;
 import android.speech.RecognizerIntent;
@@ -56,8 +58,20 @@ public final class MainActivity extends Activity implements SensorEventListener 
     private volatile Sensor counter, detector;
     private volatile Sensor activeStepSensor;
     private volatile boolean resumed, listenerRegistered;
+    private volatile boolean stepFallbackAttempted;
+    private volatile String stepFallbackReason;
+    private volatile Long stepListenerRegisteredAt;
     private volatile String stepRegistrationReason="paused";
     private final StepSessionAccumulator stepSession = new StepSessionAccumulator();
+    private final Handler stepHandler = new Handler(Looper.getMainLooper());
+    private final Runnable stepWatchdog = new Runnable() {
+        @Override public void run() {
+            if(!resumed)return;
+            if(!activityAllowed()){stopSteps();stepRegistrationReason="activity_permission_missing";return;}
+            tryDetectorFallback();
+            scheduleStepWatchdog();
+        }
+    };
     private final ExecutorService metricWorker = Executors.newSingleThreadExecutor();
     private final AtomicLong usageGeneration = new AtomicLong();
     private long usageCacheAt = 0, usageCacheDay = -1;
@@ -120,7 +134,7 @@ public final class MainActivity extends Activity implements SensorEventListener 
         ws.setMediaPlaybackRequiresUserGesture(true);
         ws.setGeolocationEnabled(true);
         ws.setSafeBrowsingEnabled(true);
-        ws.setUserAgentString(ws.getUserAgentString() + " ShichenWellness/0.4.0");
+        ws.setUserAgentString(ws.getUserAgentString() + " ShichenWellness/0.5.0");
         WebView.setWebContentsDebuggingEnabled(false);
 
         if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
@@ -223,7 +237,11 @@ public final class MainActivity extends Activity implements SensorEventListener 
                     if (locationAllowed()) { sendCapabilities(reply,id); return; }
                     requestDevicePermission(reply,id,new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION},LOCATION); return;
                 case "requestActivity":
-                    if (activityAllowed()) { startSteps(); sendCapabilities(reply,id); return; }
+                    if (activityAllowed()) {
+                        ensureNoActivePrompt();
+                        if(!resumed)throw new IllegalArgumentException("请回到应用前台后重试计步。");
+                        stopSteps();startSteps();sendCapabilities(reply,id,activityFeedback());return;
+                    }
                     requestDevicePermission(reply,id,new String[]{Manifest.permission.ACTIVITY_RECOGNITION},ACTIVITY); return;
                 default: throw new IllegalArgumentException("不支持这项设备操作。");
             }
@@ -281,9 +299,16 @@ public final class MainActivity extends Activity implements SensorEventListener 
         } catch (Exception ignored) { respond(reply,id,null,"暂时无法读取语音结果，请重试。",generation); }
     }
     private void sendCapabilities(JavaScriptReplyProxy reply,String id) {
+        sendCapabilities(reply,id,null);
+    }
+    private void sendCapabilities(JavaScriptReplyProxy reply,String id,JSONObject feedback) {
         long generation=documentGeneration;
         metricWorker.execute(() -> {
-            try { respond(reply,id,capabilities(),null,generation); }
+            try {
+                JSONObject data=capabilities();
+                if(feedback!=null)data.put("actionFeedback",feedback);
+                respond(reply,id,data,null,generation);
+            }
             catch(Exception e) { respond(reply,id,null,"暂时无法读取设备状态。",generation); }
         });
     }
@@ -307,18 +332,19 @@ public final class MainActivity extends Activity implements SensorEventListener 
         JSONObject usage=usagePermission ? screenMetrics() : emptyUsage("permission_required","usage_permission_missing");
         usage.put("permission",usagePermission?"granted":"denied");
         StepSessionAccumulator.Snapshot steps=stepSession.snapshot();
+        StepSessionAccumulator.Observation stepObservation=stepSession.observation(SystemClock.elapsedRealtimeNanos());
         boolean movementAllowed=activityAllowed();
         String stepStatus=!movementAllowed?"permission_required":counter==null&&detector==null?"unsupported":
-            !resumed?"paused":!listenerRegistered?"registration_failed":steps.segmentHasReading?"available":"waiting_for_sensor";
+            !resumed?"paused":!listenerRegistered?"registration_failed":stepObservation.status;
         String stepReason="available".equals(stepStatus)?"foreground_steps_observed":
             "permission_required".equals(stepStatus)?"activity_permission_missing":
             "unsupported".equals(stepStatus)?"no_step_sensor":
-            "waiting_for_sensor".equals(stepStatus)?"awaiting_first_event":
-            "paused".equals(stepStatus)?"app_background":stepRegistrationReason;
+            "paused".equals(stepStatus)?"app_background":
+            listenerRegistered?stepObservation.reason:stepRegistrationReason;
         Sensor selected=activeStepSensor;
         String stepSource=selected==null?"none":selected.getType()==Sensor.TYPE_STEP_COUNTER?"step-counter":"step-detector";
         boolean voiceAvailable=speechAvailable();
-        return new JSONObject().put("platform","android").put("appVersion","0.4.0-preview").put("versionCode",4).put("apiLevel",Build.VERSION.SDK_INT)
+        return new JSONObject().put("platform","android").put("appVersion","0.5.0-preview").put("versionCode",5).put("apiLevel",Build.VERSION.SDK_INT)
             .put("speech",new JSONObject().put("available",voiceAvailable).put("status",voiceAvailable?"available":"unsupported")
                 .put("source","system-recognition-activity").put("language","zh-CN")
                 .put("preferOffline",true).put("offlineGuaranteed",false))
@@ -330,6 +356,10 @@ public final class MainActivity extends Activity implements SensorEventListener 
                 .put("counterAvailable",counter!=null).put("detectorAvailable",detector!=null)
                 .put("listenerRegistered",listenerRegistered).put("lastSensorAt",nullable(steps.lastAt))
                 .put("observedFrom",nullable(steps.firstAt)).put("eventsCount",steps.eventsCount)
+                .put("baselineEstablished",steps.baselineEstablished).put("segmentHasIncrement",steps.segmentHasIncrement)
+                .put("lastIncrementAt",nullable(steps.lastIncrementAt)).put("listenerRegisteredAt",nullable(stepListenerRegisteredAt))
+                .put("fallbackAttempted",stepFallbackAttempted).put("fallbackReason",nullable(stepFallbackReason))
+                .put("observationTimeoutSeconds",StepSessionAccumulator.OBSERVATION_TIMEOUT_NANOS/1_000_000_000L)
                 .put("scope","本次打开累计前台监测步数；不含后台及未接入的华为健康数据"))
             .put("health",new JSONObject().put("available",false).put("status","not_integrated").put("reason","not-connected"));
     }
@@ -382,10 +412,12 @@ public final class MainActivity extends Activity implements SensorEventListener 
         if(!resumed)return;
         if(!activityAllowed()) {stopSteps();stepRegistrationReason="activity_permission_missing";return;}
         if(listenerRegistered)return;
+        stepFallbackAttempted=false;stepFallbackReason=null;
         // Some compatibility environments reveal sensors only after permission is granted.
         discoverStepSensors();
         if(sensors==null||counter==null&&detector==null){stepRegistrationReason="no_step_sensor";return;}
         if(registerStepSensor(counter,StepSessionAccumulator.Mode.COUNTER))return;
+        if(counter!=null&&detector!=null){stepFallbackAttempted=true;stepFallbackReason="counter_registration_failed";}
         if(registerStepSensor(detector,StepSessionAccumulator.Mode.DETECTOR))return;
         stepRegistrationReason="sensor_registration_failed";
     }
@@ -402,19 +434,54 @@ public final class MainActivity extends Activity implements SensorEventListener 
             long started=SystemClock.elapsedRealtimeNanos();
             if(!sensors.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL))return false;
             stepSession.start(mode,started);activeStepSensor=sensor;listenerRegistered=true;
+            stepListenerRegisteredAt=System.currentTimeMillis();
+            scheduleStepWatchdog();
             stepRegistrationReason="awaiting_first_event";return true;
         }catch(RuntimeException ignored){return false;}
     }
     private void stopSteps() {
-        if(sensors!=null)sensors.unregisterListener(this);
-        listenerRegistered=false;stepSession.pause();
+        stepHandler.removeCallbacks(stepWatchdog);
+        if(sensors!=null)try{sensors.unregisterListener(this);}catch(RuntimeException ignored){ }
+        listenerRegistered=false;activeStepSensor=null;stepListenerRegisteredAt=null;stepSession.pause();
+    }
+    private void scheduleStepWatchdog() {
+        stepHandler.removeCallbacks(stepWatchdog);
+        if(resumed&&listenerRegistered)stepHandler.postDelayed(stepWatchdog,5000);
+    }
+    private void tryDetectorFallback() {
+        if(!resumed||!listenerRegistered||activeStepSensor!=counter||stepFallbackAttempted)return;
+        // Sensor discovery can change after a permission grant in compatibility environments.
+        discoverStepSensors();
+        if(detector==null)return;
+        String reason=stepSession.detectorFallbackReason(SystemClock.elapsedRealtimeNanos());
+        if(reason==null)return;
+        stepFallbackAttempted=true;stepFallbackReason=reason;
+        // Never listen to both streams together. A new monotonic boundary rejects
+        // queued readings from the retired stream; already counted steps remain.
+        stopSteps();
+        if(registerStepSensor(detector,StepSessionAccumulator.Mode.DETECTOR))return;
+        if(registerStepSensor(counter,StepSessionAccumulator.Mode.COUNTER))return;
+        stepRegistrationReason="sensor_registration_failed";
+    }
+    private JSONObject activityFeedback() throws Exception {
+        if(!activityAllowed())return new JSONObject().put("action","retry_activity").put("status","unavailable")
+            .put("message","尚未授予活动权限，可在应用权限设置中检查；聊天功能仍可使用。");
+        if(!resumed)return new JSONObject().put("action","retry_activity").put("status","unavailable")
+            .put("message","活动权限已开启；回到应用前台后会开始监听，也可点击重新检测计步。");
+        if(counter==null&&detector==null)return new JSONObject().put("action","retry_activity").put("status","unavailable")
+            .put("message","已重新检测，但当前安卓环境未提供步数传感器；这不能说明鸿蒙宿主没有计步功能。");
+        if(!listenerRegistered)return new JSONObject().put("action","retry_activity").put("status","failed")
+            .put("message","活动权限已开启，但本次无法注册计步监听；可管理应用权限或稍后重试。");
+        return new JSONObject().put("action","retry_activity").put("status","restarted")
+            .put("message","已重新启动前台计步监听，并保留此前已观测的步数。请保持应用在前台，在安全位置正常走动后查看；"
+                +(activeStepSensor==counter?"计数器首次读数仅用于建立基线。":"检测器每个有效事件记为一步。"));
     }
     @Override public void onSensorChanged(SensorEvent event) {
         if(!resumed||!listenerRegistered||event.sensor!=activeStepSensor||event.values.length==0)return;
         long nowNanos=SystemClock.elapsedRealtimeNanos();
         if(event.timestamp>nowNanos)return;
         long eventAt=System.currentTimeMillis()-(nowNanos-event.timestamp)/1000000;
-        stepSession.accept(event.values[0],event.timestamp,eventAt);
+        stepSession.accept(event.sensor.getType()==Sensor.TYPE_STEP_COUNTER?StepSessionAccumulator.Mode.COUNTER:StepSessionAccumulator.Mode.DETECTOR,event.values[0],event.timestamp,eventAt);
     }
     @Override public void onAccuracyChanged(Sensor sensor,int accuracy) { }
     @Override protected void onResume(){
@@ -433,7 +500,11 @@ public final class MainActivity extends Activity implements SensorEventListener 
         permissionRequestInFlight=false;
         if(request==LOCATION)clearGeolocation(locationAllowed());
         if(request==ACTIVITY)startSteps();
-        if(pendingReply!=null){JavaScriptReplyProxy reply=pendingReply;String id=pendingId;pendingReply=null;pendingId=null;sendCapabilities(reply,id);}
+        if(pendingReply!=null){
+            JavaScriptReplyProxy reply=pendingReply;String id=pendingId;pendingReply=null;pendingId=null;
+            try{sendCapabilities(reply,id,request==ACTIVITY?activityFeedback():null);}
+            catch(Exception ignored){respond(reply,id,null,"权限操作已结束，请刷新设备状态。");}
+        }
     }
     private void clearGeolocation(boolean granted){
         if(geoCallback!=null){geoCallback.invoke(geoOrigin,granted,false);geoCallback=null;geoOrigin=null;}

@@ -4,11 +4,12 @@
 
 ## 安装与使用
 
-1. 下载交付的 `shichen-wellness-0.4.0-preview.apk`。与 0.3 使用相同签名，可覆盖安装保留应用数据。
+1. 下载交付的 [shichen-wellness-0.5.0-preview.apk](https://shichen-wellness.pages.dev/download/shichen-wellness-0.5.0-preview.apk)。与 0.3、0.4 使用相同签名，可覆盖安装保留应用数据；安装后在设置中核对实际版本为 `0.5.0-preview`。
 2. 在普通安卓手机上打开安装包；系统询问时，只为本次下载所用应用允许安装来源。在卓易通内使用时，按卓易通实际提供的 APK 导入或安装入口操作。
 3. 打开「时辰心管家」，先尝试聊天生成卡片。
 4. 打开设置，按需申请定位、运动识别或使用情况访问权限。拒绝权限后仍可使用聊天；城市可手填。
 5. 从系统授权页返回后状态会重新读取，也可点击「刷新设备状态」。权限、传感器是否存在、是否收到读数分别展示；只授权不代表已经取得数据。
+6. 活动权限已授予后，「管理活动权限」打开系统应用设置；「重新检测计步」在 0.5 中会重启前台监听并显示结果，保留此前已观测的步数。保持应用在前台，在安全位置正常走动后查看状态；不要把首次基线当作已测得 0 步。
 
 这是预览签名安装包，不是应用市场发行包。Android 最低版本为 9 / API 28。应用固定竖屏，不依赖 Google Play 服务。卓易通是否允许安装、其 WebView 版本、宿主鸿蒙权限映射，需要在目标手机实测；此 APK 不等于原生鸿蒙 HAP。
 
@@ -27,7 +28,11 @@
 
 亮屏统计在后台线程读取并缓存最多 5 秒，不阻塞界面；从系统设置返回时立即使缓存失效。查询只覆盖当前开机后的记录，使用单调时钟确定开机边界，因此 Android 9 也能返回实际存在的亮屏事件。午夜状态缺失或今天发生重启时，只返回可确定的记录区间；未闭合的重启前区间不计入。区间跨度可能包含数据缺口，`coveredMinutes` 才是可确定状态的累计覆盖时长。没有任何亮屏事件时返回 `no_events`，不填 0。
 
-步数优先使用系统 `TYPE_STEP_COUNTER`，若不存在或无法注册则尝试 `TYPE_STEP_DETECTOR`。只有注册成功且接收到真实读数后才给出计数；计数器第一条仅建立基线，检测器第一条即代表一步。回到前台后重新建立计数器基线，保留此前已采集段的合计，不把后台间隔带入。传感器可能延迟上报，设置页显示最后读数时间。支持声明或权限成功仍不能证明卓易通已转发宿主传感器数据。
+步数优先使用系统 `TYPE_STEP_COUNTER`，若不存在或无法注册则尝试 `TYPE_STEP_DETECTOR`。计数器首次读数及重复不变的值仅代表基线；出现正增量前，`sessionSteps` 返回 `null`，不显示“正常 0 步”。检测器每个有效事件代表一步。回到前台或主动重试后重新建立计数器基线，保留此前已采集段的合计，不把后台间隔带入。
+
+本应用采用 60 秒观察窗：计数器在本段一直没有正增量，且环境提供检测器时，最多自动尝试一次切换。先取消旧监听，再注册新来源，拒绝其他来源及切换前的旧事件；不并行相加两种计步流。若检测器注册失败，则尝试恢复计数器。曾收到正增量的计数器不会仅因之后静止而自动切换。恢复前台或主动重试会重新优先选择计数器。
+
+`no_events` 只说明等待首条或距最后有效事件已达到 60 秒；静止时可能正常，不代表传感器损坏。Android 官方说明计数器可能延迟约 10 秒，检测器通常小于 2 秒；本项目的 60 秒是观察策略，并非系统能力保证。支持声明、权限成功或注册成功仍不能证明卓易通已转发宿主传感器数据，也不代表接通华为健康。
 
 华为健康仍是 `not_integrated`：当前 APK 尚未配置华为健康服务接入，系统运动权限不会自动接通它。不会读取其他应用的私有数据库，也不会把原生计步称为华为健康数据。
 
@@ -43,7 +48,7 @@ Windows：
 ./build-apk.ps1 -JavaHome 'C:/path/to/jdk-17' -SdkRoot 'C:/path/to/android-sdk'
 ```
 
-脚本先执行 21 项亮屏区间检查、15 项步数会话检查和 22 项原生操作边界检查，再执行 `assembleDebug lintDebug`，生成 `app/build/outputs/apk/debug/app-debug.apk`。`debug` 构建的包名为 `cn.shichen.wellness.preview`，系统生成的本机调试签名不提交到 Git。正式长期分发前应切换独立保管的发行签名，并保留同一签名供后续升级。
+脚本先执行 21 项亮屏区间检查、45 项步数会话检查和 22 项原生操作边界检查，共 88 项，再执行 `assembleDebug lintDebug`，生成 `app/build/outputs/apk/debug/app-debug.apk`。计步检查包含基线与有效增量、重复 0、观察超时、源切换、过时事件、后台间隔和恢复前台。`debug` 构建的包名为 `cn.shichen.wellness.preview`，系统生成的本机调试签名不提交到 Git。正式长期分发前应切换独立保管的发行签名，并保留同一签名供后续升级。
 
 ## 桥接口
 
@@ -51,22 +56,28 @@ Windows：
 
 桥采用 AndroidX 的来源白名单消息监听，仅 `https://shichen-wellness.pages.dev` 的主框架可调用；外部 HTTPS 链接交给系统浏览器。禁用明文 HTTP、本地文件访问和内容 URI 访问，不绕过 TLS 错误。旧 WebView 不支持安全消息桥时，不回退到无来源限制的 `addJavascriptInterface`。
 
-0.4 保留 0.3 的指标字段，并增加安装包版本码与系统语音能力。所有时间戳是 Unix 毫秒；分钟和步数是明确标注的汇总量，不包含应用名称、地址或逐条健康记录。
+0.5 保留已有指标与系统语音字段，增加计步基线、增量、观察超时、来源切换及操作反馈。桥返回的时间戳均为 Unix 毫秒；原生内部使用传感器纳秒时间与 `elapsedRealtimeNanos()` 判断事件顺序及观察间隔。分钟和步数是明确标注的汇总量，不包含应用名称、地址或逐条健康记录。
 
 | 字段 | 语义 |
 | --- | --- |
-| `appVersion` / `versionCode` / `apiLevel` | `0.4.0-preview`、整数 `4` 和当前安卓运行环境 API 级别；网页可按版本码判断是否有新安装包 |
+| `appVersion` / `versionCode` / `apiLevel` | `0.5.0-preview`、整数 `5` 和当前安卓运行环境 API 级别；网页可按版本码判断是否有新安装包 |
 | `speech.available` / `status` | 系统是否能解析语音识别 Activity；状态为 `available` 或 `unsupported`。可发现服务不代表真机识别已成功 |
 | `speech.source` / `language` / `preferOffline` / `offlineGuaranteed` | 固定为 `system-recognition-activity` / `zh-CN` / `true` / `false`；服务可自行决定是否联网 |
 | `usage.status` / `reason` | `available`、`partial`、`no_events`、`permission_required` 或 `error`，及对应机器可读原因 |
 | `usage.screenMinutesToday` | 仅完整今日覆盖时有数值；部分记录时为 `null` |
 | `usage.observedMinutes` / `windowStart` / `windowEnd` / `coveredMinutes` | 已采集区间的亮屏分钟、首尾边界、实际覆盖分钟；不完整记录不冒充全天 |
-| `steps.status` / `reason` | 已读取、等待首条、未授权、无传感器、注册失败或前台监测暂停 |
+| `steps.status` / `reason` | `available`、`waiting_for_sensor`、`baseline_only`、`no_events`、`permission_required`、`unsupported`、`registration_failed`、`paused`；新增原因 `counter_baseline_only` 和 `sensor_no_recent_events` 区分基线与近期无事件 |
 | `steps.counterAvailable` / `detectorAvailable` / `listenerRegistered` | 当前环境的传感器发现与注册结果；不推断宿主能力 |
-| `steps.sessionSteps` / `source` / `lastSensorAt` / `observedFrom` / `eventsCount` | 实际接收的前台步数、来源、首末读数时间及有效事件数 |
+| `steps.sessionSteps` / `source` / `lastSensorAt` / `observedFrom` / `eventsCount` | 已观测正增量的前台累计步数（此前无增量则 `null`）、当前来源、首末有效读数时间及事件数；基线事件也属于有效消息，不等于走了一步 |
+| `steps.baselineEstablished` / `segmentHasIncrement` / `lastIncrementAt` | 当前计数器是否已有基线、当前监测段是否出现正增量、最近正增量时间（没有则 `null`） |
+| `steps.listenerRegisteredAt` / `observationTimeoutSeconds` | 当前监听开始时间（未注册则 `null`）及观察窗秒数，当前为 `60` |
+| `steps.fallbackAttempted` / `fallbackReason` | 本段是否尝试检测器；原因是 `counter_no_events`、`counter_no_increment`、`counter_registration_failed`，未尝试则 `null` |
+| `actionFeedback` | 仅活动权限操作响应附带 `{action:'retry_activity', status:'restarted'或'unavailable'或'failed', message:中文说明}`，普通状态查询不附带 |
 | `health.status` | 当前固定为 `not_integrated`，表示应用尚未接入华为健康服务 |
 
 原生 `onResume` 会向可信网页发送 `shichen-native-resume` 窗口事件，网页可重新查询状态；桥不向页面提供任何新的权限绕过方法。
+
+`requestActivity` 在未授权时走系统权限流程；已授权时重启前台计步监听并重新检查当前环境能力，不会再次弹出无意义的授权框。若另一个权限或语音操作尚未结束，返回可显示的错误；不会静默吞掉请求。`openAppSettings` 用于管理已有权限，与重试监听是不同操作。
 
 ### 语音结果与生命周期
 
@@ -80,7 +91,7 @@ WebView 仅把精确来源 `https://shichen-wellness.pages.dev` 下 `/download/s
 
 ## 验证范围
 
-交付时记录 APK 构建、Android Lint 和签名检查结果。未连接真机时，不把静态检查或网页测试称为安卓权限验收。2026-11-04，目标用户确认 0.4 在其华为手机的卓易通环境中能识别语音，文字可修改后手动发送；这记录为用户反馈的真机成功流程验证。取消识别、无服务降级、下载跳转、拒绝权限、模拟时间、使用情况授权返回、无传感器降级、外部来源跳转与断网重试仍需分别验证，不能由成功识别一项推断全部通过。旧版安装、聊天出卡和定位天气已由同一用户确认。
+交付时记录 APK 构建、Android Lint 和签名检查结果。未连接真机时，不把静态检查或网页测试称为安卓权限验收。2026-11-04 后续截图显示用户实际安装包为 0.3，此前将反馈记作“0.4 应用内语音通过”的结论已更正。下一次需先核对实际安装版为 0.5，再测试应用内麦克风识别、修改文字、手动发送、取消及无服务降级。计步增量、下载跳转、拒绝权限、模拟时间、使用情况授权返回、无传感器降级、外部来源跳转与断网重试仍需分别验证。旧版安装、聊天出卡和定位天气已由同一用户确认。
 
 ## 官方依据
 
@@ -88,5 +99,7 @@ WebView 仅把精确来源 `https://shichen-wellness.pages.dev` 下 `/download/s
 - [WebViewCompat 来源白名单](https://developer.android.com/reference/androidx/webkit/WebViewCompat)
 - [UsageStatsManager](https://developer.android.com/reference/android/app/usage/UsageStatsManager)
 - [步数传感器与运动识别权限](https://developer.android.com/develop/sensors-and-location/sensors/sensors_motion)
+- [SensorEvent 时间戳](https://developer.android.com/reference/android/hardware/SensorEvent#timestamp)
+- [Android 运行时权限流程](https://developer.android.com/training/permissions/requesting)
 - [系统语音识别 Intent 与离线偏好](https://developer.android.com/reference/android/speech/RecognizerIntent)
 - [AGP 8.9 的构建兼容版本](https://developer.android.com/build/releases/agp-8-9-0-release-notes)

@@ -22,7 +22,7 @@ const speechErrors: Record<string, string> = {
 };
 
 export default function VoiceInput({ disabled, onText, onListening, onMessage }: {
-  disabled: boolean; onText(text: string): void; onListening(value: boolean): void; onMessage(value: string): void;
+  disabled: boolean; onText(text: string): void; onListening(value: boolean): void; onMessage(value: string, upgrade?: boolean): void;
 }) {
   const [intro, setIntro] = useState(false);
   const [listening, setListening] = useState(false);
@@ -55,7 +55,10 @@ export default function VoiceInput({ disabled, onText, onListening, onMessage }:
     if (isNative()) {
       try {
         const capability = await nativeRequest('getCapabilities');
-        if (!capability?.speech) throw new Error('此安装版尚不支持语音，请在设置中检查更新；也可使用输入法的麦克风。');
+        if (!capability?.speech) {
+          if (active.current) callbacks.current.onMessage(`当前安装版 ${capability?.appVersion || '版本暂未获取'} 未提供应用内语音。网页更新不会自动升级安装包，请查看安装版更新；也可使用输入法的麦克风。`, true);
+          return;
+        }
         if (!capability.speech.available) throw new Error('当前安卓环境没有可用的语音服务，请使用输入法的麦克风。');
         const result = await nativeRequest('startSpeechRecognition', 180000);
         if (result?.cancelled && active.current) callbacks.current.onMessage('已取消语音输入。');

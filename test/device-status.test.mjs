@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { normalizeDeviceStatus, deviceDiagnosticSummary } from '../lib/device-status.mjs';
+import { normalizeDeviceStatus, deviceDiagnosticSummary, devicePermissionActions, devicePermissionFeedback } from '../lib/device-status.mjs';
 
 const base = () => ({
   platform: 'android', appVersion: '0.3.0-preview', apiLevel: 35,
@@ -24,10 +24,12 @@ test('initial loading and bridge failure never imply permission denied', () => {
   assert.match(row(normalize(base(), { phase: 'error' }), 'usage').value, /连接暂不可用/);
 });
 
-test('zero is a valid measurement, missing is never converted into zero', () => {
+test('a verified zero screen duration is valid, while a zero step baseline is not an observed total', () => {
   const data = base();
   assert.match(row(normalize(data), 'usage').value, /0 分钟/);
-  assert.match(row(normalize(data), 'steps').value, /0 步/);
+  data.steps.eventsCount = 1;
+  assert.equal(row(normalize(data), 'steps').value, '已收到基线，等待步数增量');
+  assert.doesNotMatch(row(normalize(data), 'steps').value, /0 步/);
   data.usage.screenMinutesToday = null;
   data.steps.sessionSteps = null;
   assert.doesNotMatch(row(normalize(data), 'usage').value, /0 分钟/);
@@ -110,13 +112,17 @@ test('diagnostic allowlist strips location, identifiers, records and arbitrary t
   data.deviceId = 'SECRET_DEVICE_ID'; data.key = 'SECRET_API_KEY'; data.address = 'SECRET_ADDRESS';
   data.location.coordinates = 'SECRET_GPS'; data.health.records = 'SECRET_HEALTH';
   data.usage.scope = 'SECRET_SCOPE'; data.usage.records = ['SECRET_APP']; data.usage.reason = 'SECRET_REASON';
-  data.steps.sessionSteps = 987654; data.steps.lastSensorAt = 123456789; data.steps.eventsCount = 456789;
-  const summary = deviceDiagnosticSummary(data, { native: true, phase: 'ready' });
+  data.steps.sessionSteps = 987654; data.steps.lastSensorAt = 123456789; data.steps.eventsCount = 7;
+  data.steps.lastIncrementAt = 123450000; data.steps.fallbackReason = 'SECRET_FALLBACK';
+  const summary = deviceDiagnosticSummary(data, { native: true, phase: 'ready', now: 123469789 });
   const text = JSON.stringify(summary);
-  assert.doesNotMatch(text, /SECRET_|987654|123456789|456789/);
+  assert.doesNotMatch(text, /SECRET_|987654|123456789|123450000/);
   assert.equal(summary.usage.reason, 'unknown');
   assert.equal(summary.steps.hasReading, true);
   assert.equal(summary.steps.counterAvailable, true);
+  assert.equal(summary.steps.eventsCount, 7);
+  assert.equal(summary.steps.secondsSinceLastEvent, 13);
+  assert.equal(summary.steps.fallbackReason, 'unknown');
   assert.equal(summary.appVersion, '0.3.0-preview');
   assert.equal(summary.apiLevel, 35);
 });
@@ -126,4 +132,91 @@ test('diagnostics never reuse a stale snapshot after bridge failure', () => {
   assert.equal(summary.query, 'error');
   assert.equal(summary.steps.permission, 'unknown');
   assert.equal(summary.steps.hasReading, false);
+});
+
+test('legacy counter baseline, repeated unchanged readings and a real increment are separate', () => {
+  const data = base();
+  data.steps.eventsCount = 0;
+  assert.equal(row(normalize(data), 'steps').state, 'waiting_for_sensor');
+  data.steps.eventsCount = 1;
+  assert.equal(row(normalize(data), 'steps').state, 'baseline_only');
+  assert.equal(deviceDiagnosticSummary(data).steps.hasReading, false);
+  data.steps.eventsCount = 2;
+  assert.equal(row(normalize(data), 'steps').state, 'waiting_for_increment');
+  assert.match(row(normalize(data), 'steps').value, /尚未观察到步数增量/);
+  data.steps.sessionSteps = 5;
+  assert.equal(row(normalize(data), 'steps').value, '本次前台 5 步');
+  assert.equal(deviceDiagnosticSummary(data).steps.hasReading, true);
+});
+
+test('0.5 baseline and stale events do not claim motion absence or sensor failure', () => {
+  const data = base(); data.versionCode = 5; data.appVersion = '0.5.0-preview';
+  data.steps = { ...data.steps, status: 'baseline_only', reason: 'counter_baseline_only', sessionSteps: null, baselineEstablished: true, segmentHasIncrement: false, eventsCount: 1 };
+  assert.equal(row(normalize(data), 'steps').state, 'baseline_only');
+  assert.match(row(normalize(data), 'steps').value, /基线/);
+  data.steps.status = 'no_events'; data.steps.reason = 'sensor_no_recent_events';
+  assert.equal(row(normalize(data), 'steps').value, '近期未收到计步事件');
+  assert.match(row(normalize(data), 'steps').note, /静止时也可能/);
+  assert.match(row(normalize(data), 'steps').note, /不能据此认定传感器故障/);
+  data.steps.sessionSteps = 23;
+  assert.match(row(normalize(data), 'steps').note, /此前已记录 23 步/);
+  data.steps.status = 'baseline_only';
+  assert.match(row(normalize(data), 'steps').value, /23 步 · 本段待增量/);
+});
+
+test('granted permissions manage settings and offer a separate truthful retry action', () => {
+  const data = base();
+  assert.deepEqual(devicePermissionActions(data).activity, { label: '管理活动权限', method: 'openAppSettings' });
+  assert.equal(devicePermissionActions(data).usage.label, '管理屏幕使用权限');
+  assert.equal(devicePermissionActions(data).retrySteps.label, '重新读取计步');
+  data.versionCode = 5; data.appVersion = '0.5.0-preview';
+  assert.deepEqual(devicePermissionActions(data).retrySteps, { label: '重新检测计步', method: 'requestActivity' });
+  data.steps.permission = 'denied'; data.usage.permission = 'denied';
+  assert.deepEqual(devicePermissionActions(data).activity, { label: '活动权限', method: 'requestActivity' });
+  assert.equal(devicePermissionActions(data).retrySteps, null);
+  assert.equal(devicePermissionActions(data).usage.label, '屏幕使用授权');
+});
+
+test('permission feedback does not confuse a bridge success with a granted permission or real readings', () => {
+  const data = base();
+  assert.match(devicePermissionFeedback('requestActivity', data, 'granted'), /旧安装版不会重启监听/);
+  data.steps.permission = 'denied';
+  assert.match(devicePermissionFeedback('requestActivity', data), /仍未开启/);
+  assert.match(devicePermissionFeedback('requestActivity', null), /暂未读到/);
+  data.steps.permission = 'granted'; data.versionCode = 5;
+  data.actionFeedback = { action: 'retry_activity', status: 'restarted', message: 'SECRET_UNTRUSTED_MESSAGE' };
+  const restarted = devicePermissionFeedback('requestActivity', data, 'granted');
+  assert.match(restarted, /已重新开始计步监听/);
+  assert.match(restarted, /不等于已经取得步数/);
+  assert.doesNotMatch(restarted, /SECRET/);
+  data.actionFeedback.status = 'unavailable';
+  data.steps.status = 'paused';
+  assert.match(devicePermissionFeedback('requestActivity', data), /回到应用前台/);
+  assert.doesNotMatch(devicePermissionFeedback('requestActivity', data), /当前环境没有可用计步传感器/);
+  // onResume may occur between creating actionFeedback and collecting capabilities.
+  data.steps.status = 'waiting_for_sensor';
+  assert.doesNotMatch(devicePermissionFeedback('requestActivity', data), /当前环境没有可用计步传感器/);
+  data.steps.available = false; data.steps.status = 'unsupported';
+  assert.match(devicePermissionFeedback('requestActivity', data), /没有可用计步传感器/);
+  data.actionFeedback.status = 'failed';
+  assert.match(devicePermissionFeedback('requestActivity', data), /注册计步监听未成功/);
+});
+
+test('0.5 diagnostics copy event availability and relative ages without step values or absolute times', () => {
+  const data = base(); data.versionCode = 5;
+  data.steps = { ...data.steps, eventsCount: 2, sessionSteps: 347, lastSensorAt: 400000, listenerRegisteredAt: 350000, baselineEstablished: true, segmentHasIncrement: true, fallbackAttempted: true, fallbackReason: 'counter_no_events', observationTimeoutSeconds: 60 };
+  const diagnostic = deviceDiagnosticSummary(data, { now: 405000 });
+  assert.equal(diagnostic.schema, 'shichen-device-diagnostic-v2');
+  assert.equal(diagnostic.versionCode, 5);
+  assert.equal(diagnostic.steps.eventsCount, 2);
+  assert.equal(diagnostic.steps.secondsSinceLastEvent, 5);
+  assert.equal(diagnostic.steps.secondsSinceListenerRegistered, 55);
+  assert.equal(diagnostic.steps.fallbackReason, 'counter_no_events');
+  assert.equal(diagnostic.steps.segmentHasIncrement, true);
+  assert.doesNotMatch(JSON.stringify(diagnostic), /347|400000|350000/);
+  data.steps.lastSensorAt = 900000;
+  data.steps.eventsCount = -1;
+  const invalid = deviceDiagnosticSummary(data, { now: 405000 });
+  assert.equal(invalid.steps.secondsSinceLastEvent, null);
+  assert.equal(invalid.steps.eventsCount, null);
 });

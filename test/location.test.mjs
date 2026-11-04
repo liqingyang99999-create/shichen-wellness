@@ -1,18 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {LOCATION_STORAGE_KEY,sanitizeConditions,roundWeatherCoordinates,weatherRequestPath,readLocationPreferences,writeLocationPreferences,matchLocationPreset,precisePositionUsable,requestPreciseLocation,distanceMeters,lookupCurrentCity,cancelCityLookups} from '../lib/location.mjs';
+import {LOCATION_STORAGE_KEY,LEGACY_LOCATION_STORAGE_KEY,roundWeatherCoordinates,weatherRequestPath,readLocationPreferences,writeLocationPreferences,requestPreciseLocation,lookupCurrentCity,cancelCityLookups} from '../lib/location.mjs';
 const now=Date.parse('2026-11-04T04:00:00Z');
 const gps={source:'gps',latitude:30.27416,longitude:120.15515,accuracy:10,observedAt:new Date(now).toISOString()};
-const home={id:'home',address:'只应留在本机的详细门牌',coords:{...gps},conditions:{canCloseEyes:false,sitting:true}};
+const home={id:'home',address:'旧版家庭详细门牌',coords:{...gps},conditions:{canCloseEyes:false,sitting:true}};
 const city={id:'1',name:'杭州',admin1:'浙江',admin2:'杭州',latitude:30.27416,longitude:120.15515,countryCode:'CN',timezone:'Asia/Shanghai'};
-function storage(){const map=new Map();return{getItem:key=>map.get(key)||null,setItem:(key,value)=>map.set(key,value),map};}
-
-test('only explicitly saved booleans form a condition patch; unknown fields do not clear manual values',()=>{
- const patch=sanitizeConditions({canCloseEyes:false,sitting:true,waterAvailable:'true',canLookFar:null,address:'secret',latitude:30,intent:'eye',weather:{rain:false},__proto__:{busy:true}});
- assert.deepEqual(patch,{canCloseEyes:false,sitting:true});
- const manual={waterAvailable:true,canLookFar:false,sitting:false};
- assert.deepEqual({...manual,...patch},{waterAvailable:true,canLookFar:false,sitting:true,canCloseEyes:false});
-});
+function storage(){const map=new Map();return{getItem:key=>map.get(key)??null,setItem:(key,value)=>map.set(key,value),removeItem:key=>map.delete(key),map};}
 
 test('network request uses rounded coordinates and no precise location, accuracy or address',()=>{
  assert.deepEqual(roundWeatherCoordinates(gps),{latitude:30.27,longitude:120.16});
@@ -22,50 +15,73 @@ test('network request uses rounded coordinates and no precise location, accuracy
  assert.throws(()=>weatherRequestPath({latitude:91,longitude:120}));
 });
 
-test('local storage preserves address and explicitly saved conditions without unrelated payload fields',()=>{
+test('legacy place records migrate only city and explicit recognition choice and remove the obsolete key',()=>{
  const local=storage();
- assert.equal(writeLocationPreferences(local,{city,presets:[{...home,name:'恶意地址回调',conditions:{...home.conditions,token:'secret'},modelKey:'do not store'}]}),true);
- const loaded=readLocationPreferences(local);
- assert.equal(loaded.presets[0].address,home.address);
- assert.equal(loaded.presets[0].name,'家');
- assert.equal(loaded.presets[0].coords.source,'gps');
- assert.equal(loaded.presets[0].radius,150);
- assert.deepEqual(loaded.presets[0].conditions,home.conditions);
- assert.equal(local.map.get(LOCATION_STORAGE_KEY).includes('do not store'),false);
+ const activity=JSON.stringify({conditions:{sitting:false,waterAvailable:true},largeText:true});
+ const weather=JSON.stringify({source:'open-meteo',city:'杭州',tempC:18});
+ local.setItem('shichen-mobile-preferences-v1',activity);
+ local.setItem('shichen-mobile-weather-v1',weather);
+ local.setItem(LEGACY_LOCATION_STORAGE_KEY,JSON.stringify({version:1,city,presets:[home,{...home,id:'company',address:'旧版公司地址'}],cityLookupConsent:true}));
+ assert.deepEqual(readLocationPreferences(local),{city,cityLookupConsent:true});
+ assert.equal(local.getItem(LEGACY_LOCATION_STORAGE_KEY),null);
+ const saved=JSON.parse(local.getItem(LOCATION_STORAGE_KEY));
+ assert.deepEqual(saved,{version:2,city,cityLookupConsent:true});
+ assert.equal(local.getItem('shichen-mobile-preferences-v1'),activity);
+ assert.equal(local.getItem('shichen-mobile-weather-v1'),weather);
+ assert.equal(local.getItem(LOCATION_STORAGE_KEY).includes('详细门牌'),false);
+ assert.equal(local.getItem(LOCATION_STORAGE_KEY).includes('presets'),false);
+ assert.equal(local.getItem(LOCATION_STORAGE_KEY).includes('conditions'),false);
 });
 
-test('invalid storage is ignored and a blocked store reports failure',()=>{
- const local=storage();local.setItem(LOCATION_STORAGE_KEY,'not-json');
- assert.deepEqual(readLocationPreferences(local),{presets:[],city:null,cityLookupConsent:false});
- local.setItem(LOCATION_STORAGE_KEY,JSON.stringify({version:2,presets:[home]}));
- assert.deepEqual(readLocationPreferences(local),{presets:[],city:null,cityLookupConsent:false});
- assert.equal(writeLocationPreferences({setItem(){throw Error('blocked');}},{presets:[home]}),false);
+test('writing weather preferences never persists passed-in addresses, precise place coordinates or conditions',()=>{
+ const local=storage();
+ assert.equal(writeLocationPreferences(local,{city,presets:[home],address:home.address,coords:gps,conditions:home.conditions,cityLookupConsent:true,modelKey:'do not store'}),true);
+ assert.deepEqual(readLocationPreferences(local),{city,cityLookupConsent:true});
+ assert.deepEqual(JSON.parse(local.getItem(LOCATION_STORAGE_KEY)),{version:2,city,cityLookupConsent:true});
 });
 
-test('unique fresh precise GPS location matches a saved place',()=>{
- assert.equal(matchLocationPreset(gps,[home],now)?.id,'home');
- assert.equal(distanceMeters(gps,gps),0);
- assert.ok(distanceMeters(gps,{...gps,latitude:gps.latitude+0.001})>100);
+test('current weather choice wins over obsolete presets and never revives withdrawn consent',()=>{
+ const local=storage();
+ writeLocationPreferences(local,{city:null,cityLookupConsent:false});
+ local.setItem(LEGACY_LOCATION_STORAGE_KEY,JSON.stringify({version:1,city,presets:[home],cityLookupConsent:true}));
+ assert.deepEqual(readLocationPreferences(local),{city:null,cityLookupConsent:false});
+ assert.equal(local.getItem(LEGACY_LOCATION_STORAGE_KEY),null);
 });
 
-test('city centroids, unlocated addresses and coarse GPS never match a place',()=>{
- assert.equal(matchLocationPreset({...gps,source:'city'},[home],now),null);
- assert.equal(matchLocationPreset(gps,[{...home,coords:{...gps,source:'city'}}],now),null);
- assert.equal(matchLocationPreset(gps,[{...home,coords:null}],now),null);
- assert.equal(matchLocationPreset({...gps,accuracy:101},[home],now),null);
- assert.equal(matchLocationPreset(gps,[{...home,coords:{...gps,accuracy:101}}],now),null);
+test('malformed or unsupported legacy data is discarded without touching other preferences',()=>{
+ for(const raw of ['not-json',JSON.stringify({version:9,presets:[home],cityLookupConsent:true})]){
+  const local=storage();local.setItem(LEGACY_LOCATION_STORAGE_KEY,raw);local.setItem('unrelated','keep');
+  assert.deepEqual(readLocationPreferences(local),{city:null,cityLookupConsent:false});
+  assert.equal(local.getItem(LEGACY_LOCATION_STORAGE_KEY),null);
+  assert.equal(local.getItem('unrelated'),'keep');
+ }
+ const local=storage();
+ local.setItem(LOCATION_STORAGE_KEY,'not-json');
+ local.setItem(LEGACY_LOCATION_STORAGE_KEY,JSON.stringify({version:1,cityLookupConsent:true,presets:[home]}));
+ assert.deepEqual(readLocationPreferences(local),{city:null,cityLookupConsent:false});
+ assert.equal(local.getItem(LEGACY_LOCATION_STORAGE_KEY),null);
 });
 
-test('stale, future, outside-radius and uncertainty-boundary positions do not apply a preset',()=>{
- assert.equal(matchLocationPreset({...gps,observedAt:new Date(now-300001).toISOString()},[home],now),null);
- assert.equal(matchLocationPreset({...gps,observedAt:new Date(now+60000).toISOString()},[home],now),null);
- assert.equal(matchLocationPreset({...gps,latitude:gps.latitude+0.003},[home],now),null);
- assert.equal(matchLocationPreset({...gps,latitude:gps.latitude+0.001,accuracy:50},[home],now),null);
- assert.equal(precisePositionUsable({...gps,accuracy:-1},now),false);
+test('blocked migration remains usable without returning any preset and retries cleanup later',()=>{
+ const local=storage();
+ local.setItem(LEGACY_LOCATION_STORAGE_KEY,JSON.stringify({version:1,city,presets:[home],cityLookupConsent:true}));
+ const blocked={getItem:local.getItem,setItem(){throw Error('blocked');},removeItem(){throw Error('blocked');}};
+ assert.deepEqual(readLocationPreferences(blocked),{city,cityLookupConsent:true});
+ assert.equal(writeLocationPreferences(blocked,{city}),false);
+ assert.notEqual(local.getItem(LEGACY_LOCATION_STORAGE_KEY),null);
+ assert.deepEqual(readLocationPreferences(local),{city,cityLookupConsent:true});
+ assert.equal(local.getItem(LEGACY_LOCATION_STORAGE_KEY),null);
 });
 
-test('overlapping home and company are ambiguous and never auto-apply',()=>{
- assert.equal(matchLocationPreset(gps,[home,{...home,id:'company'}],now),null);
+test('failed legacy deletion cannot reintroduce preset values through the new preferences',()=>{
+ const local=storage();
+ local.setItem(LEGACY_LOCATION_STORAGE_KEY,JSON.stringify({version:1,city,presets:[home],cityLookupConsent:true}));
+ const removeBlocked={...local,removeItem(){throw Error('blocked');}};
+ assert.deepEqual(readLocationPreferences(removeBlocked),{city,cityLookupConsent:true});
+ assert.equal(writeLocationPreferences(removeBlocked,{city:null,cityLookupConsent:false}),true);
+ assert.deepEqual(readLocationPreferences(removeBlocked),{city:null,cityLookupConsent:false});
+ assert.deepEqual(readLocationPreferences(local),{city:null,cityLookupConsent:false});
+ assert.equal(local.getItem(LEGACY_LOCATION_STORAGE_KEY),null);
 });
 
 test('GPS wrapper requests high accuracy only when called, and can be tested with a stub',async()=>{
@@ -107,12 +123,9 @@ test('city recognition never queries saved city coordinates or stale positions a
 });
 
 test('city recognition is off for legacy preferences even when system location was granted',()=>{
- const local=storage();
- assert.equal(readLocationPreferences(local).cityLookupConsent,false);
- local.setItem(LOCATION_STORAGE_KEY,JSON.stringify({version:1,city,presets:[home],locationPermission:'granted'}));
- assert.equal(readLocationPreferences(local).cityLookupConsent,false);
- for(const value of ['true',1,{},null]) {
-  local.setItem(LOCATION_STORAGE_KEY,JSON.stringify({version:1,cityLookupConsent:value}));
+ for(const value of [undefined,'true',1,{},null]) {
+  const local=storage();
+  local.setItem(LEGACY_LOCATION_STORAGE_KEY,JSON.stringify({version:1,city,presets:[home],cityLookupConsent:value,locationPermission:'granted'}));
   assert.equal(readLocationPreferences(local).cityLookupConsent,false);
  }
 });
@@ -126,16 +139,16 @@ test('city recognition requires literal explicit consent before making any netwo
  assert.equal(weatherRequestPath(gps),'/api/weather/current?latitude=30.27&longitude=120.16');
 });
 
-test('city recognition choice can be saved and revoked without losing city or presets',()=>{
+test('city recognition choice can be saved and revoked without losing the selected city',()=>{
  const local=storage();
- writeLocationPreferences(local,{city,presets:[home],cityLookupConsent:true});
+ writeLocationPreferences(local,{city,cityLookupConsent:true});
  let saved=readLocationPreferences(local);
  assert.equal(saved.cityLookupConsent,true);
  assert.equal(writeLocationPreferences(local,{...saved,cityLookupConsent:false}),true);
  saved=readLocationPreferences(local);
  assert.equal(saved.cityLookupConsent,false);
  assert.equal(saved.city.name,city.name);
- assert.equal(saved.presets[0].address,home.address);
+ assert.deepEqual(Object.keys(saved).sort(),['city','cityLookupConsent']);
 });
 
 test('withdrawing city recognition cancels a pending request and ignores its late response',async()=>{

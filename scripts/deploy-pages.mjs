@@ -3,7 +3,9 @@ import {spawn} from 'node:child_process';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {prepareReleaseAssets} from './release-assets.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
+await prepareReleaseAssets(join(root,'dist/pages'),{requireApk:true});
 // Isolate Pages from Vite's Worker deploy redirect in the parent .wrangler folder.
 // Only public assets and the service-binding config enter this staging folder.
 const stage=await mkdtemp(join(tmpdir(),'shichen-pages-'));
