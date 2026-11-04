@@ -15,6 +15,7 @@ import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.provider.Settings;
 import android.view.Gravity;
 import android.view.View;
@@ -39,6 +40,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicLong;
 
 /** Android shell: trusted-origin web UI, optional on-device capabilities, no API keys. */
 public final class MainActivity extends Activity implements SensorEventListener {
@@ -49,12 +51,16 @@ public final class MainActivity extends Activity implements SensorEventListener 
     private LinearLayout errorView;
     private ProgressBar progress;
     private SensorManager sensors;
-    private Sensor counter;
-    private Float stepBaseline;
-    private volatile Long sessionSteps;
+    private volatile Sensor counter, detector;
+    private volatile Sensor activeStepSensor;
+    private volatile boolean resumed, listenerRegistered;
+    private volatile String stepRegistrationReason="paused";
+    private final StepSessionAccumulator stepSession = new StepSessionAccumulator();
     private final ExecutorService metricWorker = Executors.newSingleThreadExecutor();
+    private final AtomicLong usageGeneration = new AtomicLong();
     private long usageCacheAt = 0, usageCacheDay = -1;
-    private Long usageCacheMinutes;
+    private long usageCacheGeneration=-1;
+    private JSONObject usageCache;
     private JavaScriptReplyProxy pendingReply;
     private String pendingId;
     private GeolocationPermissions.Callback geoCallback;
@@ -63,7 +69,7 @@ public final class MainActivity extends Activity implements SensorEventListener 
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
         sensors = (SensorManager) getSystemService(SENSOR_SERVICE);
-        counter = sensors.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        discoverStepSensors();
         FrameLayout root = new FrameLayout(this);
         root.setBackgroundColor(Color.rgb(241,245,240));
         // Android 15's enforced edge-to-edge must still reserve status, navigation and keyboard insets.
@@ -108,7 +114,7 @@ public final class MainActivity extends Activity implements SensorEventListener 
         ws.setMediaPlaybackRequiresUserGesture(true);
         ws.setGeolocationEnabled(true);
         ws.setSafeBrowsingEnabled(true);
-        ws.setUserAgentString(ws.getUserAgentString() + " ShichenWellness/0.2.0");
+        ws.setUserAgentString(ws.getUserAgentString() + " ShichenWellness/0.3.0");
         WebView.setWebContentsDebuggingEnabled(false);
 
         if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
@@ -167,7 +173,8 @@ public final class MainActivity extends Activity implements SensorEventListener 
     }
     private boolean usageAllowed() {
         AppOpsManager ops = (AppOpsManager) getSystemService(APP_OPS_SERVICE);
-        return ops.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(),getPackageName()) == AppOpsManager.MODE_ALLOWED;
+        try { return ops!=null && ops.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(),getPackageName()) == AppOpsManager.MODE_ALLOWED; }
+        catch(RuntimeException ignored) {return false;}
     }
     private void handleMessage(String raw, JavaScriptReplyProxy reply) {
         String id = "";
@@ -178,7 +185,7 @@ public final class MainActivity extends Activity implements SensorEventListener 
             if (id.length() > 80) throw new IllegalArgumentException("请求无效。");
             String method = request.getString("method");
             switch (method) {
-                case "getCapabilities": sendCapabilities(reply,id); return;
+                case "getCapabilities": startSteps(); sendCapabilities(reply,id); return;
                 case "openUsageSettings":
                     try { startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS,Uri.parse("package:"+getPackageName()))); }
                     catch (Exception e) { startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)); }
@@ -218,31 +225,57 @@ public final class MainActivity extends Activity implements SensorEventListener 
     }
     private JSONObject capabilities() throws Exception {
         boolean usagePermission = usageAllowed();
-        if(!usagePermission){usageCacheAt=0;usageCacheMinutes=null;}
-        Long screenMinutes = usagePermission ? screenMinutesToday() : null;
-        return new JSONObject().put("platform","android").put("appVersion","0.2.0-preview")
+        if(!usagePermission){usageCacheAt=0;usageCache=null;}
+        JSONObject usage=usagePermission ? screenMetrics() : emptyUsage("permission_required","usage_permission_missing");
+        usage.put("permission",usagePermission?"granted":"denied");
+        StepSessionAccumulator.Snapshot steps=stepSession.snapshot();
+        boolean movementAllowed=activityAllowed();
+        String stepStatus=!movementAllowed?"permission_required":counter==null&&detector==null?"unsupported":
+            !resumed?"paused":!listenerRegistered?"registration_failed":steps.segmentHasReading?"available":"waiting_for_sensor";
+        String stepReason="available".equals(stepStatus)?"foreground_steps_observed":
+            "permission_required".equals(stepStatus)?"activity_permission_missing":
+            "unsupported".equals(stepStatus)?"no_step_sensor":
+            "waiting_for_sensor".equals(stepStatus)?"awaiting_first_event":
+            "paused".equals(stepStatus)?"app_background":stepRegistrationReason;
+        Sensor selected=activeStepSensor;
+        String stepSource=selected==null?"none":selected.getType()==Sensor.TYPE_STEP_COUNTER?"step-counter":"step-detector";
+        return new JSONObject().put("platform","android").put("appVersion","0.3.0-preview").put("apiLevel",Build.VERSION.SDK_INT)
             .put("location",new JSONObject().put("permission",locationAllowed()?"granted":"denied"))
-            .put("usage",new JSONObject().put("permission",usagePermission?"granted":"denied")
-                .put("screenMinutesToday",screenMinutes == null?JSONObject.NULL:screenMinutes)
-                .put("source","android-screen-events").put("scope","当前安卓环境今日亮屏时长；非连续看屏时长"))
-            .put("steps",new JSONObject().put("permission",activityAllowed()?"granted":"denied").put("available",counter!=null)
-                .put("sessionSteps",sessionSteps==null?JSONObject.NULL:sessionSteps).put("source","step-counter")
-                .put("scope","本次前台会话首次传感器读数之后的步数；不是全天步数"))
-            .put("health",new JSONObject().put("available",false).put("reason","not-connected"));
+            .put("usage",usage)
+            .put("steps",new JSONObject().put("permission",movementAllowed?"granted":"denied").put("available",counter!=null||detector!=null)
+                .put("status",stepStatus).put("reason",stepReason)
+                .put("sessionSteps",nullable(steps.steps)).put("source",stepSource)
+                .put("counterAvailable",counter!=null).put("detectorAvailable",detector!=null)
+                .put("listenerRegistered",listenerRegistered).put("lastSensorAt",nullable(steps.lastAt))
+                .put("observedFrom",nullable(steps.firstAt)).put("eventsCount",steps.eventsCount)
+                .put("scope","本次打开累计前台监测步数；不含后台及未接入的华为健康数据"))
+            .put("health",new JSONObject().put("available",false).put("status","not_integrated").put("reason","not-connected"));
+    }
+    private static Object nullable(Object value) {return value==null?JSONObject.NULL:value;}
+    private JSONObject emptyUsage(String status,String reason) throws Exception {
+        return new JSONObject().put("status",status).put("reason",reason)
+            .put("screenMinutesToday",JSONObject.NULL).put("observedMinutes",JSONObject.NULL)
+            .put("windowStart",JSONObject.NULL).put("windowEnd",JSONObject.NULL).put("coveredMinutes",JSONObject.NULL)
+            .put("source","android-screen-events").put("scope","当前安卓环境的亮屏事件；非连续看屏或鸿蒙全机统计");
     }
     /** Screen-interactive events, not sum of application foreground times (which may overlap). */
-    private Long screenMinutesToday() {
+    private JSONObject screenMetrics() throws Exception {
         try {
-            if(Build.VERSION.SDK_INT<29)return null; // No reliable reboot boundary events on Android 9.
             long end = System.currentTimeMillis();
+            long generation=usageGeneration.get();
             Calendar c=Calendar.getInstance(); c.set(Calendar.HOUR_OF_DAY,0);c.set(Calendar.MINUTE,0);c.set(Calendar.SECOND,0);c.set(Calendar.MILLISECOND,0);
             long start=c.getTimeInMillis();
-            if(usageCacheDay==start&&end>=usageCacheAt&&end-usageCacheAt<60000)return usageCacheMinutes;
+            if(usageCache!=null&&usageCacheGeneration==generation&&usageCacheDay==start&&end>=usageCacheAt&&end-usageCacheAt<5000)
+                return new JSONObject(usageCache.toString());
             UsageStatsManager manager=(UsageStatsManager)getSystemService(USAGE_STATS_SERVICE);
-            UsageEvents events=manager.queryEvents(start-7L*86400000,end);
-            if(events==null)return null;
+            if(manager==null)return emptyUsage("error","query_unavailable");
+            // A monotonic current-boot boundary also protects API 28, which lacks reboot events.
+            long bootAt=end-SystemClock.elapsedRealtime();
+            UsageEvents events=manager.queryEvents(Math.max(start-7L*86400000,bootAt),end);
+            if(events==null)return emptyUsage("error","query_unavailable");
             UsageEvents.Event event=new UsageEvents.Event();
             ScreenTimeAccumulator accumulator = new ScreenTimeAccumulator(start,end);
+            if(bootAt>start)accumulator.accept(bootAt,ScreenTimeAccumulator.Kind.RESTART);
             while(events.hasNextEvent()) {
                 events.getNextEvent(event);
                 int type=event.getEventType();
@@ -253,21 +286,65 @@ public final class MainActivity extends Activity implements SensorEventListener 
                 else if(type==UsageEvents.Event.SCREEN_NON_INTERACTIVE)
                     accumulator.accept(event.getTimeStamp(),ScreenTimeAccumulator.Kind.OFF);
             }
-            usageCacheMinutes=accumulator.minutes();usageCacheDay=start;usageCacheAt=end;
-            return usageCacheMinutes;
-        }catch(Exception ignored){return null;}
+            ScreenTimeAccumulator.Result result=accumulator.result();
+            JSONObject data=emptyUsage(result.status,result.reason)
+                .put("screenMinutesToday",nullable(result.fullDayMinutes)).put("observedMinutes",nullable(result.observedMinutes))
+                .put("windowStart",nullable(result.windowStart)).put("windowEnd",nullable(result.windowEnd))
+                .put("coveredMinutes",nullable(result.coveredMinutes));
+            usageCache=new JSONObject(data.toString());usageCacheDay=start;usageCacheAt=end;usageCacheGeneration=generation;
+            return data;
+        }catch(SecurityException ignored){return emptyUsage("error","query_unavailable");}
+        catch(Exception ignored){return emptyUsage("error","query_failed");}
     }
     private void startSteps() {
-        if(counter!=null&&activityAllowed())sensors.registerListener(this,counter,SensorManager.SENSOR_DELAY_NORMAL);
+        if(!resumed)return;
+        if(!activityAllowed()) {stopSteps();stepRegistrationReason="activity_permission_missing";return;}
+        if(listenerRegistered)return;
+        // Some compatibility environments reveal sensors only after permission is granted.
+        discoverStepSensors();
+        if(sensors==null||counter==null&&detector==null){stepRegistrationReason="no_step_sensor";return;}
+        if(registerStepSensor(counter,StepSessionAccumulator.Mode.COUNTER))return;
+        if(registerStepSensor(detector,StepSessionAccumulator.Mode.DETECTOR))return;
+        stepRegistrationReason="sensor_registration_failed";
+    }
+    private void discoverStepSensors() {
+        if(sensors==null)return;
+        try {if(counter==null)counter=sensors.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);}
+        catch(RuntimeException ignored) { /* Keep unavailable until a later authorized refresh. */ }
+        try {if(detector==null)detector=sensors.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);}
+        catch(RuntimeException ignored) { /* Permission and sensor availability remain separate. */ }
+    }
+    private boolean registerStepSensor(Sensor sensor,StepSessionAccumulator.Mode mode) {
+        if(sensor==null)return false;
+        try {
+            long started=SystemClock.elapsedRealtimeNanos();
+            if(!sensors.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL))return false;
+            stepSession.start(mode,started);activeStepSensor=sensor;listenerRegistered=true;
+            stepRegistrationReason="awaiting_first_event";return true;
+        }catch(RuntimeException ignored){return false;}
+    }
+    private void stopSteps() {
+        if(sensors!=null)sensors.unregisterListener(this);
+        listenerRegistered=false;stepSession.pause();
     }
     @Override public void onSensorChanged(SensorEvent event) {
-        float value=event.values[0];
-        if(stepBaseline==null||value<stepBaseline)stepBaseline=value;
-        sessionSteps=Math.max(0L,(long)(value-stepBaseline));
+        if(!resumed||!listenerRegistered||event.sensor!=activeStepSensor||event.values.length==0)return;
+        long nowNanos=SystemClock.elapsedRealtimeNanos();
+        if(event.timestamp>nowNanos)return;
+        long eventAt=System.currentTimeMillis()-(nowNanos-event.timestamp)/1000000;
+        stepSession.accept(event.values[0],event.timestamp,eventAt);
     }
     @Override public void onAccuracyChanged(Sensor sensor,int accuracy) { }
-    @Override protected void onResume(){super.onResume();if(web!=null)web.onResume();startSteps();}
-    @Override protected void onPause(){sensors.unregisterListener(this);stepBaseline=null;sessionSteps=null;if(web!=null)web.onPause();super.onPause();}
+    @Override protected void onResume(){
+        super.onResume();resumed=true;usageGeneration.incrementAndGet();
+        if(web!=null){
+            web.onResume();
+            if(trusted(Uri.parse(web.getUrl()==null?"":web.getUrl())))
+                web.evaluateJavascript("window.dispatchEvent(new Event('shichen-native-resume'))",null);
+        }
+        startSteps();
+    }
+    @Override protected void onPause(){resumed=false;stopSteps();if(web!=null)web.onPause();super.onPause();}
     @Override public void onRequestPermissionsResult(int request,String[] permissions,int[] grants){
         super.onRequestPermissionsResult(request,permissions,grants);
         if(request==LOCATION)clearGeolocation(locationAllowed());
@@ -280,5 +357,5 @@ public final class MainActivity extends Activity implements SensorEventListener 
     @Override public void onBackPressed(){
         if(web.canGoBack())web.goBack();else super.onBackPressed();
     }
-    @Override protected void onDestroy(){clearGeolocation(false);metricWorker.shutdownNow();sensors.unregisterListener(this);if(web!=null)web.destroy();super.onDestroy();}
+    @Override protected void onDestroy(){clearGeolocation(false);metricWorker.shutdownNow();stopSteps();if(web!=null)web.destroy();super.onDestroy();}
 }

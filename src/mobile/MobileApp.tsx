@@ -7,6 +7,7 @@ import ActivityConditions from '../components/ActivityConditions';
 import LocationWeather from '../components/LocationWeather';
 import { isNative, nativeRequest } from '../native-bridge';
 import Sheet from './Sheet';
+import DeviceData from './DeviceData';
 import './mobile.css';
 
 const TIME_NAMES=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
@@ -40,8 +41,6 @@ export default function MobileApp(){
   const [countdown,setCountdown]=useState<number|null>(null);
   const [completed,setCompleted]=useState(false);
   const [started,setStarted]=useState(false);
-  const [nativeStatus,setNativeStatus]=useState<any>(null);
-  const [nativeBusy,setNativeBusy]=useState(false);
   const [nativeMessage,setNativeMessage]=useState('');
   const stateRef=useRef<any>(createReminderState(new Date().toISOString()));
   const requestRef=useRef<AbortController|null>(null);
@@ -64,9 +63,6 @@ export default function MobileApp(){
   useEffect(()=>{try{localStorage.setItem(PREF_KEY,JSON.stringify(prefs));}catch{/* Current-session settings remain usable. */}},[prefs]);
   useEffect(()=>{try{if(weather)localStorage.setItem(WEATHER_KEY,JSON.stringify(weather));else localStorage.removeItem(WEATHER_KEY);}catch{}},[weather]);
   useEffect(()=>{if(countdown===null||countdown<=0)return;const id=setTimeout(()=>setCountdown(value=>value===null?null:value-1),1000);return()=>clearTimeout(id);},[countdown]);
-  useEffect(()=>{if(sheet==='settings'&&isNative())void refreshNative();},[sheet]);
-
-  async function refreshNative(){try{setNativeStatus(await nativeRequest('getCapabilities'));}catch(e:any){setNativeMessage(e.message);}}
   async function refreshKnownWeather(signal:AbortSignal){
     // Automatic refresh only follows an existing grant or a city the person saved.
     // Never request a first permission from the home screen.
@@ -90,7 +86,6 @@ export default function MobileApp(){
       if(mounted.current&&data.weather?.source==='open-meteo')setWeather({...data.weather,city:label,locationSource});
     }catch{/* Keep a fresh cached weather value, or leave the field unknown. */}
   }
-  async function nativeAction(method:string){if(nativeBusy)return;setNativeBusy(true);setNativeMessage('');try{await nativeRequest(method);await refreshNative();if(method==='openUsageSettings'||method==='openAppSettings')setNativeMessage('从系统设置返回后，点击“刷新状态”查看授权结果。');}catch(e:any){setNativeMessage(e.message);}finally{setNativeBusy(false);}}
 
   async function generate(message:string,solar=false){
     if(running.current)return;
@@ -146,7 +141,8 @@ export default function MobileApp(){
     {sheet==='settings'&&<Sheet title="设置" onClose={()=>setSheet(null)}>
       <section className="mobile-setting-section"><h3>时间与阅读</h3><label className="mobile-toggle"><span>使用模拟时间<small>关闭后恢复手机当前北京时间</small></span><input type="checkbox" checked={simulated} onChange={event=>{invalidate();setSimulated(event.target.checked);setContext(null);}}/></label>{simulated&&<label className="mobile-field">模拟日期与时间<input aria-label="模拟日期与时间" type="datetime-local" value={simulationTime} onInput={event=>{const value=event.currentTarget.value;if(value){invalidate();setSimulationTime(value);setContext(null);}}} onChange={event=>{if(event.target.value){invalidate();setSimulationTime(event.target.value);setContext(null);}}}/></label>}<label className="mobile-toggle"><span>放大文字</span><input type="checkbox" checked={prefs.largeText} onChange={event=>setPrefs(previous=>({...previous,largeText:event.target.checked}))}/></label></section>
       <LocationWeather mode="daily" conditions={prefs.conditions} weather={weather} onWeather={value=>{invalidate();setWeather(value);}} onConditions={(patch,label)=>{invalidate();setContext(null);setPrefs(previous=>({...previous,conditions:{...previous.conditions,...patch}}));setNativeMessage(`已使用${label}保存的活动条件。`);}}/>
-      <section className="mobile-setting-section"><h3>设备数据与权限</h3>{isNative()?<><dl className="mobile-capabilities"><dt>定位</dt><dd>{nativeStatus?.location?.permission==='granted'?'已授权':'未授权'}</dd><dt>今日屏幕使用</dt><dd>{nativeStatus?.usage?.permission==='granted'&&Number.isFinite(nativeStatus.usage.screenMinutesToday)?`${Math.round(nativeStatus.usage.screenMinutesToday)} 分钟`:'未获取'}</dd><dt>本次活动步数</dt><dd>{nativeStatus?.steps?.available&&Number.isFinite(nativeStatus.steps.sessionSteps)?`${nativeStatus.steps.sessionSteps} 步`:'未获取'}</dd><dt>华为健康 / 睡眠</dt><dd>未接入</dd></dl><div className="mobile-permission-buttons"><button disabled={nativeBusy} onClick={()=>nativeAction('openUsageSettings')}>屏幕使用授权</button><button disabled={nativeBusy} onClick={()=>nativeAction('requestActivity')}>活动权限</button><button disabled={nativeBusy} onClick={()=>nativeAction('openAppSettings')}>系统权限设置</button><button disabled={nativeBusy} onClick={()=>refreshNative()}><RefreshCw size={13}/>刷新状态</button></div><p className="mobile-setting-note">屏幕累计时长与本次步数只在这里展示，不当作连续看屏或运动时长。卓易通内可见的数据以系统实际返回为准。</p></>:<p className="mobile-setting-note">当前为网页版，可获取时间、定位与天气。屏幕使用和步数需在安装版中另行授权；华为健康、睡眠尚未接入。</p>}{nativeMessage&&<p role="status" className="mobile-setting-note">{nativeMessage}</p>}</section>
+      {nativeMessage&&<p role="status" className="mobile-setting-note">{nativeMessage}</p>}
+      <DeviceData/>
       <details className="mobile-setting-details"><summary>活动条件<ChevronRight size={16}/></summary><p className="mobile-setting-note">可以在聊天里告诉我；没有说明的条件保持未知。</p><ActivityConditions snapshot={prefs.conditions} onChange={setCondition}/><button className="mobile-link" onClick={()=>{invalidate();setContext(null);setPrefs(previous=>({...previous,conditions:{}}));setNotice('已清除活动条件。');}}>清除活动条件</button></details>
       <section className="mobile-setting-section"><button className="mobile-setting-nav" onClick={()=>setSheet('catalog')}>查看全部卡片<ChevronRight size={17}/></button><button className="mobile-setting-nav" onClick={()=>{invalidate();setContext(null);setHistory([]);setText('');setNotice('已清除本次对话。');}}>清除本次对话<RefreshCw size={15}/></button><a className="mobile-setting-nav" href="?mode=demo">打开参赛模拟演示<ChevronRight size={17}/></a><p className="mobile-setting-note">{status?.configured?'AI 已连接':'AI 状态暂未获取'} · {catalog?.cards?.length||'—'} 项行动<br/>聊天直接更新情境，不再逐项确认。卡片按已知条件筛选。</p></section>
       <button className="mobile-primary mobile-full" onClick={()=>{setSheet(null);if(!result)void generate('');}}>完成设置</button>
