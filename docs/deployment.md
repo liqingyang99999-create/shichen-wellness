@@ -1,5 +1,7 @@
 # Cloudflare 部署与复现
 
+生产主入口为 [Cloudflare Pages](https://shichen-wellness.pages.dev/?mode=daily)，与杏林随诊采用同一类 Pages 托管方式。前端和 `/api/*` 使用同域地址；`pages/worker.mjs` 通过 `SHICHEN_API` Service Binding 调用本账号的 `shichen-wellness` Worker，不让手机直接连接 `workers.dev`。
+
 本项目使用 Cloudflare Vite 插件构建 React 静态资源和 Worker。入口为 `worker/index.ts`，`wrangler.jsonc` 声明静态资源绑定、服务变量和限流绑定。部署需使用自己的 Cloudflare 账号；实际公开地址以成功部署输出为准。[Cloudflare Vite 官方入门](https://developers.cloudflare.com/workers/vite-plugin/get-started/)
 
 ## 本机准备
@@ -44,6 +46,22 @@ npx wrangler secret put AGENT_API_KEY
 `wrangler secret put` 会创建并立即部署新版本；更新现有密钥时也是如此。也可在 Cloudflare 控制台的 Worker 设置中添加 Secret。密钥应由维护者在本机操作，不能从公开文档复制所谓示例真值。[Cloudflare Secrets 官方说明](https://developers.cloudflare.com/workers/configuration/secrets/)
 
 再次修改代码后，运行检查与测试，再执行 `npm run deploy`。部署前后的版本与结果应保留在维护者自己的发布记录中，不在公开仓库保存秘密文件或认证凭据。
+
+## 发布 Pages 手机入口
+
+先完成上面的 Worker 部署和 Secret 配置。首次在目标账号创建独立 Pages 项目（不要复用已有的其他项目）：
+
+```sh
+npx wrangler login --scopes account:read user:read workers:write workers_scripts:write pages:write
+npx wrangler pages project create shichen-wellness --production-branch main
+npm run deploy:pages
+```
+
+已存在 Pages 项目时跳过创建。`pages/wrangler.jsonc` 声明同账号的 Worker Service Binding；在自己的账号复现时先核对 Worker 名称和 Pages 项目名是否可用。Pages 不保存模型密钥；Worker 限流仍生效。
+
+`build:pages` 只复制前端公开产物和很小的 API 网关；`deploy:pages` 在系统临时目录准备隔离部署，避开 Vite 生成的 Worker 配置重定向。临时目录只含公开资产与服务绑定配置，不复制 `.dev.vars`。手机日常入口用 `?mode=daily`；演示入口用 `?mode=demo`。
+
+[Cloudflare Pages Advanced Mode](https://developers.cloudflare.com/pages/functions/advanced-mode/) · [Service Bindings](https://developers.cloudflare.com/pages/functions/bindings/#service-bindings)
 
 ## 流量与费用
 

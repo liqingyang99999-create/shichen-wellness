@@ -15,7 +15,9 @@
     "test": "node --test test/*.test.mjs",
     "audit:coverage": "node test/coverage-audit.mjs",
     "deploy": "npm run build && wrangler deploy",
-    "cf:login": "wrangler login"
+    "cf:login": "wrangler login",
+    "build:pages": "npm run build && node scripts/build-pages.mjs",
+    "deploy:pages": "npm run build:pages && node scripts/deploy-pages.mjs"
   },
   "dependencies": {
     "react": "19.2.6",

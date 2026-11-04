@@ -2,14 +2,17 @@
 
 面向健康成年人的日常行动 Demo：用时辰与节气组织内容，根据明确的生活情境筛选候选，随机选出一张可以开始的小行动，并展示出处和选择理由。
 
-[在线演示](https://shichen-wellness.liqingyang99999.workers.dev/) · [GitHub 源码](https://github.com/liqingyang99999-create/shichen-wellness)
+[在线演示](https://shichen-wellness.pages.dev/) · [GitHub 源码](https://github.com/liqingyang99999-create/shichen-wellness)
 
-访问验证（2026-11-04）：公网首页、状态接口和 OpenAPI 均返回 200；一次 Bearer API 调用返回 `providerMode:live`，查询与解释节点均实际成功。该记录是本次 HTTP 与模型验证结果，不代表所有网络、浏览器或手机都已验证。默认 Python 客户端曾被 `workers.dev` 的客户端标识检查拒绝；按官方建议使用真实应用 `User-Agent` 后请求成功，未改变安全规则。调用示例已包含应用标识。[Cloudflare Error 1010 说明](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1010/)
+[参赛交付包（PPT＋视频＋提交说明）](https://github.com/liqingyang99999-create/shichen-wellness/releases/tag/v1.1.0) · [PPT下载](https://github.com/liqingyang99999-create/shichen-wellness/releases/download/v1.1.0/presentation.pptx) · [演示视频下载](https://github.com/liqingyang99999-create/shichen-wellness/releases/download/v1.1.0/demo-video.mp4)
 
-项目是独立的 React + Vite 网页与 Cloudflare Worker API。模型负责理解描述、组织查询和解释；程序负责条件、频次、随机选择和输出校验，动作来自固定内容库。它不训练模型，不诊断疾病，不预测血压风险，也不把随机选卡称为“最佳疗效”。
+访问验证（2026-11-04）：Cloudflare Pages 首页、状态接口和 OpenAPI 均返回 200；同域 Bearer API 返回 `providerMode:live`，查询与解释节点均实际成功。Pages 通过内部 Service Binding 调用同账号 Worker，手机无需另行连接 `workers.dev`。目标用户已在手机确认可以打开并生成卡片；其他网络的可达性以实际测试为准。
+
+项目是独立的 React + Vite 网页、Cloudflare Pages 入口与 Worker API。模型负责理解描述、组织查询和解释；程序负责条件、频次、随机选择和输出校验，动作来自固定内容库。它不训练模型，不诊断疾病，不预测血压风险，也不把随机选卡称为“最佳疗效”。
 
 ## 体验与内容
 
+- **手机日常入口**：[直接打开日常模式](https://shichen-wellness.pages.dev/?mode=daily)。使用真实时间和按需联网天气，设备睡眠、步数、全机应用用时未接入时明确显示未获取；主动查看不计提醒额度。
 - **模拟面板**：六种可重置场景，展示普通提醒、夜间状态、节气卡及稍后流程。
 - **独立对话**：默认当前真实北京时间，也可指定时间；先核对识别结果，再生成。不会继承模拟面板的情境或历史。
 - **可解释工作流**：展开 11 个节点查看模型、检索、规则和选择记录。模型未配置或输出不合格时，明确显示离线或模板回退。

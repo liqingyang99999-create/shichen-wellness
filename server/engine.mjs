@@ -3,7 +3,7 @@ import { requestModel, parseDialogue } from './model.mjs';
 export { parseDialogue } from './model.mjs';
 
 const META = [
-  ['N01', '接收双模式输入', 'rule'], ['N02', '提取对话信息', 'model'], ['N03', '确认与冻结', 'rule'],
+  ['N01', '接收情境输入', 'rule'], ['N02', '提取对话信息', 'model'], ['N03', '确认与冻结', 'rule'],
   ['N04', '理解情境并组织查询', 'model'], ['N05', '实际检索知识库', 'retrieval'], ['N06', '规则过滤', 'rule'],
   ['N07', '固定本次选择', 'random'], ['N08', '组织卡片解释', 'model'], ['N09', '校验与状态复核', 'rule'],
   ['N10', '展示与提交记录', 'display'], ['N11', '展开工作流', 'display']
@@ -25,7 +25,7 @@ function inWindow(minute, window) {
 }
 function normalizeSnapshot(raw = {}) {
   const s = clone(raw);
-  s.now = s.now || s.dateTime || '2026-11-03T15:30:00+08:00';
+  s.now = s.now || s.dateTime || (s.inputMode === 'daily' || s.inputMode === 'chat' ? new Date().toISOString() : '2026-11-03T15:30:00+08:00');
   const ms = timestamp(s.now);
   if (!Number.isFinite(ms)) throw new Error('演示日期或时间无效');
   if (s.timezone && s.timezone !== 'Asia/Shanghai') throw new Error('此版演示仅支持Asia/Shanghai');
@@ -48,9 +48,10 @@ function currentSleep(s, ms) {
   let state = Number.isFinite(observed) && observed <= ms && Number.isFinite(until) && ms < until ? s.sleepState : 'unknown';
   // Only explicitly simulated interaction may alter virtual sleep state.
   // Browser foreground/click timestamps describe the evaluator, not the persona.
-  const interaction = timestamp(s.simulatedInteractionAt);
+  const isSimulation = !s.inputMode || s.inputMode === 'panel';
+  const interaction = isSimulation ? timestamp(s.simulatedInteractionAt) : NaN;
   if (Number.isFinite(interaction) && interaction <= ms && ms - interaction < 5 * 60000 && (state === 'unknown' || interaction > observed)) state = 'awake';
-  return { state, source: state === 'awake' && interaction > observed ? 'simulated-interaction' : 'simulated-panel', observedAt: s.sleepObservedAt, validUntil: Number.isFinite(until) ? new Date(until).toISOString() : null };
+  return { state, source: isSimulation ? (state === 'awake' && interaction > observed ? 'simulated-interaction' : 'simulated-panel') : (state === 'unknown' ? 'unavailable' : 'user-confirmed'), observedAt: s.sleepObservedAt, validUntil: Number.isFinite(until) ? new Date(until).toISOString() : null };
 }
 function normalizeState(input, day) {
   const s = clone(input || {});
@@ -249,7 +250,7 @@ export async function runWorkflow({ snapshot = {}, mode = 'auto', state: initial
   let state = clone(initialState || {}), s, ctx, decision = { allowed: false, reason: '', channel: 'none', route: 'ordinary', countsTowardQuota: false };
   function finish(card = null, explanation = '', extra = {}) {
     if (trace.find(n => n.id === 'N10').status === 'skipped') record('N10', 'blocked', { runId }, { reason: decision.reason, stateChanged: false });
-    record('N11', 'success', { runId }, { nodeCount: 11, inputMode: s?.inputMode || 'panel', inputSources: { situation: s?.inputMode === 'chat' ? 'user-description-and-confirmed-conditions' : 'simulated-panel', weather: s?.weather?.source || (s?.weather ? 'simulated-panel' : 'unavailable') }, localRetrieval: 'lexical-and-tags', executedNodes: trace.filter(n => n.status !== 'skipped').map(n => n.id) });
+    record('N11', 'success', { runId }, { nodeCount: 11, inputMode: s?.inputMode || 'panel', inputSources: { situation: s?.inputMode === 'chat' ? 'user-description-and-confirmed-conditions' : s?.inputMode === 'daily' ? 'current-time-and-confirmed-conditions' : 'simulated-panel', weather: s?.weather?.source || (s?.weather ? (s?.inputMode === 'daily' || s?.inputMode === 'chat' ? 'manual-input' : 'simulated-panel') : 'unavailable') }, localRetrieval: 'lexical-and-tags', executedNodes: trace.filter(n => n.status !== 'skipped').map(n => n.id) });
     const providerMode = modes.includes('live') ? modes.some(x => x !== 'live' && x !== 'skipped') ? 'mixed' : 'live' : modes.includes('fallback') ? 'fallback' : 'offline';
     return { runId, card, explanation, trace, state, decision, providerMode, ...extra };
   }

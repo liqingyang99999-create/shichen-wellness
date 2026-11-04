@@ -9,7 +9,7 @@ type City = {id:string;name:string;admin1:string;admin2:string;countryCode:strin
 type Position = {source:'gps';latitude:number;longitude:number;accuracy:number;observedAt:string};
 type Preset = {id:'home'|'company';name:string;address:string;city:City|null;coords:({source:string;latitude:number;longitude:number;accuracy?:number})|null;radius:number;conditions:Conditions};
 export type OnlineWeather = {source:'open-meteo';city:string;tempC:number;rain:boolean;wind:number;windUnit:string;description:string;observedAt:string;fetchedAt:string;locationSource:'gps'|'city';[key:string]:unknown};
-type Props = {mode:'panel'|'chat';conditions:Conditions;weather?:OnlineWeather|null;onWeather:(weather:OnlineWeather|null)=>void;onConditions:(patch:Conditions,label:string)=>void};
+type Props = {mode:'panel'|'chat'|'daily';conditions:Conditions;weather?:OnlineWeather|null;onWeather:(weather:OnlineWeather|null)=>void;onConditions:(patch:Conditions,label:string)=>void};
 const LABELS:Record<string,string> = {canLeaveSeat:'可以离座',canLookFar:'可以远眺',canCloseEyes:'可以闭目',sitting:'已坐稳',spaceEnough:'空间足够',hasSupport:'有固定支撑',waterAvailable:'有饮用水',headphones:'正在用耳机',atMeal:'正在进餐',goingOut:'准备外出'};
 const EMPTY_PRESETS:Preset[] = [];
 const cityLabel = (city:City) => [...new Set([city.name,city.admin2,city.admin1].filter(Boolean))].join(' · ');
@@ -73,7 +73,7 @@ export default function LocationWeather({mode,conditions,weather,onWeather,onCon
     } catch (error) {
       if (!isCurrent(id)) return;
       onWeather(null);
-      setMessage(`${errorText(error)} 也可以使用手动模拟天气。`);
+      setMessage(`${errorText(error)} ${mode==='panel'?'也可以使用手动模拟天气。':'也可以手动选择城市重试。'}`);
     } finally { if (isCurrent(id)) setWorking(false); }
   }
 
