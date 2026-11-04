@@ -1,0 +1,7247 @@
+{
+  "cards": [
+    {
+      "id": "01",
+      "title": "内关轻揉",
+      "category": "穴位轻揉",
+      "steps": [
+        "手心朝上，从掌侧腕横纹向肘部量约本人三横指宽，找到两条肌腱之间的位置。",
+        "用另一手拇指指腹轻轻画小圈，每侧约15–30秒。"
+      ],
+      "scene": "已经坐稳，双手空闲时可轻柔操作；时辰用于组织主题。",
+      "duration": "30–60秒",
+      "sourceId": "source-01",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "traditional",
+      "requirements": {
+        "trueFields": [
+          "sitting"
+        ]
+      }
+    },
+    {
+      "id": "02",
+      "title": "劳宫轻揉",
+      "category": "穴位轻揉",
+      "steps": [
+        "轻握拳，中指指尖对应的掌心位置为简便取穴点。",
+        "展开手掌，用另一手拇指指腹轻轻揉动，每侧约15–30秒。"
+      ],
+      "scene": "已经坐稳，双手空闲时可轻柔操作；时辰用于组织主题。",
+      "duration": "30–60秒",
+      "sourceId": "source-02",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "traditional",
+      "requirements": {
+        "trueFields": [
+          "sitting"
+        ]
+      }
+    },
+    {
+      "id": "03",
+      "title": "双肩轻提轻放",
+      "category": "手肩舒展",
+      "steps": [
+        "坐稳或站稳，双臂自然垂下。",
+        "双肩缓慢向上轻提，停约2秒，再缓慢放松，重复3–5次；保持自然呼吸。"
+      ],
+      "scene": "晨间或久坐后，肩部能自由活动时。",
+      "duration": "约30秒",
+      "sourceId": "source-03",
+      "tags": [
+        "shoulder"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {}
+    },
+    {
+      "id": "04",
+      "title": "双手向前舒展",
+      "category": "手肩舒展",
+      "steps": [
+        "坐稳，双手在身前轻轻交叠，缓慢向前送到舒服的位置；肘部不锁死，肩放松，停几秒后收回，做2–3次。"
+      ],
+      "scene": "下午久坐后，前方有足够空间时。",
+      "duration": "约30秒",
+      "sourceId": "source-04",
+      "tags": [
+        "shoulder",
+        "hand"
+      ],
+      "hours": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "origin": "modern",
+      "requirements": {
+        "trueFields": [
+          "spaceEnough"
+        ]
+      }
+    },
+    {
+      "id": "05",
+      "title": "手腕小幅活动",
+      "category": "手肩舒展",
+      "steps": [
+        "前臂放在桌面或腿上，手掌自然伸出支撑边缘。",
+        "手腕自行小幅向上、向下活动，各做3–5次。"
+      ],
+      "scene": "键盘操作间隙，手腕没有疼痛时。",
+      "duration": "约30秒",
+      "sourceId": "source-05",
+      "tags": [
+        "hand"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {}
+    },
+    {
+      "id": "06",
+      "title": "手指自然张合",
+      "category": "手肩舒展",
+      "steps": [
+        "放下物品，双手自然张开，再轻轻合拢，重复5次；结束时把手平放，让手指放松。"
+      ],
+      "scene": "书写、打字间隙。",
+      "duration": "约30秒",
+      "sourceId": "source-06",
+      "tags": [
+        "hand"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {}
+    },
+    {
+      "id": "07",
+      "title": "平地轻松走动",
+      "category": "轻量活动",
+      "steps": [
+        "起身后先站稳，再在平整、畅通的地方轻松走一小圈；目视前方，回到座位再记录完成。"
+      ],
+      "scene": "坐了一阵、此刻可以离开座位时。",
+      "duration": "1–2分钟",
+      "sourceId": "source-07",
+      "tags": [
+        "walk"
+      ],
+      "hours": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "origin": "modern",
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat"
+        ]
+      }
+    },
+    {
+      "id": "08",
+      "title": "坐姿脚踝活动",
+      "category": "轻量活动",
+      "steps": [
+        "坐在稳定椅子上，脚跟着地，轻轻勾起脚尖再放下，重复5次；换为脚尖着地，轻提脚跟再放下5次。"
+      ],
+      "scene": "暂时不便离开座位时。",
+      "duration": "约30秒",
+      "sourceId": "source-08",
+      "tags": [
+        "walk",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {
+        "trueFields": [
+          "sitting"
+        ]
+      }
+    },
+    {
+      "id": "09",
+      "title": "扶稳轻踏步",
+      "category": "轻量活动",
+      "steps": [
+        "先扶住固定台面站稳，双脚交替轻抬轻落，原地慢慢踏步；不追求高抬腿或速度。"
+      ],
+      "scene": "周围空旷、可以站立活动时。",
+      "duration": "30–60秒",
+      "sourceId": "source-09",
+      "tags": [
+        "walk"
+      ],
+      "hours": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "origin": "modern",
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough",
+          "hasSupport"
+        ]
+      }
+    },
+    {
+      "id": "10",
+      "title": "看看远处",
+      "category": "感官休息",
+      "steps": [
+        "暂停当前内容，抬头看约6米以外的普通景物20秒以上，自然眨眼；不需要把视线盯得很紧。"
+      ],
+      "scene": "看屏或近距离阅读之后。",
+      "duration": "约30秒",
+      "sourceId": "source-10",
+      "tags": [
+        "eye"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {
+        "trueFields": [
+          "canLookFar"
+        ]
+      }
+    },
+    {
+      "id": "11",
+      "title": "轻闭双眼小休息",
+      "category": "感官休息",
+      "steps": [
+        "先自然眨眼几次，再轻轻闭眼休息约20秒，随后慢慢睁开。"
+      ],
+      "scene": "坐稳、暂时不需观察周围时。",
+      "duration": "约30秒",
+      "sourceId": "source-11",
+      "tags": [
+        "eye",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {
+        "trueFields": [
+          "canCloseEyes",
+          "sitting"
+        ]
+      }
+    },
+    {
+      "id": "12",
+      "title": "暂停耳机",
+      "category": "感官休息",
+      "steps": [
+        "暂停播放，摘下耳机，让耳朵休息一会儿；可以安静坐着，也可以看看周围。"
+      ],
+      "scene": "连续听音频后，环境允许时。",
+      "duration": "约1分钟",
+      "sourceId": "source-12",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {
+        "trueFields": [
+          "headphones"
+        ]
+      }
+    },
+    {
+      "id": "13",
+      "title": "留意自然呼吸",
+      "category": "呼吸静心",
+      "steps": [
+        "双脚落地、肩膀放松，留意几次自然呼吸经过的感觉；走神时轻轻把注意力带回来。"
+      ],
+      "scene": "午间或晚间，坐稳且不忙时。",
+      "duration": "30–60秒",
+      "sourceId": "source-13",
+      "tags": [
+        "breath",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "traditional",
+      "requirements": {}
+    },
+    {
+      "id": "14",
+      "title": "放松肩手与牙关",
+      "category": "呼吸静心",
+      "steps": [
+        "坐稳，先把肩膀自然放下，再松开攥紧的手，最后松开咬紧的牙关；保持嘴唇和下颌自然放松。"
+      ],
+      "scene": "工作告一段落或睡前准备时。",
+      "duration": "约30秒",
+      "sourceId": "source-14",
+      "tags": [
+        "shoulder",
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {}
+    },
+    {
+      "id": "15",
+      "title": "写下接下来的一件小事",
+      "category": "呼吸静心",
+      "steps": [
+        "写下一件接下来想完成的小事，例如收好桌面的一本书；写完就结束，不要求立刻完成整张清单。"
+      ],
+      "scene": "事情多、想整理一下注意力时。",
+      "duration": "30–60秒",
+      "sourceId": "source-15",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {}
+    },
+    {
+      "id": "16",
+      "title": "小口喝几口水",
+      "category": "饮食饮水",
+      "steps": [
+        "先确认水温适口，按需要小口喝几口，再把杯子放稳。"
+      ],
+      "scene": "工作间隙，手边有合适饮用水时。",
+      "duration": "约30秒",
+      "sourceId": "source-16",
+      "tags": [
+        "water"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {
+        "trueFields": [
+          "waterAvailable"
+        ]
+      }
+    },
+    {
+      "id": "17",
+      "title": "吃饭时先放下屏幕",
+      "category": "饮食饮水",
+      "steps": [
+        "将手机暂停并放到一旁，坐稳，留意食物与进餐过程；按自己的正常节奏吃饭。"
+      ],
+      "scene": "准备进餐时。",
+      "duration": "约30秒启动",
+      "sourceId": "source-17",
+      "tags": [
+        "food"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "traditional",
+      "requirements": {
+        "trueFields": [
+          "atMeal"
+        ]
+      }
+    },
+    {
+      "id": "18",
+      "title": "给下一餐添一个选择",
+      "category": "饮食饮水",
+      "steps": [
+        "从自己平时能吃、容易获得的食物中，为下一餐选一种蔬菜或水果；可记入备忘。"
+      ],
+      "scene": "考虑下一餐吃什么时。",
+      "duration": "约30秒",
+      "sourceId": "source-18",
+      "tags": [
+        "food"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {
+        "trueFields": [
+          "atMeal"
+        ]
+      }
+    },
+    {
+      "id": "19",
+      "title": "睡前收束一件事",
+      "category": "起居安排",
+      "steps": [
+        "保存正在做的内容，记下一件明天继续的小事，再关闭一个暂时不用的页面或设备。"
+      ],
+      "scene": "接近自己计划的休息时间。",
+      "duration": "约1分钟",
+      "sourceId": "source-19",
+      "tags": [
+        "sleep",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "traditional",
+      "requirements": {}
+    },
+    {
+      "id": "20",
+      "title": "准备明天的一样物品",
+      "category": "起居安排",
+      "steps": [
+        "选一样明天会用到的物品，如钥匙、书本或衣物，放到容易找到的位置；完成一件就结束。"
+      ],
+      "scene": "晚间有空、准备结束一天时。",
+      "duration": "约1分钟",
+      "sourceId": "source-20",
+      "tags": [
+        "sleep",
+        "environment"
+      ],
+      "hours": [
+        0,
+        17,
+        18,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {}
+    },
+    {
+      "id": "21",
+      "title": "给下一段生活留个时间",
+      "category": "起居安排",
+      "steps": [
+        "为下一餐或今晚的睡前准备选一个大致时间；如果需要提醒，再点击确认。"
+      ],
+      "scene": "晨间、午间或晚间主动安排时。",
+      "duration": "约30秒",
+      "sourceId": "source-21",
+      "tags": [
+        "sleep",
+        "food"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "traditional",
+      "requirements": {}
+    },
+    {
+      "id": "22",
+      "title": "出门前看看天气",
+      "category": "环境照顾",
+      "steps": [
+        "查看当地天气和实际体感，再决定是否带外套、雨具或调整衣着。"
+      ],
+      "scene": "准备外出或天气变化明显时。",
+      "duration": "约30秒",
+      "sourceId": "source-22",
+      "tags": [
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {
+        "trueFields": [
+          "goingOut"
+        ],
+        "weatherFresh": true
+      }
+    },
+    {
+      "id": "23",
+      "title": "条件合适再通风",
+      "category": "环境照顾",
+      "steps": [
+        "先看室外空气、温度与风雨情况；条件合适且窗户可安全操作时，适当通风。",
+        "条件不合适就跳过。"
+      ],
+      "scene": "室内停留较久，想调整环境时。",
+      "duration": "约30秒启动",
+      "sourceId": "source-23",
+      "tags": [
+        "environment"
+      ],
+      "hours": [],
+      "night": false,
+      "origin": "modern",
+      "requirements": {
+        "weatherFresh": true,
+        "falseFields": [
+          "weather.rain"
+        ]
+      }
+    },
+    {
+      "id": "24",
+      "title": "检查晚间照明",
+      "category": "环境照顾",
+      "steps": [
+        "看看灯光是否刺眼或太暗，按当前活动调到柔和且看得清的位置；准备入睡时再关闭不需要的灯。"
+      ],
+      "scene": "晚间学习或准备休息时。",
+      "duration": "约30秒",
+      "sourceId": "source-24",
+      "tags": [
+        "environment",
+        "sleep"
+      ],
+      "hours": [
+        21,
+        22
+      ],
+      "night": true,
+      "origin": "modern",
+      "requirements": {}
+    },
+    {
+      "id": "T001",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "神门指腹轻揉",
+      "category": "穴位轻揉",
+      "steps": [
+        "手掌朝上，找到腕横纹靠小指一端；在可触到的肌腱靠拇指一侧找小凹陷。",
+        "用另一手拇指指腹轻揉片刻，再换手；以舒服为度，不用指甲掐压。"
+      ],
+      "scene": "原地停留，双手空闲时。",
+      "duration": "约40秒",
+      "sourceId": "T-S01",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T002",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "鱼际轻揉",
+      "category": "穴位轻揉",
+      "steps": [
+        "手掌朝上，沿拇指根部的掌骨找到其中段；在靠拇指外侧、掌背肤色交界附近定位。",
+        "另一手拇指指腹在此轻轻画小圈，两手轮换；不追求酸痛。"
+      ],
+      "scene": "用手之后的小休息。",
+      "duration": "约40秒",
+      "sourceId": "T-S02",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T003",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "曲池轻揉",
+      "category": "穴位轻揉",
+      "steps": [
+        "屈肘略成直角，手心朝身体，找到肘横纹外侧端的小凹陷。",
+        "用另一手拇指指腹轻揉，肘臂保持放松；换侧重复。"
+      ],
+      "scene": "肘部可以自然弯曲时。",
+      "duration": "约40秒",
+      "sourceId": "T-S03",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T004",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "手三里轻揉",
+      "category": "穴位轻揉",
+      "steps": [
+        "肘部弯曲，从肘横纹外侧端沿前臂外侧向手腕方向量约本人三横指宽。",
+        "在这处肌肉上用另一手拇指指腹轻揉片刻，换侧；不压骨头或用力寻找痛点。"
+      ],
+      "scene": "手臂空闲，原地可操作时。",
+      "duration": "约40秒",
+      "sourceId": "T-S04",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T005",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "后溪轻揉",
+      "category": "穴位轻揉",
+      "steps": [
+        "轻轻握拳，找到小指侧掌边、靠近小指根部关节后方的掌横纹尽头。",
+        "另一手拇指指腹轻揉该处，再换手；不在桌沿上用力碾压。"
+      ],
+      "scene": "键盘或手工作业后的停顿。",
+      "duration": "约40秒",
+      "sourceId": "T-S05",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T006",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "外关轻揉",
+      "category": "穴位轻揉",
+      "steps": [
+        "手背朝上，从腕背横纹向肘方向量约本人三横指宽，取前臂背侧两骨之间的位置。",
+        "另一手拇指指腹轻轻按揉，再换手；手腕保持自然，不同时夹压腕部。"
+      ],
+      "scene": "双手空闲、前臂方便触及时。",
+      "duration": "约40秒",
+      "sourceId": "T-S06",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T007",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "掌心轻摩",
+      "category": "摩手干浴",
+      "steps": [
+        "双掌自然相对，轻轻来回摩擦几次，肩膀保持放松。",
+        "感到微温便停，让双手自然垂放；不持续搓到发烫。"
+      ],
+      "scene": "空间小也能做的手部短练习。",
+      "duration": "约20秒",
+      "sourceId": "T-S07",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T008",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "前臂轻摩",
+      "category": "摩手干浴",
+      "steps": [
+        "一侧前臂放松，用另一手手掌从肘下沿前臂轻抚到腕上，避开骨头突起。",
+        "来回轻抚几次后换侧，隔薄衣也可以，不磨擦发红。"
+      ],
+      "scene": "双臂方便触及时。",
+      "duration": "约40秒",
+      "sourceId": "T-S07",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T009",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "坐姿双腿干浴",
+      "category": "摩手干浴",
+      "steps": [
+        "坐稳，两脚着地，把双掌轻放在大腿前侧。",
+        "从大腿中段轻抚到膝上再回到原处，重复几次；不到膝关节上用力按压。"
+      ],
+      "scene": "坐稳且双腿上方没有物品时。",
+      "duration": "约30秒",
+      "sourceId": "T-S07",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T010",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "十指轻梳发",
+      "category": "梳发摩面",
+      "steps": [
+        "将指腹轻放在前额发际，沿头皮向后缓缓梳到头顶和后部。",
+        "轻梳几遍，遇到打结头发绕开，不拉扯；最后把手放下。"
+      ],
+      "scene": "头发可自由梳理，双手清洁时。",
+      "duration": "约30秒",
+      "sourceId": "T-S08",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T011",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "停屏后轻摩前额",
+      "category": "梳发摩面",
+      "steps": [
+        "暂停阅读，让视线自然停在前方；用清洁指腹轻贴额头中部。",
+        "沿额头向左右轻轻抚开几次，只在眉毛上方皮肤滑过，不接触眼睑和眼球。"
+      ],
+      "scene": "看屏或读书后，想让眉额轻松一点时。",
+      "duration": "约20秒",
+      "sourceId": "T-S09",
+      "tags": [
+        "eye",
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T012",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "双颊轻抚",
+      "category": "梳发摩面",
+      "steps": [
+        "清洁双手，把指腹轻放在两侧面颊，避开眼周。",
+        "从面颊上方向下轻抚到下颌边缘，做几次便停；不拉扯皮肤，不按颈前。"
+      ],
+      "scene": "面部皮肤完好、愿意短暂整理仪容时。",
+      "duration": "约20秒",
+      "sourceId": "T-S09",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T013",
+      "origin": "traditional",
+      "basis": "traditional-practice",
+      "title": "耳廓轻揉",
+      "category": "梳发摩面",
+      "steps": [
+        "若戴着耳机先取下，清洁指腹轻触外耳廓和耳垂。",
+        "沿外耳边缘轻揉一圈再放开；不伸进耳道，不拉扯耳饰或用力拽耳朵。"
+      ],
+      "scene": "周围安静、耳部没有不适时。",
+      "duration": "约30秒",
+      "sourceId": "T-S09",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T014",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "双掌小幅上托",
+      "category": "简化导引",
+      "steps": [
+        "坐稳，双手松松交叠，掌心向上，从腹前缓缓抬到胸前。",
+        "在舒服范围内略向上托，再慢慢放下，做2–3次；头保持平正，呼吸自然。"
+      ],
+      "scene": "坐稳且前上方有空间时。",
+      "duration": "约40秒",
+      "sourceId": "T-S10",
+      "tags": [
+        "shoulder",
+        "hand"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T015",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "左右交替单托",
+      "category": "简化导引",
+      "steps": [
+        "坐稳，一掌在身侧轻轻向下，另一掌向上抬到自己舒服的高度。",
+        "慢慢还原后换侧，各做2次；身体保持平正，不后仰或强拉手臂。"
+      ],
+      "scene": "上方及两侧有活动空间时。",
+      "duration": "约40秒",
+      "sourceId": "T-S10",
+      "tags": [
+        "shoulder",
+        "hand"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T016",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "小幅开弓",
+      "category": "简化导引",
+      "steps": [
+        "坐稳，双手虚握停在胸前；一手向侧前方缓缓送出，另一肘稍向后收。",
+        "还原后换侧各做2次；幅度小、肩膀不耸，不使劲拉弓。"
+      ],
+      "scene": "两侧空间足够的休息间隙。",
+      "duration": "约40秒",
+      "sourceId": "T-S10",
+      "tags": [
+        "shoulder",
+        "hand"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T017",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "鸟翼缓展",
+      "category": "简化导引",
+      "steps": [
+        "坐稳，双臂从体侧缓缓向两旁抬起，最多到肩高，肘部微弯。",
+        "像收拢翅膀一样慢慢放回体侧，做2–3次；肩部始终舒服，呼吸自然。"
+      ],
+      "scene": "双臂两旁没有障碍时。",
+      "duration": "约40秒",
+      "sourceId": "T-S11",
+      "tags": [
+        "shoulder",
+        "hand"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T018",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "虎爪松握",
+      "category": "简化导引",
+      "steps": [
+        "双手放在身前，五指自然分开，再把指尖轻轻向掌心弯曲成松松的爪形。",
+        "缓缓松开手指，重复几次；不猛攥、不用指甲顶掌心。"
+      ],
+      "scene": "小空间中的手部导引体验。",
+      "duration": "约30秒",
+      "sourceId": "T-S11",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T019",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "抱圆松肩",
+      "category": "简化导引",
+      "steps": [
+        "坐稳，双手在腹前松松围成一个圆，仿佛轻抱柔软的球，肘部自然下垂。",
+        "保持几次自然呼吸，再把手放回腿上；肩膀不用力撑，手臂累了就放下。"
+      ],
+      "scene": "坐姿安定，腹前有一点空间时。",
+      "duration": "约30秒",
+      "sourceId": "T-S11",
+      "tags": [
+        "shoulder",
+        "quiet",
+        "breath"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T020",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "双臂缓起缓落",
+      "category": "简化导引",
+      "steps": [
+        "站稳，双脚自然分开；两手掌心向下，缓缓向前抬起至腹部或胸部高度。",
+        "双肘微弯，慢慢把手放回体侧，做2–3次；不蹲压膝盖，呼吸自然。"
+      ],
+      "scene": "可以起身且前方空间足够时。",
+      "duration": "约40秒",
+      "sourceId": "T-S11",
+      "tags": [
+        "shoulder",
+        "walk"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T021",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "坐姿轻转躯干",
+      "category": "简化导引",
+      "steps": [
+        "坐稳，两脚着地，双手放在腿上；胸口和肩膀一起小幅转向左侧。",
+        "缓慢回正再转向右侧，各做2次；头随躯干，不单独拧颈，也不用手扳身体。"
+      ],
+      "scene": "坐稳且两侧留有空间时。",
+      "duration": "约40秒",
+      "sourceId": "T-S11",
+      "tags": [
+        "shoulder",
+        "walk"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T022",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "扶稳左右移重心",
+      "category": "简化导引",
+      "steps": [
+        "双手扶住固定支撑，双脚与髋同宽，脚掌始终着地。",
+        "身体重量缓缓偏向左脚再回到中间，换右侧，做几次；膝盖不深蹲，身体不晃急。"
+      ],
+      "scene": "可以起身，身边有固定扶手和空间时。",
+      "duration": "约40秒",
+      "sourceId": "T-S11",
+      "tags": [
+        "walk"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough",
+          "hasSupport"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T023",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "停下近处追读",
+      "category": "停视养神",
+      "steps": [
+        "暂停当前文字或画面，不再逐字追看，也不再滑动屏幕。",
+        "眼睛自然睁着，视线放松地落在前方普通区域一小会；不需要看远或凝视一个点。"
+      ],
+      "scene": "不能离座、看远或闭目时的用眼停顿。",
+      "duration": "约30秒",
+      "sourceId": "T-S12",
+      "tags": [
+        "eye",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T024",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "自然完整眨眼",
+      "category": "停视养神",
+      "steps": [
+        "暂停近处阅读，眼睛按舒服的节奏自然眨几次。",
+        "每次让上下眼睑轻轻合拢再睁开，不挤眼、不用手碰眼睛；随后保持放松的视线。"
+      ],
+      "scene": "看屏后，可正常眨眼但不方便持续闭目时。",
+      "duration": "约20秒",
+      "sourceId": "T-S12",
+      "tags": [
+        "eye",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T025",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "停视后松开眉额",
+      "category": "停视养神",
+      "steps": [
+        "暂停近距离任务，留意自己有没有皱眉或把额头绷紧。",
+        "轻轻松开眉间，面部回到自然表情，眼睛继续睁着休息片刻；不用力抬眉或瞪眼。"
+      ],
+      "scene": "看屏或读书后，不方便闭目时。",
+      "duration": "约20秒",
+      "sourceId": "T-S12",
+      "tags": [
+        "eye",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T026",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "停屏后放下悬空手臂",
+      "category": "停视养神",
+      "steps": [
+        "暂停阅读和打字，把悬空的前臂轻放在腿上或合适的桌面；没有支撑就自然垂在身侧。",
+        "松开耸起的肩，让头回到舒服的平正位置，视线不再追字；停留几次自然呼吸。"
+      ],
+      "scene": "看屏时肩臂一直用力，且空间较小时。",
+      "duration": "约30秒",
+      "sourceId": "T-S12",
+      "tags": [
+        "eye",
+        "shoulder",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T027",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "静听一处声音",
+      "category": "静养觉察",
+      "steps": [
+        "暂停手头非紧急任务，留意周围一个平常的声音，如风声或室内轻响。",
+        "只听一小会，不分析声音的来源；注意力走开时，轻轻回到听见这一刻。"
+      ],
+      "scene": "原地安静停留，不需要闭眼时。",
+      "duration": "约30秒",
+      "sourceId": "T-S13",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T028",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "双手安放感受支撑",
+      "category": "静养觉察",
+      "steps": [
+        "坐稳，把双手自然放在大腿上，手指松开。",
+        "留意手掌与衣物接触的感觉，保持几次自然呼吸；不改变呼吸深浅。"
+      ],
+      "scene": "坐稳但不便移动、看远或闭目时。",
+      "duration": "约30秒",
+      "sourceId": "T-S13",
+      "tags": [
+        "quiet",
+        "breath"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T029",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "脚掌踏实静坐",
+      "category": "静养觉察",
+      "steps": [
+        "坐稳，把两只脚掌放在地面或已有的稳固脚踏上，膝腿保持舒服。",
+        "留意脚底受到的支撑，安静停留片刻；不跺脚，不刻意绷紧腿部。"
+      ],
+      "scene": "座椅和脚下支撑已经合适时。",
+      "duration": "约30秒",
+      "sourceId": "T-S13",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T030",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "读一小段诗文",
+      "category": "书室清赏",
+      "steps": [
+        "从手边已有的书或已打开的诗页中，选一两句容易读懂的文字。",
+        "从容读完就停，想一想其中的景物或意思，不继续追读长篇。"
+      ],
+      "scene": "眼睛愿意继续阅读、想换一种轻松内容时。",
+      "duration": "约1分钟",
+      "sourceId": "T-S14",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T031",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "写一个舒展的字",
+      "category": "书室清赏",
+      "steps": [
+        "手边有纸笔就选一个熟悉的字，轻松写一遍；没有纸笔可用指尖在掌心缓缓比画。",
+        "留意一笔一画的停顿，写完便松开手，不追求漂亮或反复改写。"
+      ],
+      "scene": "手部方便活动，想做一点清静小事时。",
+      "duration": "约40秒",
+      "sourceId": "T-S14",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T032",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "心中慢咏一句诗",
+      "category": "书室清赏",
+      "steps": [
+        "选一句自己熟悉的短诗，在心里按自然语速默念一遍。",
+        "停一会儿，想象诗中的一处景象；照常呼吸，不把整句硬塞进一次呼气。"
+      ],
+      "scene": "不想继续看屏，也不方便出声时。",
+      "duration": "约30秒",
+      "sourceId": "T-S14",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T033",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "回应前留一个停顿",
+      "category": "平心少事",
+      "steps": [
+        "面对一条让自己着急的非紧急信息，先暂停回复动作，双手放松。",
+        "让几次呼吸自然经过，再想清楚自己要表达的一个重点，然后自行决定何时回应。"
+      ],
+      "scene": "手头事情可以稍停片刻时。",
+      "duration": "约30秒",
+      "sourceId": "T-S15",
+      "tags": [
+        "quiet",
+        "breath"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T034",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "留意一件已足够的小事",
+      "category": "平心少事",
+      "steps": [
+        "想一想此刻已经具备的一件小便利，例如有坐处、有一段空闲或事情已经完成一部分。",
+        "在心里说清楚它是什么，允许自己停留片刻，再回到当前生活。"
+      ],
+      "scene": "原地可做的短暂自我整理。",
+      "duration": "约30秒",
+      "sourceId": "T-S16",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T035",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "给一件非急事暂时收尾",
+      "category": "平心少事",
+      "steps": [
+        "选一件此刻不用立即完成的小事，记住或写下它目前停在哪一步。",
+        "把相关物品放回手边固定位置，允许这件事暂时停下，不同时开启新的任务。"
+      ],
+      "scene": "同时牵挂许多小事时。",
+      "duration": "约1分钟",
+      "sourceId": "T-S15",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T036",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "一次只留下一个任务",
+      "category": "平心少事",
+      "steps": [
+        "看一眼正在同时处理的几件事情，选定接下来只做其中一件。",
+        "把其余资料合上或暂放到旁边，整理出眼前这一件事需要的位置。"
+      ],
+      "scene": "工作台面或屏幕任务较杂时。",
+      "duration": "约40秒",
+      "sourceId": "T-S15",
+      "tags": [
+        "quiet",
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T037",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "休息前放下比较",
+      "category": "静养起居",
+      "steps": [
+        "准备休息时，暂停一段让自己不断比较进度或得失的浏览。",
+        "在心里确认今天已经做过的一件事，把注意力放回当下安静的环境。"
+      ],
+      "scene": "临近本人休息时间，想停止继续刷信息时。",
+      "duration": "约40秒",
+      "sourceId": "T-S16",
+      "tags": [
+        "sleep",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T038",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "安放枕被",
+      "category": "静养起居",
+      "steps": [
+        "准备躺下前，把枕头、被角整理到自己舒服且不妨碍翻身的位置。",
+        "躺下后若肩颈仍别扭，轻轻调整一次再安定，不堆高枕头强行固定姿势。"
+      ],
+      "scene": "正在准备本人这一段睡眠时。",
+      "duration": "约1分钟",
+      "sourceId": "T-S17",
+      "tags": [
+        "sleep",
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T039",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "头脸留出呼吸空间",
+      "category": "静养起居",
+      "steps": [
+        "准备休息时检查被子是否遮住头脸，轻轻把被沿移到舒服的位置。",
+        "保留口鼻周围的空间，温度不合适时调整被量，不蒙头憋在被内。"
+      ],
+      "scene": "已到本人休息时间，正在整理床铺时。",
+      "duration": "约30秒",
+      "sourceId": "T-S17",
+      "tags": [
+        "sleep",
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T040",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "读书间隙换个姿势",
+      "category": "劳逸小事",
+      "steps": [
+        "读完一小段后先合上书，放稳手中的东西，再缓缓起身站稳。",
+        "自然站一小会，肩手放松，然后按自己的需要继续阅读或坐回去。"
+      ],
+      "scene": "可以离座，地面平整通畅时。",
+      "duration": "约40秒",
+      "sourceId": "T-S12",
+      "tags": [
+        "walk",
+        "quiet"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T043",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "劳作中留一个松手间隙",
+      "category": "劳逸小事",
+      "steps": [
+        "做了一阵手工或家务后，把工具放在稳妥的位置，暂时松开用力握持的手。",
+        "让手臂自然垂放，看看接下来的工作能否分小段进行，再决定继续或休息。"
+      ],
+      "scene": "可以安全放下工具的作业间隙。",
+      "duration": "约40秒",
+      "sourceId": "T-S12",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T044",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "换掉潮湿的一层",
+      "category": "衣着安处",
+      "steps": [
+        "运动或淋雨后，摸一摸贴身衣物是否仍潮湿贴身。",
+        "若有潮湿的一层，准备干爽衣物，在合适的私密地点换好，再整理原来的湿衣。"
+      ],
+      "scene": "衣物潮湿且可以去更衣时。",
+      "duration": "按需约2分钟",
+      "sourceId": "T-S17",
+      "tags": [
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T045",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "松一松束发与衣领",
+      "category": "衣着安处",
+      "steps": [
+        "留意发绳、帽带或衣领是否勒得紧；先把方便调整的一处松开一点。",
+        "整理到不牵扯头皮、不压住颈部且不影响活动的位置，身体自然放松。"
+      ],
+      "scene": "衣发束得较紧，方便自行整理时。",
+      "duration": "约30秒",
+      "sourceId": "T-S20",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T046",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "餐前安顿心情",
+      "category": "饮食有节",
+      "steps": [
+        "准备进餐时，先坐稳，把刚才急着处理的事情暂放一下。",
+        "看一眼眼前食物，自然呼吸几次，再从容开始第一口。"
+      ],
+      "scene": "食物已准备好，正要进餐时。",
+      "duration": "约30秒",
+      "sourceId": "T-S18",
+      "tags": [
+        "food",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "atMeal",
+          "sitting"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T047",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "让一口食物慢下来",
+      "category": "饮食有节",
+      "steps": [
+        "取平常能吃的一小口，放下夹取下一口的动作。",
+        "按舒服的速度充分咀嚼、吞咽后，再吃下一口；不追求固定咀嚼次数。"
+      ],
+      "scene": "正在正常用餐时。",
+      "duration": "从下一口开始",
+      "sourceId": "T-S18",
+      "tags": [
+        "food"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "atMeal"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T048",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "添饭前看看饱足感",
+      "category": "饮食有节",
+      "steps": [
+        "准备继续添饭时先停一下，留意自己是仍饿，还是只是顺手要添。",
+        "按此刻胃口决定合适的份量，已经舒服就先停，不勉强吃完过量食物。"
+      ],
+      "scene": "用餐中准备加添食物时。",
+      "duration": "约20秒",
+      "sourceId": "T-S18",
+      "tags": [
+        "food"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "atMeal"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T049",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "先尝再加调味",
+      "category": "饮食有节",
+      "steps": [
+        "准备加盐或蘸料前，先尝一小口已经做好的食物。",
+        "若味道已合适便不再添加；需要时少量加入，不用固定口味替自己做决定。"
+      ],
+      "scene": "正在用餐，调味品在手边时。",
+      "duration": "约20秒",
+      "sourceId": "T-S18",
+      "tags": [
+        "food"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "atMeal"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T050",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "餐后清水漱口",
+      "category": "饮食清洁",
+      "steps": [
+        "吃完后到方便吐水的地方，取一小口温度舒适的清水。",
+        "在口中轻轻漱动后吐出，重复一两次；不以漱口替代正常刷牙。"
+      ],
+      "scene": "刚结束进餐，已有饮用水且可去洗漱处时。",
+      "duration": "约30秒",
+      "sourceId": "T-S18",
+      "tags": [
+        "food",
+        "water"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "atMeal",
+          "waterAvailable",
+          "canLeaveSeat"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T051",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "热食先放到适口",
+      "category": "饮食有节",
+      "steps": [
+        "面前食物还冒热气时，先放稳餐具，给它一点自然降温的时间。",
+        "从边缘取很小一口试温，适口后再吃；不急着大口吞咽。"
+      ],
+      "scene": "正在吃热饭热汤时。",
+      "duration": "约30秒起",
+      "sourceId": "T-S18",
+      "tags": [
+        "food"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "atMeal"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T052",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "看看这一餐的搭配",
+      "category": "饮食有节",
+      "steps": [
+        "看一眼已经上桌的食物，辨认其中的主食、蔬菜和自己平时能吃的蛋白类食物。",
+        "若某一类明显缺少，先记在下一餐的准备里；这一餐不为凑齐而强吃。"
+      ],
+      "scene": "用餐时愿意简单看看搭配。",
+      "duration": "约30秒",
+      "sourceId": "T-S21",
+      "tags": [
+        "food"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "atMeal"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T053",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "餐前洗净双手",
+      "category": "饮食清洁",
+      "steps": [
+        "准备吃东西前，先暂停取食，到有流动水和洗手用品的地方。",
+        "按平常方式洗净双手并擦干，再回到餐桌开始进餐。"
+      ],
+      "scene": "正要进餐，可以去洗手处时。",
+      "duration": "约40秒",
+      "sourceId": "T-S21",
+      "tags": [
+        "food",
+        "hand"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "atMeal",
+          "canLeaveSeat"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T054",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "给水杯做一次清洁",
+      "category": "茶水小事",
+      "steps": [
+        "到可清洗的地方，把随身杯中不再饮用的残液倒掉。",
+        "按杯具平常的方式洗净并放稳，再装入自己需要的饮用水。"
+      ],
+      "scene": "手边有清水，方便暂时离开座位时。",
+      "duration": "约1分钟",
+      "sourceId": "T-S19",
+      "tags": [
+        "water",
+        "environment"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "waterAvailable",
+          "canLeaveSeat"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T055",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "入餐前看看食物状态",
+      "category": "饮食清洁",
+      "steps": [
+        "拿取准备食用的食物时，先查看包装、保存状态和有无明显变质。",
+        "不新鲜或来源状态不清楚的先放下，不试吃来判断，换成平时能放心食用的食物。"
+      ],
+      "scene": "准备取餐、加餐或整理食物时。",
+      "duration": "约30秒",
+      "sourceId": "T-S19",
+      "tags": [
+        "food",
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "atMeal"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T056",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "把刺眼反光遮开一点",
+      "category": "居室养目",
+      "steps": [
+        "先停下阅读，看看窗光或灯光是否正映在纸面、屏幕或眼前。",
+        "轻调屏幕角度、书页方向或手边遮光帘，让反光离开视线，再继续任务。"
+      ],
+      "scene": "当前有明显反光，相关物品在可及范围时。",
+      "duration": "约30秒",
+      "sourceId": "T-S19",
+      "tags": [
+        "eye",
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T057",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "离开直吹的一小处",
+      "category": "居室安处",
+      "steps": [
+        "留意风口或门缝是否持续直吹自己，先确定是哪一侧。",
+        "在方便且安全时稍微调整坐处或风向，以体感舒服为准，不把室内关得闷热。"
+      ],
+      "scene": "可以调整座位或身边送风方向时。",
+      "duration": "约30秒",
+      "sourceId": "T-S19",
+      "tags": [
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T058",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "按体感整理外搭",
+      "category": "衣着安处",
+      "steps": [
+        "出门前感受一下现有衣着是否过冷、过热或妨碍活动。",
+        "把手边外搭的开合或层数调整到舒服，再走到门边确认随身物品不会牵扯衣物。"
+      ],
+      "scene": "准备外出，可自行调整衣着时。",
+      "duration": "约40秒",
+      "sourceId": "T-S20",
+      "tags": [
+        "environment"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "goingOut"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T059",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "给床边留一条通路",
+      "category": "居室安处",
+      "steps": [
+        "准备休息前，看看床边到门口或洗手间方向有没有一件挡路的小物品。",
+        "把它收进固定位置，再确认脚下可辨认、通路可走；不在昏暗中搬重物。"
+      ],
+      "scene": "准备休息，能看清脚下并可起身整理时。",
+      "duration": "约1分钟",
+      "sourceId": "T-S17",
+      "tags": [
+        "environment",
+        "sleep"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat"
+        ],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "T060",
+      "origin": "traditional",
+      "basis": "traditional-inspired",
+      "title": "安顿一个清静位置",
+      "category": "居室安处",
+      "steps": [
+        "在现有空间里选一个能稳妥停留的位置，把眼前与休息无关的零散物品收拢到一边。",
+        "在这里安静停留片刻，不继续整理更多地方，让这段休息到此就好。"
+      ],
+      "scene": "可在原位简单收拢手边物品时。",
+      "duration": "约1分钟",
+      "sourceId": "T-S16",
+      "tags": [
+        "environment",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "M001",
+      "origin": "modern",
+      "title": "把字调到轻松可读",
+      "category": "感官休息",
+      "steps": [
+        "打开正在阅读页面的字号或缩放设置，略微放大文字。",
+        "让文字保持清晰、行尾完整；不用凑近屏幕辨认。"
+      ],
+      "scene": "已在看屏幕，文字显得费力时。",
+      "duration": "约30秒",
+      "tags": [
+        "eye"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-screen"
+    },
+    {
+      "id": "M003",
+      "origin": "modern",
+      "title": "让屏幕亮度与周围协调",
+      "category": "感官休息",
+      "steps": [
+        "打开亮度调节，把刺眼的亮度缓慢调低，或把过暗的文字调清楚。",
+        "回到原页面看一眼，以舒服、看得清为准。"
+      ],
+      "scene": "看屏幕时感觉过亮或过暗。",
+      "duration": "约30秒",
+      "tags": [
+        "eye"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-screen"
+    },
+    {
+      "id": "M005",
+      "origin": "modern",
+      "title": "切换简洁阅读版式",
+      "category": "感官休息",
+      "steps": [
+        "看看当前页面是否提供阅读模式，若有就打开。",
+        "将遮挡文字的浮层收起，保留正文；没有阅读模式时，只关闭可关闭的浮层即可。"
+      ],
+      "scene": "网页或文档内容拥挤时。",
+      "duration": "约30秒",
+      "tags": [
+        "eye"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-screen"
+    },
+    {
+      "id": "M006",
+      "origin": "modern",
+      "title": "暂停不停滚动的画面",
+      "category": "感官休息",
+      "steps": [
+        "先暂停正在播放或自动滚动的内容，让画面静止。",
+        "手指离开滑动区域片刻，让眼睛不用继续追着画面走。"
+      ],
+      "scene": "刷视频、动态列表或滚动文字时。",
+      "duration": "约30秒",
+      "tags": [
+        "eye",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-screen"
+    },
+    {
+      "id": "M007",
+      "origin": "modern",
+      "title": "只留一个阅读窗口",
+      "category": "感官休息",
+      "steps": [
+        "把当前不看的分屏或悬浮小窗最小化。",
+        "将注意力放回一份内容，暂时不来回切换。"
+      ],
+      "scene": "屏幕上同时显示多份内容时。",
+      "duration": "约30秒",
+      "tags": [
+        "eye"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-screen"
+    },
+    {
+      "id": "M008",
+      "origin": "modern",
+      "title": "把密集文字排松一点",
+      "category": "感官休息",
+      "steps": [
+        "在支持排版的阅读器或文档中，适当增加行距；普通网页可切换已有的简洁排版。",
+        "保持一行文字不被裁掉，以能顺畅阅读为准；无需安装新工具。"
+      ],
+      "scene": "文字挤在一起时。",
+      "duration": "约30秒",
+      "tags": [
+        "eye"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-screen"
+    },
+    {
+      "id": "M010",
+      "origin": "modern",
+      "title": "让屏幕回到正前方",
+      "category": "感官休息",
+      "steps": [
+        "坐稳，把正在使用的屏幕朝向身体正前方，避免一直歪头看。",
+        "手持设备只做轻微调整；桌面设备只在轻便、方便移动时调整。"
+      ],
+      "scene": "坐着看屏幕，身体与屏幕方向不一致时。",
+      "duration": "约30秒",
+      "tags": [
+        "eye"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-hse"
+    },
+    {
+      "id": "M011",
+      "origin": "modern",
+      "title": "把对照材料摆在顺手一侧",
+      "category": "感官休息",
+      "steps": [
+        "坐稳，看看正在对照的材料和屏幕是否分得过远。",
+        "将手边轻便材料移到容易看见的位置，减少反复大幅转头；不用伸手够远处物品。"
+      ],
+      "scene": "坐着一边看材料、一边看屏幕时。",
+      "duration": "约30秒",
+      "tags": [
+        "eye"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "hasSupport"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-organize"
+    },
+    {
+      "id": "M012",
+      "origin": "modern",
+      "title": "给阅读进度留个标记",
+      "category": "感官休息",
+      "steps": [
+        "给当前段落添加书签，或记下章节、页码。",
+        "保存位置后暂时停止近距离阅读，睁眼休息片刻。"
+      ],
+      "scene": "担心离开页面后找不到进度时。",
+      "duration": "约30秒",
+      "tags": [
+        "eye",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-screen"
+    },
+    {
+      "id": "M013",
+      "origin": "modern",
+      "title": "拇指依次轻触指尖",
+      "category": "手肩舒展",
+      "steps": [
+        "保持当前稳妥、舒服的姿势，手臂放松，拇指依次轻触同手食指、中指、无名指和小指的指尖。",
+        "每只手慢慢做一轮，轻触即可，不用捏紧。"
+      ],
+      "scene": "双手暂时空闲时，无需改变所在位置。",
+      "duration": "约30秒",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-arm"
+    },
+    {
+      "id": "M014",
+      "origin": "modern",
+      "title": "手肘轻松弯伸",
+      "category": "手肩舒展",
+      "steps": [
+        "保持当前稳妥、舒服的姿势，肩放松，双肘靠近身体。",
+        "前臂缓慢弯起再放下，做2–3次，肘部不用伸到最直。"
+      ],
+      "scene": "身前可以小幅活动前臂时，无需离座或改变位置。",
+      "duration": "约30秒",
+      "tags": [
+        "hand",
+        "shoulder"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-micro"
+    },
+    {
+      "id": "M015",
+      "origin": "modern",
+      "title": "手心慢慢翻转",
+      "category": "手肩舒展",
+      "steps": [
+        "保持当前稳妥、舒服的姿势，双肘轻贴身体，前臂向前，掌心先朝上。",
+        "在舒服范围内缓慢转为掌心朝下，再转回，做2–3次；肩和上臂保持放松。"
+      ],
+      "scene": "前臂能在身前小幅活动时，无需改变所在位置。",
+      "duration": "约30秒",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-arm"
+    },
+    {
+      "id": "M016",
+      "origin": "modern",
+      "title": "肩部轻轻画小圈",
+      "category": "手肩舒展",
+      "steps": [
+        "保持当前稳妥、舒服的姿势，双臂自然放松。",
+        "双肩小幅向后绕2–3圈，再回到自然位置；不抬高手臂、不追求大圈。"
+      ],
+      "scene": "想换一下肩部姿势时，无需离座或改变位置。",
+      "duration": "约30秒",
+      "tags": [
+        "shoulder",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-micro"
+    },
+    {
+      "id": "M017",
+      "origin": "modern",
+      "title": "转头看向左右",
+      "category": "手肩舒展",
+      "steps": [
+        "坐稳，肩放松，先平视前方。",
+        "缓慢转头向左，再回正、转向右，各做1–2次，只到舒服的位置，不用手扳头。"
+      ],
+      "scene": "坐着，周围不会干扰小幅转头时。",
+      "duration": "约30秒",
+      "tags": [
+        "shoulder"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "sitting"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-seated"
+    },
+    {
+      "id": "M018",
+      "origin": "modern",
+      "title": "坐姿交替抬膝",
+      "category": "轻量活动",
+      "steps": [
+        "坐在稳固座椅上，双脚落地，双手轻扶座椅两侧。",
+        "保持上身稳定，轮流小幅抬起一侧膝盖再放下，各做2–3次。"
+      ],
+      "scene": "坐稳，有扶持位置且腿前方有空间时。",
+      "duration": "约30秒",
+      "tags": [
+        "walk"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "hasSupport",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-seated"
+    },
+    {
+      "id": "M019",
+      "origin": "modern",
+      "title": "轻轻打开胸前",
+      "category": "手肩舒展",
+      "steps": [
+        "坐稳，双臂在身体两侧略微打开，肩向后下方轻松放置。",
+        "胸前轻轻展开几秒，再回到自然坐姿，做2次，不挺腰用力。"
+      ],
+      "scene": "坐稳，身体两侧有活动空间时。",
+      "duration": "约30秒",
+      "tags": [
+        "shoulder"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-seated"
+    },
+    {
+      "id": "M021",
+      "origin": "modern",
+      "title": "让双脚得到承托",
+      "category": "起居安排",
+      "steps": [
+        "坐稳，将交叠的双腿放开，让双脚放在能稳妥承托的位置。",
+        "左右脚自然分开，膝部放松；不要踮脚够地或悬空用力。"
+      ],
+      "scene": "久坐后想换一下腿部位置时。",
+      "duration": "约20秒",
+      "tags": [
+        "walk",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-body"
+    },
+    {
+      "id": "M022",
+      "origin": "modern",
+      "title": "给下背部一个支撑",
+      "category": "起居安排",
+      "steps": [
+        "坐稳，轻微调整坐的位置，让下背部接触已有靠背或支撑。",
+        "保持肩放松，再检查手边物品是否仍够得到。"
+      ],
+      "scene": "坐着，已有合适靠背或支撑时。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet",
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "hasSupport"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-hse"
+    },
+    {
+      "id": "M023",
+      "origin": "modern",
+      "title": "把常用输入设备移近一点",
+      "category": "起居安排",
+      "steps": [
+        "坐稳，看看键盘、鼠标或手持设备是否让你一直伸着手。",
+        "只移动手边轻便设备，让肘部靠近身体，手腕轻松；不用把身体探出去。"
+      ],
+      "scene": "坐着操作设备，手臂一直伸出时。",
+      "duration": "约30秒",
+      "tags": [
+        "hand",
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "hasSupport"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-hse"
+    },
+    {
+      "id": "M024",
+      "origin": "modern",
+      "title": "让手持设备有个稳妥落点",
+      "category": "起居安排",
+      "steps": [
+        "坐稳，将暂时不用手持的手机或平板放到手边稳固、平坦的位置。",
+        "双手自然放下片刻；继续使用时再以轻松握持的方式拿起。"
+      ],
+      "scene": "坐着用手机，手边有稳固承托面时。",
+      "duration": "约30秒",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "hasSupport"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-organize"
+    },
+    {
+      "id": "M025",
+      "origin": "modern",
+      "title": "听见身边三种声音",
+      "category": "呼吸静心",
+      "steps": [
+        "保持睁眼和自然呼吸，留意身边已经存在的声音。",
+        "在心里依次说出听见的三种声音；只听到一两种也可以结束。"
+      ],
+      "scene": "想安静片刻，不方便离座或闭目时。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet",
+        "breath"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-quiet"
+    },
+    {
+      "id": "M026",
+      "origin": "modern",
+      "title": "在眼前找三种颜色",
+      "category": "呼吸静心",
+      "steps": [
+        "保持自然姿势，在当前视野里留意三种颜色。",
+        "在心里轻轻说出它们的名字，不用寻找远处目标。"
+      ],
+      "scene": "清醒但思绪繁杂时。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-quiet"
+    },
+    {
+      "id": "M027",
+      "origin": "modern",
+      "title": "留意手指碰到的触感",
+      "category": "呼吸静心",
+      "steps": [
+        "坐稳，把指腹轻放在手边平整、常温的桌面或扶手上。",
+        "留意表面是光滑还是有细小纹理，轻触片刻后自然收手。"
+      ],
+      "scene": "坐着，手边有适合轻触的支撑面时。",
+      "duration": "约20秒",
+      "tags": [
+        "quiet",
+        "hand"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "hasSupport"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-quiet"
+    },
+    {
+      "id": "M028",
+      "origin": "modern",
+      "title": "给此刻的心情取个名字",
+      "category": "呼吸静心",
+      "steps": [
+        "保持睁眼，想一想此刻更接近平静、着急、疲倦，还是别的感受。",
+        "在心里用一个词说出来，再把注意力放回眼前；不用马上改变感受。"
+      ],
+      "scene": "想整理一下当下状态时。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-quiet"
+    },
+    {
+      "id": "M029",
+      "origin": "modern",
+      "title": "把杂念缩成一个标题",
+      "category": "呼吸静心",
+      "steps": [
+        "留意刚才反复冒出的一个念头，用几个字给它取个标题。",
+        "告诉自己稍后再处理这一件事，暂时回到正在做的事情上。"
+      ],
+      "scene": "被杂念打断，但仍准备继续当前任务时。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-quiet"
+    },
+    {
+      "id": "M030",
+      "origin": "modern",
+      "title": "想起一件轻松的小事",
+      "category": "呼吸静心",
+      "steps": [
+        "回想今天一件让你稍微轻松或愉快的小事。",
+        "在心里说出一个具体细节，停留片刻即可，不需要强迫自己开心。"
+      ],
+      "scene": "清醒时的安静间隙。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-quiet"
+    },
+    {
+      "id": "M031",
+      "origin": "modern",
+      "title": "发送消息前停一下",
+      "category": "呼吸静心",
+      "steps": [
+        "先暂停点击发送，把准备发出的文字轻轻读一遍。",
+        "看看表达是否清楚，再决定发送、修改或暂存。"
+      ],
+      "scene": "正在回复消息，想慢一点作出回应时。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-quiet"
+    },
+    {
+      "id": "M032",
+      "origin": "modern",
+      "title": "给刚完成的事收个尾",
+      "category": "呼吸静心",
+      "steps": [
+        "想一想刚才已经做完的一件具体事情。",
+        "在心里确认“这件已完成”，让自己停顿片刻再转向下一件。"
+      ],
+      "scene": "两项任务之间，或夜间仍清醒时。",
+      "duration": "约20秒",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-quiet"
+    },
+    {
+      "id": "M033",
+      "origin": "modern",
+      "title": "把耳机音量调低一档",
+      "category": "感官休息",
+      "steps": [
+        "暂停手头操作，将正在使用的耳机音量适当调低。",
+        "听一会儿，以能轻松听清的较低音量为宜，不为盖住环境声而继续加大。"
+      ],
+      "scene": "戴着耳机听内容时。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "headphones"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-listening"
+    },
+    {
+      "id": "M034",
+      "origin": "modern",
+      "title": "看看设备的音量限制",
+      "category": "感官休息",
+      "steps": [
+        "打开设备声音或耳机设置，寻找音量限制、较高音量提醒等现成功能。",
+        "若支持，按界面说明启用；没有这一功能就保留较低音量，不必另装软件。"
+      ],
+      "scene": "使用耳机，愿意做一次声音设置时。",
+      "duration": "约45秒",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "headphones"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-listening"
+    },
+    {
+      "id": "M035",
+      "origin": "modern",
+      "title": "查看最近的耳机聆听提示",
+      "category": "感官休息",
+      "steps": [
+        "在设备已有的健康或声音设置中，查看耳机聆听时长、声级或提醒。",
+        "若出现高音量或长时间提示，按设备提示减小音量并安排休息；没有记录则结束查看。"
+      ],
+      "scene": "使用耳机，设备可能提供聆听记录时。",
+      "duration": "约45秒",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "headphones"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-listening"
+    },
+    {
+      "id": "M036",
+      "origin": "modern",
+      "title": "减少不必要的操作提示音",
+      "category": "环境照顾",
+      "steps": [
+        "看看键盘点击、界面按键等提示音是否会打断当下的安静。",
+        "按需要降低或关闭这些操作音，保留自己需要的来电和提醒。"
+      ],
+      "scene": "夜间仍清醒或想保持安静时。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet",
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-organize"
+    },
+    {
+      "id": "M037",
+      "origin": "modern",
+      "title": "清出手边一小块空位",
+      "category": "环境照顾",
+      "steps": [
+        "坐稳，只整理伸手可及的桌面或支撑面。",
+        "把一两件轻便杂物移到旁边固定位置，给双手留出一小块空位。"
+      ],
+      "scene": "坐着，手边有可整理的支撑面时。",
+      "duration": "约30秒",
+      "tags": [
+        "environment",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "hasSupport"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-organize"
+    },
+    {
+      "id": "M038",
+      "origin": "modern",
+      "title": "把常用小物放到顺手处",
+      "category": "环境照顾",
+      "steps": [
+        "坐稳，找出接下来会用到的一件轻便小物。",
+        "将它放到不用前探或扭身就能拿到的位置；只移动已经够得到的物品。"
+      ],
+      "scene": "坐着，手边物品较散时。",
+      "duration": "约30秒",
+      "tags": [
+        "environment",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "hasSupport"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-organize"
+    },
+    {
+      "id": "M039",
+      "origin": "modern",
+      "title": "给水杯留个稳当位置",
+      "category": "环境照顾",
+      "steps": [
+        "坐稳，把手边水杯或水瓶放在平稳的位置，离桌边和设备稍远些。",
+        "确认不会挡住手臂活动，也没有压住电线。"
+      ],
+      "scene": "坐着，手边有饮水和稳固支撑面时。",
+      "duration": "约30秒",
+      "tags": [
+        "water",
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "hasSupport",
+          "waterAvailable"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-organize"
+    },
+    {
+      "id": "M040",
+      "origin": "modern",
+      "title": "查看手边线缆有没有绊碍",
+      "category": "环境照顾",
+      "steps": [
+        "坐稳，目视检查手边线缆是否横在腿部活动范围里。",
+        "只将手边松散、未受拉扯的细线移开；不拔插设备、不伸手够地面。"
+      ],
+      "scene": "坐着，准备活动腿部之前。",
+      "duration": "约30秒",
+      "tags": [
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "hasSupport"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-organize"
+    },
+    {
+      "id": "M041",
+      "origin": "modern",
+      "title": "关掉一个已经不用的页面",
+      "category": "起居安排",
+      "steps": [
+        "看看当前打开的页面，选一个已经完成或确认不需要的。",
+        "需要的内容先保存，再关闭这个页面，让任务列表少一项。"
+      ],
+      "scene": "浏览器或应用里积累了许多页面时。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet",
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-organize"
+    },
+    {
+      "id": "M042",
+      "origin": "modern",
+      "title": "给下一段专注留个边界",
+      "category": "起居安排",
+      "steps": [
+        "看看接下来要做的事情，给它定一个可以停下检查进度的小节点。",
+        "到节点时先停一下，再决定继续还是休息；不要求一次全部完成。"
+      ],
+      "scene": "准备开始一段学习或工作时。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-routine"
+    },
+    {
+      "id": "M043",
+      "origin": "modern",
+      "title": "确认明天的闹钟",
+      "category": "起居安排",
+      "steps": [
+        "打开已设置的闹钟，检查时间、日期和重复规则是否符合明天安排。",
+        "保留需要的闹钟，关闭不再需要的重复项，然后退出设置。"
+      ],
+      "scene": "晚间安排第二天行程时。",
+      "duration": "约30秒",
+      "tags": [
+        "sleep",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-routine"
+    },
+    {
+      "id": "M044",
+      "origin": "modern",
+      "title": "给休息留一个自然间隙",
+      "category": "起居安排",
+      "steps": [
+        "看看接下来的任务，找一个结束后可以自然停下的地方，例如一页、一段或一次提交。",
+        "记住这个间隙，到时暂停一下再继续，不额外叠加闹钟。"
+      ],
+      "scene": "正在做较长任务，但暂时不方便离开时。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-routine"
+    },
+    {
+      "id": "M046",
+      "origin": "modern",
+      "title": "在两口之间放下餐具",
+      "category": "饮食饮水",
+      "steps": [
+        "坐稳，吃完嘴里的一口后，先把餐具轻放回稳妥位置。",
+        "自然停顿片刻，再决定下一口，不催促自己赶快吃完。"
+      ],
+      "scene": "坐着进餐、感觉节奏很赶时。",
+      "duration": "约30秒",
+      "tags": [
+        "food",
+        "quiet"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "atMeal",
+          "sitting"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-meal"
+    },
+    {
+      "id": "M048",
+      "origin": "modern",
+      "title": "看一眼饮水容器",
+      "category": "饮食饮水",
+      "steps": [
+        "准备饮水时，看看杯口或瓶口是否干净、容器是否完好。",
+        "若需要清洁或更换，先放下处理好再使用；现在不必为了完成提醒而喝水。"
+      ],
+      "scene": "手边有饮水，准备使用杯瓶时。",
+      "duration": "约30秒",
+      "tags": [
+        "water",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "waterAvailable"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-routine"
+    },
+    {
+      "id": "M049",
+      "origin": "modern",
+      "title": "出门前检查鞋带和鞋扣",
+      "category": "起居安排",
+      "steps": [
+        "坐稳，看看鞋带、鞋扣或鞋面固定处是否松脱。",
+        "在够得到的位置整理好，再起身；不用站着单脚调整。"
+      ],
+      "scene": "准备出门，已经坐稳时。",
+      "duration": "约30秒",
+      "tags": [
+        "environment"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "goingOut",
+          "sitting"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-outing"
+    },
+    {
+      "id": "M050",
+      "origin": "modern",
+      "title": "出门前先锁好屏幕",
+      "category": "起居安排",
+      "steps": [
+        "停下正在读或发的内容，需要的路线先看好。",
+        "将手机锁屏并收稳，再开始移动；查看路线时停下脚步再看。"
+      ],
+      "scene": "准备离开当前位置出门时。",
+      "duration": "约20秒",
+      "tags": [
+        "environment",
+        "quiet"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "goingOut"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-outing"
+    },
+    {
+      "id": "M051",
+      "origin": "modern",
+      "title": "先找一个途中可停留的点",
+      "category": "起居安排",
+      "steps": [
+        "看看已选好的路线，想好需要看手机或整理物品时可以停下的位置。",
+        "优先考虑平整、不妨碍通行的地方，不边走边处理。"
+      ],
+      "scene": "准备出门，路线基本确定时。",
+      "duration": "约30秒",
+      "tags": [
+        "environment"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "goingOut"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-outing"
+    },
+    {
+      "id": "M052",
+      "origin": "modern",
+      "title": "检查外层衣物是否顺当",
+      "category": "起居安排",
+      "steps": [
+        "准备出门时，看看袖口、衣摆和拉链是否影响手脚自然活动。",
+        "把够得到的褶皱轻轻理平，整理好容易勾住的垂带。"
+      ],
+      "scene": "准备出门，已穿好外层衣物时。",
+      "duration": "约30秒",
+      "tags": [
+        "environment"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "goingOut"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-outing"
+    },
+    {
+      "id": "M053",
+      "origin": "modern",
+      "title": "把零散随身物品收稳",
+      "category": "起居安排",
+      "steps": [
+        "检查手机、钥匙和卡片等随身小物是否放在容易掉落的位置。",
+        "将已经拿到的物品放进合适口袋或包中，再确认取用方便。"
+      ],
+      "scene": "准备出门，手中拿着随身物品时。",
+      "duration": "约30秒",
+      "tags": [
+        "environment"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "goingOut"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-outing"
+    },
+    {
+      "id": "M054",
+      "origin": "modern",
+      "title": "给随身包减去一件无用物",
+      "category": "起居安排",
+      "steps": [
+        "出门前看一眼要带的物品，找出今天不需要的一件。",
+        "将它留在固定位置；只检查和移动轻便物品，不提重物试重量。"
+      ],
+      "scene": "准备出门，正在检查随身物品时。",
+      "duration": "约30秒",
+      "tags": [
+        "environment"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "goingOut"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-outing"
+    },
+    {
+      "id": "M055",
+      "origin": "modern",
+      "title": "按当前天气核对随身准备",
+      "category": "环境照顾",
+      "steps": [
+        "看清当前天气中的降雨、气温等已显示信息。",
+        "据此检查外套、雨具或遮阳物是否与行程相配，只核对实际需要的物品。"
+      ],
+      "scene": "准备出门，已有及时天气信息时。",
+      "duration": "约30秒",
+      "tags": [
+        "environment"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "goingOut"
+        ],
+        "falseFields": [],
+        "weatherFresh": true
+      },
+      "sourceId": "modern-source-outing"
+    },
+    {
+      "id": "M056",
+      "origin": "modern",
+      "title": "坐着看看鞋底状况",
+      "category": "环境照顾",
+      "steps": [
+        "坐稳，在不用勉强弯腰的位置看一眼鞋底是否明显沾水、沾泥或夹着杂物。",
+        "若有，先在稳妥条件下清理或更换，再起身出门；不站着抬脚处理。"
+      ],
+      "scene": "准备出门，能够坐稳检查鞋子时。",
+      "duration": "约30秒",
+      "tags": [
+        "environment"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "goingOut",
+          "sitting"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-outing"
+    },
+    {
+      "id": "M057",
+      "origin": "modern",
+      "title": "起身前看清近处通道",
+      "category": "环境照顾",
+      "steps": [
+        "起身前先目视看看身旁地面，留意散落物、敞开的抽屉或横跨的线。",
+        "确认路线清楚再离座；障碍难处理时换一条路，不跨越它。"
+      ],
+      "scene": "可以离座，准备开始走动时。",
+      "duration": "约20秒",
+      "tags": [
+        "walk",
+        "environment"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-organize"
+    },
+    {
+      "id": "M058",
+      "origin": "modern",
+      "title": "坐姿脚跟脚尖轻抬",
+      "category": "轻量活动",
+      "steps": [
+        "坐稳，双脚平放在稳固地面，膝盖自然弯曲。",
+        "脚尖不离地轻抬脚跟，再放下；随后脚跟不离地轻抬脚尖，交替做2–3轮。"
+      ],
+      "scene": "坐稳，双脚前方有空间时。",
+      "duration": "约30秒",
+      "tags": [
+        "walk",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-body"
+    },
+    {
+      "id": "M059",
+      "origin": "modern",
+      "title": "手指轮流轻离支撑面",
+      "category": "手肩舒展",
+      "steps": [
+        "坐稳，把一只手轻放在平整支撑面上，手指自然分开。",
+        "从食指到小指依次轻抬一点再落下，再换手；不压住其余手指，不追求抬高。"
+      ],
+      "scene": "坐着，手边有平整承托面时。",
+      "duration": "约30秒",
+      "tags": [
+        "hand",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "hasSupport"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-body"
+    },
+    {
+      "id": "M060",
+      "origin": "modern",
+      "title": "理平坐着压住的衣物",
+      "category": "起居安排",
+      "steps": [
+        "坐稳，看看腰腿处是否有卷起的衣摆、硬物或明显褶皱。",
+        "只整理够得到的衣物，把口袋里的轻便硬物移到手边稳妥处，再自然坐好。"
+      ],
+      "scene": "坐着时，衣物或口袋物品硌着身体。",
+      "duration": "约30秒",
+      "tags": [
+        "quiet",
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting",
+          "hasSupport"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "modern-source-body"
+    }
+  ],
+  "sources": [
+    {
+      "id": "source-01",
+      "title": "国家卫生健康委员会2024年7月5日新闻发布会文字实录",
+      "label": "穴位科普",
+      "text": "定位要点：内关在掌侧腕横纹上约本人三横指宽、两条肌腱之间。卡片的短计时与轻揉步骤为日常体验安排。",
+      "url": "https://www.nhc.gov.cn/xcs/c100122/202407/bb4a843e4eba4b279d2282164f4121a3.shtml"
+    },
+    {
+      "id": "source-02",
+      "title": "国家卫生健康委员会2024年7月5日新闻发布会文字实录",
+      "label": "穴位科普",
+      "text": "定位要点：劳宫可用半握拳时中指指尖所对应的掌心位置简便定位。卡片采用指腹轻揉。",
+      "url": "https://www.nhc.gov.cn/xcs/c100122/202407/bb4a843e4eba4b279d2282164f4121a3.shtml"
+    },
+    {
+      "id": "source-03",
+      "title": "性价比最高、容易坚持的运动来了：让你像吃“零食”一样快乐又健康！",
+      "label": "常用健康小知识",
+      "text": "科普要点：在工作间隙安排简短活动，双肩轻提后放松。本卡采用较短的体验次数与时间。",
+      "url": "https://wjw.fujian.gov.cn/ztzl/jkjy/jksh/202608/t20260828_7205957.htm"
+    },
+    {
+      "id": "source-04",
+      "title": "性价比最高、容易坚持的运动来了：让你像吃“零食”一样快乐又健康！",
+      "label": "常用健康小知识",
+      "text": "科普要点：双手交叉向前伸展，可作为工作间隙的肩背活动。本卡按舒适幅度整理为短行动。",
+      "url": "https://wjw.fujian.gov.cn/ztzl/jkjy/jksh/202608/t20260828_7205957.htm"
+    },
+    {
+      "id": "source-05",
+      "title": "项目编写·手腕小幅活动",
+      "label": "常用健康小知识",
+      "text": "给连续使用鼠标、键盘的双手留一个短暂停顿，让手腕在舒适范围内自行活动。",
+      "url": ""
+    },
+    {
+      "id": "source-06",
+      "title": "项目编写·手指自然张合",
+      "label": "常用健康小知识",
+      "text": "短暂放下手中物品，让手指自然张合后放松。",
+      "url": ""
+    },
+    {
+      "id": "source-07",
+      "title": "性价比最高、容易坚持的运动来了：让你像吃“零食”一样快乐又健康！",
+      "label": "常用健康小知识",
+      "text": "科普要点：利用工作间隙安排简短活动，打断持续坐姿。本卡将平地轻松走动整理为短行动。",
+      "url": "https://wjw.fujian.gov.cn/ztzl/jkjy/jksh/202608/t20260828_7205957.htm"
+    },
+    {
+      "id": "source-08",
+      "title": "项目编写·坐姿脚踝活动",
+      "label": "常用健康小知识",
+      "text": "不便离座时，可以在稳定坐姿下小幅活动脚踝，给持续坐姿一点变化。",
+      "url": ""
+    },
+    {
+      "id": "source-09",
+      "title": "项目编写·扶稳轻踏步",
+      "label": "常用健康小知识",
+      "text": "在固定支撑旁平稳活动双脚，动作幅度以轻松为宜。",
+      "url": ""
+    },
+    {
+      "id": "source-10",
+      "title": "职场人士多在家远程办公，怎么样既能完成工作任务，又能保护好眼睛？",
+      "label": "常用健康小知识",
+      "text": "用眼要点：近距离用眼后，可以向约6米外的景物远眺20秒，给持续看屏留一个间歇。",
+      "url": "https://www.nhc.gov.cn/xcs/nwwd/202003/876e0343bb3344e8a9628c2f7bf7b902.shtml"
+    },
+    {
+      "id": "source-11",
+      "title": "项目编写·轻闭双眼小休息",
+      "label": "常用健康小知识",
+      "text": "暂时不需要观察周围时，坐稳并让双眼轻闭片刻，再自然睁开。",
+      "url": ""
+    },
+    {
+      "id": "source-12",
+      "title": "项目编写·暂停耳机",
+      "label": "常用健康小知识",
+      "text": "连续使用耳机后，暂停音频，给自己一段安静的间歇。",
+      "url": ""
+    },
+    {
+      "id": "source-13",
+      "title": "如何做好健身气功·八段锦练习中的腹式呼吸？",
+      "label": "常用健康小知识",
+      "text": "“必须在松静自然的呼吸基础上进行，切不能憋气。”本卡只取自然呼吸原则，留意当下几次呼吸。",
+      "url": "https://www.sport.gov.cn/qgzx/n5407/c878297/content.html"
+    },
+    {
+      "id": "source-14",
+      "title": "项目编写·放松肩手与牙关",
+      "label": "常用健康小知识",
+      "text": "留意肩膀、双手和牙关是否一直绷紧，逐处恢复自然放松。",
+      "url": ""
+    },
+    {
+      "id": "source-15",
+      "title": "项目编写·写下接下来的一件小事",
+      "label": "常用健康小知识",
+      "text": "把接下来的一件小事写下来，让当下的安排更清楚。",
+      "url": ""
+    },
+    {
+      "id": "source-16",
+      "title": "项目编写·小口喝几口水",
+      "label": "常用健康小知识",
+      "text": "把饮用水放在便于取用的位置，按需要与个人习惯小口饮用。",
+      "url": ""
+    },
+    {
+      "id": "source-17",
+      "title": "黄帝内经·素问·上古天真论",
+      "label": "《黄帝内经》",
+      "text": "“食饮有节，起居有常，不妄作劳。”这里以有节度的饮食为主题；放下屏幕是对应当代生活的行动设计。",
+      "url": "https://www.shidianguji.com/zh/book/SBCK072/chapter/1j7xq40uospj1_4"
+    },
+    {
+      "id": "source-18",
+      "title": "项目编写·给下一餐添一个选择",
+      "label": "常用健康小知识",
+      "text": "为下一餐准备一种平时能吃、容易获得的蔬菜或水果。",
+      "url": ""
+    },
+    {
+      "id": "source-19",
+      "title": "黄帝内经·素问·上古天真论",
+      "label": "《黄帝内经》",
+      "text": "“起居有常，不妄作劳。”意为起居有一定常度、劳作有所节制，与睡前收束和保留休息时间的主题相连。",
+      "url": "https://www.shidianguji.com/zh/book/SBCK072/chapter/1j7xq40uospj1_4"
+    },
+    {
+      "id": "source-20",
+      "title": "项目编写·准备明天的一样物品",
+      "label": "常用健康小知识",
+      "text": "提前备好一件明天需要的物品，让下一次出门或开始活动更从容。",
+      "url": ""
+    },
+    {
+      "id": "source-21",
+      "title": "黄帝内经·素问·上古天真论",
+      "label": "《黄帝内经》",
+      "text": "“食饮有节，起居有常。”以规律起居为主题，结合本人作息安排下一餐或睡前准备的时间。",
+      "url": "https://www.shidianguji.com/zh/book/SBCK072/chapter/1j7xq40uospj1_4"
+    },
+    {
+      "id": "source-22",
+      "title": "项目编写·出门前看看天气",
+      "label": "常用健康小知识",
+      "text": "出行前留意当地天气和实际体感，再选择衣物及随身物品。",
+      "url": ""
+    },
+    {
+      "id": "source-23",
+      "title": "项目编写·条件合适再通风",
+      "label": "常用健康小知识",
+      "text": "通风与否结合室外空气、温度、风雨及窗户操作条件安排。",
+      "url": ""
+    },
+    {
+      "id": "source-24",
+      "title": "项目编写·检查晚间照明",
+      "label": "常用健康小知识",
+      "text": "照明随当前活动调整，让桌面与脚下看得清，准备休息时再关闭不需要的灯。",
+      "url": ""
+    },
+    {
+      "id": "T-S01",
+      "title": "换季时节睡不踏实 胸口发闷 胃口不好？专家提醒→（神门定位部分）",
+      "label": "穴位科普",
+      "text": "神门位于掌侧腕横纹靠小指一端、尺侧腕屈肌腱的桡侧凹陷处。本卡按定位整理为指腹轻揉短体验。",
+      "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261025_4917669.html"
+    },
+    {
+      "id": "T-S02",
+      "title": "散步时揉揉手上这一处，身体会越来越好！（鱼际定位部分）",
+      "label": "穴位科普",
+      "text": "鱼际位于第一掌骨中点桡侧的赤白肉际，即拇指根部掌肉与手背皮肤的交界附近。本卡按定位整理为指腹轻揉短体验。",
+      "url": "https://www.shhk.gov.cn/xwzx/002008/002008040/20230801/07828a71-26e5-4a0b-9449-b3114206b437.html"
+    },
+    {
+      "id": "T-S03",
+      "title": "曲池穴的妙用",
+      "label": "穴位科普",
+      "text": "曲池位于屈肘时肘横纹外侧端附近。科普介绍指腹按揉，本卡整理为短时轻揉。",
+      "url": "https://zyj.beijing.gov.cn/sy/whkp/202103/t20210326_2330623.html"
+    },
+    {
+      "id": "T-S04",
+      "title": "公务员通讯第121期·穴位按摩纾缓痛症（手三里定位部分）",
+      "label": "穴位科普",
+      "text": "手三里可在屈肘后，从肘外侧横纹尾端向腕方向量约本人三横指宽定位。本卡整理为短时轻揉。",
+      "url": "https://www.csb.gov.hk/hkgcsb/csn/csn121/121c/health_2.html"
+    },
+    {
+      "id": "T-S05",
+      "title": "颈椎不好的人多揉手！缓解肩颈酸痛，赶走颈椎病（后溪定位部分）",
+      "label": "穴位科普",
+      "text": "后溪位于微握拳时第五掌指关节后方、掌横纹尺侧端的赤白肉际。本卡整理为指腹轻揉短体验。",
+      "url": "https://www.shhk.gov.cn/xwzx/002008/002008040/20230607/4c59d7da-1fb0-48d4-8c78-897cb69db37d.html"
+    },
+    {
+      "id": "T-S06",
+      "title": "新民·健康新知｜坐车出游，按摩这些穴位可缓解儿童晕车（外关定位部分）",
+      "label": "穴位科普",
+      "text": "外关位于腕背横纹上约本人三横指宽、前臂背侧两骨之间。卡片依据定位资料整理为健康成年人原地轻揉的短体验。",
+      "url": "https://fegw.sh.gov.cn/ywxx/20260202/d32a16a1728745eab95dddecc89da576.html"
+    },
+    {
+      "id": "T-S07",
+      "title": "养性延命录·导引按摩篇第五（摩手与干浴）",
+      "label": "《养性延命录》",
+      "text": "《导引按摩篇第五》有“摩手令热”“常以两手揩摩身体，名曰乾浴”。本卡取摩手、轻摩体表的动作形式，整理为短时轻柔练习。",
+      "url": "https://www.shidianguji.com/book/DZ0838/chapter/1km6m89s1jhgm"
+    },
+    {
+      "id": "T-S08",
+      "title": "中国公民中医养生保健素养（梳发及常用方法）",
+      "label": "常用健康小知识",
+      "text": "《中国公民中医养生保健素养》介绍用十指从前向后梳理头发。本卡采用指腹轻梳，次数与时间按短体验整理。",
+      "url": "https://wjw.hunan.gov.cn/wjw/ztzl/knowledge/zthd/qmjk/202004/t20200407_13716279.html"
+    },
+    {
+      "id": "T-S09",
+      "title": "养性延命录·导引按摩篇第五（摩面与揉耳）",
+      "label": "《养性延命录》",
+      "text": "《导引按摩篇第五》有“以摩面从上至下”，也记录揉耳动作。本卡取轻摩面部或外耳廓的形式，整理为分区的轻柔短练习。",
+      "url": "https://www.shidianguji.com/book/DZ0838/chapter/1km6m89s1jhgm"
+    },
+    {
+      "id": "T-S10",
+      "title": "健身气功·八段锦功法源流",
+      "label": "常用健康小知识",
+      "text": "八段锦包含上举、开弓、单托等动作形式。本卡取相应形态，改为小幅、短时、自然呼吸的简化练习。",
+      "url": "https://www.sport.gov.cn/qgzx/n5407/c781297/content.html"
+    },
+    {
+      "id": "T-S11",
+      "title": "虞定海教授谈五禽戏",
+      "label": "常用健康小知识",
+      "text": "五禽戏包含鸟飞、不同手型与关节活动等形式，练习重视心静体松。本卡依据这些形态主题，整理为小幅度短练习。",
+      "url": "https://www.chqa.org.cn/html/109013-73004.html"
+    },
+    {
+      "id": "T-S12",
+      "title": "备急千金要方·道林养性第二（劳逸与用眼）",
+      "label": "《备急千金要方》",
+      "text": "《道林养性第二》有“常欲小劳，但莫大疲”“莫久行久立，久坐久卧，久视久听”。本卡依据劳逸有度和避免持续用眼的主题整理，具体步骤为当代生活设计。",
+      "url": "https://www.shidianguji.com/book/SK1426/chapter/1m17j3bov7ak3"
+    },
+    {
+      "id": "T-S13",
+      "title": "天隐子·存想",
+      "label": "《天隐子》",
+      "text": "《存想》有“存谓存我之神，想谓想我之身”。本卡借安静留意自身的主题，整理为触感、声音或自然呼吸的当代短练习。",
+      "url": "https://www.shidianguji.com/book/NGJ89241199902536667659/chapter/1lpo3ijzdjm7d"
+    },
+    {
+      "id": "T-S14",
+      "title": "遵生八笺·起居安乐笺下·书室修行法",
+      "label": "《遵生八笺》",
+      "text": "《起居安乐笺下·书室修行法》有“心不甚定，宜看诗及杂短故事”“手心俱闲，则写字作诗文”。本卡依据书室清赏的主题，整理为短读、默咏或简短书写。",
+      "url": "https://m.gushiwen.cn/guwen/bookv_586e0fefc91d.aspx"
+    },
+    {
+      "id": "T-S15",
+      "title": "备急千金要方·道林养性第二（少事与平心）",
+      "label": "《备急千金要方》",
+      "text": "《道林养性第二》有“少思、少念、少欲、少事”“常须运心，于物平等”。本卡取不过分劳神、平和处事的主题，整理为当代生活小行动。",
+      "url": "https://www.shidianguji.com/book/SK1426/chapter/1m17j3bov7ak3"
+    },
+    {
+      "id": "T-S16",
+      "title": "遵生八笺·起居安乐笺上·恬逸自足",
+      "label": "《遵生八笺》",
+      "text": "《起居安乐笺上·恬逸自足》有“知恬逸自足者，为得安乐本”。本卡据知足、安处的主题，整理为自我觉察与居处安排。",
+      "url": "https://www.shidianguji.com/book/SK1927/chapter/1l9o0klngr8ki"
+    },
+    {
+      "id": "T-S17",
+      "title": "备急千金要方·道林养性第二（寝处与衣着）",
+      "label": "《备急千金要方》",
+      "text": "《道林养性第二》有“凡眠，先卧心，后卧眼”“冬夜勿覆头”“湿衣及汗衣皆不可久著”。本卡据安顿休息和衣着干爽等生活主题整理。",
+      "url": "https://www.shidianguji.com/book/SK1426/chapter/1m17j3bov7ak3"
+    },
+    {
+      "id": "T-S18",
+      "title": "备急千金要方·道林养性第二（饮食）",
+      "label": "《备急千金要方》",
+      "text": "《道林养性第二》有“食当熟嚼”“人之当食，须去烦恼”“食毕，当漱口数过”“故每学淡食”。本卡据从容进餐、细嚼、清洁和清淡饮食的主题整理。",
+      "url": "https://www.shidianguji.com/book/SK1426/chapter/1m17j3bov7ak3"
+    },
+    {
+      "id": "T-S19",
+      "title": "天隐子·斋戒与安处",
+      "label": "《天隐子》",
+      "text": "《斋戒》《安处》有“五味太多勿食”“腐败闭气之物勿食”“阴阳适中，明暗相半”“内以安心，外以安目”。本卡据食物新鲜、居处舒适和光线适宜的主题整理。",
+      "url": "https://www.shidianguji.com/book/NGJ89241199902536667659/chapter/1lpo3ijzdjm7d"
+    },
+    {
+      "id": "T-S20",
+      "title": "黄帝内经·素问·四气调神大论",
+      "label": "《黄帝内经》",
+      "text": "《素问·四气调神大论》春段有“被髮緩形”，冬段有“去寒就温”。本卡取舒松衣发、随实际寒暖调整环境的主题，整理为当代小行动。",
+      "url": "https://www.shidianguji.com/zh/book/SBCK072/chapter/1j7xq40uowx8d_5"
+    },
+    {
+      "id": "T-S21",
+      "title": "中国公民中医养生保健素养（饮食与起居）",
+      "label": "常用健康小知识",
+      "text": "《中国公民中医养生保健素养》介绍饮食均衡、细嚼慢咽、专心用餐及饭后漱口。本卡依据饮食起居的主题作日常短行动整理。",
+      "url": "https://wjw.hunan.gov.cn/wjw/ztzl/knowledge/zthd/qmjk/202004/t20200407_13716279.html"
+    },
+    {
+      "id": "modern-source-screen",
+      "label": "常用健康小知识",
+      "title": "项目编写·显示与阅读环境",
+      "text": "针对已在使用屏幕的情境编写的显示检查和阅读间歇操作。具体菜单依设备而异，按界面提供的功能操作。",
+      "url": ""
+    },
+    {
+      "id": "modern-source-eye",
+      "label": "常用健康小知识",
+      "title": "美国眼科学会·Computers, Digital Devices, and Eye Strain",
+      "text": "参考屏幕使用中保持眨眼、安排用眼间歇等通用建议。卡片采用轻量的日常提示，时长由项目编排。",
+      "url": "https://www.aao.org/eye-health/tips-prevention/computer-usage"
+    },
+    {
+      "id": "modern-source-hse",
+      "label": "常用健康小知识",
+      "title": "英国健康与安全执行局·Working safely with display screen equipment",
+      "text": "参考屏幕正对身体、下背部获得支撑、常用输入设备便于操作等工位原则。卡片只取其中一项做简短检查。",
+      "url": "https://www.hse.gov.uk/msd/dse/good-posture.htm"
+    },
+    {
+      "id": "modern-source-arm",
+      "label": "常用健康小知识",
+      "title": "英国大学医院多塞特·Upper Limb Exercises",
+      "text": "参考前臂转动、手指对指等基本动作的方向描述。卡片为健康成人编排轻柔、少次的活动体验，没有沿用康复训练剂量。",
+      "url": "https://www.uhd.nhs.uk/uploads/about/docs/our_publications/patient_information_leaflets/orthopaedics/Upper_Limb_Exercises_booklet.pdf"
+    },
+    {
+      "id": "modern-source-micro",
+      "label": "常用健康小知识",
+      "title": "英国纽卡斯尔医院·1 minute body check",
+      "text": "参考工作间隙肩部缓慢绕动、肘部轻松屈伸等活动示例。卡片仅保留简短、舒服范围内的做法。",
+      "url": "https://www.newcastle-hospitals.nhs.uk/services/newcastle-occupational-health-service/information-for-staff/physiotherapy/self-help-leaflets/1-minute-body-check/"
+    },
+    {
+      "id": "modern-source-seated",
+      "label": "常用健康小知识",
+      "title": "英国国民保健署·Sitting exercises",
+      "text": "参考坐姿转头、轻柔打开胸前、坐姿抬膝与躯干小幅转动示例。使用稳固座椅，动作范围以舒服为准；卡片次数由项目缩短编排。",
+      "url": "https://www.nhs.uk/live-well/exercise/sitting-exercises/"
+    },
+    {
+      "id": "modern-source-quiet",
+      "label": "常用健康小知识",
+      "title": "项目编写·安静注意与思绪整理",
+      "text": "项目编写的日常注意转换和表达提示，可睁眼完成，不要求离座、远眺或刻意控制呼吸。",
+      "url": ""
+    },
+    {
+      "id": "modern-source-listening",
+      "label": "常用健康小知识",
+      "title": "世界卫生组织·Deafness and hearing loss: Safe listening",
+      "text": "参考降低播放音量、利用设备音量限制及听音暴露提示等原则，结合设备提供的音量和听音时长提示使用。",
+      "url": "https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening"
+    },
+    {
+      "id": "modern-source-organize",
+      "label": "常用健康小知识",
+      "title": "项目编写·手边空间与任务整理",
+      "text": "项目编写的就近整理、任务切换和物品检查方法，只整理伸手可及的轻便物品。",
+      "url": ""
+    },
+    {
+      "id": "modern-source-routine",
+      "label": "常用健康小知识",
+      "title": "项目编写·作息与生活安排",
+      "text": "项目编写的闹钟检查、任务边界和用餐准备提示，用简单的准备动作安排接下来的生活。",
+      "url": ""
+    },
+    {
+      "id": "modern-source-meal",
+      "label": "常用健康小知识",
+      "title": "项目编写·用餐时的小观察",
+      "text": "项目编写的用餐节奏、食物温度和个人饥饱感观察。每条只提示当下可以完成的一件小事。",
+      "url": ""
+    },
+    {
+      "id": "modern-source-outing",
+      "label": "常用健康小知识",
+      "title": "项目编写·出行前的细节检查",
+      "text": "项目编写的鞋服、路线和随身物品检查。涉及天气时，使用已确认时效的当前天气信息；不凭时辰猜测天气。",
+      "url": ""
+    },
+    {
+      "id": "modern-source-body",
+      "label": "常用健康小知识",
+      "title": "项目编写·坐姿细节与小幅活动",
+      "text": "项目编写的稳坐、双脚承托、轻柔脚跟脚尖活动及衣物整理提示；不追求幅度、拉伸感或额外负重。",
+      "url": ""
+    }
+  ],
+  "solar": [
+    {
+      "term": "立春",
+      "date": "2026-02-04",
+      "quote": "律回岁晚冰霜少，春到人间草木知。",
+      "author": "张栻",
+      "title": "立春偶成",
+      "url": "https://www.xinhuanet.com/20250203/7cd74cdbc95d41268aa6b26d9ca9dffc/c.html",
+      "theme": "春日出门准备",
+      "action": "查看今天的气温和风力，把适合外出的外套放在门边，按实际天气取用。",
+      "base_ids": [
+        "22",
+        "20"
+      ]
+    },
+    {
+      "term": "雨水",
+      "date": "2026-02-18",
+      "quote": "好雨知时节，当春乃发生。",
+      "author": "杜甫",
+      "title": "春夜喜雨",
+      "url": "https://szsx.suzhou.edu.cn/scientist-473.html",
+      "theme": "风雨里的出行准备",
+      "action": "查看下一次外出时的降雨预报，把合适的雨具放进常用包，出门前再确认天气。",
+      "base_ids": [
+        "22"
+      ]
+    },
+    {
+      "term": "惊蛰",
+      "date": "2026-03-05",
+      "quote": "微雨众卉新，一雷惊蛰始。",
+      "author": "韦应物",
+      "title": "观田家",
+      "url": "https://m.gushiwen.cn/mingju/juv_5eea8c435450.aspx",
+      "theme": "留一段春日走动时间",
+      "action": "若当地天气适合，给下一次白天空闲留几分钟，去平整的近处走走，看看春日变化。",
+      "base_ids": [
+        "07",
+        "21"
+      ]
+    },
+    {
+      "term": "春分",
+      "date": "2026-03-20",
+      "quote": "仲春初四日，春色正中分。",
+      "author": "徐铉",
+      "title": "春分日",
+      "url": "https://www.shidianguji.com/book/SBCK186/chapter/1jidmhoci1qtm",
+      "theme": "调一调身边的光线",
+      "action": "看看当前室内采光，按手头活动调整窗帘或灯光，让桌面看得清、眼睛不受直射。",
+      "base_ids": [
+        "24"
+      ]
+    },
+    {
+      "term": "清明",
+      "date": "2026-04-05",
+      "quote": "梨花风起正清明，游子寻春半出城。",
+      "author": "吴惟信",
+      "title": "苏堤清明即事",
+      "url": "https://www.beijing.gov.cn/renwen/zt/wmdjr/qmj/202303/t20230303_2928277.html",
+      "theme": "春日外出先看天气",
+      "action": "若计划踏青或散步，先查看当地风雨和气温，选一段平整熟悉的路线，再决定出门时间。",
+      "base_ids": [
+        "22",
+        "07"
+      ]
+    },
+    {
+      "term": "谷雨",
+      "date": "2026-04-20",
+      "quote": "帆得樵风送，春逢谷雨晴。",
+      "author": "孟浩然",
+      "title": "与崔二十一游镜湖寄包贺二公",
+      "url": "https://www.shidianguji.com/book/SBCK136/chapter/SBCK136_85",
+      "theme": "留意居室潮湿角落",
+      "action": "查看家中一处容易受潮的角落，若有雨水或湿物就及时擦干、收好，保持通道清爽。",
+      "base_ids": [
+        "23"
+      ]
+    },
+    {
+      "term": "立夏",
+      "date": "2026-05-05",
+      "quote": "纷纷红紫已成尘，布谷声中夏令新。",
+      "author": "陆游",
+      "title": "初夏绝句",
+      "url": "https://www.gushiwen.cn/mingju/juv_455fe562b418.aspx",
+      "theme": "准备便于增减的衣着",
+      "action": "看看下一次外出的气温，把衣物和随身物品调整到轻便、方便增减的状态。",
+      "base_ids": [
+        "22",
+        "20"
+      ]
+    },
+    {
+      "term": "小满",
+      "date": "2026-05-21",
+      "quote": "乡村四月闲人少，才了蚕桑又插田。",
+      "author": "翁卷",
+      "title": "乡村四月",
+      "url": "https://www.xinhuanet.com/politics/2019-05/19/c_1124514637.htm",
+      "theme": "给餐桌添一种时令选择",
+      "action": "准备下一餐时，选一种当地容易买到的时令蔬菜，写进菜单或购物清单，按平常方式食用。",
+      "base_ids": [
+        "18"
+      ]
+    },
+    {
+      "term": "芒种",
+      "date": "2026-06-05",
+      "quote": "时雨及芒种，四野皆插秧。",
+      "author": "陆游",
+      "title": "时雨",
+      "url": "https://paper.people.com.cn/rmrbhwb/html/2015-06/05/content_1573473.htm",
+      "theme": "忙碌时给安排留余地",
+      "action": "把今天最费力的一件事标出来，若当地天气炎热，尽量安排在较凉爽的时段。",
+      "base_ids": [
+        "21",
+        "15"
+      ]
+    },
+    {
+      "term": "夏至",
+      "date": "2026-06-21",
+      "quote": "昼晷已云极，宵漏自此长。",
+      "author": "韦应物",
+      "title": "夏至避暑北池",
+      "url": "https://www.shidianguji.com/book/SBCK142/chapter/SBCK142_436",
+      "theme": "白昼较长也留收尾时间",
+      "action": "按自己的作息确认下一次休息时间，即使当地白昼较长，也给睡前收尾留出一小段空当。",
+      "base_ids": [
+        "19",
+        "21"
+      ]
+    },
+    {
+      "term": "小暑",
+      "date": "2026-07-07",
+      "quote": "夏条绿已密，朱萼缀明鲜。",
+      "author": "韦应物",
+      "title": "夏花明",
+      "url": "https://www.chinakongzi.org/kzsf/wxxs/mingpian/quantangshi/200705/t20070522_12829.htm",
+      "theme": "按气温调整户外小事",
+      "action": "查看今天较热的时段，把可以挪动的户外小事改到较凉爽的时候，再记下安排。",
+      "base_ids": [
+        "22",
+        "21"
+      ]
+    },
+    {
+      "term": "大暑",
+      "date": "2026-07-23",
+      "quote": "接天莲叶无穷碧，映日荷花别样红。",
+      "author": "杨万里",
+      "title": "晓出净慈寺送林子方（其二）",
+      "url": "https://m.gushiwen.cn/shiwenv_3ab4125fd0f1.aspx",
+      "theme": "调整常坐处的舒适度",
+      "action": "看看常坐的位置是否闷热，按室内体感调整风扇、窗帘或座位，让环境更舒服。",
+      "base_ids": [
+        "23",
+        "24"
+      ]
+    },
+    {
+      "term": "立秋",
+      "date": "2026-08-07",
+      "quote": "睡起秋声无觅处，满阶梧叶月明中。",
+      "author": "刘翰",
+      "title": "立秋",
+      "url": "https://m.gushiwen.cn/mingju/juv_1993266bd10c.aspx",
+      "theme": "换季先看实际温差",
+      "action": "查看未来一天的气温变化，给下一次外出备一件方便穿脱的衣物，到时按体感取用。",
+      "base_ids": [
+        "22",
+        "20"
+      ]
+    },
+    {
+      "term": "处暑",
+      "date": "2026-08-23",
+      "quote": "离离暑云散，袅袅凉风起。",
+      "author": "白居易",
+      "title": "早秋曲江感怀",
+      "url": "https://www.shidianguji.com/book/SBCK161/chapter/SBCK161_340",
+      "theme": "让水杯容易取用",
+      "action": "趁一段空闲整理常用水杯，洗净后放到容易取用的位置，饮水仍按需要和个人习惯安排。",
+      "base_ids": [
+        "16"
+      ]
+    },
+    {
+      "term": "白露",
+      "date": "2026-09-07",
+      "quote": "露从今夜白，月是故乡明。",
+      "author": "杜甫",
+      "title": "月夜忆舍弟",
+      "url": "https://www.shidianguji.com/book/SBCK133/chapter/SBCK133_447",
+      "theme": "留意早晚出门的体感",
+      "action": "准备外出时看看早晚气温和风力，把适合自己的外搭放进常用包或门边，按需要取用。",
+      "base_ids": [
+        "22",
+        "20"
+      ]
+    },
+    {
+      "term": "秋分",
+      "date": "2026-09-23",
+      "quote": "空山新雨后，天气晚来秋。",
+      "author": "王维",
+      "title": "山居秋暝",
+      "url": "https://www.gushiwen.cn/mingju/juv.aspx?id=e3eb683f18f1",
+      "theme": "安排自己的日与夜",
+      "action": "给白天的户外安排和晚间的收尾各留一点时间，按自己的作息记下，不必追赶统一时刻。",
+      "base_ids": [
+        "21",
+        "19"
+      ]
+    },
+    {
+      "term": "寒露",
+      "date": "2026-10-08",
+      "quote": "秋荷一滴露，清夜坠玄天。",
+      "author": "韦应物",
+      "title": "咏露珠",
+      "url": "https://www.shidianguji.com/book/NGJ89241199901609236313/chapter/1lvb8frjndxyg",
+      "theme": "出门前整理鞋袜衣物",
+      "action": "摸摸常穿鞋袜是否干爽，准备外出时换好合适的一套，再按当地气温搭配衣物。",
+      "base_ids": [
+        "20",
+        "22"
+      ]
+    },
+    {
+      "term": "霜降",
+      "date": "2026-10-23",
+      "quote": "停车坐爱枫林晚，霜叶红于二月花。",
+      "author": "杜牧",
+      "title": "山行",
+      "url": "https://m.gushiwen.cn/mingju/juv_7cb5710b688e.aspx",
+      "theme": "为温差留一个备选",
+      "action": "查看当地夜间最低气温，给第二天要穿的衣物留一个备选，天气变化时再调整。",
+      "base_ids": [
+        "22",
+        "20"
+      ]
+    },
+    {
+      "term": "立冬",
+      "date": "2026-11-07",
+      "quote": "十月江南天气好，可怜冬景似春华。",
+      "author": "白居易",
+      "title": "早冬",
+      "url": "https://news.cqnews.net/1/detail/1172577868667088896/web/content_1172577868667088896.html",
+      "theme": "把常用外搭放在手边",
+      "action": "把常用的毯子或外搭放在容易取用的位置，觉得冷时再使用，活动时保持手脚方便舒展。",
+      "base_ids": [
+        "20",
+        "22"
+      ]
+    },
+    {
+      "term": "小雪",
+      "date": "2026-11-22",
+      "quote": "花雪随风不厌看。",
+      "author": "戴叔伦",
+      "title": "小雪",
+      "url": "https://www.chinakongzi.org/kzsf/wxxs/mingpian/quantangshi/200705/t20070522_12748.htm",
+      "theme": "整理夜间走动的环境",
+      "action": "看看夜间常走的通道是否有杂物，收好一件挡路物品，再确认照明能看清脚下。",
+      "base_ids": [
+        "24",
+        "20"
+      ]
+    },
+    {
+      "term": "大雪",
+      "date": "2026-12-07",
+      "quote": "忽如一夜春风来，千树万树梨花开。",
+      "author": "岑参",
+      "title": "白雪歌送武判官归京",
+      "url": "https://zh.wikisource.org/zh-hans/%E7%99%BD%E9%9B%AA%E6%AD%8C%E9%80%81%E6%AD%A6%E5%88%A4%E5%AE%98%E5%BD%92%E4%BA%AC",
+      "theme": "随道路天气调整出行",
+      "action": "出门前查看道路和雨雪信息，若路面湿滑，就调整路线或把能推迟的小事稍后办。",
+      "base_ids": [
+        "22",
+        "21"
+      ]
+    },
+    {
+      "term": "冬至",
+      "date": "2026-12-22",
+      "quote": "天时人事日相催，冬至阳生春又来。",
+      "author": "杜甫",
+      "title": "小至",
+      "url": "https://www.weather.com.cn/zt/tqzt/08dzzt/12/62712.shtml",
+      "theme": "给一餐留一点相聚时间",
+      "action": "若今天与家人或朋友一起吃饭，先把手机放好，留一小段时间专心吃饭、聊聊近况。",
+      "base_ids": [
+        "17"
+      ]
+    },
+    {
+      "term": "小寒",
+      "date": "2026-01-05",
+      "quote": "遥知不是雪，为有暗香来。",
+      "author": "王安石",
+      "title": "梅花",
+      "url": "https://yllhj.beijing.gov.cn/ztxx/bjhx/hhzs/201902/t20190222_118661.shtml",
+      "theme": "调整常坐位置的体感",
+      "action": "看看门窗附近是否有持续冷风，把常坐位置挪到更舒适的地方，保留正常活动的空间。",
+      "base_ids": [
+        "23"
+      ]
+    },
+    {
+      "term": "大寒",
+      "date": "2026-01-20",
+      "quote": "微湿易干沙软路，大寒却暖雪晴天。",
+      "author": "陈著",
+      "title": "游慈云",
+      "url": "https://www.xinhuanet.com/politics/2019-01/20/c_1210040319.htm",
+      "theme": "把下一次出门用品备齐",
+      "action": "翻看未来两天的天气，把下一次外出的衣物和用品放在一起，临出门再按体感调整。",
+      "base_ids": [
+        "22",
+        "20"
+      ]
+    }
+  ],
+  "meridians": [
+    {
+      "label": "子时",
+      "meridian": "足少阳胆经",
+      "theme": "夜间收束",
+      "start": 23,
+      "end": 1,
+      "ids": [
+        "13",
+        "14",
+        "19",
+        "20"
+      ]
+    },
+    {
+      "label": "丑时",
+      "meridian": "足厥阴肝经",
+      "theme": "静养舒缓",
+      "start": 1,
+      "end": 3,
+      "ids": [
+        "06",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    {
+      "label": "寅时",
+      "meridian": "手太阴肺经",
+      "theme": "呼吸自然",
+      "start": 3,
+      "end": 5,
+      "ids": [
+        "06",
+        "13",
+        "14"
+      ]
+    },
+    {
+      "label": "卯时",
+      "meridian": "手阳明大肠经",
+      "theme": "晨起从容",
+      "start": 5,
+      "end": 7,
+      "ids": [
+        "03",
+        "06",
+        "16",
+        "21"
+      ]
+    },
+    {
+      "label": "辰时",
+      "meridian": "足阳明胃经",
+      "theme": "从容用餐",
+      "start": 7,
+      "end": 9,
+      "ids": [
+        "17",
+        "18",
+        "21"
+      ]
+    },
+    {
+      "label": "巳时",
+      "meridian": "足太阴脾经",
+      "theme": "劳逸有度",
+      "start": 9,
+      "end": 11,
+      "ids": [
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "10",
+        "16"
+      ]
+    },
+    {
+      "label": "午时",
+      "meridian": "手少阴心经",
+      "theme": "静心小憩",
+      "start": 11,
+      "end": 13,
+      "ids": [
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    {
+      "label": "未时",
+      "meridian": "手太阳小肠经",
+      "theme": "午后轻动",
+      "start": 13,
+      "end": 15,
+      "ids": [
+        "07",
+        "08",
+        "09",
+        "16"
+      ]
+    },
+    {
+      "label": "申时",
+      "meridian": "足太阳膀胱经",
+      "theme": "间歇舒展与休息",
+      "start": 15,
+      "end": 17,
+      "ids": [
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11"
+      ]
+    },
+    {
+      "label": "酉时",
+      "meridian": "足少阴肾经",
+      "theme": "晚间节律",
+      "start": 17,
+      "end": 19,
+      "ids": [
+        "16",
+        "20",
+        "21",
+        "22"
+      ]
+    },
+    {
+      "label": "戌时",
+      "meridian": "手厥阴心包经",
+      "theme": "轻揉静心",
+      "start": 19,
+      "end": 21,
+      "ids": [
+        "01",
+        "02",
+        "13",
+        "14"
+      ]
+    },
+    {
+      "label": "亥时",
+      "meridian": "手少阳三焦经",
+      "theme": "晚间收束",
+      "start": 21,
+      "end": 23,
+      "ids": [
+        "13",
+        "14",
+        "19",
+        "20",
+        "24"
+      ]
+    }
+  ],
+  "version": "2026-11-04-expanded-v2"
+}

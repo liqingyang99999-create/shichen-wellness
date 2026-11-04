@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "shichen-wellness",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "ratelimits": [{"name":"DEMO_RATE_LIMITER","namespace_id":"2026110401","simple":{"limit":30,"period":60}}],
+  "vars": {
+    "LLM_BASE_URL": "https://api.deepseek.com",
+    "LLM_MODEL": "deepseek-flash",
+    "LLM_THINKING": "disabled",
+    "LLM_TIMEOUT_MS": "15000"
+  }
+}

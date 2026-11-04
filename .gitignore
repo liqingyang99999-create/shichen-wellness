@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.wrangler/
+.dev.vars*
+!.dev.vars.example
+.env*
+*.pem
+*.log
+*.tsbuildinfo
+.DS_Store
+test/reports/
+private/

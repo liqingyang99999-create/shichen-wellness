@@ -1,0 +1,7 @@
+# Copy to .dev.vars only when you do not already have a configured file.
+# Fill your private key locally. Never put it in frontend code or share it.
+LLM_BASE_URL=https://api.deepseek.com
+LLM_MODEL=deepseek-flash
+LLM_API_KEY=
+LLM_THINKING=disabled
+LLM_TIMEOUT_MS=15000
