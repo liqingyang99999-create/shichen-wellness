@@ -2,7 +2,7 @@
 
 面向健康成年人的日常行动 Demo：用时辰与节气组织内容，根据明确的生活情境筛选候选，随机选出一张可以开始的小行动，并展示出处和选择理由。
 
-[在线演示](https://shichen-wellness.pages.dev/) · [GitHub 源码](https://github.com/liqingyang99999-create/shichen-wellness)
+[手机新版](https://shichen-wellness.pages.dev/?mode=app) · [下载安卓体验版](https://shichen-wellness.pages.dev/download/) · [GitHub 源码](https://github.com/liqingyang99999-create/shichen-wellness)
 
 [参赛交付包（PPT＋视频＋提交说明）](https://github.com/liqingyang99999-create/shichen-wellness/releases/tag/v1.1.0) · [PPT下载](https://github.com/liqingyang99999-create/shichen-wellness/releases/download/v1.1.0/presentation.pptx) · [演示视频下载](https://github.com/liqingyang99999-create/shichen-wellness/releases/download/v1.1.0/demo-video.mp4)
 
@@ -14,17 +14,19 @@
 
 - **手机日常入口**：[直接打开日常模式](https://shichen-wellness.pages.dev/?mode=daily)。使用真实时间和按需联网天气，设备睡眠、步数、全机应用用时未接入时明确显示未获取；主动查看不计提醒额度。
 - **模拟面板**：六种可重置场景，展示普通提醒、夜间状态、节气卡及稍后流程。
-- **独立对话**：默认当前真实北京时间，也可指定时间；先核对识别结果，再生成。不会继承模拟面板的情境或历史。
+- **独立对话**：默认当前真实北京时间，也可指定时间；发送后自动理解情境并生成，无需再次确认。不会继承模拟面板的情境或历史。
 - **可解释工作流**：展开 11 个节点查看模型、检索、规则和选择记录。模型未配置或输出不合格时，明确显示离线或模板回退。
 - **天气与地点**：支持手选城市、按需定位和本地家／公司条件预设；不接入穿戴设备。
 - **136 项行动 + 24 节气**：64 项传统动作或传统主题启发、72 项现代日常内容，58 条来源。传统主题启发的步骤注明为现代整理。
 - **智能体 API**：提供 OpenAPI 发现和 Bearer 鉴权的只读行动卡预览。
 
-![桌面界面](docs/screenshots/desktop.png)
+![手机新版（390×844 浏览器验证）](docs/screenshots/mobile.png)
 
-当前截图来自桌面浏览器。网页采用响应式布局；尚未完成 Android 真机验收，也未实现原生 App、后台提醒或锁屏通知。
+![参赛模拟模式](docs/screenshots/desktop.png)
 
-安卓日常模式接入真实使用记录、步数与睡眠是后续计划，当前尚未实现；无权限或无数据时将保留未知状态。适用条件、权限和数据边界见 [安卓接入路线](docs/android-roadmap.md)。
+以上分别为手机尺寸浏览器与参赛模拟模式截图，不是真机截图；手机新版使用竖向大卡片、景物渐显和底部聊天，设置中保留模拟时间。安卓 WebView 体验包提供定位、使用统计与步数的原生接口，未完成目标手机真机验收；没有后台提醒或锁屏通知。
+
+安装、构建、权限和卓易通限制见 [安卓体验包说明](android/README.md)。使用统计与步数仅在本地设置页展示，不被换算成连续看屏或活动分钟；华为运动健康和睡眠尚未接入。浏览器权限已允许时自动尝试定位天气，未授权不自动弹窗。
 
 ## 本机运行
 
@@ -84,17 +86,21 @@ npm run deploy
 
 登录需要在本机浏览器完成 Cloudflare 授权。`deploy` 会构建并部署到当前账号；公开地址以 Wrangler 成功输出为准，不需要另建手机安装包。服务器密钥通过 Secret 配置，操作顺序和部署后验证见 [部署说明](docs/deployment.md)。
 
-三个模型入口共享 `DEMO_RATE_LIMITER`：每个 Cloudflare 节点约 30 个请求／60 秒，缺绑定时拒绝模型请求。它是演示级流量控制，不是全局严格额度或费用上限；一次工作流可包含多次模型调用。
+四个模型入口共享 `DEMO_RATE_LIMITER`：每个 Cloudflare 节点约 30 个请求／60 秒，缺绑定时拒绝模型请求。它是演示级流量控制，不是全局严格额度或费用上限；一次工作流可包含多次模型调用。
 
 ## 代码结构
 
 ```text
 src/                    React 界面与浏览器交互
+src/mobile/             竖屏卡片、底部聊天、设置与出处
+android/                Android WebView 容器与受限原生桥
+public/scenes/          本项目生成的景物配图
 worker/index.ts         静态资源、API 分发及模型入口限流
 server/engine.mjs       检索、条件过滤、抽卡与 11 节点轨迹
 server/model.mjs        模型适配、对话提取和失败回退
 server/catalog.json     行动、来源、节气与时辰数据
 server/agent-api.mjs    只读智能体接口及 OpenAPI
+server/mobile.mjs       直接聊天生成接口与字段校验
 server/weather.mjs      城市与天气代理
 lib/                    时间、情境隔离与本地地点工具
 test/                   自动化测试和内容覆盖审计

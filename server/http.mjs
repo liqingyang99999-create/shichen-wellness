@@ -2,9 +2,11 @@ import { runWorkflow, parseDialogue } from './engine.mjs';
 import catalog from './catalog.json' with { type:'json' };
 import { handleWeatherApi } from './weather.mjs';
 import { handleAgentApi } from './agent-api.mjs';
+import { handleMobileApi } from './mobile.mjs';
 const json=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'}});
 export async function handleApi(request,env={}) {
  const url=new URL(request.url);const path=url.pathname;
+ if(path.startsWith('/api/mobile/'))return handleMobileApi(request,env);
  if(path.startsWith('/api/agent/'))return handleAgentApi(request,env);
  if(path.startsWith('/api/weather/')){
   if(request.method!=='GET')return json({error:'天气查询请使用GET'},405);

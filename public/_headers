@@ -1,0 +1,4 @@
+/download/*.apk
+  Content-Type: application/vnd.android.package-archive
+  Content-Disposition: attachment; filename="shichen-wellness-preview.apk"
+  Cache-Control: public, max-age=300

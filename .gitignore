@@ -10,3 +10,4 @@ dist/
 .DS_Store
 test/reports/
 private/
+public/download/*.apk
