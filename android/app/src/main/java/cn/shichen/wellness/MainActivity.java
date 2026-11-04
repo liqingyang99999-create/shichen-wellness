@@ -17,6 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.Settings;
+import android.speech.RecognizerIntent;
 import android.view.Gravity;
 import android.view.View;
 import android.webkit.GeolocationPermissions;
@@ -36,6 +37,7 @@ import androidx.webkit.JavaScriptReplyProxy;
 import androidx.webkit.WebViewCompat;
 import androidx.webkit.WebViewFeature;
 import org.json.JSONObject;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.concurrent.ExecutorService;
@@ -46,7 +48,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class MainActivity extends Activity implements SensorEventListener {
     static final String ORIGIN = "https://shichen-wellness.pages.dev";
     static final String START_URL = ORIGIN + "/?mode=app";
-    private static final int LOCATION = 41, ACTIVITY = 42;
+    private static final int LOCATION = 41, ACTIVITY = 42, SPEECH = 43;
     private WebView web;
     private LinearLayout errorView;
     private ProgressBar progress;
@@ -63,6 +65,10 @@ public final class MainActivity extends Activity implements SensorEventListener 
     private JSONObject usageCache;
     private JavaScriptReplyProxy pendingReply;
     private String pendingId;
+    private boolean permissionRequestInFlight, speechInFlight;
+    private JavaScriptReplyProxy pendingSpeechReply;
+    private String pendingSpeechId;
+    private long documentGeneration, pendingSpeechGeneration;
     private GeolocationPermissions.Callback geoCallback;
     private String geoOrigin;
 
@@ -114,7 +120,7 @@ public final class MainActivity extends Activity implements SensorEventListener 
         ws.setMediaPlaybackRequiresUserGesture(true);
         ws.setGeolocationEnabled(true);
         ws.setSafeBrowsingEnabled(true);
-        ws.setUserAgentString(ws.getUserAgentString() + " ShichenWellness/0.3.0");
+        ws.setUserAgentString(ws.getUserAgentString() + " ShichenWellness/0.4.0");
         WebView.setWebContentsDebuggingEnabled(false);
 
         if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
@@ -127,11 +133,20 @@ public final class MainActivity extends Activity implements SensorEventListener 
         web.setWebViewClient(new WebViewClient() {
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 Uri uri = request.getUrl();
+                if (NativeActionPolicy.isVersionedApk(uri.toString())) {
+                    if (request.isForMainFrame() && request.hasGesture()) openExternal(uri);
+                    return true;
+                }
                 if (trusted(uri)) return false;
                 if (request.isForMainFrame() && request.hasGesture()) openExternal(uri);
                 return true;
             }
             @Override public void onPageStarted(WebView view, String url, android.graphics.Bitmap icon) {
+                documentGeneration++;
+                // An OS activity may outlive its document; never deliver its result to a new page.
+                pendingReply=null; pendingId=null;
+                pendingSpeechReply=null; pendingSpeechId=null;
+                clearGeolocation(false);
                 errorView.setVisibility(View.GONE); progress.setVisibility(View.VISIBLE);
             }
             @Override public void onPageFinished(WebView view, String url) { progress.setVisibility(View.GONE); }
@@ -142,14 +157,19 @@ public final class MainActivity extends Activity implements SensorEventListener 
                 if (req.isForMainFrame() && response.getStatusCode() >= 400) { errorView.setVisibility(View.VISIBLE); progress.setVisibility(View.GONE); }
             }
         });
+        web.setDownloadListener((url, userAgent, disposition, mimeType, length) -> {
+            if (currentDocumentTrusted() && NativeActionPolicy.isVersionedApk(url)) openExternal(Uri.parse(url));
+        });
         web.setWebChromeClient(new WebChromeClient() {
             @Override public void onProgressChanged(WebView v, int value) { progress.setProgress(value); }
             @Override public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
                 if (!trusted(Uri.parse(origin))) { callback.invoke(origin,false,false); return; }
                 if (locationAllowed()) { callback.invoke(origin,true,false); return; }
-                if (geoCallback != null || pendingReply != null) { callback.invoke(origin,false,false); return; }
+                if (permissionRequestInFlight || speechInFlight || geoCallback != null) { callback.invoke(origin,false,false); return; }
                 geoCallback = callback; geoOrigin = origin;
-                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION);
+                permissionRequestInFlight=true;
+                try { requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION); }
+                catch (RuntimeException ignored) { permissionRequestInFlight=false; clearGeolocation(false); }
             }
             @Override public void onGeolocationPermissionsHidePrompt() { clearGeolocation(false); }
         });
@@ -159,6 +179,9 @@ public final class MainActivity extends Activity implements SensorEventListener 
     private static boolean trusted(Uri uri) {
         return "https".equals(uri.getScheme()) && "shichen-wellness.pages.dev".equals(uri.getHost())
             && (uri.getPort() == -1 || uri.getPort() == 443) && uri.getUserInfo() == null;
+    }
+    private boolean currentDocumentTrusted() {
+        return web!=null && trusted(Uri.parse(web.getUrl()==null?"":web.getUrl()));
     }
     private void openExternal(Uri uri) {
         if (!"https".equals(uri.getScheme())) return;
@@ -186,38 +209,93 @@ public final class MainActivity extends Activity implements SensorEventListener 
             String method = request.getString("method");
             switch (method) {
                 case "getCapabilities": startSteps(); sendCapabilities(reply,id); return;
+                case "startSpeechRecognition": startSpeechRecognition(reply,id); return;
                 case "openUsageSettings":
+                    ensureNoActivePrompt();
                     try { startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS,Uri.parse("package:"+getPackageName()))); }
                     catch (Exception e) { startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)); }
                     sendCapabilities(reply,id); return;
                 case "openAppSettings":
+                    ensureNoActivePrompt();
                     startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,Uri.parse("package:"+getPackageName())));
                     sendCapabilities(reply,id); return;
                 case "requestLocation":
                     if (locationAllowed()) { sendCapabilities(reply,id); return; }
-                    if (pendingReply != null || geoCallback != null) throw new IllegalArgumentException("请先完成当前授权。");
-                    pendingReply=reply; pendingId=id;
-                    requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION},LOCATION); return;
+                    requestDevicePermission(reply,id,new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION},LOCATION); return;
                 case "requestActivity":
                     if (activityAllowed()) { startSteps(); sendCapabilities(reply,id); return; }
-                    if (pendingReply != null || geoCallback != null) throw new IllegalArgumentException("请先完成当前授权。");
-                    pendingReply=reply; pendingId=id;
-                    requestPermissions(new String[]{Manifest.permission.ACTIVITY_RECOGNITION},ACTIVITY); return;
+                    requestDevicePermission(reply,id,new String[]{Manifest.permission.ACTIVITY_RECOGNITION},ACTIVITY); return;
                 default: throw new IllegalArgumentException("不支持这项设备操作。");
             }
         } catch (Exception e) { respond(reply,id,null,e.getMessage() == null ? "设备功能暂不可用。" : e.getMessage()); }
     }
+    private void ensureNoActivePrompt() {
+        if (permissionRequestInFlight || speechInFlight || geoCallback!=null)
+            throw new IllegalArgumentException("请先完成或取消当前系统操作。");
+    }
+    private void requestDevicePermission(JavaScriptReplyProxy reply,String id,String[] permissions,int code) {
+        ensureNoActivePrompt();
+        pendingReply=reply; pendingId=id; permissionRequestInFlight=true;
+        try { requestPermissions(permissions,code); }
+        catch (RuntimeException e) { pendingReply=null;pendingId=null;permissionRequestInFlight=false;throw e; }
+    }
+    private Intent speechIntent() {
+        return new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+            .putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            .putExtra(RecognizerIntent.EXTRA_LANGUAGE,"zh-CN")
+            .putExtra(RecognizerIntent.EXTRA_MAX_RESULTS,1)
+            .putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE,true)
+            .putExtra(RecognizerIntent.EXTRA_PROMPT,"说说你现在的状态");
+    }
+    private boolean speechAvailable() {
+        try { return speechIntent().resolveActivity(getPackageManager())!=null; }
+        catch (RuntimeException ignored) { return false; }
+    }
+    private void startSpeechRecognition(JavaScriptReplyProxy reply,String id) {
+        ensureNoActivePrompt();
+        if (!resumed) throw new IllegalArgumentException("请回到应用前台后再使用语音输入。");
+        if (!speechAvailable()) throw new IllegalArgumentException("当前环境没有可用的系统语音识别服务，请使用输入法的麦克风输入。");
+        pendingSpeechReply=reply;pendingSpeechId=id;pendingSpeechGeneration=documentGeneration;speechInFlight=true;
+        try { startActivityForResult(speechIntent(),SPEECH); }
+        catch (RuntimeException e) {
+            clearSpeech();
+            throw new IllegalArgumentException("无法打开系统语音识别，请使用输入法的麦克风输入。");
+        }
+    }
+    private void clearSpeech() {
+        pendingSpeechReply=null;pendingSpeechId=null;speechInFlight=false;
+    }
+    @Override protected void onActivityResult(int request,int result,Intent data) {
+        super.onActivityResult(request,result,data);
+        if (request!=SPEECH) return;
+        JavaScriptReplyProxy reply=pendingSpeechReply;String id=pendingSpeechId;long generation=pendingSpeechGeneration;
+        clearSpeech();
+        if (reply==null || generation!=documentGeneration || !currentDocumentTrusted()) return;
+        try {
+            if (result==RESULT_CANCELED) { respond(reply,id,new JSONObject().put("cancelled",true),null,generation);return; }
+            if (result!=RESULT_OK) { respond(reply,id,null,"语音识别未完成，请重试或使用键盘输入。",generation);return; }
+            ArrayList<String> matches=data==null?null:data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            String text=NativeActionPolicy.speechText(matches==null||matches.isEmpty()?null:matches.get(0));
+            if (text.isEmpty()) { respond(reply,id,null,"没有识别到文字，请重试或使用键盘输入。",generation);return; }
+            respond(reply,id,new JSONObject().put("text",text),null,generation);
+        } catch (Exception ignored) { respond(reply,id,null,"暂时无法读取语音结果，请重试。",generation); }
+    }
     private void sendCapabilities(JavaScriptReplyProxy reply,String id) {
+        long generation=documentGeneration;
         metricWorker.execute(() -> {
-            try { respond(reply,id,capabilities(),null); }
-            catch(Exception e) { respond(reply,id,null,"暂时无法读取设备状态。"); }
+            try { respond(reply,id,capabilities(),null,generation); }
+            catch(Exception e) { respond(reply,id,null,"暂时无法读取设备状态。",generation); }
         });
     }
     private void respond(JavaScriptReplyProxy reply,String id,JSONObject data,String error) {
+        respond(reply,id,data,error,documentGeneration);
+    }
+    private void respond(JavaScriptReplyProxy reply,String id,JSONObject data,String error,long generation) {
         try { JSONObject result = new JSONObject().put("id",id).put("ok",error == null);
             if (error == null) result.put("data",data); else result.put("error",error);
             runOnUiThread(() -> {
-                if (!isDestroyed() && WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
+                if (isDestroyed() || generation!=documentGeneration || !currentDocumentTrusted()) return;
+                if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
                     try { reply.postMessage(result.toString()); } catch(Exception ignored) { }
                 }
             });
@@ -239,7 +317,11 @@ public final class MainActivity extends Activity implements SensorEventListener 
             "paused".equals(stepStatus)?"app_background":stepRegistrationReason;
         Sensor selected=activeStepSensor;
         String stepSource=selected==null?"none":selected.getType()==Sensor.TYPE_STEP_COUNTER?"step-counter":"step-detector";
-        return new JSONObject().put("platform","android").put("appVersion","0.3.0-preview").put("apiLevel",Build.VERSION.SDK_INT)
+        boolean voiceAvailable=speechAvailable();
+        return new JSONObject().put("platform","android").put("appVersion","0.4.0-preview").put("versionCode",4).put("apiLevel",Build.VERSION.SDK_INT)
+            .put("speech",new JSONObject().put("available",voiceAvailable).put("status",voiceAvailable?"available":"unsupported")
+                .put("source","system-recognition-activity").put("language","zh-CN")
+                .put("preferOffline",true).put("offlineGuaranteed",false))
             .put("location",new JSONObject().put("permission",locationAllowed()?"granted":"denied"))
             .put("usage",usage)
             .put("steps",new JSONObject().put("permission",movementAllowed?"granted":"denied").put("available",counter!=null||detector!=null)
@@ -347,6 +429,8 @@ public final class MainActivity extends Activity implements SensorEventListener 
     @Override protected void onPause(){resumed=false;stopSteps();if(web!=null)web.onPause();super.onPause();}
     @Override public void onRequestPermissionsResult(int request,String[] permissions,int[] grants){
         super.onRequestPermissionsResult(request,permissions,grants);
+        if(request!=LOCATION && request!=ACTIVITY)return;
+        permissionRequestInFlight=false;
         if(request==LOCATION)clearGeolocation(locationAllowed());
         if(request==ACTIVITY)startSteps();
         if(pendingReply!=null){JavaScriptReplyProxy reply=pendingReply;String id=pendingId;pendingReply=null;pendingId=null;sendCapabilities(reply,id);}
@@ -357,5 +441,8 @@ public final class MainActivity extends Activity implements SensorEventListener 
     @Override public void onBackPressed(){
         if(web.canGoBack())web.goBack();else super.onBackPressed();
     }
-    @Override protected void onDestroy(){clearGeolocation(false);metricWorker.shutdownNow();stopSteps();if(web!=null)web.destroy();super.onDestroy();}
+    @Override protected void onDestroy(){
+        documentGeneration++;clearSpeech();pendingReply=null;pendingId=null;permissionRequestInFlight=false;
+        clearGeolocation(false);metricWorker.shutdownNow();stopSteps();if(web!=null)web.destroy();super.onDestroy();
+    }
 }

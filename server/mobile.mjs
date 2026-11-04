@@ -1,12 +1,12 @@
 import { runWorkflow } from './engine.mjs';
-import { CONTEXT_BOOLEAN_FIELDS, CONTEXT_NUMERIC_FIELDS, createChatSnapshot, createReminderState, toShanghaiISO } from '../lib/context.mjs';
+import { CONTEXT_BOOLEAN_FIELDS, CONTEXT_NUMERIC_FIELDS, CONTEXT_FOCUS_VALUES, ACTIVITY_PHASES, createChatSnapshot, createReminderState, toShanghaiISO } from '../lib/context.mjs';
 
 export const MAX_MOBILE_BODY_BYTES = 16_384;
 const MAX_TEXT_LENGTH = 1200;
 const booleanFields = new Set([...CONTEXT_BOOLEAN_FIELDS, 'previewSolar']);
 const numericFields = new Set(CONTEXT_NUMERIC_FIELDS);
 const dateFields = new Set(['now', 'sleepObservedAt', 'sleepValidUntil']);
-const enums = { intent: ['general', 'eye', 'move', 'quiet'], sleepState: ['unknown', 'awake', 'asleep'], mealPhase: ['before', 'during', 'after'], timezone: ['Asia/Shanghai'] };
+const enums = { intent: ['general', 'eye', 'move', 'quiet'], sleepState: ['unknown', 'awake', 'asleep'], mealPhase: ['before', 'during', 'after'], mood: ['low', 'settled'], activityPhase: ACTIVITY_PHASES, contextFocus: CONTEXT_FOCUS_VALUES, timezone: ['Asia/Shanghai'] };
 const snapshotFields = new Set([...booleanFields, ...numericFields, ...dateFields, ...Object.keys(enums), 'weather', 'dnd', 'usualAwake']);
 
 class InputError extends Error {

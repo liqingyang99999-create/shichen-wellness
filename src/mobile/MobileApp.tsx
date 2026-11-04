@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { Settings, ArrowUp, RefreshCw, Check, LoaderCircle, ChevronRight, MessageCircle, MapPin, X, ExternalLink } from 'lucide-react';
+import { Settings, SlidersHorizontal, ArrowUp, RefreshCw, Check, LoaderCircle, ChevronRight, MessageCircle, MapPin, X, ExternalLink } from 'lucide-react';
 import { createReminderState } from '../../lib/context.mjs';
 import { mobileSnapshot, mobileTime, sceneForCard, actionDurationSeconds } from '../../lib/mobile-context.mjs';
 import { readLocationPreferences, requestPreciseLocation, weatherRequestPath, lookupCurrentCity, matchLocationPreset, sanitizeConditions } from '../../lib/location.mjs';
@@ -8,7 +8,10 @@ import LocationWeather from '../components/LocationWeather';
 import { isNative, nativeRequest } from '../native-bridge';
 import Sheet from './Sheet';
 import DeviceData from './DeviceData';
+import VoiceInput from './VoiceInput';
+import UpdateCheck from './UpdateCheck';
 import './mobile.css';
+import './preferences.css';
 
 const TIME_NAMES=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
 const MERIDIANS=['足少阳胆经','足厥阴肝经','手太阴肺经','手阳明大肠经','足阳明胃经','足太阴脾经','手少阴心经','手太阳小肠经','足太阳膀胱经','足少阴肾经','手厥阴心包经','手少阳三焦经'];
@@ -31,7 +34,9 @@ export default function MobileApp(){
   const [catalog,setCatalog]=useState<any>(null);
   const [status,setStatus]=useState<any>(null);
   const [text,setText]=useState('');
-  const [sheet,setSheet]=useState<'settings'|'source'|'chat'|'catalog'|null>(null);
+  const [voiceActive,setVoiceActive]=useState(false);
+  const [voiceMessage,setVoiceMessage]=useState('');
+  const [sheet,setSheet]=useState<'settings'|'conditions'|'source'|'chat'|'catalog'|null>(null);
   const [query,setQuery]=useState('');
   const [busy,setBusy]=useState(false);
   const [stage,setStage]=useState('');
@@ -79,7 +84,9 @@ export default function MobileApp(){
         coords=await requestPreciseLocation(navigator.geolocation);locationSource='gps';
         const matched=matchLocationPreset(coords,saved.presets);
         if(matched&&mounted.current)setPrefs(previous=>({...previous,conditions:{...previous.conditions,...sanitizeConditions(matched.conditions)}}));
-        const city=await lookupCurrentCity(coords,{signal});label=city?.name||matched?.city?.name||'当前位置';
+        // Re-read after the asynchronous GPS request so a just-withdrawn choice is respected.
+        const allowCityLookup=readLocationPreferences(localStorage).cityLookupConsent;
+        const city=allowCityLookup ? await lookupCurrentCity(coords,{consent:true,signal}) : null;label=city?.name||'当前位置';
       }
       if(signal.aborted)return;
       const data=await api(weatherRequestPath(coords),undefined,signal);
@@ -111,12 +118,12 @@ export default function MobileApp(){
   }
   function invalidate(){sequence.current++;requestRef.current?.abort();running.current=false;setBusy(false);setResult(null);setError('');setCountdown(null);setCompleted(false);setStarted(false);}
   function setCondition(key:string,value:boolean|undefined){invalidate();setContext(null);setPrefs(previous=>({...previous,conditions:{...previous.conditions,[key]:value}}));}
-  function submit(event:FormEvent){event.preventDefault();if(text.trim())void generate(text.trim());}
+  function submit(event:FormEvent){event.preventDefault();if(text.trim()&&!voiceActive)void generate(text.trim());}
   function dismissSafety(){setSafe(true);try{localStorage.setItem('shichen-safety','seen');}catch{}}
   const safeUrl=(value:any)=>typeof value==='string'&&/^https:\/\//.test(value)?value:undefined;
 
   return <div className={`mobile-app${prefs.largeText?' mobile-large-text':''}`}>
-    <div className="mobile-top"><a href="?mode=app" className="mobile-brand">时辰心管家</a><button className="mobile-icon" aria-label="设置" onClick={()=>setSheet('settings')}><Settings size={23}/></button></div>
+    <div className="mobile-top"><button className="mobile-icon mobile-conditions-entry" aria-label="活动条件" onClick={()=>setSheet('conditions')}><SlidersHorizontal size={21}/><span>活动条件</span></button><a href="?mode=app" className="mobile-brand">时辰心管家</a><button className="mobile-icon" aria-label="设置" onClick={()=>setSheet('settings')}><Settings size={23}/></button></div>
     <div className="mobile-time"><h1>{TIME_NAMES[timeIndex]}时 <span>{String(start).padStart(2,'0')}:00–{String((start+2)%24).padStart(2,'0')}:00</span></h1><p>{MERIDIANS[timeIndex]}<span className="mobile-time-divider">/</span>{simulated?'模拟时间 ':''}{now.slice(11,16)}</p>{weather&&<button className="mobile-weather" onClick={()=>setSheet('settings')}><MapPin size={12}/>{weather.city} {weather.description} {weather.tempC}°C</button>}</div>
     <main className="mobile-stage">
       {!safe&&<div className="mobile-safety"><span>轻柔操作，保证自身安全；不适时停止。</span><button aria-label="知道了" onClick={dismissSafety}><X size={15}/></button></div>}
@@ -133,18 +140,25 @@ export default function MobileApp(){
       {solarToday&&!card?.isSolar&&<button className="mobile-solar" disabled={busy} onClick={()=>generate('',true)}>今日{solarToday.term} · 看节气诗意<ChevronRight size={15}/></button>}
       {notice&&card&&<p className="mobile-notice" role="status">{notice}</p>}
     </main>
-    <div className="mobile-composer-wrap">{history.length>0&&<button className="mobile-chat-return" onClick={()=>setSheet('chat')}><MessageCircle size={13}/>查看这次对话<ChevronRight size={13}/></button>}<form className="mobile-composer" onSubmit={submit}><textarea ref={composerRef} aria-label="说说你现在的状态" rows={1} maxLength={1200} value={text} placeholder="说说你现在的状态…" onChange={event=>setText(event.target.value)} onKeyDown={event=>{if(event.key==='Enter'&&!event.shiftKey&&!event.nativeEvent.isComposing){event.preventDefault();if(text.trim())void generate(text.trim());}}}/><button type="submit" aria-label="发送并生成卡片" disabled={busy||!text.trim()}>{busy?<LoaderCircle className="mobile-spin" size={21}/>:<ArrowUp size={24}/>}</button></form></div>
+    <div className="mobile-composer-wrap">{history.length>0&&<button className="mobile-chat-return" onClick={()=>setSheet('chat')}><MessageCircle size={13}/>查看这次对话<ChevronRight size={13}/></button>}<form className="mobile-composer" onSubmit={submit}><textarea ref={composerRef} aria-label="说说你现在的状态" rows={1} maxLength={1200} value={text} placeholder="说说你现在的状态…" onChange={event=>{setText(event.target.value);setVoiceMessage('');}} onKeyDown={event=>{if(event.key==='Enter'&&!event.shiftKey&&!event.nativeEvent.isComposing){event.preventDefault();if(text.trim()&&!voiceActive)void generate(text.trim());}}}/><VoiceInput disabled={busy} onListening={setVoiceActive} onMessage={setVoiceMessage} onText={transcript=>setText(previous=>`${previous}${previous.trim()?' ':''}${transcript}`.slice(0,1200))}/><button type="submit" aria-label="发送并生成卡片" disabled={busy||voiceActive||!text.trim()}>{busy?<LoaderCircle className="mobile-spin" size={21}/>:<ArrowUp size={24}/>}</button></form>{voiceMessage&&<p className="mobile-voice-status" role="status">{voiceMessage}</p>}</div>
 
     {sheet==='source'&&card&&<Sheet title={card.isSolar?'节气诗意':source?.label||'常用健康小知识'} onClose={()=>setSheet(null)}>{card.isSolar?<><blockquote>{card.solar?.quote}</blockquote><p>{card.solar?.author}《{card.solar?.title}》</p><p>{card.solar?.theme}</p></>:<><p>{source?.text||'本卡依据常用生活知识整理。'}</p>{source?.title&&<h3>{source.title}</h3>}</>}{safeUrl(card.solar?.url||source?.url)&&<a className="mobile-external" href={card.solar?.url||source?.url} target="_blank" rel="noreferrer">查看相关原文<ExternalLink size={14}/></a>}{result.explanation&&<div className="mobile-explanation"><h3>为什么是这张卡</h3><p>{result.explanation}</p></div>}<button className="mobile-primary mobile-full" onClick={()=>setSheet(null)}>回到这张卡</button></Sheet>}
     {sheet==='chat'&&<Sheet title="这次对话" onClose={()=>setSheet(null)}><div className="mobile-conversation">{history.map(item=><div key={item.id}><p className="mobile-chat-user">{item.text}</p><p className="mobile-chat-reply">{item.reply}{item.cardTitle&&<strong>为你推荐：{item.cardTitle}</strong>}<small>{item.time.slice(11,16)}</small></p></div>)}</div><p className="mobile-setting-note">对话只保留在本次页面中。可以继续在底部补充近况。</p><button className="mobile-primary mobile-full" onClick={()=>{setSheet(null);setTimeout(()=>composerRef.current?.focus(),0);}}>继续说说</button></Sheet>}
     {sheet==='catalog'&&<Sheet title="行动卡片库" onClose={()=>setSheet(null)}><input className="mobile-search" aria-label="搜索卡片" placeholder="搜索名称或类别" value={query} onChange={event=>setQuery(event.target.value)}/><div className="mobile-catalog">{(catalog?.cards||[]).filter((c:any)=>`${c.title} ${c.category}`.includes(query.trim())).map((c:any)=><details key={c.id}><summary>{c.title}<span>{c.category}</span></summary><ol>{c.steps.map((step:string,i:number)=><li key={i}>{step}</li>)}</ol></details>)}</div></Sheet>}
-    {sheet==='settings'&&<Sheet title="设置" onClose={()=>setSheet(null)}>
+    {sheet==='conditions'&&<Sheet title="活动条件" className="mobile-preferences-sheet" onClose={()=>setSheet(null)}>
+      <p className="mobile-setting-note">按此刻的环境调整，也可以在聊天里告诉我；没有说明的条件保持未知。</p>
+      <ActivityConditions snapshot={prefs.conditions} onChange={setCondition}/>
+      <button className="mobile-link" onClick={()=>{invalidate();setContext(null);setPrefs(previous=>({...previous,conditions:{}}));setNotice('已清除活动条件。');}}>清除活动条件</button>
+      <button className="mobile-primary mobile-full" onClick={()=>{setSheet(null);if(!result)void generate('');}}>回到行动卡</button>
+    </Sheet>}
+    {sheet==='settings'&&<Sheet title="设置" className="mobile-preferences-sheet" onClose={()=>setSheet(null)}>
       <section className="mobile-setting-section"><h3>时间与阅读</h3><label className="mobile-toggle"><span>使用模拟时间<small>关闭后恢复手机当前北京时间</small></span><input type="checkbox" checked={simulated} onChange={event=>{invalidate();setSimulated(event.target.checked);setContext(null);}}/></label>{simulated&&<label className="mobile-field">模拟日期与时间<input aria-label="模拟日期与时间" type="datetime-local" value={simulationTime} onInput={event=>{const value=event.currentTarget.value;if(value){invalidate();setSimulationTime(value);setContext(null);}}} onChange={event=>{if(event.target.value){invalidate();setSimulationTime(event.target.value);setContext(null);}}}/></label>}<label className="mobile-toggle"><span>放大文字</span><input type="checkbox" checked={prefs.largeText} onChange={event=>setPrefs(previous=>({...previous,largeText:event.target.checked}))}/></label></section>
       <LocationWeather mode="daily" conditions={prefs.conditions} weather={weather} onWeather={value=>{invalidate();setWeather(value);}} onConditions={(patch,label)=>{invalidate();setContext(null);setPrefs(previous=>({...previous,conditions:{...previous.conditions,...patch}}));setNativeMessage(`已使用${label}保存的活动条件。`);}}/>
       {nativeMessage&&<p role="status" className="mobile-setting-note">{nativeMessage}</p>}
       <DeviceData/>
-      <details className="mobile-setting-details"><summary>活动条件<ChevronRight size={16}/></summary><p className="mobile-setting-note">可以在聊天里告诉我；没有说明的条件保持未知。</p><ActivityConditions snapshot={prefs.conditions} onChange={setCondition}/><button className="mobile-link" onClick={()=>{invalidate();setContext(null);setPrefs(previous=>({...previous,conditions:{}}));setNotice('已清除活动条件。');}}>清除活动条件</button></details>
+      <UpdateCheck/>
       <section className="mobile-setting-section"><button className="mobile-setting-nav" onClick={()=>setSheet('catalog')}>查看全部卡片<ChevronRight size={17}/></button><button className="mobile-setting-nav" onClick={()=>{invalidate();setContext(null);setHistory([]);setText('');setNotice('已清除本次对话。');}}>清除本次对话<RefreshCw size={15}/></button><a className="mobile-setting-nav" href="?mode=demo">打开参赛模拟演示<ChevronRight size={17}/></a><p className="mobile-setting-note">{status?.configured?'AI 已连接':'AI 状态暂未获取'} · {catalog?.cards?.length||'—'} 项行动<br/>聊天直接更新情境，不再逐项确认。卡片按已知条件筛选。</p></section>
+      <section className="mobile-setting-section"><a className="mobile-setting-nav" href="/privacy/">隐私政策<ChevronRight size={17}/></a><a className="mobile-setting-nav" href="/terms/">用户协议<ChevronRight size={17}/></a></section>
       <button className="mobile-primary mobile-full" onClick={()=>{setSheet(null);if(!result)void generate('');}}>完成设置</button>
     </Sheet>}
   </div>;

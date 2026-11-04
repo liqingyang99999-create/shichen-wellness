@@ -2,3 +2,6 @@
   Content-Type: application/vnd.android.package-archive
   Content-Disposition: attachment
   Cache-Control: public, max-age=300
+/download/latest.json
+  Cache-Control: no-store
+  X-Content-Type-Options: nosniff

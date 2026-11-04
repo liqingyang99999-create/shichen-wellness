@@ -201,7 +201,7 @@ test('actual lunch hallucination with valid IDs falls back without inventing scr
   assert.equal(node(result, 'N08').output.rawOutput.explanation, hallucination);
   assert.match(node(result, 'N08').output.error, /看屏经历/);
   assert.doesNotMatch(result.explanation, /看屏|安静环境/);
-  assert.match(result.explanation, /安静休息/);
+  assert.match(result.explanation, /餐后/);
   assert.equal(result.state.ordinaryCount, 0);
   assert.deepEqual(result.card.steps, catalog.cards.find(c => c.id === result.card.id).steps);
 });
@@ -222,9 +222,9 @@ test('uncited or unknown context cannot be smuggled through legal generic reason
 test('confirmed meal, quiet intent and execution conditions keep grounded explanations live', async () => {
   for (const [changes, explanation, ids] of [
     [{}, '午时，结合餐后想安静休息的意愿，从符合条件的候选中选出这张卡。', ['time', 'after-meal', 'request-quiet', 'selection']],
-    [{ sitting: true, canCloseEyes: true }, '午时，结合已坐稳且可以闭目的条件，选出这张卡。', ['time', 'current-sitting', 'closed-eyes-available']],
-    [{ canLookFar: true, canLeaveSeat: true }, '午时，结合可以看远及可以离座的条件，选出这张卡。', ['time', 'look-far-available', 'leave-seat-available']],
-    [{ activityMinutes: 10 }, '午时，结合近期活动记录与安静休息意愿，选出这张卡。', ['time', 'activity-duration', 'request-quiet']]
+    [{ sitting: true, canCloseEyes: true }, '结合餐后、已坐稳且可以闭目的条件，选出这张卡。', ['after-meal', 'current-sitting', 'closed-eyes-available']],
+    [{ canLookFar: true, canLeaveSeat: true }, '结合餐后、可以看远及可以离座的条件，选出这张卡。', ['after-meal', 'look-far-available', 'leave-seat-available']],
+    [{ activityMinutes: 10 }, '结合餐后情境、近期活动记录与安静休息主题，选出这张卡。', ['after-meal', 'activity-duration', 'request-quiet']]
   ]) {
     const result = await runWorkflow({ snapshot: lunchContext(changes), mode: 'preview' }, explanationEnv(explanation, ids));
     assert.equal(node(result, 'N08').status, 'success', node(result, 'N08').output.error);

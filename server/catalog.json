@@ -730,7 +730,9 @@
       "duration": "约30秒启动",
       "sourceId": "source-17",
       "tags": [
-        "food"
+        "food",
+        "meal-before",
+        "meal-during"
       ],
       "hours": [
         0,
@@ -761,10 +763,13 @@
       "night": true,
       "origin": "traditional",
       "requirements": {
-        "trueFields": [
-          "atMeal"
-        ]
-      }
+        "trueFields": [],
+        "falseFields": []
+      },
+      "mealPhases": [
+        "before",
+        "during"
+      ]
     },
     {
       "id": "18",
@@ -777,7 +782,8 @@
       "duration": "约30秒",
       "sourceId": "source-18",
       "tags": [
-        "food"
+        "food",
+        "meal-before"
       ],
       "hours": [
         0,
@@ -808,10 +814,12 @@
       "night": true,
       "origin": "modern",
       "requirements": {
-        "trueFields": [
-          "atMeal"
-        ]
-      }
+        "trueFields": [],
+        "falseFields": []
+      },
+      "mealPhases": [
+        "before"
+      ]
     },
     {
       "id": "19",
@@ -868,14 +876,13 @@
       "title": "给下一段生活留个时间",
       "category": "起居安排",
       "steps": [
-        "为下一餐或今晚的睡前准备选一个大致时间；如果需要提醒，再点击确认。"
+        "为今晚的睡前准备选一个大致时间；如果需要提醒，再点击确认。"
       ],
       "scene": "晨间、午间或晚间主动安排时。",
       "duration": "约30秒",
       "sourceId": "source-21",
       "tags": [
-        "sleep",
-        "food"
+        "sleep"
       ],
       "hours": [
         0,
@@ -2992,7 +2999,8 @@
       "duration": "按需约2分钟",
       "sourceId": "T-S17",
       "tags": [
-        "environment"
+        "environment",
+        "recovery"
       ],
       "hours": [
         0,
@@ -3092,7 +3100,8 @@
       "sourceId": "T-S18",
       "tags": [
         "food",
-        "quiet"
+        "quiet",
+        "meal-before"
       ],
       "hours": [
         0,
@@ -3123,11 +3132,13 @@
       "night": true,
       "requirements": {
         "trueFields": [
-          "atMeal",
           "sitting"
         ],
         "falseFields": []
-      }
+      },
+      "mealPhases": [
+        "before"
+      ]
     },
     {
       "id": "T047",
@@ -3143,7 +3154,8 @@
       "duration": "从下一口开始",
       "sourceId": "T-S18",
       "tags": [
-        "food"
+        "food",
+        "meal-during"
       ],
       "hours": [
         0,
@@ -3177,7 +3189,10 @@
           "atMeal"
         ],
         "falseFields": []
-      }
+      },
+      "mealPhases": [
+        "during"
+      ]
     },
     {
       "id": "T048",
@@ -3193,7 +3208,8 @@
       "duration": "约20秒",
       "sourceId": "T-S18",
       "tags": [
-        "food"
+        "food",
+        "meal-during"
       ],
       "hours": [
         0,
@@ -3227,7 +3243,10 @@
           "atMeal"
         ],
         "falseFields": []
-      }
+      },
+      "mealPhases": [
+        "during"
+      ]
     },
     {
       "id": "T049",
@@ -3243,7 +3262,8 @@
       "duration": "约20秒",
       "sourceId": "T-S18",
       "tags": [
-        "food"
+        "food",
+        "meal-during"
       ],
       "hours": [
         0,
@@ -3277,7 +3297,10 @@
           "atMeal"
         ],
         "falseFields": []
-      }
+      },
+      "mealPhases": [
+        "during"
+      ]
     },
     {
       "id": "T050",
@@ -3294,7 +3317,8 @@
       "sourceId": "T-S18",
       "tags": [
         "food",
-        "water"
+        "water",
+        "meal-after"
       ],
       "hours": [
         0,
@@ -3325,12 +3349,14 @@
       "night": true,
       "requirements": {
         "trueFields": [
-          "atMeal",
           "waterAvailable",
           "canLeaveSeat"
         ],
         "falseFields": []
-      }
+      },
+      "mealPhases": [
+        "after"
+      ]
     },
     {
       "id": "T051",
@@ -3346,7 +3372,8 @@
       "duration": "约30秒起",
       "sourceId": "T-S18",
       "tags": [
-        "food"
+        "food",
+        "meal-during"
       ],
       "hours": [
         0,
@@ -3380,7 +3407,10 @@
           "atMeal"
         ],
         "falseFields": []
-      }
+      },
+      "mealPhases": [
+        "during"
+      ]
     },
     {
       "id": "T052",
@@ -3396,7 +3426,8 @@
       "duration": "约30秒",
       "sourceId": "T-S21",
       "tags": [
-        "food"
+        "food",
+        "meal-during"
       ],
       "hours": [
         0,
@@ -3430,7 +3461,10 @@
           "atMeal"
         ],
         "falseFields": []
-      }
+      },
+      "mealPhases": [
+        "during"
+      ]
     },
     {
       "id": "T053",
@@ -3447,7 +3481,8 @@
       "sourceId": "T-S21",
       "tags": [
         "food",
-        "hand"
+        "hand",
+        "meal-before"
       ],
       "hours": [
         0,
@@ -3478,11 +3513,13 @@
       "night": true,
       "requirements": {
         "trueFields": [
-          "atMeal",
           "canLeaveSeat"
         ],
         "falseFields": []
-      }
+      },
+      "mealPhases": [
+        "before"
+      ]
     },
     {
       "id": "T054",
@@ -3544,7 +3581,8 @@
       "sourceId": "T-S19",
       "tags": [
         "food",
-        "environment"
+        "environment",
+        "meal-before"
       ],
       "hours": [
         0,
@@ -3574,11 +3612,12 @@
       ],
       "night": true,
       "requirements": {
-        "trueFields": [
-          "atMeal"
-        ],
+        "trueFields": [],
         "falseFields": []
-      }
+      },
+      "mealPhases": [
+        "before"
+      ]
     },
     {
       "id": "T056",
@@ -4921,7 +4960,8 @@
       "scene": "想整理一下当下状态时。",
       "duration": "约30秒",
       "tags": [
-        "quiet"
+        "quiet",
+        "emotion"
       ],
       "hours": [
         0,
@@ -5723,23 +5763,36 @@
       "duration": "约30秒",
       "tags": [
         "food",
-        "quiet"
+        "quiet",
+        "meal-during"
       ],
       "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
         6,
         7,
         8,
         9,
+        10,
         11,
         12,
         13,
+        14,
+        15,
+        16,
         17,
         18,
         19,
         20,
-        21
+        21,
+        22,
+        23
       ],
-      "night": false,
+      "night": true,
       "requirements": {
         "trueFields": [
           "atMeal",
@@ -5747,7 +5800,10 @@
         ],
         "falseFields": []
       },
-      "sourceId": "modern-source-meal"
+      "sourceId": "modern-source-meal",
+      "mealPhases": [
+        "during"
+      ]
     },
     {
       "id": "M048",
@@ -6335,6 +6391,2180 @@
         "falseFields": []
       },
       "sourceId": "modern-source-body"
+    },
+    {
+      "id": "F001",
+      "origin": "modern",
+      "basis": "dietary-principles-adaptation",
+      "title": "春盘一卷：熟蔬菜豆腐卷",
+      "category": "节令食养",
+      "steps": [
+        "给原定的一餐选全麦饼、自己常吃的绿叶菜和豆腐丝；小麦或大豆过敏时换成平时能吃的主食与配菜。",
+        "做饭时把菜和豆腐丝充分做熟，少量调味后卷入饼；点餐可询问同类蔬菜豆腐卷的配料。",
+        "现在只需选定搭配，按正常饭量准备，不为了节气额外加餐。"
+      ],
+      "scene": "已有正常用餐安排，正在选择食材、准备做饭或点餐时；夜间仅安排原定餐食。",
+      "duration": "约30秒选定；烹调另计",
+      "sourceId": "meal-source-spring",
+      "tags": [
+        "food",
+        "meal-before",
+        "seasonal-food"
+      ],
+      "mealPhases": [
+        "before"
+      ],
+      "seasons": [
+        "spring"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "F002",
+      "origin": "modern",
+      "basis": "dietary-principles-adaptation",
+      "title": "春蔬入碗：菠菜鸡蛋汤",
+      "category": "节令食养",
+      "steps": [
+        "为这一餐选菠菜鸡蛋汤，并搭配平时能吃的主食；鸡蛋过敏时改选自己能吃的蛋白类食物。",
+        "做饭时洗净菠菜、将鸡蛋充分煮熟，少油少盐；点餐可选同类熟蔬菜蛋汤并核对配料。",
+        "先确定这一道搭配，正式烹调另行留时间，汤菜不代替完整一餐。"
+      ],
+      "scene": "已有正常用餐安排，正在选择食材、准备做饭或点餐时；夜间仅安排原定餐食。",
+      "duration": "约30秒选定；烹调另计",
+      "sourceId": "meal-source-spring",
+      "tags": [
+        "food",
+        "meal-before",
+        "seasonal-food"
+      ],
+      "mealPhases": [
+        "before"
+      ],
+      "seasons": [
+        "spring"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "F003",
+      "origin": "modern",
+      "basis": "dietary-principles-adaptation",
+      "title": "春日便当：豆芽鸡丝饭",
+      "category": "节令食养",
+      "steps": [
+        "在原定的一餐里选米饭、熟豆芽和熟鸡丝；黄豆芽涉及大豆，过敏时换成平时能吃的蔬菜。",
+        "做饭时豆芽与鸡肉都充分做熟，再与饭搭配；点餐可询问蔬菜鸡肉饭是否能少放酱汁。",
+        "此刻只选好搭配，按自己的正常份量取餐。"
+      ],
+      "scene": "已有正常用餐安排，正在选择食材、准备做饭或点餐时；夜间仅安排原定餐食。",
+      "duration": "约30秒选定；烹调另计",
+      "sourceId": "meal-source-spring",
+      "tags": [
+        "food",
+        "meal-before",
+        "seasonal-food"
+      ],
+      "mealPhases": [
+        "before"
+      ],
+      "seasons": [
+        "spring"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "F004",
+      "origin": "modern",
+      "basis": "dietary-principles-adaptation",
+      "title": "夏日一碗：冬瓜豆腐汤",
+      "category": "节令食养",
+      "steps": [
+        "给计划中的一餐选冬瓜豆腐汤，再保留正常主食；大豆过敏时换成自己能吃的蛋白类配菜。",
+        "做饭时将冬瓜、豆腐煮熟，少油少盐；点餐可选同类瓜菜豆腐汤并核对调味料。",
+        "先把这道搭配定下来，烹调另计，不因天气热只喝汤不吃饭。"
+      ],
+      "scene": "已有正常用餐安排，正在选择食材、准备做饭或点餐时；夜间仅安排原定餐食。",
+      "duration": "约30秒选定；烹调另计",
+      "sourceId": "meal-source-summer",
+      "tags": [
+        "food",
+        "meal-before",
+        "seasonal-food"
+      ],
+      "mealPhases": [
+        "before"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "F005",
+      "origin": "modern",
+      "basis": "dietary-principles-adaptation",
+      "title": "清爽一餐：丝瓜炒蛋配饭",
+      "category": "节令食养",
+      "steps": [
+        "为原定的一餐选丝瓜炒鸡蛋和米饭；鸡蛋过敏时换成熟豆腐或其他自己能吃的配菜。",
+        "做饭时丝瓜与鸡蛋充分做熟，少量用油；点餐可选同类瓜菜蛋菜，按本人限制核对食材。",
+        "此刻只需确定菜与主食，按正常饭量安排。"
+      ],
+      "scene": "已有正常用餐安排，正在选择食材、准备做饭或点餐时；夜间仅安排原定餐食。",
+      "duration": "约30秒选定；烹调另计",
+      "sourceId": "meal-source-summer",
+      "tags": [
+        "food",
+        "meal-before",
+        "seasonal-food"
+      ],
+      "mealPhases": [
+        "before"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "F006",
+      "origin": "modern",
+      "basis": "dietary-principles-adaptation",
+      "title": "夏日面碗：青菜鸡丝面",
+      "category": "节令食养",
+      "steps": [
+        "想吃面时，为这餐配上自己常吃的青菜和鸡丝；小麦过敏时选择能吃的米制主食，并核对配料。",
+        "做饭时把面、青菜和鸡肉分别充分煮熟再组合；点餐可选蔬菜鸡肉面，酱汁按需少放。",
+        "先决定这一餐的组合，烹调另计，不为凑食材增加额外份量。"
+      ],
+      "scene": "已有正常用餐安排，正在选择食材、准备做饭或点餐时；夜间仅安排原定餐食。",
+      "duration": "约30秒选定；烹调另计",
+      "sourceId": "meal-source-summer",
+      "tags": [
+        "food",
+        "meal-before",
+        "seasonal-food"
+      ],
+      "mealPhases": [
+        "before"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "F007",
+      "origin": "modern",
+      "basis": "dietary-principles-adaptation",
+      "title": "秋日粥碗：南瓜小米粥",
+      "category": "节令食养",
+      "steps": [
+        "给原定的一餐选南瓜小米粥，再配熟鸡蛋和一份熟蔬菜；鸡蛋过敏时换成自己能吃的配菜。",
+        "做饭时把南瓜、小米煮熟煮软，不另加糖；点餐可找同类杂粮粥和配菜。",
+        "现在先选定原定餐食的组合，完整烹调另计，粥不单独代替整餐。"
+      ],
+      "scene": "已有正常用餐安排，正在选择食材、准备做饭或点餐时；夜间仅安排原定餐食。",
+      "duration": "约30秒选定；烹调另计",
+      "sourceId": "meal-source-autumn",
+      "tags": [
+        "food",
+        "meal-before",
+        "seasonal-food"
+      ],
+      "mealPhases": [
+        "before"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "F008",
+      "origin": "modern",
+      "basis": "dietary-principles-adaptation",
+      "title": "秋日汤菜：莲藕瘦肉汤",
+      "category": "节令食养",
+      "steps": [
+        "为计划中的一餐选莲藕瘦肉汤，并配主食和一份熟蔬菜；按本人过敏或特殊饮食限制更换食材。",
+        "做饭时莲藕、瘦肉充分煮熟，少油少盐；点餐可选同类清炖汤菜并核对配料。",
+        "现在只确定搭配，吃汤里的食材与其他餐食，不用一大碗汤代替整餐。"
+      ],
+      "scene": "已有正常用餐安排，正在选择食材、准备做饭或点餐时；夜间仅安排原定餐食。",
+      "duration": "约30秒选定；烹调另计",
+      "sourceId": "meal-source-autumn",
+      "tags": [
+        "food",
+        "meal-before",
+        "seasonal-food"
+      ],
+      "mealPhases": [
+        "before"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "F009",
+      "origin": "modern",
+      "basis": "dietary-principles-adaptation",
+      "title": "秋日饭碗：山药胡萝卜饭",
+      "category": "节令食养",
+      "steps": [
+        "给这一餐的米饭加一些熟山药和胡萝卜，再配豆腐或自己能吃的蛋白类食物；豆腐涉及大豆。",
+        "做饭时食材洗净处理后与米饭充分煮熟；点餐可找同类薯类杂粮饭，按需要核对配菜。",
+        "此刻只选好这一餐的组合；山药是主食搭配的一部分，不在原有饭量上额外加一份。"
+      ],
+      "scene": "已有正常用餐安排，正在选择食材、准备做饭或点餐时；夜间仅安排原定餐食。",
+      "duration": "约30秒选定；烹调另计",
+      "sourceId": "meal-source-autumn",
+      "tags": [
+        "food",
+        "meal-before",
+        "seasonal-food"
+      ],
+      "mealPhases": [
+        "before"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "F010",
+      "origin": "modern",
+      "basis": "dietary-principles-adaptation",
+      "title": "冬日暖碗：白菜豆腐煲",
+      "category": "节令食养",
+      "steps": [
+        "为原定的一餐选白菜豆腐煲和米饭；大豆过敏时换成平时能吃的蛋白类配菜。",
+        "做饭时白菜、豆腐充分煮熟，少油少盐；点餐可选同类白菜豆腐菜并核对调味料。",
+        "先定下这道搭配，正式烹调另计，入口前放到适口温度。"
+      ],
+      "scene": "已有正常用餐安排，正在选择食材、准备做饭或点餐时；夜间仅安排原定餐食。",
+      "duration": "约30秒选定；烹调另计",
+      "sourceId": "meal-source-winter",
+      "tags": [
+        "food",
+        "meal-before",
+        "seasonal-food"
+      ],
+      "mealPhases": [
+        "before"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "F011",
+      "origin": "modern",
+      "basis": "dietary-principles-adaptation",
+      "title": "冬日汤菜：白萝卜牛肉汤",
+      "category": "节令食养",
+      "steps": [
+        "给计划中的一餐选白萝卜牛肉汤，再配主食和熟蔬菜；按本人过敏或特殊饮食限制选择。",
+        "做饭时白萝卜与牛肉充分炖熟，少油少盐；点餐可选同类清炖汤菜并核对配料。",
+        "现在只选定组合，烹调另计，吃正常份量，不为天冷额外加餐。"
+      ],
+      "scene": "已有正常用餐安排，正在选择食材、准备做饭或点餐时；夜间仅安排原定餐食。",
+      "duration": "约30秒选定；烹调另计",
+      "sourceId": "meal-source-winter",
+      "tags": [
+        "food",
+        "meal-before",
+        "seasonal-food"
+      ],
+      "mealPhases": [
+        "before"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "F012",
+      "origin": "modern",
+      "basis": "dietary-principles-adaptation",
+      "title": "冬日饭香：香菇鸡肉饭",
+      "category": "节令食养",
+      "steps": [
+        "为原定的一餐选香菇鸡肉饭，再搭配一份熟青菜；按本人过敏或特殊饮食限制更换配料。",
+        "做饭时选正规购买的香菇，鸡肉与菌菇充分做熟；点餐可选同类菌菇鸡肉饭，少放酱汁。",
+        "先确定这一餐的组合，完整烹调另计，不自行采食野生菌。"
+      ],
+      "scene": "已有正常用餐安排，正在选择食材、准备做饭或点餐时；夜间仅安排原定餐食。",
+      "duration": "约30秒选定；烹调另计",
+      "sourceId": "meal-source-winter",
+      "tags": [
+        "food",
+        "meal-before",
+        "seasonal-food"
+      ],
+      "mealPhases": [
+        "before"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "MD001",
+      "origin": "modern",
+      "title": "咽下这一口，再回应",
+      "category": "从容用餐",
+      "steps": [
+        "嘴里还有食物时，先继续自然咀嚼，不急着开口接话。",
+        "完整咽下后再简短回应；即使有点烦躁，也给这一口留出自己的节奏。"
+      ],
+      "scene": "正在吃饭，同时被话题或催促打断时。",
+      "duration": "约30秒",
+      "tags": [
+        "food",
+        "quiet",
+        "meal-during",
+        "emotion"
+      ],
+      "mealPhases": [
+        "during"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "meal-source-attention"
+    },
+    {
+      "id": "MD002",
+      "origin": "modern",
+      "title": "先照顾眼前这一口",
+      "category": "从容用餐",
+      "steps": [
+        "心里有些乱时，把目光轻轻落回面前的食物，认出这一口是什么。",
+        "按平时的舒服节奏吃完，不处理屏幕上的消息；其它事情等咽下后再决定。"
+      ],
+      "scene": "正在用餐，思绪跑到了别处或有点心烦时。",
+      "duration": "约30秒",
+      "tags": [
+        "food",
+        "quiet",
+        "meal-during",
+        "emotion"
+      ],
+      "mealPhases": [
+        "during"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "meal-source-attention"
+    },
+    {
+      "id": "MD003",
+      "origin": "modern",
+      "title": "共享菜肴，用公筷取一次",
+      "category": "用餐卫生",
+      "steps": [
+        "如果桌上有共享菜肴，先找到公筷或公勺，把合适份量取到自己的碗盘。",
+        "放回公用餐具，再用自己的餐具吃；已经是分餐时，保持各用各的餐具即可。"
+      ],
+      "scene": "正在合餐或分餐用餐时。",
+      "duration": "约30秒",
+      "tags": [
+        "food",
+        "meal-during"
+      ],
+      "mealPhases": [
+        "during"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "meal-source-hygiene"
+    },
+    {
+      "id": "MD004",
+      "origin": "modern",
+      "title": "大块食物先分小",
+      "category": "从容用餐",
+      "steps": [
+        "遇到自己觉得过大的熟食，先用手边合适的餐具分成容易入口的小块。",
+        "一次取一小块，按自己的节奏咀嚼、咽下；不好分开的先放下，不勉强整块吞咽。"
+      ],
+      "scene": "正在进餐，眼前有一口不容易吃下的熟食时。",
+      "duration": "约30秒",
+      "tags": [
+        "food",
+        "meal-during"
+      ],
+      "mealPhases": [
+        "during"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "meal-source-attention"
+    },
+    {
+      "id": "MA001",
+      "origin": "modern",
+      "title": "餐后留一点从容的空隙",
+      "category": "餐后过渡",
+      "steps": [
+        "已经吃完，就把餐具安稳放下，先结束这一餐。",
+        "给接下来的安排留一点空隙，保持舒服的姿势；如果原本打算马上跑跳，先缓一缓。"
+      ],
+      "scene": "刚吃完饭，准备进入下一件事时。",
+      "duration": "约30秒",
+      "tags": [
+        "food",
+        "quiet",
+        "meal-after"
+      ],
+      "mealPhases": [
+        "after"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "meal-source-after"
+    },
+    {
+      "id": "MA002",
+      "origin": "modern",
+      "title": "餐后，先选一段平路",
+      "category": "餐后过渡",
+      "steps": [
+        "感觉舒适、也方便离座时，选眼前平整无障碍的一小段路。",
+        "从容走几步再停下，按自己的感觉决定是否继续，不追求步数或速度。"
+      ],
+      "scene": "已经用完餐，确认可离座且周围空间足够时。",
+      "duration": "30–60秒起",
+      "tags": [
+        "food",
+        "walk",
+        "meal-after"
+      ],
+      "mealPhases": [
+        "after"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "meal-source-after"
+    },
+    {
+      "id": "MA003",
+      "origin": "modern",
+      "title": "给剩余饭菜安排去处",
+      "category": "餐后整理",
+      "steps": [
+        "若这一餐有剩余食物，先确认有干净、适合装食物的容器和冷藏条件。",
+        "需要保留的及时分装、放入冰箱，与生食分开；没有可靠保存条件或状态不明的，不勉强留到下一餐。"
+      ],
+      "scene": "用餐已结束，需要处理剩余饭菜且方便整理时。",
+      "duration": "约30秒开始整理",
+      "tags": [
+        "food",
+        "environment",
+        "meal-after"
+      ],
+      "mealPhases": [
+        "after"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat"
+        ],
+        "falseFields": []
+      },
+      "sourceId": "meal-source-storage"
+    },
+    {
+      "id": "MA004",
+      "origin": "modern",
+      "title": "用完餐，把忙碌缓一格",
+      "category": "餐后过渡",
+      "steps": [
+        "这一餐结束后，先不急着同时打开好几件待办。",
+        "在心里选一个稍后再处理的事项，允许自己先留一小段安静间隙，再回到原来的安排。"
+      ],
+      "scene": "刚吃完饭，心里仍惦记很多事情时。",
+      "duration": "约30秒",
+      "tags": [
+        "food",
+        "quiet",
+        "meal-after",
+        "emotion"
+      ],
+      "mealPhases": [
+        "after"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "meal-source-emotion"
+    },
+    {
+      "id": "E001",
+      "origin": "modern",
+      "title": "把任务缩到下一步",
+      "category": "情绪整理",
+      "steps": [
+        "在心里说清眼前最困扰你的那件事，不要求马上全部解决。",
+        "只挑一个自己能做的小步骤，例如先列一个要点；其余部分先留待之后。"
+      ],
+      "scene": "觉得事情太多、紧张或不知从哪里开始时。",
+      "duration": "约30秒",
+      "tags": [
+        "emotion",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "meal-source-emotion"
+    },
+    {
+      "id": "E002",
+      "origin": "modern",
+      "title": "分清发生了什么与担心什么",
+      "category": "情绪整理",
+      "steps": [
+        "在心里分别补完两句话：“已经发生的是……”和“我担心的是……”。",
+        "先把已知的事说具体，对还没发生的担心暂留余地，不急着给自己下结论。"
+      ],
+      "scene": "因为一件事反复担忧或容易把结果想得很糟时。",
+      "duration": "约30秒",
+      "tags": [
+        "emotion",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "meal-source-emotion"
+    },
+    {
+      "id": "E003",
+      "origin": "modern",
+      "title": "给自己一句不催促的话",
+      "category": "情绪整理",
+      "steps": [
+        "试着对自己说：“我现在有点难受，可以先缓一下。”不用强迫自己立刻开心。",
+        "想一个当下能做到的小安排，比如暂缓不紧急的回复；等准备好，再继续。"
+      ],
+      "scene": "心烦、低落或觉得自己必须马上振作时。",
+      "duration": "约30秒",
+      "tags": [
+        "emotion",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "meal-source-emotion"
+    },
+    {
+      "id": "E004",
+      "origin": "modern",
+      "title": "想好一个可以倾诉的人",
+      "category": "情绪整理",
+      "steps": [
+        "在心里想一位你信任、也愿意联系的人，不必现在就发消息。",
+        "如果想倾诉，可以先组织一句“我今天有点累，之后方便聊一会儿吗”；按自己的意愿决定是否联系。"
+      ],
+      "scene": "想得到支持、但一时不知怎样开口时。",
+      "duration": "约30秒",
+      "tags": [
+        "emotion",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "sourceId": "meal-source-emotion"
+    },
+    {
+      "id": "MA005",
+      "origin": "modern",
+      "title": "记住这餐的饱足感",
+      "category": "餐后回顾",
+      "steps": [
+        "这一餐结束后，在心里辨认此刻更接近“还饿”“刚好”还是“有点撑”，不急着评价自己。",
+        "记住一个与份量有关的小观察，留给下一次取餐参考；这次不用为了调整而马上再吃或加做运动。"
+      ],
+      "scene": "刚吃完饭，愿意简单回看这一餐的份量时。",
+      "duration": "约30秒",
+      "sourceId": "meal-source-attention",
+      "tags": [
+        "food",
+        "quiet",
+        "meal-after"
+      ],
+      "mealPhases": [
+        "after"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "MA006",
+      "origin": "modern",
+      "title": "留住这一餐喜欢的一点",
+      "category": "餐后回顾",
+      "steps": [
+        "回想刚才这顿饭里一个让你觉得舒服的小细节：一道喜欢的菜、合口的温度，或一次从容的用餐。",
+        "在心里用一句话记住它；如果没有特别喜欢的，也可以只说“这一餐结束了”，再慢慢回到接下来的安排。"
+      ],
+      "scene": "用餐已结束，想给这一餐做一个轻松收尾时。",
+      "duration": "约30秒",
+      "sourceId": "meal-source-attention",
+      "tags": [
+        "food",
+        "quiet",
+        "meal-after",
+        "emotion"
+      ],
+      "mealPhases": [
+        "after"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      }
+    },
+    {
+      "id": "L001",
+      "origin": "modern",
+      "title": "写下今天的三行",
+      "category": "生活创意·日记",
+      "steps": [
+        "打开自己的纸笔或备忘录，第一行写一件今天实际发生的小事。",
+        "第二行写此刻的感受，第三行写接下来愿意做的一件小事；每行一句就够。"
+      ],
+      "scene": "愿意写一点日记，手边有纸笔或自己的记录工具时。",
+      "duration": "约1分钟",
+      "sourceId": "life-source-creative",
+      "tags": [
+        "journal",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "explicitOnly": true
+    },
+    {
+      "id": "L002",
+      "origin": "modern",
+      "title": "拍下一处此刻的光影",
+      "category": "生活创意·摄影",
+      "steps": [
+        "在安全、停稳的位置，选身边一片叶子、一只杯子或一道光影，不必为了取景挪到高处、路边或水边。",
+        "自行打开相机拍一张，留意避开别人的隐私；喜欢就留下，不满意也不用重拍。"
+      ],
+      "scene": "想拍一张照片，能够安全停下来且有自己的相机时。",
+      "duration": "约30–60秒",
+      "sourceId": "life-source-creative",
+      "tags": [
+        "photo",
+        "environment"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "explicitOnly": true
+    },
+    {
+      "id": "L003",
+      "origin": "modern",
+      "title": "用几笔画一个小物件",
+      "category": "生活创意·简笔画",
+      "steps": [
+        "拿自己的纸笔，或打开常用绘画工具，选一只杯子、一片叶子等身边的小物件。",
+        "先画外轮廓，再添一两处特征；画得像不像都可以，到这里就完成了。"
+      ],
+      "scene": "愿意画一点东西，并有可用的纸笔或绘画工具时。",
+      "duration": "约1分钟",
+      "sourceId": "life-source-creative",
+      "tags": [
+        "drawing",
+        "quiet"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "explicitOnly": true
+    },
+    {
+      "id": "L004",
+      "origin": "modern",
+      "title": "为自己泡一杯熟悉的茶",
+      "category": "生活创意·茶饮",
+      "steps": [
+        "选自己平时能喝的茶，把耐热茶杯放稳；按茶叶包装说明冲泡，取用热水时留意防烫。",
+        "等茶汤降到适口、不烫的温度，再慢慢尝一口；不为完成卡片而多喝或泡得更浓。",
+        "如果含咖啡因的茶会影响你休息，或已临近自己的睡眠时间，这次改为温水即可。"
+      ],
+      "scene": "明确想泡茶，有饮用水并能方便准备茶具时；完整冲泡另计。",
+      "duration": "先用约1分钟准备",
+      "sourceId": "life-source-tea",
+      "tags": [
+        "tea",
+        "quiet"
+      ],
+      "hours": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "waterAvailable"
+        ],
+        "falseFields": []
+      },
+      "explicitOnly": true
+    },
+    {
+      "id": "L005",
+      "origin": "modern",
+      "title": "给愿意联系的人打个招呼",
+      "category": "生活创意·亲友联系",
+      "steps": [
+        "选一位你愿意联系的家人或亲近的人，想一句想分享的小事。",
+        "自行拨打电话，先问“现在方便聊一会儿吗”；对方忙就另约时间，不必把聊天变成任务。"
+      ],
+      "scene": "你想联系亲友，也能安静、方便地通话时。",
+      "duration": "先用约30秒发起",
+      "sourceId": "life-source-creative",
+      "tags": [
+        "family",
+        "quiet"
+      ],
+      "hours": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "explicitOnly": true
+    },
+    {
+      "id": "L006",
+      "origin": "modern",
+      "title": "轻轻伸展双臂",
+      "category": "生活创意·舒展",
+      "steps": [
+        "在平整、留有余地的位置站稳，双脚自然分开、膝盖放松，双手松松地向前伸到舒服的高度。",
+        "让双臂向前轻轻延展，肩膀保持放松，停留两三次自然呼吸后收回；小幅度做1–2次，不弹震、不屏息。"
+      ],
+      "scene": "明确想拉伸，能够站起且周围空间足够时。",
+      "duration": "约30–60秒",
+      "sourceId": "life-source-creative",
+      "tags": [
+        "stretch",
+        "quiet"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "explicitOnly": true
+    },
+    {
+      "id": "L007",
+      "origin": "modern",
+      "title": "先看看植物是否需要水",
+      "category": "生活创意·照料植物",
+      "steps": [
+        "先认清自己这盆植物的日常养护要求，看看土壤干湿；需要触碰时避开刺、刺激性汁液和不认识的植物。",
+        "只有确实到了该浇水的时候，才按这种植物的需要缓缓补水，并处理托盘积水；土壤还湿就暂时不浇。"
+      ],
+      "scene": "你想照料自己的植物，知道它的养护方式，且方便取水时。",
+      "duration": "约1分钟",
+      "sourceId": "life-source-creative",
+      "tags": [
+        "plants",
+        "environment"
+      ],
+      "hours": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "waterAvailable"
+        ],
+        "falseFields": []
+      },
+      "explicitOnly": true
+    },
+    {
+      "id": "L008",
+      "origin": "modern",
+      "title": "留一分钟发会儿呆",
+      "category": "生活创意·放空",
+      "steps": [
+        "在安全的地方坐稳，把手头任务暂放一边，目光自然停在窗边光影或一处平静的景物上。",
+        "让思绪来来去去，不用努力清空脑袋，也不用完成什么；约一分钟后再决定接下来做什么。"
+      ],
+      "scene": "你想放空片刻，已经坐稳且不需要照看道路或操作设备时。",
+      "duration": "约1分钟",
+      "sourceId": "life-source-creative",
+      "tags": [
+        "daydream",
+        "quiet",
+        "emotion"
+      ],
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "night": true,
+      "requirements": {
+        "trueFields": [
+          "sitting"
+        ],
+        "falseFields": []
+      },
+      "explicitOnly": true
+    },
+    {
+      "id": "L009",
+      "origin": "modern",
+      "title": "给今天留一束花的预算",
+      "category": "生活创意·鲜花",
+      "steps": [
+        "先定一个自己舒服的小预算，想想喜欢的颜色与摆放位置；也可以只看看花，不一定购买。",
+        "若决定买，再自行去花店或常用购物工具挑选，留意家人花粉过敏及家中宠物是否适合接触所选花材。"
+      ],
+      "scene": "明确想买花或看看花，并愿意自行挑选时。",
+      "duration": "先用约1分钟挑选",
+      "sourceId": "life-source-creative",
+      "tags": [
+        "flowers",
+        "environment"
+      ],
+      "hours": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [],
+        "falseFields": []
+      },
+      "explicitOnly": true
+    },
+    {
+      "id": "L010",
+      "origin": "traditional",
+      "title": "八段锦第一式·两手托天理三焦",
+      "category": "传统导引·八段锦",
+      "steps": [
+        "先做轻柔热身，在平地开步站稳，双手在腹前交叉、掌心向上。",
+        "双手经胸前缓缓向上托起，到肩背舒适的高度即可，目光回到前方，保持自然呼吸。",
+        "双手分开，从两侧慢慢落回腹前，轻柔体验1–2遍；初学先从出处观看规范演练。"
+      ],
+      "scene": "明确想体验八段锦，能够站起、空间足够；初学先观看规范示范。",
+      "duration": "单式约1分钟；热身另计",
+      "sourceId": "life-source-baduanjin",
+      "tags": [
+        "qigong",
+        "quiet"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "explicitOnly": true,
+      "basis": "traditional-inspired"
+    },
+    {
+      "id": "L011",
+      "origin": "traditional",
+      "title": "八段锦第二式·左右开弓似射雕",
+      "category": "传统导引·八段锦",
+      "steps": [
+        "先做轻柔热身，并从出处看清手型与开合路线；双脚开立，采用较高的站姿，不追求蹲低。",
+        "双手在胸前交叉后，一手成八字掌向侧方缓推，另一手屈指向相反方向平拉，目光随推出的手，肩膀放松。",
+        "缓缓收回再换另一侧，各体验一次；手臂伸到舒适处，保持自然呼吸，不用蛮力拉弓。"
+      ],
+      "scene": "明确想体验八段锦，能够站起、空间足够；初学先观看规范示范。",
+      "duration": "单式约1分钟；热身另计",
+      "sourceId": "life-source-baduanjin",
+      "tags": [
+        "qigong",
+        "quiet"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "explicitOnly": true,
+      "basis": "traditional-inspired"
+    },
+    {
+      "id": "L012",
+      "origin": "traditional",
+      "title": "八段锦第三式·调理脾胃须单举",
+      "category": "传统导引·八段锦",
+      "steps": [
+        "轻柔热身后，双脚自然分开，双手掌心向上放在腹前。",
+        "一手缓缓上举并翻掌向上，另一手翻掌向下、轻轻按至胯前；上举高度以肩背舒服为准。",
+        "两手慢慢收回，再交换上下手各做一次；身体保持中正，呼吸自然。"
+      ],
+      "scene": "明确想体验八段锦，能够站起、空间足够；初学先观看规范示范。",
+      "duration": "单式约1分钟；热身另计",
+      "sourceId": "life-source-baduanjin",
+      "tags": [
+        "qigong",
+        "quiet"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "explicitOnly": true,
+      "basis": "traditional-inspired"
+    },
+    {
+      "id": "L013",
+      "origin": "traditional",
+      "title": "八段锦第四式·五劳七伤往后瞧",
+      "category": "传统导引·八段锦",
+      "steps": [
+        "先从出处观看本式规范演练；没学过时先观察转头与手臂的配合，今天不靠文字尝试极限转颈。",
+        "已掌握动作且热身后，开步站稳，双臂轻轻外旋，头缓缓转向一侧舒适的位置，上身保持中正。",
+        "缓慢回到正前方，再看另一侧，各一次即可；不要突然甩头、向后仰头或憋气。"
+      ],
+      "scene": "明确想体验八段锦，能够站起、空间足够；初学先观看规范示范。",
+      "duration": "单式约1分钟；热身另计",
+      "sourceId": "life-source-baduanjin",
+      "tags": [
+        "qigong",
+        "quiet"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "explicitOnly": true,
+      "basis": "traditional-inspired"
+    },
+    {
+      "id": "L014",
+      "origin": "traditional",
+      "title": "八段锦第五式·摇头摆尾去心火",
+      "category": "传统导引·八段锦",
+      "steps": [
+        "先从出处观看本式规范演练，留意重心、髋与头颈的配合；没学过时今天先观察，不单独模仿摇头。",
+        "已掌握动作且热身后，采用较高马步，双手扶在膝上方的大腿处，按已学路线小幅度转移重心。",
+        "头颈随身体和髋的转动自然配合，动作轻缓、眼睛睁开，左右各体验一次后站直放松；不主动用力绕颈。"
+      ],
+      "scene": "明确想体验八段锦，能够站起、空间足够；初学先观看规范示范。",
+      "duration": "单式约1分钟；热身另计",
+      "sourceId": "life-source-baduanjin",
+      "tags": [
+        "qigong",
+        "quiet"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "explicitOnly": true,
+      "basis": "traditional-inspired"
+    },
+    {
+      "id": "L015",
+      "origin": "traditional",
+      "title": "八段锦第六式·两手攀足固肾腰",
+      "category": "传统导引·八段锦",
+      "steps": [
+        "先从出处观看本式完整路线；没学过时先观察俯身与回起的配合，不为了卡片去摸脚。",
+        "已掌握动作且热身后，按已学路线缓缓俯身，让双手随身体下行到舒适处；不追求触到脚面，也不用手拉压身体。",
+        "按规范路线缓缓回起，只体验一次，保持自然呼吸；不突然起身或强行反弓。"
+      ],
+      "scene": "明确想体验八段锦，能够站起、空间足够；初学先观看规范示范。",
+      "duration": "单式约1分钟；热身另计",
+      "sourceId": "life-source-baduanjin",
+      "tags": [
+        "qigong",
+        "quiet"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "explicitOnly": true,
+      "basis": "traditional-inspired"
+    },
+    {
+      "id": "L016",
+      "origin": "traditional",
+      "title": "八段锦第七式·攒拳怒目增气力",
+      "category": "传统导引·八段锦",
+      "steps": [
+        "先轻柔热身，从出处看清推拳、旋腕和收拳路线；双脚开立，用较高马步，双手轻握于腰侧。",
+        "一拳沿正前方缓缓推出，到舒适距离后按示范松掌、旋腕，再轻轻握拳收回；目光自然专注，不必用力瞪眼。",
+        "另一侧同样体验一次，肩膀放松、呼吸自然，不追求出拳力量或蹲低。"
+      ],
+      "scene": "明确想体验八段锦，能够站起、空间足够；初学先观看规范示范。",
+      "duration": "单式约1分钟；热身另计",
+      "sourceId": "life-source-baduanjin",
+      "tags": [
+        "qigong",
+        "quiet"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough"
+        ],
+        "falseFields": []
+      },
+      "explicitOnly": true,
+      "basis": "traditional-inspired"
+    },
+    {
+      "id": "L017",
+      "origin": "traditional",
+      "title": "八段锦第八式·背后七颠百病消",
+      "category": "传统导引·八段锦",
+      "steps": [
+        "先轻柔热身，选择平整防滑的位置，轻扶固定牢靠的扶手站稳，目视前方。",
+        "双脚脚跟仅微微抬起，再有控制地缓缓放下；扶手用来保持稳定，不追求抬高。",
+        "本次只做2次轻柔体验，不跳起、不跺脚震落；完整定式与次数可从出处查看规范演练。"
+      ],
+      "scene": "明确想体验八段锦，能够站起、空间足够；初学先观看规范示范。",
+      "duration": "单式约1分钟；热身另计",
+      "sourceId": "life-source-baduanjin",
+      "tags": [
+        "qigong",
+        "quiet"
+      ],
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "night": false,
+      "requirements": {
+        "trueFields": [
+          "canLeaveSeat",
+          "spaceEnough",
+          "hasSupport"
+        ],
+        "falseFields": []
+      },
+      "explicitOnly": true,
+      "basis": "traditional-inspired"
     }
   ],
   "sources": [
@@ -6743,6 +8973,90 @@
       "title": "项目编写·坐姿细节与小幅活动",
       "text": "项目编写的稳坐、双脚承托、轻柔脚跟脚尖活动及衣物整理提示；不追求幅度、拉伸感或额外负重。",
       "url": ""
+    },
+    {
+      "id": "meal-source-spring",
+      "label": "节令食养",
+      "title": "立春时节话咬春｜中国疾控中心营养所",
+      "text": "原文介绍春饼、菠菜、豆芽等春日食材，并提倡用熟蔬菜、豆腐丝或鸡肉丝丰富搭配。本组为参考膳食原则整理的日常选餐方案，具体组合与步骤由项目编写，不是古籍原方或文章原配方。按本人过敏及特殊饮食限制选择，外食需核对食材与调味料。",
+      "url": "https://www.chinacdc.cn/jkkp/yyjk/swyy/202602/t20260205_314948.html"
+    },
+    {
+      "id": "meal-source-summer",
+      "label": "节令食养",
+      "title": "小暑至，知营养！这份饮食攻略请查收｜中国疾控中心营养所",
+      "text": "本组参考原文有关瓜类、绿叶蔬菜以及主食、豆制品合理搭配的内容整理。具体菜式为项目自拟的日常食材组合，不采用文中食物疗效说法，也不把汤菜当作整餐。按本人过敏及特殊饮食限制选择，外食需核对食材与调味料。",
+      "url": "https://www.chinacdc.cn/jkkp/yyjk/swyy/202607/t20260707_1837855.html"
+    },
+    {
+      "id": "meal-source-autumn",
+      "label": "节令食养",
+      "title": "立秋怎么吃？——润燥清补，别急着贴秋膘｜中国疾控中心营养所",
+      "text": "本组参考原文提到的南瓜、小米、莲藕、山药、瘦肉与豆腐等普通食材，以及食物多样和蒸煮炖的膳食原则整理。搭配与步骤为项目编写，不引用补益或治疗功效。按本人过敏及特殊饮食限制选择，外食需核对食材与调味料。",
+      "url": "https://www.chinacdc.cn/jkkp/yyjk/swyy/202608/t20260811_1838887.html"
+    },
+    {
+      "id": "meal-source-winter",
+      "label": "节令食养",
+      "title": "进入小寒，中医专家列出养生要点｜福州市卫生健康委员会",
+      "text": "原文采访福州市中医院专家，介绍冬日可选的白菜、白萝卜、香菇、牛肉等食材。本组参考食材选择与均衡搭配原则整理，具体菜式由项目编写，不沿用文中补益功效，也不要求因天冷额外进食。按本人过敏及特殊饮食限制选择。",
+      "url": "https://www.fuzhou.gov.cn/zgfzzt/swjw/fzwj/jkkp/202501/t20250106_4956753.htm"
+    },
+    {
+      "id": "meal-source-attention",
+      "label": "常用健康小知识",
+      "title": "宣医科普｜吃饭快身体负担重！6个小方法助你养成细嚼慢咽习惯",
+      "text": "参考北京宣武医院科普中专心用餐、从容咀嚼和不边走边吃的建议。本卡步骤由项目整理，不设固定咀嚼次数，不要求边吃边做呼吸练习，也不推导疾病预防效果。",
+      "url": "https://wjw.beijing.gov.cn/bmfw_20143/jkzs/jksh/202209/t20220929_2826591.html"
+    },
+    {
+      "id": "meal-source-hygiene",
+      "label": "常用健康小知识",
+      "title": "中国公民健康素养——基本知识与技能（2024年版）",
+      "text": "参考国家卫生健康委公布的公筷分餐、珍惜食物等日常饮食卫生原则。卡片是面向当前用餐场景的简短操作整理。",
+      "url": "https://www.nhc.gov.cn/xcs/c100123/202405/73a4927142f34152abed875634a3c13b.shtml"
+    },
+    {
+      "id": "meal-source-after",
+      "label": "常用健康小知识",
+      "title": "国家卫生健康委员会2025年2月17日新闻发布会文字实录",
+      "text": "发布会谈到饭后可按个人情况适度散步，不宜立即剧烈活动。本卡只整理餐后从容过渡和轻松走动的选择，不规定人人相同的等待时间、步数或消化效果。",
+      "url": "https://www.nhc.gov.cn/xcs/c100122/202502/72a3324f4094460cbef7d105cd09f772.shtml"
+    },
+    {
+      "id": "meal-source-storage",
+      "label": "常用健康小知识",
+      "title": "春节饮食安全指南｜中国疾控中心应急中心",
+      "text": "原文提示生熟分开、肉蛋烧熟煮透、剩饭剩菜及时冷藏及再次食用前彻底加热。卡片将及时分装保存整理为餐后的短行动；保存条件或状态不明的食物不靠试吃判断。",
+      "url": "https://www.chinacdc.cn/jkyj/tfggws/jswj1_14714/202603/t20260303_315260.html"
+    },
+    {
+      "id": "meal-source-emotion",
+      "label": "常用健康小知识",
+      "title": "国家卫生健康委员会2024年12月25日新闻发布会文字实录",
+      "text": "发布会建议接纳暂时的情绪、合理设定目标、做好时间安排，并向可信任的人寻求支持。卡片据此编写日常思绪整理提示，不是诊断、心理治疗或保证见效的方法。",
+      "url": "https://www.nhc.gov.cn/xcs/c100122/202412/01fe4c5b70b149cd86ce685893f87adb.shtml"
+    },
+    {
+      "id": "life-source-creative",
+      "label": "生活小创意",
+      "title": "项目编写·日常生活创意小行动",
+      "text": "由项目围绕书写、观察、绘画、亲友联系、轻柔舒展、植物照料和生活审美编写的日常小行动。只在用户表达相关意愿并具备所需条件时提供。记录、拍照、拨号和购买均由用户自行操作，本应用不会代为执行。",
+      "url": ""
+    },
+    {
+      "id": "life-source-tea",
+      "label": "生活小贴士",
+      "title": "国家卫生健康委员会2025年1月17日新闻发布会文字实录",
+      "text": "原文提醒睡前避免浓茶等含咖啡因饮料。卡片据此加入临近睡眠可改温水的选择；选茶、冲泡和适口温度为项目整理的日常操作，不规定用量或宣称养生疗效。",
+      "url": "https://www.nhc.gov.cn/xcs/c100122/202501/4c0f023143ae4fd39b1a0339dd6bdecb.shtml"
+    },
+    {
+      "id": "life-source-baduanjin",
+      "label": "健身气功·八段锦",
+      "title": "中国健身气功协会·健身气功八段锦演练视频",
+      "text": "八式名称与动作学习入口参照规范健身气功八段锦，动作核对参考北京体育大学公开教材及协会教学文章。卡片由项目整理为少量、舒缓的单式体验提示，采用自然呼吸；第八式另加扶稳并缓落的体验方式，完整套路以规范演练为准。式名保留传统称呼，不作为本次行动的治疗效果说明。",
+      "url": "https://www.chqa.org.cn/html/109014-448973.html"
     }
   ],
   "solar": [
@@ -7243,5 +9557,5 @@
       ]
     }
   ],
-  "version": "2026-11-04-expanded-v2"
+  "version": "2026-11-04-lifestyle-qigong-v4"
 }

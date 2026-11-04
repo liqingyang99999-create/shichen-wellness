@@ -5,7 +5,7 @@ import catalog from '../server/catalog.json' with { type: 'json' };
 import { auditCoverage } from './coverage-audit.mjs';
 import { runWorkflow } from '../server/engine.mjs';
 
-test('every eligible ordinary hour/intent/boolean pool offers eight cards and survives recent-three exclusion', () => {
+test('ordinary and meal-safe pools meet their declared floors; conflicting meal requests safely pause', () => {
   const report = auditCoverage();
   fs.mkdirSync(new URL('./reports/', import.meta.url), { recursive: true });
   fs.writeFileSync(new URL('./reports/coverage.json', import.meta.url), JSON.stringify(report, null, 2));
@@ -14,7 +14,10 @@ test('every eligible ordinary hour/intent/boolean pool offers eight cards and su
   assert.deepEqual(report.duplicateIds, []);
   assert.deepEqual(report.missingSourceIds, []);
   assert.equal(report.insufficientCases, 0, JSON.stringify({ total: report.insufficientCases, exampleGroups: report.insufficientGroups.slice(0, 8) }, null, 2));
-  assert.ok(report.minimumCandidates >= 8);
+  assert.ok(report.minimumCandidates >= 4);
+  assert.ok(report.expectedSafetyBlocks > 0);
+  assert.equal(report.evaluatedCases + report.expectedSafetyBlocks, report.totalCases);
+  assert.deepEqual(report.minimumByContext,{ordinary:8,duringMeal:4});
 });
 
 test('reported screenshot: 09:12, eye intent and 45 screen minutes continue rerolling without repeats', async () => {

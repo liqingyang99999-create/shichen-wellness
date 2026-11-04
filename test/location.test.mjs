@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {LOCATION_STORAGE_KEY,sanitizeConditions,roundWeatherCoordinates,weatherRequestPath,readLocationPreferences,writeLocationPreferences,matchLocationPreset,precisePositionUsable,requestPreciseLocation,distanceMeters,lookupCurrentCity} from '../lib/location.mjs';
+import {LOCATION_STORAGE_KEY,sanitizeConditions,roundWeatherCoordinates,weatherRequestPath,readLocationPreferences,writeLocationPreferences,matchLocationPreset,precisePositionUsable,requestPreciseLocation,distanceMeters,lookupCurrentCity,cancelCityLookups} from '../lib/location.mjs';
 const now=Date.parse('2026-11-04T04:00:00Z');
 const gps={source:'gps',latitude:30.27416,longitude:120.15515,accuracy:10,observedAt:new Date(now).toISOString()};
 const home={id:'home',address:'只应留在本机的详细门牌',coords:{...gps},conditions:{canCloseEyes:false,sitting:true}};
@@ -36,9 +36,9 @@ test('local storage preserves address and explicitly saved conditions without un
 
 test('invalid storage is ignored and a blocked store reports failure',()=>{
  const local=storage();local.setItem(LOCATION_STORAGE_KEY,'not-json');
- assert.deepEqual(readLocationPreferences(local),{presets:[],city:null});
+ assert.deepEqual(readLocationPreferences(local),{presets:[],city:null,cityLookupConsent:false});
  local.setItem(LOCATION_STORAGE_KEY,JSON.stringify({version:2,presets:[home]}));
- assert.deepEqual(readLocationPreferences(local),{presets:[],city:null});
+ assert.deepEqual(readLocationPreferences(local),{presets:[],city:null,cityLookupConsent:false});
  assert.equal(writeLocationPreferences({setItem(){throw Error('blocked');}},{presets:[home]}),false);
 });
 
@@ -88,7 +88,7 @@ test('GPS permission denial, timeout and malformed data give fallback messages',
 
 test('city recognition uses freshly obtained rounded GPS coordinates and retains only the city',async()=>{
  let requested;
- const result=await lookupCurrentCity(gps,{now,fetcher:async value=>{requested=new URL(value);return new Response(JSON.stringify({city:'杭州',countryCode:'CN',locality:'不应保留的小区',postcode:'310000',latitude:30.27416,longitude:120.15515}));}});
+ const result=await lookupCurrentCity(gps,{consent:true,now,fetcher:async value=>{requested=new URL(value);return new Response(JSON.stringify({city:'杭州',countryCode:'CN',locality:'不应保留的小区',postcode:'310000',latitude:30.27416,longitude:120.15515}));}});
  assert.equal(requested.origin,'https://api.bigdatacloud.net');
  assert.equal(requested.searchParams.get('latitude'),'30.27');
  assert.equal(requested.searchParams.get('longitude'),'120.16');
@@ -97,11 +97,56 @@ test('city recognition uses freshly obtained rounded GPS coordinates and retains
 
 test('city recognition never queries saved city coordinates or stale positions and returns null on failure',async()=>{
  let calls=0;
- const options={now,fetcher:async()=>{calls++;throw Error('offline');}};
+ const options={consent:true,now,fetcher:async()=>{calls++;throw Error('offline');}};
  assert.equal(await lookupCurrentCity({...gps,source:'city'},options),null);
  assert.equal(await lookupCurrentCity({...gps,observedAt:new Date(now-300001).toISOString()},options),null);
  assert.equal(calls,0);
  assert.equal(await lookupCurrentCity(gps,options),null);
  assert.equal(calls,1);
- assert.equal(await lookupCurrentCity(gps,{now,fetcher:async()=>new Response(JSON.stringify({locality:'只找到街区'}))}),null);
+ assert.equal(await lookupCurrentCity(gps,{consent:true,now,fetcher:async()=>new Response(JSON.stringify({locality:'只找到街区'}))}),null);
+});
+
+test('city recognition is off for legacy preferences even when system location was granted',()=>{
+ const local=storage();
+ assert.equal(readLocationPreferences(local).cityLookupConsent,false);
+ local.setItem(LOCATION_STORAGE_KEY,JSON.stringify({version:1,city,presets:[home],locationPermission:'granted'}));
+ assert.equal(readLocationPreferences(local).cityLookupConsent,false);
+ for(const value of ['true',1,{},null]) {
+  local.setItem(LOCATION_STORAGE_KEY,JSON.stringify({version:1,cityLookupConsent:value}));
+  assert.equal(readLocationPreferences(local).cityLookupConsent,false);
+ }
+});
+
+test('city recognition requires literal explicit consent before making any network request',async()=>{
+ let calls=0;
+ const fetcher=async()=>{calls++;return new Response(JSON.stringify({city:'杭州'}));};
+ for(const consent of [undefined,false,'true',1,null]) assert.equal(await lookupCurrentCity(gps,{now,consent,fetcher}),null);
+ assert.equal(calls,0);
+ // Location-based weather remains available independently of city recognition.
+ assert.equal(weatherRequestPath(gps),'/api/weather/current?latitude=30.27&longitude=120.16');
+});
+
+test('city recognition choice can be saved and revoked without losing city or presets',()=>{
+ const local=storage();
+ writeLocationPreferences(local,{city,presets:[home],cityLookupConsent:true});
+ let saved=readLocationPreferences(local);
+ assert.equal(saved.cityLookupConsent,true);
+ assert.equal(writeLocationPreferences(local,{...saved,cityLookupConsent:false}),true);
+ saved=readLocationPreferences(local);
+ assert.equal(saved.cityLookupConsent,false);
+ assert.equal(saved.city.name,city.name);
+ assert.equal(saved.presets[0].address,home.address);
+});
+
+test('withdrawing city recognition cancels a pending request and ignores its late response',async()=>{
+ let finish,signal;
+ const request=lookupCurrentCity(gps,{now,consent:true,fetcher:async(_url,options)=>{
+  signal=options.signal;
+  return new Promise(resolve=>{finish=resolve;});
+ }});
+ assert.equal(signal.aborted,false);
+ cancelCityLookups();
+ assert.equal(signal.aborted,true);
+ finish(new Response(JSON.stringify({city:'杭州',countryCode:'CN'})));
+ assert.equal(await request,null);
 });

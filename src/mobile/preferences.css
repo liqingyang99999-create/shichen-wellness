@@ -1,0 +1,59 @@
+/* Settings and activity controls share a readable UI type scale. Card typography stays editorial. */
+.mobile-top > .mobile-conditions-entry {
+  left: -7px;
+  right: auto;
+  top: 7px;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 48px;
+  min-height: 52px;
+  padding: 5px;
+  border-radius: 14px;
+}
+.mobile-conditions-entry span { font-size: 11px; line-height: 1.4; white-space: nowrap; }
+.mobile-preferences-sheet {
+  --settings-font: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--settings-font);
+  font-size: 14px;
+  line-height: 1.75;
+}
+.mobile-preferences-sheet :is(h2,h3,h4,p,span,label,button,input,select,summary,small,strong,a,textarea,dt,dd) {
+  font-family: inherit;
+}
+.mobile-preferences-sheet .mobile-sheet-heading h2 { font-size: 22px; font-weight: 650; line-height: 1.5; }
+.mobile-preferences-sheet h3 { font-size: 15px; font-weight: 600; line-height: 1.65; color: var(--m-ink); }
+.mobile-preferences-sheet h4 { font-size: 14px; font-weight: 600; line-height: 1.7; }
+.mobile-preferences-sheet :is(.mobile-setting-section,.location-module,.device-data) { font-size: 14px; }
+.mobile-preferences-sheet .location-heading h3 { margin: 0; }
+.mobile-preferences-sheet .location-module { border-top: 0; margin: 0 0 17px; padding: 0 0 17px; }
+.mobile-preferences-sheet :is(.mobile-toggle,.mobile-setting-nav,.location-locate,.location-search input,.location-search button,.location-save,.device-data-value) {
+  font-size: 14px;
+  line-height: 1.75;
+}
+.mobile-preferences-sheet :is(.mobile-field,.condition-grid label,.location-editor>label,.location-conditions label,.location-preset>strong) {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.mobile-preferences-sheet :is(.mobile-field input,.condition-grid select,.location-editor input,.location-editor select,.location-conditions select) {
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 40px;
+}
+.mobile-preferences-sheet :is(.mobile-setting-note,.mobile-toggle small,.location-caption,.location-weather span,.location-weather small,.device-data-note,.location-preset>span,.location-attribution) {
+  font-size: 12px !important;
+  line-height: 1.75 !important;
+}
+.mobile-preferences-sheet :is(.mobile-permission-buttons button,.location-presets>summary,.device-data-diagnostics summary,.mobile-link,.location-link,.location-preset button) {
+  font-size: 13px !important;
+  line-height: 1.7;
+}
+.mobile-preferences-sheet :is(.location-heading>span,.device-data-refresh,.device-data-permission,.location-cities span,.device-data-diagnostics dl) {
+  font-size: 12px;
+  line-height: 1.6;
+}
+.mobile-preferences-sheet .device-data-copy-fallback { font: 12px/1.75 var(--settings-font); }
+.mobile-preferences-sheet .condition-grid { gap: 17px 14px; margin: 22px 0 12px; }
+.mobile-preferences-sheet .condition-grid label { gap: 7px; }
+@media (min-width: 600px) {
+  .mobile-top > .mobile-conditions-entry { top: 12px; }
+}

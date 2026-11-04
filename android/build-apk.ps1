@@ -15,12 +15,14 @@ try {
     try {
         $metricTestDir = Join-Path $projectRoot 'build/metric-check'
         New-Item -ItemType Directory -Force -Path $metricTestDir | Out-Null
-        & (Join-Path $JavaHome 'bin/javac.exe') -encoding UTF-8 -d $metricTestDir 'app/src/main/java/cn/shichen/wellness/ScreenTimeAccumulator.java' 'app/src/main/java/cn/shichen/wellness/StepSessionAccumulator.java' 'tests/ScreenTimeAccumulatorCheck.java' 'tests/StepSessionAccumulatorCheck.java'
+        & (Join-Path $JavaHome 'bin/javac.exe') -encoding UTF-8 -d $metricTestDir 'app/src/main/java/cn/shichen/wellness/ScreenTimeAccumulator.java' 'app/src/main/java/cn/shichen/wellness/StepSessionAccumulator.java' 'app/src/main/java/cn/shichen/wellness/NativeActionPolicy.java' 'tests/ScreenTimeAccumulatorCheck.java' 'tests/StepSessionAccumulatorCheck.java' 'tests/NativeActionPolicyCheck.java'
         if ($LASTEXITCODE -ne 0) { throw 'Metric checks failed to compile.' }
         & (Join-Path $JavaHome 'bin/java.exe') -cp $metricTestDir cn.shichen.wellness.ScreenTimeAccumulatorCheck
         if ($LASTEXITCODE -ne 0) { throw 'Screen duration checks failed.' }
         & (Join-Path $JavaHome 'bin/java.exe') -cp $metricTestDir cn.shichen.wellness.StepSessionAccumulatorCheck
         if ($LASTEXITCODE -ne 0) { throw 'Step session checks failed.' }
+        & (Join-Path $JavaHome 'bin/java.exe') -cp $metricTestDir cn.shichen.wellness.NativeActionPolicyCheck
+        if ($LASTEXITCODE -ne 0) { throw 'Native action policy checks failed.' }
         & (Join-Path $projectRoot 'gradlew.bat') --no-daemon assembleDebug lintDebug
         if ($LASTEXITCODE -ne 0) { throw "Android build failed: $LASTEXITCODE" }
     } finally { Pop-Location }

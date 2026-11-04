@@ -1,6 +1,6 @@
 import { runWorkflow } from './engine.mjs';
 import catalog from './catalog.json' with { type: 'json' };
-import { createChatSnapshot, createReminderState, toShanghaiISO } from '../lib/context.mjs';
+import { createChatSnapshot, createReminderState, toShanghaiISO, CONTEXT_FOCUS_VALUES, ACTIVITY_PHASES } from '../lib/context.mjs';
 
 export const MAX_AGENT_BODY_BYTES = 16_384;
 const VERSION = '1.0.0';
@@ -19,6 +19,9 @@ const snapshotProperties = {
   sleepObservedAt: dateField('清醒状态的实际观察时间；指定 sleepState 而省略此字段时，按 snapshot.now 的明确自述处理。'),
   sleepValidUntil: dateField('可选清醒状态有效期；缺省为观察时间后五分钟。'),
   mealPhase: enumField(['before', 'during', 'after'], '明确的餐前、用餐中或餐后情境，不用于推断钟点。'),
+  mood: enumField(['low', 'settled'], '本人明确表示心情低落或已经平复；不是情绪诊断，未知省略。'),
+  contextFocus: enumField(CONTEXT_FOCUS_VALUES, '最近明确表达的推荐主题；不能替代进餐、姿势等执行条件。未知省略。'),
+  activityPhase: enumField(ACTIVITY_PHASES, '明确描述的当前活动；驾驶、骑行、过马路时不生成分心的行动。运动后不等于疲劳或已知活动分钟。'),
   ...Object.fromEntries(Object.entries(conditionNames).map(([key, description]) => [key, { type: 'boolean', description: `${description}；不知道就省略，不能猜测为 true。` }])),
   ...Object.fromEntries(['screenMinutes', 'sedentaryMinutes', 'activityMinutes'].map(key => [key, { type: 'number', minimum: 0, maximum: 1440, description: '用户明确提供的分钟数；不知道就省略。' }])),
   weather: {

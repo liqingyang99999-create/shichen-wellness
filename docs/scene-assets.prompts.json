@@ -1,0 +1,57 @@
+{
+  "created": "2026-11-04",
+  "generator": "built-in image_gen (one new-image call per asset)",
+  "editMode": false,
+  "constraints": "No people, human bodies, faces, hands, acupuncture images, text, logos, watermark or UI.",
+  "processing": "FFmpeg libwebp q=84 compression_level=6; resize 1024x1536 to 800x1200; no crop, composite or content alteration.",
+  "assets": [
+    {
+      "id": "flowers",
+      "subject": "鲜花",
+      "file": "public/scenes/flowers.webp",
+      "width": 800,
+      "height": 1200,
+      "bytes": 114890,
+      "originalFile": "work/scene-images/flowers.png (workspace root)",
+      "generationFile": "exec-c65e5375-7ab5-479c-866b-cb8a4dbcd670.png",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: portrait 2:3 background photograph for a calm Chinese daily wellness mobile action card.\nStyle: realistic quiet nature photography, delicate natural textures, soft diffused daylight, restrained pale sage, ivory and soft sky colors. A cohesive, fresh, refined editorial photograph, not an illustration.\nComposition: subjects and detail primarily in the lower half, upper half naturally bright and spacious with pale atmospheric haze and low contrast for dark readable UI text added later. Fill the image, no frame. Natural depth, no artificial graphic gradient, no collage.\nConstraints: landscape/nature only, no people, human bodies, faces, hands, silhouettes, anatomy, acupuncture diagrams, buildings, signs, captions, letters, logos or watermarks. No rendered UI.\nPrimary request: a sunlit garden edge with fresh white and pale pink cosmos flowers on green stems, photographed naturally at their height. The clearly visible fresh blossoms cluster in the lower half, with soft distant greenery, morning light and light mist behind them. Gentle delicate flowers must be unmistakable.",
+      "visualReview": "Inspected original generated image: nature only, no persons/anatomy/text; focal detail low in portrait composition."
+    },
+    {
+      "id": "tea",
+      "subject": "茶园与茶树",
+      "file": "public/scenes/tea.webp",
+      "width": 800,
+      "height": 1200,
+      "bytes": 80992,
+      "originalFile": "work/scene-images/tea.png (workspace root)",
+      "generationFile": "exec-17a77e0e-86c6-4955-aab6-9a642ef1ec0a.png",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: portrait 2:3 background photograph for a calm Chinese daily wellness mobile action card.\nStyle: realistic quiet nature photography, delicate natural textures, soft diffused daylight, restrained pale sage, ivory and soft sky colors. A cohesive, fresh, refined editorial photograph, not an illustration.\nComposition: subjects and detail primarily in the lower half, upper half naturally bright and spacious with pale atmospheric haze and low contrast for dark readable UI text added later. Fill the image, no frame. Natural depth, no artificial graphic gradient, no collage.\nConstraints: landscape/nature only, no people, human bodies, faces, hands, silhouettes, anatomy, acupuncture diagrams, buildings, signs, captions, letters, logos or watermarks. No rendered UI.\nPrimary request: an empty tea garden on softly rolling hills, vibrant fresh tea bushes and small tender tea leaves in the foreground lower half, layered curving rows fading into morning mist. Muted light green hills at the bottom and a luminous pale misty sky above. Tea plants are the visual subject, no tea cups or utensils.",
+      "visualReview": "Inspected original generated image: nature only, no persons/anatomy/text; focal detail low in portrait composition."
+    },
+    {
+      "id": "meadow",
+      "subject": "山林与草地",
+      "file": "public/scenes/meadow.webp",
+      "width": 800,
+      "height": 1200,
+      "bytes": 115178,
+      "originalFile": "work/scene-images/meadow.png (workspace root)",
+      "generationFile": "exec-b05a4230-9c73-4bac-9c29-e0b525d9ec14.png",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: portrait 2:3 background photograph for a calm Chinese daily wellness mobile action card.\nStyle: realistic quiet nature photography, delicate natural textures, soft diffused daylight, restrained pale sage, ivory and soft sky colors. A cohesive, fresh, refined editorial photograph, not an illustration.\nComposition: subjects and detail primarily in the lower half, upper half naturally bright and spacious with pale atmospheric haze and low contrast for dark readable UI text added later. Fill the image, no frame. Natural depth, no artificial graphic gradient, no collage.\nConstraints: landscape/nature only, no people, human bodies, faces, hands, silhouettes, anatomy, acupuncture diagrams, buildings, signs, captions, letters, logos or watermarks. No rendered UI.\nPrimary request: a quiet open green meadow at the edge of a natural mountain forest, soft grasses and a few ferns in the lower foreground, distant tall forest trees and mountain layers receding into clean pale morning mist. Spacious and gentle, evoking a place to slowly stretch outdoors. No people, trail figures or exercise equipment.",
+      "visualReview": "Inspected original generated image: nature only, no persons/anatomy/text; focal detail low in portrait composition."
+    },
+    {
+      "id": "sky",
+      "subject": "白云与远山",
+      "file": "public/scenes/sky.webp",
+      "width": 800,
+      "height": 1200,
+      "bytes": 29556,
+      "originalFile": "work/scene-images/sky.png (workspace root)",
+      "generationFile": "exec-27921fa5-8ef2-4fe0-bbe8-ce9754777c12.png",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: portrait 2:3 background photograph for a calm Chinese daily wellness mobile action card.\nStyle: realistic quiet nature photography, delicate natural textures, soft diffused daylight, restrained pale sage, ivory and soft sky colors. A cohesive, fresh, refined editorial photograph, not an illustration.\nComposition: subjects and detail primarily in the lower half, upper half naturally bright and spacious with pale atmospheric haze and low contrast for dark readable UI text added later. Fill the image, no frame. Natural depth, no artificial graphic gradient, no collage.\nConstraints: landscape/nature only, no people, human bodies, faces, hands, silhouettes, anatomy, acupuncture diagrams, buildings, signs, captions, letters, logos or watermarks. No rendered UI.\nPrimary request: soft white cumulus clouds drifting over a very low distant blue-green mountain horizon. Beautiful luminous cloud forms in the lower half; an expansive pale clear blue sky fading naturally into bright atmospheric haze in the upper half. An airy unhurried landscape for resting attention and daydreaming. No buildings, aircraft, birds or symbols.",
+      "visualReview": "Inspected original generated image: nature only, no persons/anatomy/text; focal detail low in portrait composition."
+    }
+  ]
+}

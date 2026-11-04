@@ -1,8 +1,9 @@
 "use client";
 import {useEffect, useRef, useState} from 'react';
 import {MapPin, LocateFixed, Search, CloudSun} from 'lucide-react';
-import {CONDITION_FIELDS, sanitizeConditions, sanitizePreset, readLocationPreferences, writeLocationPreferences, precisePositionUsable, matchLocationPreset, requestPreciseLocation, weatherRequestPath, lookupCurrentCity} from '../../lib/location.mjs';
+import {CONDITION_FIELDS, LOCATION_STORAGE_KEY, sanitizeConditions, sanitizePreset, readLocationPreferences, writeLocationPreferences, precisePositionUsable, matchLocationPreset, requestPreciseLocation, weatherRequestPath, lookupCurrentCity, cancelCityLookups} from '../../lib/location.mjs';
 import './location-weather.css';
+import './city-consent.css';
 
 type Conditions = Partial<Record<string, boolean>>;
 type City = {id:string;name:string;admin1:string;admin2:string;countryCode:string;latitude:number;longitude:number;timezone:string};
@@ -19,6 +20,8 @@ export default function LocationWeather({mode,conditions,weather,onWeather,onCon
   const [presets,setPresets] = useState<Preset[]>(EMPTY_PRESETS);
   const [city,setCity] = useState<City|null>(null);
   const [position,setPosition] = useState<Position|null>(null);
+  const [cityLookupConsent,setCityLookupConsent] = useState(false);
+  const cityConsentRef = useRef(false);
   const [query,setQuery] = useState('');
   const [cities,setCities] = useState<City[]>([]);
   const [searched,setSearched] = useState(false);
@@ -44,11 +47,28 @@ export default function LocationWeather({mode,conditions,weather,onWeather,onCon
       setPresets(stored.presets as Preset[]);
       setCity(stored.city as City|null);
       setQuery(stored.city?.name || '');
+      cityConsentRef.current = stored.cityLookupConsent;
+      setCityLookupConsent(stored.cityLookupConsent);
     } catch { setMessage('浏览器未开放本机存储，仍可定位或手选城市获取天气。'); }
-    return () => { mounted.current=false; weatherSequence.current++; searchSequence.current++; weatherAbort.current?.abort(); searchAbort.current?.abort(); };
+    const syncConsent = (event:StorageEvent) => {
+      if (event.key !== LOCATION_STORAGE_KEY && event.key !== null) return;
+      const allowed = readLocationPreferences(window.localStorage).cityLookupConsent;
+      cityConsentRef.current = allowed; setCityLookupConsent(allowed);
+      if (!allowed) cancelCityLookups();
+    };
+    window.addEventListener('storage',syncConsent);
+    return () => { mounted.current=false; weatherSequence.current++; searchSequence.current++; weatherAbort.current?.abort(); searchAbort.current?.abort(); window.removeEventListener('storage',syncConsent); };
   }, [mode]);
 
-  const persist = (nextPresets:Preset[], nextCity:City|null) => { try { return writeLocationPreferences(window.localStorage,{presets:nextPresets,city:nextCity}); } catch { return false; } };
+  const persist = (nextPresets:Preset[], nextCity:City|null, consent=cityConsentRef.current) => { try { return writeLocationPreferences(window.localStorage,{presets:nextPresets,city:nextCity,cityLookupConsent:consent}); } catch { return false; } };
+  function changeCityConsent(allowed:boolean) {
+    let saved=false;
+    try { saved=writeLocationPreferences(window.localStorage,{...readLocationPreferences(window.localStorage),cityLookupConsent:allowed}); } catch { /* Keep the displayed choice consistent with persisted consent. */ }
+    if (!saved) { setMessage('未能保存城市识别选项，请重试；也可在系统中撤销定位权限。'); return; }
+    cityConsentRef.current = allowed; setCityLookupConsent(allowed);
+    if (!allowed) cancelCityLookups();
+    setMessage(allowed ? '已开启城市识别，下次定位时使用。' : '已关闭城市识别；仍可获取天气或手选城市，已有天气显示不变。');
+  }
   const beginWeather = () => {
     weatherSequence.current++;
     weatherAbort.current?.abort();
@@ -68,8 +88,8 @@ export default function LocationWeather({mode,conditions,weather,onWeather,onCon
       if (!body.weather || body.weather.source !== 'open-meteo' || !Number.isFinite(body.weather.tempC) || !Number.isFinite(Date.parse(body.weather.observedAt))) throw new Error('天气结果不完整，请重新获取。');
       const recognized = cityLookup ? await cityLookup : null;
       if (!isCurrent(id)) return;
-      onWeather({...body.weather,city:recognized?.name || label,locationSource:source});
-      setMessage(cityLookup && !recognized ? '在线天气已更新；城市名暂未识别，显示当前位置，可手动选城市。' : '在线天气已更新。');
+      onWeather({...body.weather,city:cityConsentRef.current && recognized?.name || label,locationSource:source});
+      setMessage(cityLookup && cityConsentRef.current && !recognized ? '在线天气已更新；城市名暂未识别，显示当前位置，可手动选城市。' : '在线天气已更新。');
     } catch (error) {
       if (!isCurrent(id)) return;
       onWeather(null);
@@ -94,9 +114,9 @@ export default function LocationWeather({mode,conditions,weather,onWeather,onCon
       } else {
         setMatchNote(precisePositionUsable(current) ? '没有唯一匹配的已保存地点，保留当前手动条件。' : '定位精度或时效不足以识别家/公司，保留当前手动条件。');
       }
-      // This direct browser lookup only receives the just-granted device position.
-      const cityLookup = lookupCurrentCity(current,{signal:weatherAbort.current?.signal});
-      await loadWeather(current,matched?.city?.name || '当前位置','gps',id,cityLookup);
+      // System location permission and third-party city recognition are separate choices.
+      const cityLookup = cityConsentRef.current ? lookupCurrentCity(current,{consent:true,signal:weatherAbort.current?.signal}) : undefined;
+      await loadWeather(current,'当前位置','gps',id,cityLookup);
     } catch (error) {
       if (!isCurrent(id)) return;
       onWeather(null);
@@ -172,6 +192,11 @@ export default function LocationWeather({mode,conditions,weather,onWeather,onCon
     <div className="location-heading"><h3><MapPin size={16}/>定位与天气</h3><span>按需获取</span></div>
     <p className="location-caption">主动定位获取当地天气；联网查询仅使用降低精度的位置。拒绝定位也可手填国内城市，时辰仍按北京时间显示。</p>
     <button type="button" className="location-locate" onClick={locate} disabled={working}><LocateFixed size={15}/>{working?'正在获取位置或天气…':'获取当前位置与天气'}</button>
+    <div className="location-city-consent">
+      <label><input type="checkbox" checked={cityLookupConsent} onChange={event=>changeCityConsent(event.target.checked)}/><span>允许 BigDataCloud 识别城市名<span className="location-city-optional">可选 · 默认关闭</span></span></label>
+      <p>开启后，将 IP 与约略位置发送至境外服务，用于识别城市及匿名聚合改进 IP 定位。</p>
+      <details><summary>数据与选择说明</summary><p>只发送当次经纬度（保留两位小数）与语言参数；BigDataCloud 同时接收网络 IP。系统定位授权不会自动开启此选项。关闭时仍可查天气并显示“当前位置”，也可手选城市；关闭会取消尚未完成的识别请求，不能撤回已发送的数据。<a href="/privacy/#providers" target="_blank" rel="noreferrer">查看第三方处理说明</a></p></details>
+    </div>
     <div className="location-search"><input aria-label="国内城市名称" value={query} maxLength={60} placeholder="国内城市，例如杭州" onChange={event=>{setQuery(event.target.value);setCities([]);setSearched(false);searchSequence.current++;searchAbort.current?.abort();setSearching(false);}} onKeyDown={event=>{if(event.key==='Enter'){event.preventDefault();void searchCities();}}}/><button type="button" onClick={searchCities} disabled={searching}><Search size={15}/>{searching?'查询中':'查城市'}</button></div>
     {cities.length>0&&<ul className="location-cities" aria-label="选择城市">{cities.map(c=><li key={c.id}><button type="button" onClick={()=>chooseCity(c)}>{cityLabel(c)}<span>选取天气</span></button></li>)}</ul>}
     {searched&&!cities.length&&<p className="location-caption">暂未找到匹配城市，可尝试城市简称或拼音。</p>}

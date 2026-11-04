@@ -6,7 +6,7 @@ let bound: NativeChannel | undefined;
 export const isNative = () => typeof window !== 'undefined' && !!window.ShichenNative;
 
 /** Only the Android shell at the trusted Pages origin injects this channel. */
-export function nativeRequest(method: string): Promise<any> {
+export function nativeRequest(method: string, timeoutMs = 60000): Promise<any> {
   const channel = window.ShichenNative;
   if (!channel) return Promise.reject(new Error('请在安卓安装版中使用此功能。'));
   if (bound !== channel) {
@@ -26,7 +26,7 @@ export function nativeRequest(method: string): Promise<any> {
     ? crypto.randomUUID()
     : Array.from(crypto.getRandomValues(new Uint8Array(16)), byte => byte.toString(16).padStart(2, '0')).join('');
   return new Promise((resolve, reject) => {
-    const timer = setTimeout(() => { pending.delete(id); reject(new Error('请完成手机授权后再刷新设备状态。')); }, 60000);
+    const timer = setTimeout(() => { pending.delete(id); reject(new Error(method === 'startSpeechRecognition' ? '语音等待已结束，请重新点击麦克风或使用输入法语音。' : '请完成手机授权后再刷新设备状态。')); }, timeoutMs);
     pending.set(id, { resolve, reject, timer });
     try { channel.postMessage(JSON.stringify({ id, method })); }
     catch { clearTimeout(timer); pending.delete(id); reject(new Error('设备连接暂不可用，请重新打开应用。')); }
