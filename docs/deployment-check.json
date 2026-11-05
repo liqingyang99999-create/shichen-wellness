@@ -1,0 +1,940 @@
+{
+  "version": "1.0.0",
+  "checkedAt": "2026-11-05T17:09:18.358533+00:00",
+  "passed": 32,
+  "total": 36,
+  "byteVerified": 32,
+  "metadataOnlyPassed": 4,
+  "notByteVerified": [
+    {
+      "site": "production",
+      "path": "/download/shichen-wellness-1.0.0-preview.apk",
+      "reason": "APK alias was checked by HEAD only to avoid repeating APK downloads. Canonical APK was byte-verified; this alias is not claimed as an independent SHA-256 GET verification."
+    },
+    {
+      "site": "production",
+      "path": "/download/shichen-wellness-preview.apk",
+      "reason": "APK alias was checked by HEAD only to avoid repeating APK downloads. Canonical APK was byte-verified; this alias is not claimed as an independent SHA-256 GET verification."
+    },
+    {
+      "site": "preview",
+      "path": "/download/shichen-wellness-1.0.0-preview.apk",
+      "reason": "APK alias was checked by HEAD only to avoid repeating APK downloads. Canonical APK was byte-verified; this alias is not claimed as an independent SHA-256 GET verification."
+    },
+    {
+      "site": "preview",
+      "path": "/download/shichen-wellness-preview.apk",
+      "reason": "APK alias was checked by HEAD only to avoid repeating APK downloads. Canonical APK was byte-verified; this alias is not claimed as an independent SHA-256 GET verification."
+    }
+  ],
+  "failures": [],
+  "checks": [
+    {
+      "site": "production",
+      "path": "/",
+      "url": "https://shichen-wellness.pages.dev/",
+      "checkedAt": "2026-11-05T17:08:44.820405+00:00",
+      "expectedSha256": "8056a017255edb693ade38f4b1f96854c0d6c747bdd8fdaf57d8b4b453c666b8",
+      "expectedBytes": 572,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t572",
+          "error": "",
+          "seconds": 0.727
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 572,
+      "sha256": "8056a017255edb693ade38f4b1f96854c0d6c747bdd8fdaf57d8b4b453c666b8",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/download/",
+      "url": "https://shichen-wellness.pages.dev/download/",
+      "checkedAt": "2026-11-05T17:08:45.567696+00:00",
+      "expectedSha256": "b1e79077c98164926a3cfcfd1524bd9f042651e0221a335536d652aae0a7521b",
+      "expectedBytes": 5307,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t5307",
+          "error": "",
+          "seconds": 0.622
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 5307,
+      "sha256": "b1e79077c98164926a3cfcfd1524bd9f042651e0221a335536d652aae0a7521b",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/download/1.0.0/",
+      "url": "https://shichen-wellness.pages.dev/download/1.0.0/",
+      "checkedAt": "2026-11-05T17:08:46.229520+00:00",
+      "expectedSha256": "b1e79077c98164926a3cfcfd1524bd9f042651e0221a335536d652aae0a7521b",
+      "expectedBytes": 5307,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t5307",
+          "error": "",
+          "seconds": 0.694
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 5307,
+      "sha256": "b1e79077c98164926a3cfcfd1524bd9f042651e0221a335536d652aae0a7521b",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/download/latest.json",
+      "url": "https://shichen-wellness.pages.dev/download/latest.json",
+      "checkedAt": "2026-11-05T17:08:46.949019+00:00",
+      "expectedSha256": "f0ed66e5690861e66b9a7d3e7c1721332adf899148aa1ed78dedc52a88896746",
+      "expectedBytes": 872,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/json\t872",
+          "error": "",
+          "seconds": 0.693
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/json",
+      "etag": "\"19f4a476abbfa5ac14a2e75522ccefc5\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 872,
+      "sha256": "f0ed66e5690861e66b9a7d3e7c1721332adf899148aa1ed78dedc52a88896746",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/download/shichen-wellness-1.0.0.apk",
+      "url": "https://shichen-wellness.pages.dev/download/shichen-wellness-1.0.0.apk",
+      "checkedAt": "2026-11-05T17:08:47.675676+00:00",
+      "expectedSha256": "f71975dfaa6c2a26faf3616ad45aa2f776307c379c26b84fa29f38d99f4180e8",
+      "expectedBytes": 2745581,
+      "evidenceKind": "reused_actual_apk_get",
+      "originalCheckedAt": "2026-11-05T16:59:45.804529+00:00",
+      "httpStatus": 200,
+      "contentType": "application/vnd.android.package-archive",
+      "etag": "\"fea3506f55f015b5780bba1a329c4dd2\"",
+      "bytes": 2745581,
+      "sha256": "f71975dfaa6c2a26faf3616ad45aa2f776307c379c26b84fa29f38d99f4180e8",
+      "matchesLocal": true,
+      "noStore": true,
+      "evidencePath": "work\\release-1.0-apk-online-check\\production-shichen-wellness-1.0.0.apk"
+    },
+    {
+      "site": "production",
+      "path": "/download/shichen-wellness-1.0.0-preview.apk",
+      "url": "https://shichen-wellness.pages.dev/download/shichen-wellness-1.0.0-preview.apk",
+      "checkedAt": "2026-11-05T17:08:47.730070+00:00",
+      "expectedSha256": "f71975dfaa6c2a26faf3616ad45aa2f776307c379c26b84fa29f38d99f4180e8",
+      "expectedBytes": 2745581,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/vnd.android.package-archive\t0",
+          "error": "",
+          "seconds": 0.769
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/vnd.android.package-archive",
+      "etag": "\"fea3506f55f015b5780bba1a329c4dd2\"",
+      "noStore": true,
+      "evidenceKind": "head_metadata_only",
+      "matchesLocal": null,
+      "metadataMatchesVerifiedCanonical": true,
+      "contentLength": null,
+      "limitation": "APK alias was checked by HEAD only to avoid repeating APK downloads. Canonical APK was byte-verified; this alias is not claimed as an independent SHA-256 GET verification."
+    },
+    {
+      "site": "production",
+      "path": "/download/shichen-wellness-preview.apk",
+      "url": "https://shichen-wellness.pages.dev/download/shichen-wellness-preview.apk",
+      "checkedAt": "2026-11-05T17:08:48.548769+00:00",
+      "expectedSha256": "f71975dfaa6c2a26faf3616ad45aa2f776307c379c26b84fa29f38d99f4180e8",
+      "expectedBytes": 2745581,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/vnd.android.package-archive\t0",
+          "error": "",
+          "seconds": 0.706
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/vnd.android.package-archive",
+      "etag": "\"fea3506f55f015b5780bba1a329c4dd2\"",
+      "noStore": true,
+      "evidenceKind": "head_metadata_only",
+      "matchesLocal": null,
+      "metadataMatchesVerifiedCanonical": true,
+      "contentLength": null,
+      "limitation": "APK alias was checked by HEAD only to avoid repeating APK downloads. Canonical APK was byte-verified; this alias is not claimed as an independent SHA-256 GET verification."
+    },
+    {
+      "site": "production",
+      "path": "/competition/",
+      "url": "https://shichen-wellness.pages.dev/competition/",
+      "checkedAt": "2026-11-05T17:08:49.275202+00:00",
+      "expectedSha256": "bad299bda88b9beaa2704eb7f83ca4931eb09c9700ee424437b40193707489b3",
+      "expectedBytes": 4228,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t4228",
+          "error": "",
+          "seconds": 0.77
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 4228,
+      "sha256": "bad299bda88b9beaa2704eb7f83ca4931eb09c9700ee424437b40193707489b3",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/competition/ppt-outline.html",
+      "url": "https://shichen-wellness.pages.dev/competition/ppt-outline.html",
+      "checkedAt": "2026-11-05T17:08:50.068020+00:00",
+      "expectedSha256": "516d8d6b68e8d9ac20b8a3632aced7c1c53d9883408add19d194b990305cea3e",
+      "expectedBytes": 9097,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t9097",
+          "error": "",
+          "seconds": 0.918
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 9097,
+      "sha256": "516d8d6b68e8d9ac20b8a3632aced7c1c53d9883408add19d194b990305cea3e",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/competition/demo-script.html",
+      "url": "https://shichen-wellness.pages.dev/competition/demo-script.html",
+      "checkedAt": "2026-11-05T17:08:51.033658+00:00",
+      "expectedSha256": "7550817838b2d37f3b195400051cd960033f97f3ea0c119bf0a4a9ccee0412b1",
+      "expectedBytes": 10877,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t10877",
+          "error": "",
+          "seconds": 1.074
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 10877,
+      "sha256": "7550817838b2d37f3b195400051cd960033f97f3ea0c119bf0a4a9ccee0412b1",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/competition/text-drafts.zip",
+      "url": "https://shichen-wellness.pages.dev/competition/text-drafts.zip",
+      "checkedAt": "2026-11-05T17:08:52.156772+00:00",
+      "expectedSha256": "1b1e260a493991542bf3864ec7bc445d06c1c1daf04e398310599f7daae6fe02",
+      "expectedBytes": 16116,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/zip\t16116",
+          "error": "",
+          "seconds": 0.749
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/zip",
+      "etag": "\"00256cf880d62d40591f61a0aa94f455\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 16116,
+      "sha256": "1b1e260a493991542bf3864ec7bc445d06c1c1daf04e398310599f7daae6fe02",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/downloads/shichen-care-source-1.0.zip",
+      "url": "https://shichen-wellness.pages.dev/downloads/shichen-care-source-1.0.zip",
+      "checkedAt": "2026-11-05T17:08:52.928724+00:00",
+      "expectedSha256": "2751b4a03bf3750318735dd5e2ba2db63d0dfac0753fa92cfe8a68b777c35284",
+      "expectedBytes": 1434668,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/zip\t1434668",
+          "error": "",
+          "seconds": 2.062
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/zip",
+      "etag": "\"d30be93ee6e14c873cb5f67cb8930098\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 1434668,
+      "sha256": "2751b4a03bf3750318735dd5e2ba2db63d0dfac0753fa92cfe8a68b777c35284",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/downloads/shichen-card-database.zip",
+      "url": "https://shichen-wellness.pages.dev/downloads/shichen-card-database.zip",
+      "checkedAt": "2026-11-05T17:08:55.010634+00:00",
+      "expectedSha256": "2484450e385e53cadf2d226ff50de8daa489a90ba6e41af2cc46e967b666d4c6",
+      "expectedBytes": 94185,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/zip\t94185",
+          "error": "",
+          "seconds": 0.774
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/zip",
+      "etag": "\"bee60dd45ab4b3ccb4fbc7c7ae3ce10e\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 94185,
+      "sha256": "2484450e385e53cadf2d226ff50de8daa489a90ba6e41af2cc46e967b666d4c6",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/privacy/",
+      "url": "https://shichen-wellness.pages.dev/privacy/",
+      "checkedAt": "2026-11-05T17:08:55.806356+00:00",
+      "expectedSha256": "c29a723a072187bd4bb7eaa5432bc14efd61c63e66e2e7d5e3a925d527d64920",
+      "expectedBytes": 9805,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t9805",
+          "error": "",
+          "seconds": 0.71
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 9805,
+      "sha256": "c29a723a072187bd4bb7eaa5432bc14efd61c63e66e2e7d5e3a925d527d64920",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/terms/",
+      "url": "https://shichen-wellness.pages.dev/terms/",
+      "checkedAt": "2026-11-05T17:08:56.551788+00:00",
+      "expectedSha256": "ee1357be441b4f9ba8b7805d01b84b75b3c33c51945962f3045359108753d8e9",
+      "expectedBytes": 5072,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t5072",
+          "error": "",
+          "seconds": 0.673
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 5072,
+      "sha256": "ee1357be441b4f9ba8b7805d01b84b75b3c33c51945962f3045359108753d8e9",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/sw.js",
+      "url": "https://shichen-wellness.pages.dev/sw.js",
+      "checkedAt": "2026-11-05T17:08:57.263331+00:00",
+      "expectedSha256": "7440399c884ab3c5ef90e45717cfc402d3b9c0abb1593b6e0769bd9f1874502b",
+      "expectedBytes": 1545,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/javascript\t1545",
+          "error": "",
+          "seconds": 0.577
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/javascript",
+      "etag": "\"4942d4ce956a33649bb68aa33dd5cad9\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 1545,
+      "sha256": "7440399c884ab3c5ef90e45717cfc402d3b9c0abb1593b6e0769bd9f1874502b",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/assets/index-BcxVVtTy.js",
+      "url": "https://shichen-wellness.pages.dev/assets/index-BcxVVtTy.js",
+      "checkedAt": "2026-11-05T17:08:57.867326+00:00",
+      "expectedSha256": "f8cb9730424a37cdc16dca4d3540a9ee41d7da9c4d33fe451ae5514f6e8ffc80",
+      "expectedBytes": 632905,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/javascript\t632905",
+          "error": "",
+          "seconds": 1.42
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/javascript",
+      "etag": "\"308cfddc7282321e6f415af44d4c7ab9\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 632905,
+      "sha256": "f8cb9730424a37cdc16dca4d3540a9ee41d7da9c4d33fe451ae5514f6e8ffc80",
+      "matchesLocal": true
+    },
+    {
+      "site": "production",
+      "path": "/assets/index-DPmlLvau.css",
+      "url": "https://shichen-wellness.pages.dev/assets/index-DPmlLvau.css",
+      "checkedAt": "2026-11-05T17:08:59.634622+00:00",
+      "expectedSha256": "d8784521419446e641d6bcff1e0446d9941dce5dfc1d15bfab64566e78dfce56",
+      "expectedBytes": 29447,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/css; charset=utf-8\t29447",
+          "error": "",
+          "seconds": 0.715
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/css; charset=utf-8",
+      "etag": "\"ac8e202d90cfc726e83ebc793d93fb6e\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 29447,
+      "sha256": "d8784521419446e641d6bcff1e0446d9941dce5dfc1d15bfab64566e78dfce56",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/",
+      "url": "https://care-preview.shichen-wellness.pages.dev/",
+      "checkedAt": "2026-11-05T17:09:00.389860+00:00",
+      "expectedSha256": "8056a017255edb693ade38f4b1f96854c0d6c747bdd8fdaf57d8b4b453c666b8",
+      "expectedBytes": 572,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t572",
+          "error": "",
+          "seconds": 0.837
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 572,
+      "sha256": "8056a017255edb693ade38f4b1f96854c0d6c747bdd8fdaf57d8b4b453c666b8",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/download/",
+      "url": "https://care-preview.shichen-wellness.pages.dev/download/",
+      "checkedAt": "2026-11-05T17:09:01.249970+00:00",
+      "expectedSha256": "b1e79077c98164926a3cfcfd1524bd9f042651e0221a335536d652aae0a7521b",
+      "expectedBytes": 5307,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t5307",
+          "error": "",
+          "seconds": 0.824
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 5307,
+      "sha256": "b1e79077c98164926a3cfcfd1524bd9f042651e0221a335536d652aae0a7521b",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/download/1.0.0/",
+      "url": "https://care-preview.shichen-wellness.pages.dev/download/1.0.0/",
+      "checkedAt": "2026-11-05T17:09:02.101643+00:00",
+      "expectedSha256": "b1e79077c98164926a3cfcfd1524bd9f042651e0221a335536d652aae0a7521b",
+      "expectedBytes": 5307,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t5307",
+          "error": "",
+          "seconds": 0.726
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 5307,
+      "sha256": "b1e79077c98164926a3cfcfd1524bd9f042651e0221a335536d652aae0a7521b",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/download/latest.json",
+      "url": "https://care-preview.shichen-wellness.pages.dev/download/latest.json",
+      "checkedAt": "2026-11-05T17:09:02.879947+00:00",
+      "expectedSha256": "f0ed66e5690861e66b9a7d3e7c1721332adf899148aa1ed78dedc52a88896746",
+      "expectedBytes": 872,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/json\t872",
+          "error": "",
+          "seconds": 0.696
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/json",
+      "etag": "\"19f4a476abbfa5ac14a2e75522ccefc5\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 872,
+      "sha256": "f0ed66e5690861e66b9a7d3e7c1721332adf899148aa1ed78dedc52a88896746",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/download/shichen-wellness-1.0.0.apk",
+      "url": "https://care-preview.shichen-wellness.pages.dev/download/shichen-wellness-1.0.0.apk",
+      "checkedAt": "2026-11-05T17:09:03.603973+00:00",
+      "expectedSha256": "f71975dfaa6c2a26faf3616ad45aa2f776307c379c26b84fa29f38d99f4180e8",
+      "expectedBytes": 2745581,
+      "evidenceKind": "reused_actual_apk_get",
+      "originalCheckedAt": "2026-11-05T16:59:45.806031+00:00",
+      "httpStatus": 200,
+      "contentType": "application/vnd.android.package-archive",
+      "etag": "\"fea3506f55f015b5780bba1a329c4dd2\"",
+      "bytes": 2745581,
+      "sha256": "f71975dfaa6c2a26faf3616ad45aa2f776307c379c26b84fa29f38d99f4180e8",
+      "matchesLocal": true,
+      "noStore": true,
+      "evidencePath": "work\\release-1.0-apk-online-check\\preview-shichen-wellness-1.0.0.apk"
+    },
+    {
+      "site": "preview",
+      "path": "/download/shichen-wellness-1.0.0-preview.apk",
+      "url": "https://care-preview.shichen-wellness.pages.dev/download/shichen-wellness-1.0.0-preview.apk",
+      "checkedAt": "2026-11-05T17:09:03.649725+00:00",
+      "expectedSha256": "f71975dfaa6c2a26faf3616ad45aa2f776307c379c26b84fa29f38d99f4180e8",
+      "expectedBytes": 2745581,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/vnd.android.package-archive\t0",
+          "error": "",
+          "seconds": 0.698
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/vnd.android.package-archive",
+      "etag": "\"fea3506f55f015b5780bba1a329c4dd2\"",
+      "noStore": true,
+      "evidenceKind": "head_metadata_only",
+      "matchesLocal": null,
+      "metadataMatchesVerifiedCanonical": true,
+      "contentLength": null,
+      "limitation": "APK alias was checked by HEAD only to avoid repeating APK downloads. Canonical APK was byte-verified; this alias is not claimed as an independent SHA-256 GET verification."
+    },
+    {
+      "site": "preview",
+      "path": "/download/shichen-wellness-preview.apk",
+      "url": "https://care-preview.shichen-wellness.pages.dev/download/shichen-wellness-preview.apk",
+      "checkedAt": "2026-11-05T17:09:04.382087+00:00",
+      "expectedSha256": "f71975dfaa6c2a26faf3616ad45aa2f776307c379c26b84fa29f38d99f4180e8",
+      "expectedBytes": 2745581,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/vnd.android.package-archive\t0",
+          "error": "",
+          "seconds": 0.724
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/vnd.android.package-archive",
+      "etag": "\"fea3506f55f015b5780bba1a329c4dd2\"",
+      "noStore": true,
+      "evidenceKind": "head_metadata_only",
+      "matchesLocal": null,
+      "metadataMatchesVerifiedCanonical": true,
+      "contentLength": null,
+      "limitation": "APK alias was checked by HEAD only to avoid repeating APK downloads. Canonical APK was byte-verified; this alias is not claimed as an independent SHA-256 GET verification."
+    },
+    {
+      "site": "preview",
+      "path": "/competition/",
+      "url": "https://care-preview.shichen-wellness.pages.dev/competition/",
+      "checkedAt": "2026-11-05T17:09:05.140384+00:00",
+      "expectedSha256": "bad299bda88b9beaa2704eb7f83ca4931eb09c9700ee424437b40193707489b3",
+      "expectedBytes": 4228,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t4228",
+          "error": "",
+          "seconds": 0.706
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 4228,
+      "sha256": "bad299bda88b9beaa2704eb7f83ca4931eb09c9700ee424437b40193707489b3",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/competition/ppt-outline.html",
+      "url": "https://care-preview.shichen-wellness.pages.dev/competition/ppt-outline.html",
+      "checkedAt": "2026-11-05T17:09:05.868828+00:00",
+      "expectedSha256": "516d8d6b68e8d9ac20b8a3632aced7c1c53d9883408add19d194b990305cea3e",
+      "expectedBytes": 9097,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t9097",
+          "error": "",
+          "seconds": 0.968
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 9097,
+      "sha256": "516d8d6b68e8d9ac20b8a3632aced7c1c53d9883408add19d194b990305cea3e",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/competition/demo-script.html",
+      "url": "https://care-preview.shichen-wellness.pages.dev/competition/demo-script.html",
+      "checkedAt": "2026-11-05T17:09:06.887245+00:00",
+      "expectedSha256": "7550817838b2d37f3b195400051cd960033f97f3ea0c119bf0a4a9ccee0412b1",
+      "expectedBytes": 10877,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t10877",
+          "error": "",
+          "seconds": 0.968
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 10877,
+      "sha256": "7550817838b2d37f3b195400051cd960033f97f3ea0c119bf0a4a9ccee0412b1",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/competition/text-drafts.zip",
+      "url": "https://care-preview.shichen-wellness.pages.dev/competition/text-drafts.zip",
+      "checkedAt": "2026-11-05T17:09:07.899628+00:00",
+      "expectedSha256": "1b1e260a493991542bf3864ec7bc445d06c1c1daf04e398310599f7daae6fe02",
+      "expectedBytes": 16116,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/zip\t16116",
+          "error": "",
+          "seconds": 0.61
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/zip",
+      "etag": "\"00256cf880d62d40591f61a0aa94f455\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 16116,
+      "sha256": "1b1e260a493991542bf3864ec7bc445d06c1c1daf04e398310599f7daae6fe02",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/downloads/shichen-care-source-1.0.zip",
+      "url": "https://care-preview.shichen-wellness.pages.dev/downloads/shichen-care-source-1.0.zip",
+      "checkedAt": "2026-11-05T17:09:08.536719+00:00",
+      "expectedSha256": "2751b4a03bf3750318735dd5e2ba2db63d0dfac0753fa92cfe8a68b777c35284",
+      "expectedBytes": 1434668,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/zip\t1434668",
+          "error": "",
+          "seconds": 1.72
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/zip",
+      "etag": "\"d30be93ee6e14c873cb5f67cb8930098\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 1434668,
+      "sha256": "2751b4a03bf3750318735dd5e2ba2db63d0dfac0753fa92cfe8a68b777c35284",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/downloads/shichen-card-database.zip",
+      "url": "https://care-preview.shichen-wellness.pages.dev/downloads/shichen-card-database.zip",
+      "checkedAt": "2026-11-05T17:09:10.284948+00:00",
+      "expectedSha256": "2484450e385e53cadf2d226ff50de8daa489a90ba6e41af2cc46e967b666d4c6",
+      "expectedBytes": 94185,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/zip\t94185",
+          "error": "",
+          "seconds": 1.284
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/zip",
+      "etag": "\"bee60dd45ab4b3ccb4fbc7c7ae3ce10e\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 94185,
+      "sha256": "2484450e385e53cadf2d226ff50de8daa489a90ba6e41af2cc46e967b666d4c6",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/privacy/",
+      "url": "https://care-preview.shichen-wellness.pages.dev/privacy/",
+      "checkedAt": "2026-11-05T17:09:11.593139+00:00",
+      "expectedSha256": "c29a723a072187bd4bb7eaa5432bc14efd61c63e66e2e7d5e3a925d527d64920",
+      "expectedBytes": 9805,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t9805",
+          "error": "",
+          "seconds": 1.083
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 9805,
+      "sha256": "c29a723a072187bd4bb7eaa5432bc14efd61c63e66e2e7d5e3a925d527d64920",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/terms/",
+      "url": "https://care-preview.shichen-wellness.pages.dev/terms/",
+      "checkedAt": "2026-11-05T17:09:12.713114+00:00",
+      "expectedSha256": "ee1357be441b4f9ba8b7805d01b84b75b3c33c51945962f3045359108753d8e9",
+      "expectedBytes": 5072,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/html; charset=utf-8\t5072",
+          "error": "",
+          "seconds": 0.621
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 5072,
+      "sha256": "ee1357be441b4f9ba8b7805d01b84b75b3c33c51945962f3045359108753d8e9",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/sw.js",
+      "url": "https://care-preview.shichen-wellness.pages.dev/sw.js",
+      "checkedAt": "2026-11-05T17:09:13.361426+00:00",
+      "expectedSha256": "7440399c884ab3c5ef90e45717cfc402d3b9c0abb1593b6e0769bd9f1874502b",
+      "expectedBytes": 1545,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/javascript\t1545",
+          "error": "",
+          "seconds": 0.923
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/javascript",
+      "etag": "\"4942d4ce956a33649bb68aa33dd5cad9\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 1545,
+      "sha256": "7440399c884ab3c5ef90e45717cfc402d3b9c0abb1593b6e0769bd9f1874502b",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/assets/index-BcxVVtTy.js",
+      "url": "https://care-preview.shichen-wellness.pages.dev/assets/index-BcxVVtTy.js",
+      "checkedAt": "2026-11-05T17:09:14.307718+00:00",
+      "expectedSha256": "f8cb9730424a37cdc16dca4d3540a9ee41d7da9c4d33fe451ae5514f6e8ffc80",
+      "expectedBytes": 632905,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\tapplication/javascript\t632905",
+          "error": "",
+          "seconds": 1.549
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "application/javascript",
+      "etag": "\"308cfddc7282321e6f415af44d4c7ab9\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 632905,
+      "sha256": "f8cb9730424a37cdc16dca4d3540a9ee41d7da9c4d33fe451ae5514f6e8ffc80",
+      "matchesLocal": true
+    },
+    {
+      "site": "preview",
+      "path": "/assets/index-DPmlLvau.css",
+      "url": "https://care-preview.shichen-wellness.pages.dev/assets/index-DPmlLvau.css",
+      "checkedAt": "2026-11-05T17:09:16.200946+00:00",
+      "expectedSha256": "d8784521419446e641d6bcff1e0446d9941dce5dfc1d15bfab64566e78dfce56",
+      "expectedBytes": 29447,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exit": 0,
+          "result": "200\ttext/css; charset=utf-8\t29447",
+          "error": "",
+          "seconds": 0.727
+        }
+      ],
+      "httpStatus": 200,
+      "contentType": "text/css; charset=utf-8",
+      "etag": "\"ac8e202d90cfc726e83ebc793d93fb6e\"",
+      "noStore": true,
+      "evidenceKind": "actual_get_sha256",
+      "bytes": 29447,
+      "sha256": "d8784521419446e641d6bcff1e0446d9941dce5dfc1d15bfab64566e78dfce56",
+      "matchesLocal": true
+    }
+  ],
+  "apiStatus": {
+    "production": {
+      "available": true,
+      "provider": "DeepSeek",
+      "model": "deepseek-flash",
+      "version": "1.0.0"
+    },
+    "preview": {
+      "available": true,
+      "provider": "DeepSeek",
+      "model": "deepseek-flash",
+      "version": "1.0.0"
+    }
+  },
+  "phoneBackgroundDeliveryTested": false,
+  "sourceArchiveRepackPlanned": true,
+  "sourceArchiveScope": "Source archive hashes below refer to the public bytes before the final deployment-record repack. Only the repacked source asset needs a later separate verification."
+}
