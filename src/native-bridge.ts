@@ -4,9 +4,10 @@ declare global { interface Window { ShichenNative?: NativeChannel } }
 const pending = new Map<string, { resolve: (data: any) => void; reject: (error: Error) => void; timer: ReturnType<typeof setTimeout> }>();
 let bound: NativeChannel | undefined;
 export const isNative = () => typeof window !== 'undefined' && !!window.ShichenNative;
+export const isNativeApp = isNative;
 
 /** Only the Android shell at the trusted Pages origin injects this channel. */
-export function nativeRequest(method: string, timeoutMs = 60000): Promise<any> {
+export function nativeRequest(method: string, timeoutMs = 60000, payload?: Record<string, unknown>): Promise<any> {
   const channel = window.ShichenNative;
   if (!channel) return Promise.reject(new Error('请在安卓安装版中使用此功能。'));
   if (bound !== channel) {
@@ -26,9 +27,9 @@ export function nativeRequest(method: string, timeoutMs = 60000): Promise<any> {
     ? crypto.randomUUID()
     : Array.from(crypto.getRandomValues(new Uint8Array(16)), byte => byte.toString(16).padStart(2, '0')).join('');
   return new Promise((resolve, reject) => {
-    const timer = setTimeout(() => { pending.delete(id); reject(new Error(method === 'startSpeechRecognition' ? '语音等待已结束，请重新点击麦克风或使用输入法语音。' : '请完成手机授权后再刷新设备状态。')); }, timeoutMs);
+    const timer = setTimeout(() => { pending.delete(id); reject(new Error(method === 'startSpeechRecognition' ? '语音等待已结束，请重新点击麦克风或使用输入法语音。' : ['saveImage', 'shareImage', 'showNotification', 'syncReminders', 'cancelReminders'].includes(method) ? '尚未收到设备完成确认，请检查系统提示后重试；未确认前不会记为成功。' : '请完成手机授权后再刷新设备状态。')); }, timeoutMs);
     pending.set(id, { resolve, reject, timer });
-    try { channel.postMessage(JSON.stringify({ id, method })); }
+    try { channel.postMessage(JSON.stringify({ id, method, ...(payload ? { payload } : {}) })); }
     catch { clearTimeout(timer); pending.delete(id); reject(new Error('设备连接暂不可用，请重新打开应用。')); }
   });
 }

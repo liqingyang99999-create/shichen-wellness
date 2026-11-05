@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "versionCode": 10,
+  "applicationId": "cn.shichen.wellness.preview",
+  "buildVariant": "release",
+  "debuggable": false,
+  "minimumSdk": 28,
+  "targetSdk": 35,
+  "webOrigin": "https://shichen-wellness.pages.dev",
+  "webBundled": false,
+  "apk": "app/build/outputs/apk/release/app-release.apk",
+  "bytes": 2745581,
+  "sha256": "f71975dfaa6c2a26faf3616ad45aa2f776307c379c26b84fa29f38d99f4180e8",
+  "signerCertificateSha256": "44c46b568b9a1a74d5fb924142f1c77f76ab796e08d13586adbb7e901da9cf30",
+  "sameSignerAsVersion09": true,
+  "signatureVerified": true,
+  "signatureScheme": "v2",
+  "checks": {"screenTime":21,"stepSession":45,"nativeActions":33,"reminderPolicy":61,"total":160,"passed":160},
+  "build": {"assembleRelease":"passed","lintRelease":"passed","lintErrors":0,"lintWarnings":4},
+  "reviewedWarnings": [
+    {"id":"ApplySharedPref","count":1,"reason":"The synchronous commit consumes the one-time scheduled test before delivery. Durable state prevents duplicate replay after a process restart."},
+    {"id":"LockedOrientationActivity","count":1,"reason":"The existing phone-focused interface retains portrait orientation; large-screen layout is not claimed."},
+    {"id":"DiscouragedApi","count":1,"reason":"Same existing portrait orientation choice; this does not affect alarm delivery."},
+    {"id":"SetJavaScriptEnabled","count":1,"reason":"Web UI requires JavaScript. The native bridge remains restricted to the exact HTTPS production origin and main frame."}
+  ],
+  "deviceValidation": {"adbDevices":0,"configuredEmulators":0,"realBackgroundDeliveryTested":false,"hongmengContainerTested":false},
+  "limitations": ["Force-stop and closing the Android host container can cancel or block delivery until the app is reopened.","System power saving, notification channels and Do Not Disturb can alter delivery.","Exact alarm access is optional; inexact fallback can be delayed.","No always-running process, background health monitoring or medical monitoring guarantee."],
+  "sourceReferences": [
+    "https://developer.android.com/develop/background-work/services/alarms",
+    "https://developer.android.com/about/versions/14/changes/schedule-exact-alarms",
+    "https://developer.android.com/develop/ui/compose/notifications/notification-permission",
+    "https://developer.android.com/training/monitoring-device-state/doze-standby"
+  ]
+}

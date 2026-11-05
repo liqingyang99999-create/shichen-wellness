@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-11-05",
+  "types": [
+    {"id":"balanced","label":"平和质","description":"关注精力、疲劳、情绪及适应冷热的整体表现；需要同时参考其他八类分数。"},
+    {"id":"qi_deficiency","label":"气虚质","description":"关注容易疲劳、气短和心慌等长期自述表现。"},
+    {"id":"yang_deficiency","label":"阳虚质","description":"关注局部怕冷、穿衣保暖和对寒冷的耐受表现。"},
+    {"id":"yin_deficiency","label":"阴虚质","description":"关注身体发热感、干燥和面颊偏红等表现。"},
+    {"id":"phlegm_damp","label":"痰湿质","description":"关注身体沉重、腹部形态及口内黏腻等表现。"},
+    {"id":"damp_heat","label":"湿热质","description":"关注皮肤油腻、排尿和适用的局部表现。"},
+    {"id":"blood_stasis","label":"血瘀质","description":"关注疼痛、肤色及唇色等表现；这些描述本身不能解释症状的原因。"},
+    {"id":"qi_stagnation","label":"气郁质","description":"关注情绪低落、紧张和情感敏感等长期表现。"},
+    {"id":"special","label":"特禀质","description":"关注既往过敏、喷嚏和皮肤反应；只回顾已有体验，不主动诱发反应。"}
+  ],
+  "options": [
+    {"value":1,"label":"没有（根本不）"},
+    {"value":2,"label":"很少（有一点）"},
+    {"value":3,"label":"有时（有些）"},
+    {"value":4,"label":"经常（相当）"},
+    {"value":5,"label":"总是（非常）"}
+  ],
+  "simplified": {
+    "title":"9题生活倾向简测",
+    "method":"项目设计的9题倾向提示，未经量表验证",
+    "note":"回顾近一年的通常体验。每类仅问一个代表性表现，分数只反映这次回答的频率，不是标准体质分数或诊断；多个倾向可以同时出现。想进一步了解可完成标准框架版。",
+    "recallPeriod":"近一年",
+    "validated":false,
+    "scoreMeaning":"单项自述频率指数，0至100；不是概率，不套用国家标准判定阈值",
+    "thresholds":{"prominentFrequency":75,"balancedFrequency":75,"otherMaximumForBalanced":25},
+    "items":[
+      {"id":"S01","text":"通常觉得精力足够、做日常事情有精神吗？","type":"balanced"},
+      {"id":"S02","text":"日常活动中很容易觉得疲累吗？","type":"qi_deficiency"},
+      {"id":"S03","text":"在别人觉得合适的温度下，自己仍明显怕冷吗？","type":"yang_deficiency"},
+      {"id":"S04","text":"皮肤或嘴唇容易觉得干吗？","type":"yin_deficiency"},
+      {"id":"S05","text":"常觉得身体沉甸甸、不够轻松吗？","type":"phlegm_damp"},
+      {"id":"S06","text":"面部或鼻子容易出现明显油光吗？","type":"damp_heat"},
+      {"id":"S07","text":"平时观察到自己的唇色偏暗吗？","type":"blood_stasis"},
+      {"id":"S08","text":"容易感到紧张、焦虑或不安吗？","type":"qi_stagnation"},
+      {"id":"S09","text":"以前容易因食物、药物、花粉等出现过敏反应吗？","type":"special"}
+    ]
+  },
+  "standard": {
+    "title":"现行标准框架版",
+    "method":"依据GB/T 46939—2025附录A及第5章，题意简述版",
+    "note":"回顾近一年。依据现行标准的九类条目和计分规则整理，题目采用简洁等义表述，并合并重复提问。原附录27个不同条目中有两个适用分支，每人选择适用分支后回答26题。本软件改写和交互尚未经等效性验证，不是官方认证量表或疾病诊断。",
+    "recallPeriod":"近一年",
+    "standardId":"GB/T 46939—2025",
+    "standardTitle":"中医体质分类与判定",
+    "publishedAt":"2025-12-31",
+    "effectiveAt":"2026-04-01",
+    "validatedAdaptation":false,
+    "sourceUrl":"https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=827D6D266BA52A2983F93638DA871028",
+    "sourceSections":"第5章；附录A表A.1—A.9（正文第6—9页）",
+    "storedItemCount":27,
+    "answeredItemCount":26,
+    "exclusiveGroups":[
+      {"id":"damp_heat_sex","label":"选择适用于自己的身体情况","note":"原表分为女性和男性适用题，只回答其中一题；不愿回答可保留未完成，不将空白当作没有。","options":[{"value":"female","label":"回答白带相关题"},{"value":"male","label":"回答阴囊相关题"}]}
+    ],
+    "items":[
+      {"id":"C01","text":"平时有充足的精力吗？","type":"balanced","sourceRefs":["A.1(1)"]},
+      {"id":"C02","text":"是否容易觉得疲累？","type":"qi_deficiency","sourceRefs":["A.1(2)","A.2(1)"]},
+      {"id":"C03","text":"是否常感到郁闷、心情低落？","type":"qi_stagnation","sourceRefs":["A.1(3)","A.8(1)"]},
+      {"id":"C04","text":"相比别人，是否更难适应冬季寒冷或夏天空调、电扇的冷风？","type":"yang_deficiency","sourceRefs":["A.1(4)","A.3(3)"]},
+      {"id":"C05","text":"是否容易呼吸短促、觉得接不上气？","type":"qi_deficiency","sourceRefs":["A.2(2)"]},
+      {"id":"C06","text":"是否容易出现心慌的感觉？","type":"qi_deficiency","sourceRefs":["A.2(3)"]},
+      {"id":"C07","text":"胃部、背部或腰膝是否容易觉得冷？","type":"yang_deficiency","sourceRefs":["A.3(1)"]},
+      {"id":"C08","text":"是否因怕冷而比别人多穿衣服？","type":"yang_deficiency","sourceRefs":["A.3(2)"]},
+      {"id":"C09","text":"身体或脸部是否容易有发热的感觉？","type":"yin_deficiency","sourceRefs":["A.4(1)"]},
+      {"id":"C10","text":"皮肤或嘴唇是否容易干燥？","type":"yin_deficiency","sourceRefs":["A.4(2)"]},
+      {"id":"C11","text":"两侧颧骨处是否容易显得潮红或偏红？","type":"yin_deficiency","sourceRefs":["A.4(3)"]},
+      {"id":"C12","text":"是否觉得身体沉重、不够轻松爽快？","type":"phlegm_damp","sourceRefs":["A.5(1)"]},
+      {"id":"C13","text":"腹部是否比较丰满，摸起来松软？","type":"phlegm_damp","sourceRefs":["A.5(2)"]},
+      {"id":"C14","text":"嘴里是否容易有黏腻感？","type":"phlegm_damp","sourceRefs":["A.5(3)"]},
+      {"id":"C15","text":"脸部或鼻子是否容易油腻、泛油光？","type":"damp_heat","sourceRefs":["A.6(1)"]},
+      {"id":"C16","text":"排尿时是否有尿道发热感、尿液颜色偏深的情况？","type":"damp_heat","sourceRefs":["A.6(2)"]},
+      {"id":"C17","text":"是否出现白带颜色发黄的情况？","type":"damp_heat","exclusiveGroup":"damp_heat_sex","appliesTo":"female","sourceRefs":["A.6(3)"]},
+      {"id":"C18","text":"阴囊部位是否容易潮湿？","type":"damp_heat","exclusiveGroup":"damp_heat_sex","appliesTo":"male","sourceRefs":["A.6(4)"]},
+      {"id":"C19","text":"身体是否有部位出现疼痛？","type":"blood_stasis","sourceRefs":["A.7(1)"]},
+      {"id":"C20","text":"脸色是否偏晦暗，或容易长褐色斑点？","type":"blood_stasis","sourceRefs":["A.7(2)"]},
+      {"id":"C21","text":"嘴唇的颜色是否偏暗？","type":"blood_stasis","sourceRefs":["A.7(3)"]},
+      {"id":"C22","text":"是否容易紧张、焦虑不安？","type":"qi_stagnation","sourceRefs":["A.8(2)"]},
+      {"id":"C23","text":"是否比较多愁善感，情感容易受影响？","type":"qi_stagnation","sourceRefs":["A.8(3)"]},
+      {"id":"C24","text":"没有感冒时，是否也容易打喷嚏？","type":"special","sourceRefs":["A.9(1)"]},
+      {"id":"C25","text":"是否容易对药物、食物、气味、花粉，或季节与气候变化出现过敏反应？","type":"special","sourceRefs":["A.9(2)"]},
+      {"id":"C26","text":"皮肤是否容易出现荨麻疹一类的风团或疙瘩？","type":"special","sourceRefs":["A.9(3)"]},
+      {"id":"C27","text":"回顾以往，皮肤被抓后是否很容易发红、留下明显抓痕？","type":"special","help":"只按以往经验作答，不需要现在抓挠皮肤。","sourceRefs":["A.9(4)"]}
+    ],
+    "scoring": {
+      "balanced":[{"itemId":"C01"},{"itemId":"C02","reverse":true},{"itemId":"C03","reverse":true},{"itemId":"C04","reverse":true}],
+      "qi_deficiency":[{"itemId":"C02"},{"itemId":"C05"},{"itemId":"C06"}],
+      "yang_deficiency":[{"itemId":"C07"},{"itemId":"C08"},{"itemId":"C04"}],
+      "yin_deficiency":[{"itemId":"C09"},{"itemId":"C10"},{"itemId":"C11"}],
+      "phlegm_damp":[{"itemId":"C12"},{"itemId":"C13"},{"itemId":"C14"}],
+      "damp_heat":[{"itemId":"C15"},{"itemId":"C16"},{"exclusiveGroup":"damp_heat_sex"}],
+      "blood_stasis":[{"itemId":"C19"},{"itemId":"C20"},{"itemId":"C21"}],
+      "qi_stagnation":[{"itemId":"C03"},{"itemId":"C22"},{"itemId":"C23"}],
+      "special":[{"itemId":"C24"},{"itemId":"C25"},{"itemId":"C26"},{"itemId":"C27"}]
+    }
+  }
+}

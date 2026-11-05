@@ -1,14 +1,10 @@
-/
+/*
   Cache-Control: no-store
-/index.html
-  Cache-Control: no-store
-/download
-  Cache-Control: no-store
-/download/*
-  Cache-Control: no-store
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), geolocation=(self), microphone=(self)
+
 /download/*.apk
   Content-Type: application/vnd.android.package-archive
   Content-Disposition: attachment
-/download/latest.json
   Cache-Control: no-store
-  X-Content-Type-Options: nosniff

@@ -1,7 +1,11 @@
 {
-  "$schema": "../node_modules/wrangler/config-schema.json",
   "name": "shichen-wellness",
-  "pages_build_output_dir": "../dist/pages",
-  "compatibility_date": "2026-05-15",
-  "services": [{ "binding": "SHICHEN_API", "service": "shichen-wellness" }]
+  "pages_build_output_dir": "../dist",
+  "compatibility_date": "2026-11-05",
+  "services": [
+    {
+      "binding": "SHICHEN_API",
+      "service": "shichen-wellness"
+    }
+  ]
 }

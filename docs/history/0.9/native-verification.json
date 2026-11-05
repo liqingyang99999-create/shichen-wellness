@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-05",
+  "package": "cn.shichen.wellness.preview",
+  "versionCode": 9,
+  "versionName": "0.9.0-preview",
+  "apk": "outputs/mobile-app/shichen-wellness-0.9.0-preview.apk",
+  "size": 3267403,
+  "sha256": "193d3e85acc062a21a2a2dd9b943bd34d4bfe11338ecd816f1fe51712940b652",
+  "signature": {
+    "verified": true,
+    "scheme": "v2",
+    "certificateSha256": "44c46b568b9a1a74d5fb924142f1c77f76ab796e08d13586adbb7e901da9cf30",
+    "matchesPreview08": true,
+    "distribution": "existing debug preview signing"
+  },
+  "build": {
+    "assembleDebug": "passed",
+    "lintDebug": "passed",
+    "lintErrors": 0,
+    "lintWarnings": [
+      {
+        "id": "LockedOrientationActivity",
+        "message": "Expecting `android:screenOrientation=\"unspecified\"` or `\"fullSensor\"` for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices"
+      },
+      {
+        "id": "DiscouragedApi",
+        "message": "Should not restrict activity to fixed orientation. This may not be suitable for different form factors, causing the app to be letterboxed."
+      },
+      {
+        "id": "SetJavaScriptEnabled",
+        "message": "Using `setJavaScriptEnabled` can introduce XSS vulnerabilities into your application, review carefully"
+      }
+    ]
+  },
+  "tests": {
+    "screenAccumulator": 21,
+    "stepAccumulator": 45,
+    "nativeActionPolicy": 32,
+    "reminderPolicy": 53,
+    "webNativeBridge": 4,
+    "totalNativePolicyChecks": 151,
+    "actualDeviceTested": false
+  },
+  "permissionsAdded": [
+    "POST_NOTIFICATIONS",
+    "RECEIVE_BOOT_COMPLETED",
+    "WRITE_EXTERNAL_STORAGE(maxSdk28)"
+  ],
+  "storageNote": "Android may imply READ_EXTERNAL_STORAGE on API28 from legacy WRITE; no media read permission on API29+.",
+  "behaviour": {
+    "reminders": "inexact local daily alarms, no background health monitoring",
+    "timezone": "Asia/Shanghai",
+    "quietHours": "23:00–05:00",
+    "nightMedicationDefault": false,
+    "nightMedicationOptIn": "silent only",
+    "notificationText": "fixed generic without medication names or health readings",
+    "imageSave": "MediaStore PNG complete write, byte-count readback and publish before success",
+    "share": "only saved app-created content URI; ACTION_SEND chooser opened != sent",
+    "maxRoutineReminders": 18
+  },
+  "limitations": [
+    "No emulator or user device was connected for this test.",
+    "HarmonyOS/卓易通 background notification forwarding and host gallery mapping need user verification.",
+    "Battery optimization, force-stop and DND may delay or suppress alarms/notifications.",
+    "Huawei Health, heart rate and sleep remain unintegrated."
+  ],
+  "downloadManifestAndCopies": "hash/size/version verified; no deployment performed"
+}

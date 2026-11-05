@@ -1,0 +1,41 @@
+/* Quiet single-card hierarchy: ink, sage, paper and the existing landscape. */
+:root{--ink:#193d34;--accent:#245747;--muted:#637a6c;--line:#e1e8df;--paper:#f3f6f1}
+.app-shell{max-width:540px;padding-left:22px;padding-right:22px;box-shadow:0 0 70px #193d3405}
+.top{height:78px}.brand{font-size:28px;letter-spacing:.6px}.blood-entry{gap:4px}.blood-entry span{font-size:11px}
+.time-block{padding:6px 0 15px}.time-block h1{font-size:27px;letter-spacing:1px}.time-block h1 span{font-size:22px;letter-spacing:0;margin-left:6px}.time-block>p{font-size:12px;margin-top:3px}.weather-link{font-size:12px;margin-top:5px}
+.mode-line{margin:0 3px 12px}.mode-line button{font-size:11px;color:#718474}
+.action-card{border-radius:26px;min-height:490px;box-shadow:0 8px 30px #234c3a06;animation:none}
+.card-copy{padding:28px 27px 0}.card-copy h2{font-size:31px;line-height:1.5;letter-spacing:0;font-weight:600}
+.duration{margin-top:12px;font-size:12px;color:#718474}.duration span{font-size:12px}
+.steps{margin-top:28px;gap:20px}.steps li{font-size:15px;gap:12px}.steps p{font-weight:400;line-height:1.9}.steps b{background:#e8eee4;color:#597461;font-weight:550;width:24px;min-width:24px;height:24px;line-height:24px;margin-top:3px}
+.card-reason{margin-top:24px;padding:0;border:0;background:transparent;font-size:13px;line-height:1.85;color:#536e5e}.reason-label{font-size:11px;letter-spacing:0;margin-bottom:6px;color:#819080}
+.card-art img{opacity:.58;mask-image:linear-gradient(to bottom,transparent 25%,#000 85%)}
+.card-art:after{background:linear-gradient(180deg,#fff 0%,#fffffff5 35%,#ffffffb5 62%,#ffffff65 80%,#ffffffee 100%)}
+.breathing-room{min-height:64px}.card-bottom{padding:17px 26px 25px}.source{font-size:11px;margin-bottom:17px;color:#718474}
+.card-bottom .button-row{gap:10px}.card-bottom .button-row button{min-height:48px;font-size:14px;border-radius:25px}.card-bottom .button-row .secondary{border-color:#adc0ac;background:#ffffffc9}
+.under-card{margin:15px 3px 9px;gap:12px}.under-card button{font-size:12px;padding:5px 0;color:#587260;min-height:35px}.under-card .constitution-pill{font-size:11px;border:0;background:transparent;border-radius:0;padding:5px 0;max-width:64%}
+.composer-wrap{position:relative;bottom:auto;margin:0 -2px;padding:10px 0 max(22px,env(safe-area-inset-bottom));background:none}
+.chip-row{gap:7px;margin:0 1px 9px;padding:1px 0 3px}.chip-row>span{font-size:11px;color:#718474;min-width:25px}.chip-row button{font-size:12px;padding:7px 13px;background:#fbfcf8;border-color:#e0e8dc;line-height:1.4}.chip-row button[aria-pressed=true]{background:#dfeada;border-color:#aec5a7}
+.context-tags{font-size:11px;padding:0 2px 10px;line-height:1.7}.context-tags button{font-size:11px;white-space:nowrap;color:#718474}
+.composer{border-color:#d3dfce;border-radius:22px;padding:10px 9px 10px 15px;box-shadow:0 4px 18px #1e514303;gap:6px;align-items:center}
+.composer textarea{font-size:13px;min-height:60px;height:60px;line-height:1.6;padding:2px 0}.composer textarea::placeholder{color:#81917f}.composer button{width:40px;height:40px}.composer .voice{border-color:#e3e9df}.composer .send{background:#245747}.composer-message{font-size:12px;line-height:1.8;padding-top:12px}
+.sheet{max-width:540px;border-radius:25px 25px 0 0;box-shadow:0 -16px 70px #123c3314}.sheet-head{padding:18px 26px 14px}.sheet-head h2{font-size:23px;font-weight:600}.sheet-body{padding:22px 27px max(32px,env(safe-area-inset-bottom));font-size:14px;line-height:1.85}.sheet-body .question-copy{font-size:17px;line-height:1.9;margin-bottom:24px}
+.followup-options{display:grid;grid-template-columns:1fr;gap:10px;margin:18px 0}.followup-options .secondary{font-size:14px;line-height:1.8;padding:14px 17px;border-radius:14px;text-align:left;justify-content:flex-start;border-color:#d7e1d2;background:#f8faf5}
+.followup-form{border-top:1px solid #e4eadd;margin-top:25px;padding-top:10px}.followup-form textarea{font-size:14px;min-height:88px;background:#fff}.followup-actions .primary{min-width:114px}.followup-actions{margin:15px 0}
+.care-card .steps{gap:18px}.care-card .card-bottom{margin-top:28px}.care-card .card-bottom h3{font-size:15px;font-weight:550}.care-card .followup-options{grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.care-card .followup-options button{font-size:13px;justify-content:center;text-align:center;padding:10px;border-radius:24px;background:#ffffffd9}.care-card .followup-options button:last-child{grid-column:1/-1;border-color:transparent;background:transparent;padding:3px;color:#706c5f}.care-card .card-bottom>.muted{font-size:11px;line-height:1.8;color:#6d7c6b}
+.action-progress{border-radius:17px;margin:0 26px 14px;padding:16px;background:#eff5eae0}.countdown-ring{width:72px;height:72px}.action-progress .text-button{color:#657c65}.action-progress h3{font-size:13px;font-weight:550}
+.emergency{border-color:#d18c80;background:#fff4ef}.emergency .steps b{color:#fff;background:#b66655}.emergency .card-reason{color:#843e32}.emergency .card-bottom .text-button{min-height:44px}.emergency-call{font-size:17px;min-height:52px}
+.nav-row{font-size:14px;padding:17px 0}.section>h3{font-size:16px}.soft-note{background:#f0f4eb;border-radius:13px;font-size:13px}.field{font-size:13px}.muted{color:#6a7e6d}.source-item p{font-size:12px}
+@media(min-width:600px){.app-shell{padding-left:30px;padding-right:30px;padding-top:8px}.top{height:84px}.brand{font-size:30px}.action-card{min-height:530px}.card-copy{padding:32px 31px 0}.card-copy h2{font-size:34px}.steps li{font-size:16px}.card-bottom{padding-left:30px;padding-right:30px}.composer textarea{font-size:14px}.chip-row button{font-size:13px}.under-card{margin-top:17px;margin-bottom:10px}}
+@media(max-width:390px){.app-shell{padding-left:17px;padding-right:17px}.brand{font-size:25px}.top{height:73px}.time-block h1{font-size:25px}.time-block h1 span{font-size:20px}.card-copy{padding:25px 23px 0}.card-copy h2{font-size:29px}.card-bottom{padding-left:22px;padding-right:22px}.steps li{font-size:14px}.card-reason{font-size:12px}.composer textarea{font-size:12px;min-height:58px;height:58px}.chip-row button{padding:7px 12px}.sheet-body{padding-left:23px;padding-right:23px}}
+
+.legal-links{display:flex;justify-content:center;gap:12px;font-size:12px;color:#718474;margin-top:22px}.legal-links a{text-underline-offset:4px}
+.ai-match-status{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 4px 2px;color:var(--muted,#738679);font:12px/1.6 "Microsoft YaHei",sans-serif;min-height:24px}
+.ai-match-status .text-button{font-size:12px;padding:3px 0;color:#456f5c}
+.ai-settings .secondary{min-height:44px}
+
+.care-start{margin:18px 0 22px;padding:12px 15px;border-left:2px solid #b4c8ae;background:#f4f7f0bd;border-radius:0 12px 12px 0;color:#4c6654;font-size:12px;line-height:1.8}.care-start p{margin:0}.care-start p+p{margin-top:6px}
+.recheck-actions>p{margin:0;color:#4f6b56;font-size:14px}.recheck-actions.compact{margin-top:20px;padding-top:16px;border-top:1px solid #e0e8dc}.recheck-actions.compact>p{font-size:12px}.recheck-actions.compact .followup-options{grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 0}.recheck-actions.compact .secondary{justify-content:center;text-align:center;padding:8px;font-size:12px;border-radius:22px}.recheck-actions.compact .secondary:last-child{grid-column:1/-1;background:transparent;border-color:transparent;color:#746352;padding:5px}
+
+.card-followup{margin-bottom:18px;padding:13px 15px;border-radius:13px;background:#f3f6ef;color:#486550;font-size:13px;line-height:1.8}.card-followup p{margin:0}.card-followup .text-button{padding:6px 0 0;font-size:13px}
+.reminder-system-status{margin:18px 0;padding:16px 18px;background:#f2f6ef;border-radius:16px}.reminder-system-status dl{margin:0}.reminder-system-status dl>div{display:grid;grid-template-columns:90px 1fr;gap:10px;padding:8px 0;font-size:13px;line-height:1.7}.reminder-system-status dt{color:#708274}.reminder-system-status dd{margin:0;color:#315648}.reminder-system-status small{display:block;color:#708274;font-size:12px}.reminder-system-status .text-button{font-size:12px;padding:8px 0 0}.reminder-system-options{margin:16px 0}.reminder-system-options summary{font-size:13px;color:#526f5c}.reminder-system-options .button-row{flex-wrap:wrap;margin-top:12px}

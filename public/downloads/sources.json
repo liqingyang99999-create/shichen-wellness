@@ -1,0 +1,402 @@
+[
+  {
+    "id": "NHC_POINTS_2024",
+    "title": "国家卫生健康委员会2024年7月5日新闻发布会文字实录",
+    "url": "https://www.nhc.gov.cn/xcs/c100122/202407/bb4a843e4eba4b279d2282164f4121a3.shtml",
+    "publisher": "国家卫生健康委员会",
+    "scope": "劳宫、内关的大致定位；卡片不采纳疾病治疗宣称。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHC_SHENMEN_2024",
+    "title": "国家卫生健康委员会2024年7月22日新闻发布会文字实录",
+    "url": "https://www.nhc.gov.cn/xcs/c100122/202407/67c75ece979540c582f1b2a989602765.shtml",
+    "publisher": "国家卫生健康委员会",
+    "scope": "神门定位与日常轻柔接触；不据此承诺安眠或治疗心脏疾病。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHC_POINTS_2026",
+    "title": "国家卫生健康委员会2026年1月13日新闻发布会文字实录",
+    "url": "https://www.nhc.gov.cn/xcs/c100122/202601/b805b5cc607941f1a4445a8b297bf4e9.shtml",
+    "publisher": "国家卫生健康委员会",
+    "scope": "太阳、内关穴位科普；只取定位信息，不采用急性症状疗效说法。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "SPORT_ADAPT",
+    "title": "老人习练健身气功 需从自身实际出发",
+    "url": "https://www.sport.gov.cn/n20001280/n20001265/n20066978/c30109457/content.html",
+    "publisher": "国家体育总局",
+    "scope": "坐式、减幅、自然呼吸与出现不适停练的原则；本项目逐卡改编未经临床验证。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "SPORT_FORMS",
+    "title": "八段锦定式动作",
+    "url": "https://www.sport.gov.cn/n20001280/n20001265/n20067611/c20106840/content.html",
+    "publisher": "国家体育总局",
+    "scope": "八段锦八式名称及传统组织方式；式名不表示本项目承诺疗效。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_SEATED",
+    "title": "Sitting exercises",
+    "url": "https://www.nhs.uk/live-well/exercise/sitting-exercises/",
+    "publisher": "NHS",
+    "scope": "稳定座椅、缓慢舒适的坐姿活动；微卡是项目缩减起步，不等于完整训练。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_HAND",
+    "title": "Hand Exercises",
+    "url": "https://www.ruh.nhs.uk/patients/patient_information/HTH021_Hand_Exercises.pdf",
+    "publisher": "Royal United Hospitals Bath NHS Foundation Trust",
+    "scope": "手部活动宜轻柔、不过度用力；不作为损伤康复处方。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_BREATH",
+    "title": "Breathing exercises for stress",
+    "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/",
+    "publisher": "NHS",
+    "scope": "舒适坐姿与轻柔、不强迫的呼吸；30秒仅做觉察起步。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHC_DIET_2025",
+    "title": "“健康饮食、合理膳食”核心信息",
+    "url": "https://www.nhc.gov.cn/sps/c100088/202505/6b7a718abd4848e8a3e98fc561a8858b.shtml",
+    "publisher": "国民营养健康指导委员会办公室（国家卫生健康委食品司）",
+    "scope": "蔬果、全谷物与水产品多样搭配，适量购买与少盐少油；不支持具体食物治病。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHC_LITERACY",
+    "title": "中国公民健康素养——基本知识与技能（2024年版）",
+    "url": "https://www.nhc.gov.cn/xcs/c100123/202405/73a4927142f34152abed875634a3c13b.shtml",
+    "publisher": "国家卫生健康委员会",
+    "scope": "食物多样、饮食卫生、保健食品不能替代药品等一般健康知识。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHC_DIET_2017",
+    "title": "合理膳食健康教育核心信息及释义",
+    "url": "https://www.nhc.gov.cn/xcs/cbcl/201706/d7d8ff3889be445b8bfb86a5efea952f.shtml",
+    "publisher": "国家卫生健康委员会",
+    "scope": "均衡膳食、粗细搭配和清淡进食的背景原则；不生成疾病食疗处方。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "CDC_LABEL",
+    "title": "Nutrition Facts Label and Your Health",
+    "url": "https://www.cdc.gov/healthy-weight-growth/healthy-eating/nutrition-label.html",
+    "publisher": "美国疾病控制与预防中心（CDC）",
+    "scope": "阅读钠含量并在相同标示单位下比较；不把美国标签格式视为中国强制格式。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHLBI_SLEEP",
+    "title": "Healthy Sleep Habits",
+    "url": "https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits",
+    "publisher": "美国国立心肺血液研究所（NHLBI）",
+    "scope": "规律作息、适宜睡眠环境与睡前减少刺激。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NIH_INSOMNIA",
+    "title": "Insomnia",
+    "url": "https://health.nih.gov/health-topics-a-z/insomnia",
+    "publisher": "美国国立卫生研究院（NIH）",
+    "scope": "安静环境、日常节律和轻音乐等睡前习惯；不能代替失眠诊疗。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "CDC_SLEEP_ROOM",
+    "title": "Improve Your Sleep Environment",
+    "url": "https://archive.cdc.gov/www_cdc_gov/niosh/emres/longhourstraining/environment.html",
+    "publisher": "CDC / NIOSH",
+    "scope": "睡眠光线、噪声及夜间通路整理的一般建议。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "WHO_STRESS",
+    "title": "Doing What Matters in Times of Stress: An Illustrated Guide",
+    "url": "https://www.who.int/publications/i/item/9789240003927",
+    "publisher": "世界卫生组织（WHO）",
+    "scope": "情绪觉察、接地、善待自己与价值行动等自助原则；卡片文字为项目原创短提示，不复制指南插画。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "CDC_HEAT",
+    "title": "Preventing Heat-Related Illness",
+    "url": "https://www.cdc.gov/extreme-heat/prevention/",
+    "publisher": "美国疾病控制与预防中心（CDC）",
+    "scope": "高温时减少热暴露、选择较凉的环境；饮水须服从个人医疗安排。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "CDC_CVD_HEAT",
+    "title": "Clinical Overview of Heat and Cardiovascular Disease",
+    "url": "https://www.cdc.gov/heat-health/hcp/clinical-overview/heat-and-people-with-cardiovascular-disease.html",
+    "publisher": "美国疾病控制与预防中心（CDC）",
+    "scope": "高温与心血管风险、个体化药物与液体计划、家人联系安排。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "AHA_HF",
+    "title": "Lifestyle Changes for Heart Failure",
+    "url": "https://www.heart.org/en/health-topics/heart-failure/treatment-options-for-heart-failure/lifestyle-changes-for-heart-failure",
+    "publisher": "美国心脏协会（AHA）",
+    "scope": "心衰患者液体、盐分与活动应按个人医疗计划；不统一要求限液量。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "CDC_FEET",
+    "title": "Diabetes and Your Feet",
+    "url": "https://www.cdc.gov/diabetes/diabetes-complications/diabetes-and-your-feet.html",
+    "publisher": "美国疾病控制与预防中心（CDC）",
+    "scope": "糖尿病足部检查、合适鞋袜、避免浸泡与热损伤。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NCCIH_HERBS",
+    "title": "6 Tips: How Herbs Can Interact With Medicines",
+    "url": "https://www.nccih.nih.gov/health/tips/tips-how-herbs-can-interact-with-medicines",
+    "publisher": "美国国立补充与整合健康中心（NCCIH）",
+    "scope": "草药、补充剂与药物可能相互作用；不构成任何具体复方安全或有效的证明。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "AHA_MEDICATION",
+    "title": "Medication Interactions: Food, Supplements and Other Drugs",
+    "url": "https://www.heart.org/en/health-topics/consumer-healthcare/medication-information/medication-interactions-food-supplements-and-other-drugs",
+    "publisher": "美国心脏协会（AHA）",
+    "scope": "记录用药及补充剂、向医生或药师核对相互作用。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHC_EMERGENCY",
+    "title": "国家卫生健康委员会2025年11月21日新闻发布会文字实录",
+    "url": "https://www.nhc.gov.cn/xcs/c100122/202511/b622555670fa4f2388eb35f1c339195f.shtml",
+    "publisher": "国家卫生健康委员会",
+    "scope": "疑似心肌梗死及时呼叫120，不自行驾车或擅自用药；不等待微行为见效。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "BEIJING_120",
+    "title": "每周急救话题：胸痛的识别与处置",
+    "url": "https://wjw.beijing.gov.cn/bmfw_20143/jkzs/jzjj/202211/t20221102_2850165.html",
+    "publisher": "北京市卫生健康委员会 / 北京急救中心",
+    "scope": "胸痛识别与及时120求助；平时演练不能延迟真实急救。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NIMH_SELFCARE",
+    "title": "Caring for Your Mental Health",
+    "url": "https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health",
+    "publisher": "美国国立精神卫生研究所（NIMH）",
+    "scope": "低压力爱好、音乐、目标安排与亲友支持；日常提示不替代精神心理诊疗。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "WHO_LISTENING",
+    "title": "Deafness and hearing loss: Safe listening",
+    "url": "https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening",
+    "publisher": "世界卫生组织（WHO）",
+    "scope": "降低音量、缩短高声暴露并安排聆听休息；不按乐曲五行宣称疾病治疗效果。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "CQ_HEGU",
+    "title": "重庆市中医药新冠防治居家健康指引（第一版）",
+    "url": "https://wsjkw.cq.gov.cn/zwgk_242/wsjklymsxx/jkfw_266458/zcwj_266459/202212/W020221214733933714168.pdf",
+    "publisher": "重庆市卫生健康委员会",
+    "scope": "仅用合谷位置与孕期避用提示；不采用其中防疫、药物、熏灸或按摩疗效方案。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "DF_YINTANG",
+    "title": "失眠别硬扛，中医按摩“按”出好睡眠",
+    "url": "https://dongfangyy.com.cn/Html/News/Articles/12985.html",
+    "publisher": "北京中医药大学东方医院",
+    "scope": "仅取印堂位于两眉之间的定位；不声称轻触能治疗失眠。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "BEIJING_ZUSANLI",
+    "title": "春季防治感冒有妙招",
+    "url": "https://www.beijing.gov.cn/fuwu/bmfw/jhsyfwzdzx/2022sjwsr/kpyz/202204/t20220401_2651985.html",
+    "publisher": "北京市人民政府门户网站健康科普",
+    "scope": "仅取足三里定位；不采用用力按压或治疗感冒的说法。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "BEIJING_TAIYANG",
+    "title": "有效恢复视力的小方法",
+    "url": "https://zyj.beijing.gov.cn/ylfw/ysbj/201912/t20191223_1412455.html",
+    "publisher": "北京市中医药管理局",
+    "scope": "仅核对太阳穴定位；不采纳标题所述视力恢复效果，不采用眼眶刮擦。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_DRY_MOUTH",
+    "title": "Dry mouth",
+    "url": "https://www.nhs.uk/symptoms/dry-mouth/",
+    "publisher": "NHS",
+    "scope": "仅用于口干的普通口腔照护、处方药不自行停用及持续症状就诊提示。饮水建议不外推至心衰、限液或吞咽困难者。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_DEHYDRATION",
+    "title": "Dehydration",
+    "url": "https://www.nhs.uk/conditions/dehydration/",
+    "publisher": "NHS",
+    "scope": "用于口干、尿色及尿量变化需要综合观察和明显脱水迹象求助；不凭尿黄确诊脱水或中医证型。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NIDDK_DIARRHEA",
+    "title": "Symptoms & Causes of Diarrhea",
+    "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/diarrhea/symptoms-causes",
+    "publisher": "NIH / NIDDK",
+    "scope": "用于便溏与腹泻信息整理、持续时间和严重伴随症状的求助边界；不提供止泻药或家庭补液配方。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_TASTE",
+    "title": "Metallic taste",
+    "url": "https://www.nhs.uk/symptoms/metallic-taste/",
+    "publisher": "NHS",
+    "scope": "仅借鉴持续或不明原因味觉变化应咨询、药物相关问题应由药师核对的原则；金属味与口苦不是同一症状，不据此诊断。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_INDIGESTION",
+    "title": "Indigestion",
+    "url": "https://www.nhs.uk/conditions/indigestion/",
+    "publisher": "NHS",
+    "scope": "用于记录餐后反流样感受与不适食物、持续问题求助；不把口苦直接诊断为反流，不推荐自行增减药物。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_NUTRITION",
+    "title": "How to improve your nutrition",
+    "url": "https://www.nhsinform.scot/illnesses-and-conditions/nutritional/how-to-improve-your-nutrition/",
+    "publisher": "NHS inform",
+    "scope": "仅采用食欲差时减少备餐负担、小份熟悉食物与寻求帮助原则。高能量增重、全脂或加糖建议不用于本库的通用慢病人群。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_MALNUTRITION",
+    "title": "Malnutrition",
+    "url": "https://www.nhs.uk/conditions/malnutrition/",
+    "publisher": "NHS",
+    "scope": "用于持续食欲下降和非主动体重下降需要专业评估的提示，不由应用诊断营养不良。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_ANGER",
+    "title": "Anger",
+    "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/anger/",
+    "publisher": "NHS",
+    "scope": "用于给回应留时间、辨认情绪、向可信任的人寻求支持。身体急症不归因于生气；不把压抑情绪判为气滞证。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NIH_EMOTIONAL",
+    "title": "Emotional Wellness Toolkit",
+    "url": "https://www.nih.gov/health-information/your-healthiest-self-wellness-toolkits/emotional-wellness-toolkit",
+    "publisher": "NIH",
+    "scope": "只用愉悦爱好、温和自我关照、注意当下、整理优先事项和社会联系的一般原则。具体写画观察任务是项目原创，不采用该页屏气计数方法。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_WELLBEING",
+    "title": "5 steps to mental wellbeing",
+    "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/",
+    "publisher": "NHS",
+    "scope": "支持学习爱好、与亲友联系和关注身边事物的一般背景，不证明某张30秒卡具有治疗作用。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "FDA_PRODUCE",
+    "title": "Selecting and Serving Produce Safely",
+    "url": "https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-produce-safely",
+    "publisher": "US FDA",
+    "scope": "用于清水清洗蔬果、生熟分开、切开后冷藏与破损腐坏处理。卡片只选一个准备环节，不承诺30秒完成整餐清洁。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "FDA_FOOD",
+    "title": "Safe Food Handling",
+    "url": "https://www.fda.gov/food/buy-store-serve-safe-food/safe-food-handling",
+    "publisher": "US FDA",
+    "scope": "用于手卫生、易腐食物及时冷藏、食物安全准备；不以闻味或尝一口判断食品安全。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_POLLEN",
+    "title": "Hay fever",
+    "url": "https://www.nhs.uk/conditions/hay-fever/",
+    "publisher": "NHS",
+    "scope": "用于已知花粉敏感者减少接触的生活安排，不将植物观察卡当作过敏治疗。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "HKO_TERMS",
+    "title": "二十四节气的日期及时间资料",
+    "url": "https://www.hko.gov.hk/tc/gts/astronomy/Solar_Term.htm",
+    "publisher": "香港天文台",
+    "scope": "只支持节气名称及历法组织。节气不等于当地天气，24张具体行动为项目按季节主题编排。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_URINE",
+    "title": "Urinary tract infections (UTIs)",
+    "url": "https://www.nhs.uk/conditions/urinary-tract-infections-utis/",
+    "publisher": "NHS",
+    "scope": "只用于尿色变化若伴疼痛、血尿、发热等需评估的提示；不由尿黄诊断感染，也不提供抗生素建议。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "UKHSA_COLD",
+    "title": "Keeping warm and well: staying safe in cold weather",
+    "url": "https://www.gov.uk/government/publications/keeping-warm-and-well-staying-safe-in-cold-weather/top-tips-for-keeping-warm-and-well-this-winter",
+    "publisher": "UK Health Security Agency",
+    "scope": "用于室内保暖、减少冷风直吹、分层衣物等一般安排；以当地天气和实际舒适度为准，不把英国求助号码用于中国用户。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "BEIJING_FIVE_TONES",
+    "title": "曲抚人心 乐为良药",
+    "url": "https://zyj.beijing.gov.cn/sy/whkp/202303/t20230327_2945698.html",
+    "publisher": "北京市中医药管理局",
+    "scope": "仅核对宫、商、角、徵、羽五音传统名称及文化背景；不采纳文中疗效、脏腑或证型映射为本应用推荐依据。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "HGNU_PENTATONIC",
+    "title": "中国五声调式音阶（教学资料）",
+    "url": "https://music.hgnu.edu.cn/_upload/article/files/3e/2d/0eda070749ccb70498dbbabfd436/6f4b6b57-96c5-43ba-a0af-7aacd8edf865.pdf",
+    "publisher": "黄冈师范学院音乐学院",
+    "scope": "用于五声音阶与五种调式主音的基本音乐概念。应用音景为原创程序编排，不复制资料中的乐曲或医学主张。",
+    "accessed": "2026-11-05"
+  },
+  {
+    "id": "NHS_PINS_NEEDLES",
+    "title": "Pins and needles",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/pins-and-needles/",
+    "accessed": "2026-11-05",
+    "scope": "仅支持明确受压时解除压迫、记录麻感的位置与变化；持续或反复需专业评估。不以此排除卒中或诊断病因。"
+  },
+  {
+    "id": "NHS_BALANCED_DIET",
+    "title": "Eating a balanced diet",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/live-well/eat-well/how-to-eat-a-balanced-diet/eating-a-balanced-diet/",
+    "accessed": "2026-11-05",
+    "scope": "支持选择熟悉、适量的普通餐食，并遵循个人特殊饮食安排；不采纳通用饮水量用于心衰限水人群，不提供低血糖治疗或药物调整。"
+  }
+]

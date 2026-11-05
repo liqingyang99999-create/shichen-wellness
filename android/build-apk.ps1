@@ -1,6 +1,7 @@
 param(
     [Parameter(Mandatory=$true)][string]$JavaHome,
-    [Parameter(Mandatory=$true)][string]$SdkRoot
+    [Parameter(Mandatory=$true)][string]$SdkRoot,
+    [string]$GradlePath
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = $PSScriptRoot
@@ -23,8 +24,13 @@ try {
         if ($LASTEXITCODE -ne 0) { throw 'Step session checks failed.' }
         & (Join-Path $JavaHome 'bin/java.exe') -cp $metricTestDir cn.shichen.wellness.NativeActionPolicyCheck
         if ($LASTEXITCODE -ne 0) { throw 'Native action policy checks failed.' }
-        & (Join-Path $projectRoot 'gradlew.bat') --no-daemon assembleDebug lintDebug
+        & (Join-Path $JavaHome 'bin/javac.exe') -encoding UTF-8 -d $metricTestDir 'app/src/main/java/cn/shichen/wellness/ReminderPolicy.java' 'tests/ReminderPolicyCheck.java'
+        if ($LASTEXITCODE -ne 0) { throw 'Reminder policy failed to compile.' }
+        & (Join-Path $JavaHome 'bin/java.exe') -cp $metricTestDir cn.shichen.wellness.ReminderPolicyCheck
+        if ($LASTEXITCODE -ne 0) { throw 'Reminder policy checks failed.' }
+        if ($GradlePath) { & $GradlePath --no-daemon --offline assembleRelease lintRelease }
+        else { & (Join-Path $projectRoot 'gradlew.bat') --no-daemon assembleRelease lintRelease }
         if ($LASTEXITCODE -ne 0) { throw "Android build failed: $LASTEXITCODE" }
     } finally { Pop-Location }
-    Write-Output (Join-Path $projectRoot 'app/build/outputs/apk/debug/app-debug.apk')
+    Write-Output (Join-Path $projectRoot 'app/build/outputs/apk/release/app-release.apk')
 } finally { $env:JAVA_HOME = $previousJavaHome }

@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "status": "text-drafts-for-review",
+  "introCharacters": 178,
+  "slidesPlanned": 9,
+  "videoPlannedSeconds": 280,
+  "videoGenerated": false,
+  "pptGenerated": false,
+  "files": [
+    {
+      "name": "checklist.md",
+      "bytes": 2530,
+      "sha256": "cd35e72877fffad818f58762fc3b5c155ee24bee351e2a637583b2192fa96e38"
+    },
+    {
+      "name": "demo-draft.srt",
+      "bytes": 3081,
+      "sha256": "bec1aefcc8b438d18a076f8cd204a3c6ab77aacdee52f81cb775d67b68c937d5"
+    },
+    {
+      "name": "demo-script.html",
+      "bytes": 10877,
+      "sha256": "7550817838b2d37f3b195400051cd960033f97f3ea0c119bf0a4a9ccee0412b1"
+    },
+    {
+      "name": "demo-script.md",
+      "bytes": 8148,
+      "sha256": "b829d87d5712cd88826c8cce137e052fe9bb8d5d3aca3e68a4ce4c7ec601dc93"
+    },
+    {
+      "name": "index.html",
+      "bytes": 4228,
+      "sha256": "bad299bda88b9beaa2704eb7f83ca4931eb09c9700ee424437b40193707489b3"
+    },
+    {
+      "name": "intro.txt",
+      "bytes": 515,
+      "sha256": "6f0224a0f2e114d3e0cc301f82cb4664f24084aa92a24105006c778ae4e5720f"
+    },
+    {
+      "name": "links.txt",
+      "bytes": 467,
+      "sha256": "bcf434f6b62bc70e68c9c0489660ce3c014a847d4da6e8d376a6b0f509d933bc"
+    },
+    {
+      "name": "ppt-outline.html",
+      "bytes": 9097,
+      "sha256": "516d8d6b68e8d9ac20b8a3632aced7c1c53d9883408add19d194b990305cea3e"
+    },
+    {
+      "name": "ppt-outline.md",
+      "bytes": 6463,
+      "sha256": "151c7e7bf64dd31413e98cba13a223ccf868041467273d358870c7e74a641ec5"
+    },
+    {
+      "name": "text-drafts.zip",
+      "bytes": 16116,
+      "sha256": "1b1e260a493991542bf3864ec7bc445d06c1c1daf04e398310599f7daae6fe02"
+    },
+    {
+      "name": "verification.html",
+      "bytes": 8980,
+      "sha256": "d51aaab5068da247b48cdf6b6268b30bca340e39bc6504ff27cdf05ba75ab48d"
+    },
+    {
+      "name": "verification.md",
+      "bytes": 6398,
+      "sha256": "6c8e46b0dc9114334f85e93c2b8c737cc020432a0c550a69d0c4840bbf08adfa"
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "project": "shichen-care-preview",
+  "targetVersion": "0.9.0-preview",
+  "auditedAt": "2026-11-05T09:05:55.677461+00:00",
+  "authorAgent": "native_diagnostics",
+  "implementationChangedInThisVerification": false,
+  "automatedTests": {
+    "command": "node --test --test-reporter=spec test/*.test.mjs",
+    "cwd": "outputs/shichen-care-preview",
+    "exitCode": 0,
+    "tests": 170,
+    "pass": 170,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "rawLog": "frontend-tests.log",
+    "testFiles": [
+      "test\\card-history.test.mjs",
+      "test\\combinations.test.mjs",
+      "test\\constitution.test.mjs",
+      "test\\content.test.mjs",
+      "test\\conversation.test.mjs",
+      "test\\decision.test.mjs",
+      "test\\image-share.test.mjs",
+      "test\\integration-boundaries.test.mjs",
+      "test\\music.test.mjs",
+      "test\\native-bridge.test.mjs",
+      "test\\native-device-status.test.mjs",
+      "test\\native-releases.test.mjs",
+      "test\\notification-client.test.mjs",
+      "test\\presentation.test.mjs",
+      "test\\records.test.mjs",
+      "test\\reminder-schedule.test.mjs",
+      "test\\safety-state.test.mjs"
+    ],
+    "execution": "Node real application pure modules and actual card catalog, with injected browser/native doubles for platform operations"
+  },
+  "regressionAreas": [
+    {
+      "area": "conversation_and_followup",
+      "status": "passed",
+      "method": "automated pure/integration tests plus read-only App wiring inspection",
+      "files": [
+        "test/conversation.test.mjs",
+        "test/integration-boundaries.test.mjs",
+        "test/combinations.test.mjs"
+      ],
+      "evidence": "Cumulative symptoms, latest-input red flags, clarification persistence and explicit recovery remain covered. App send/replyToQuestion route to the same decision path."
+    },
+    {
+      "area": "night",
+      "status": "passed",
+      "method": "automated tests plus read-only App wiring inspection",
+      "evidence": "23:00–05:00 ordinary schedule blocked; asleep suppressed; explicit awake night content restricted. Night medication retains original time and is suppressed unless separately opted into silent notification. Native background cannot infer sleep."
+    },
+    {
+      "area": "rolling_24h_cooldown",
+      "status": "passed",
+      "method": "automated tests plus read-only App wiring inspection",
+      "evidence": "Persisted per-card history remains merged in evaluate before decision, selection respects rolling 24h and weekly stricter rules; actual test notification bypasses card selection, not cooldown state."
+    },
+    {
+      "area": "emergency_priority",
+      "status": "passed",
+      "method": "automated tests plus read-only App wiring inspection",
+      "evidence": "Dangerous current human complaints outrank normal devices and ordinary contexts. Scheduled routine block excludes emergency/symptom/confirm/clarify and retains activeSafety."
+    },
+    {
+      "area": "notifications_and_sharing",
+      "status": "passed_with_platform_limits",
+      "method": "pure/injected-client tests and earlier CUA desktop interactions",
+      "evidence": "Timeout/abort/denied/old-shell/cancel/submit acknowledgments verified via doubles. Test receipt uses original ID. Actual saved file name and URI survive share failure."
+    }
+  ],
+  "cuaDesktopChecks": {
+    "browser": "Microsoft Edge",
+    "tool": "mcp__cua_repl",
+    "url": "http://127.0.0.1:5186/?mode=competition",
+    "evidenceOrigin": "Actual earlier tool-driven UI interactions in this same task; not a new native/device session",
+    "checks": [
+      {
+        "id": "schedule_options",
+        "status": "passed",
+        "actualObserved": "Settings exposed the daily, shichen, 1/2/3/4-hour and custom rhythm choices, default sample name 张大爷（模拟） and UI version 0.9.0-preview."
+      },
+      {
+        "id": "hourly_18",
+        "status": "passed",
+        "actualObserved": "Using real keyboard interaction, saved every 1 hour from 05:00 to 23:00; summary contained 18 times, 05:00 through 22:00."
+      },
+      {
+        "id": "custom_quiet_reject",
+        "status": "passed",
+        "actualObserved": "Custom 08:00,12:30,23:00 was rejected. Replacing 23:00 with 19:00 saved successfully."
+      },
+      {
+        "id": "test_without_permission",
+        "status": "passed",
+        "actualObserved": "Clicking test without notification permission displayed an actionable enable-permission message."
+      },
+      {
+        "id": "permission_timeout",
+        "status": "passed",
+        "actualObserved": "Unanswered browser permission stayed visibly pending, then timed out after the configured 12 seconds and restored buttons."
+      },
+      {
+        "id": "png_preview",
+        "status": "passed",
+        "actualObserved": "Generated 900x1200 PNG preview with visible action title/date and download control; DOM data URL encoded length 595150 characters."
+      },
+      {
+        "id": "png_download_request",
+        "status": "request_observed_completion_unverified",
+        "actualObserved": "Clicked actual download anchor; UI said browser download requested and explicitly did not claim gallery saved. Browser download event wait timed out, so completed file download was not verified."
+      },
+      {
+        "id": "render_console",
+        "status": "passed",
+        "actualObserved": "Two desktop screenshots inspected for settings and share preview; browser error/warning log query returned empty. Images appeared in tool output, no filesystem screenshot artifact was created."
+      }
+    ]
+  },
+  "platformVerification": {
+    "nativeAndroidOrZhuoyitongDeviceTested": false,
+    "realNotificationVisibleVerified": false,
+    "backgroundAlarmFiredVerified": false,
+    "realMediaStoreSaveVerified": false,
+    "realSystemShareRecipientDeliveryVerified": false,
+    "mobileViewportInThisVerification": false,
+    "browserNotificationPermissionActuallyGranted": false,
+    "limitations": [
+      "Native bridge success/failure paths are injected-client tests, not proof of phone behavior.",
+      "18-reminder native cap was reported to the native agent for a rebuild; this report does not attest that APK deployment or device test.",
+      "Browser download request was observed, file completion was not.",
+      "Huawei Health and HarmonyOS host data are not connected by these changes."
+    ]
+  },
+  "versionDeclarationAudit": {
+    "modified": false,
+    "hits": [
+      {
+        "file": "package.json",
+        "line": 3,
+        "match": "0.8.0-preview",
+        "excerpt": "  \"version\": \"0.8.0-preview\","
+      },
+      {
+        "file": "docs/deployment-check.json",
+        "line": 2,
+        "match": "0.8.0-preview",
+        "excerpt": "  \"version\": \"0.8.0-preview\","
+      },
+      {
+        "file": "docs/deployment-check.json",
+        "line": 27,
+        "match": "0.8.0-preview",
+        "excerpt": "      \"path\": \"/download/0.8.0-preview/\","
+      },
+      {
+        "file": "docs/deployment-check.json",
+        "line": 45,
+        "match": "0.8.0-preview",
+        "excerpt": "      \"path\": \"/download/shichen-wellness-0.8.0-preview.apk\","
+      },
+      {
+        "file": "docs/deployment-check.json",
+        "line": 162,
+        "match": "0.8.0-preview",
+        "excerpt": "      \"path\": \"/download/0.8.0-preview/\","
+      },
+      {
+        "file": "docs/deployment-check.json",
+        "line": 180,
+        "match": "0.8.0-preview",
+        "excerpt": "      \"path\": \"/download/shichen-wellness-0.8.0-preview.apk\","
+      },
+      {
+        "file": "docs/交付验证记录.md",
+        "line": 1,
+        "match": "# 0.8",
+        "excerpt": "# 0.8 交付验证记录"
+      },
+      {
+        "file": "docs/交付验证记录.md",
+        "line": 3,
+        "match": "0.8.0-preview",
+        "excerpt": "日期：2026-11-05。网页与 Android 安装版共用生产站点前端，安装包为 0.8.0-preview / versionCode 8。"
+      },
+      {
+        "file": "docs/重构规划书.md",
+        "line": 3,
+        "match": "版本：0.8",
+        "excerpt": "版本：0.8 网页与安卓体验版。更新：2026-11-05。"
+      },
+      {
+        "file": "docs/重构规划书.md",
+        "line": 5,
+        "match": "0.8安卓",
+        "excerpt": "物渐显和底部聊天，精简主界面，并完善复合主诉、分级追问、静息复核、确认打卡与护心值。交付为独立网页及0.8安卓体验APK：网页部署使用 `care-preview` 分支，APK打开对应预览并保留已实现的原生桥接能力。真实健康后台、华为健康、关闭页面后的可靠监测与临床验证尚未完成，不能由安装成功推定这些能力已经具备。"
+      },
+      {
+        "file": "docs/重构规划书.md",
+        "line": 174,
+        "match": "0.8 APK",
+        "excerpt": "eadLatest`是待接入的真实健康适配器契约。定位、麦克风和通知授权成功，不代表华为健康已授权。0.8 APK的原生计步与屏幕使用桥只能报告当前环境实际返回的状态、片段或增量；不能宣称读取了鸿蒙宿主或华为健康。模拟心率、睡眠图不是健康后台接通证据。"
+      },
+      {
+        "file": "docs/重构规划书.md",
+        "line": 203,
+        "match": "0.8安装包",
+        "excerpt": "| 发布网页和APK | `care-preview`分支及0.8安装包可用，核对签名、下载版本与手机页面；保留原生产网页 |"
+      },
+      {
+        "file": "docs/重构规划书.md",
+        "line": 209,
+        "match": "0.8网页",
+        "excerpt": "本轮可交付物为0.8网页、安卓体验APK、规划、结构化卡库与来源、问卷及计分依据、核心规则与测试。网页入口为 https://care-preview.shichen-wellness.pages.dev/ ，APK统一从 https://shichen-wellness.pages.dev/downl"
+      },
+      {
+        "file": "data/README.md",
+        "line": 3,
+        "match": "版本：0.8",
+        "excerpt": "版本：0.8。更新：2026-11-05。本目录是内容与问卷定义，不包含用户健康记录或密钥。当前`cards.json`是数组，共194项，其中192项启用、2项禁用；`sources.json`为48项来源数组。网页和APK共用这些内容定义，安装包存在不代表健康后台已接通。"
+      },
+      {
+        "file": "data/README.md",
+        "line": 159,
+        "match": "0.8安装包",
+        "excerpt": "口。健康适配器签名见`src/device-adapter.ts`，授权和真正读取仍需原生平台实现。0.8安装包的权限／计步／屏幕记录状态来自当前运行环境，不能当作华为健康或鸿蒙宿主已经接通。"
+      },
+      {
+        "file": "public/planning.html",
+        "line": 1,
+        "match": "版本：0.8",
+        "excerpt": "ownload>下载规划书</a></nav><h1>时辰心管家：护心预览重构规划书</h1><p>版本：0.8 网页与安卓体验版。更新：2026-11-05。</p><p>本轮保留竖屏大卡片、自然景物渐显和底部聊天，精简主界面，并完善复合主诉、分级追问、静息复核、确认打卡与护心值。交付为独立网页及0.8安卓体验APK：网页部署使用 <code>care-preview</code> 分支"
+      },
+      {
+        "file": "public/download/index.html",
+        "line": 6,
+        "match": "0.8.0-preview",
+        "excerpt": "class=\"download\" href=\"/download/shichen-wellness-0.8.0-preview.apk\" download>下载安卓体验版 APK · 0.8</a><a class=\"web\" href=\"/?mode=personal\">也可以先在网页体验</a>"
+      },
+      {
+        "file": "public/download/index.html",
+        "line": 7,
+        "match": "0.8.0-preview",
+        "excerpt": "<p class=\"muted\">版本 0.8.0-preview · 约 3.0 MB · Android 9 及以上<br>鸿蒙手机可在支持 APK 的卓易通环境中尝试安装。与旧版同签名，可按系统提示覆盖更新，无需先卸载。</p><p id=\"release-status\" class=\"muted\" aria-live=\"polite\">"
+      },
+      {
+        "file": "public/download/index.html",
+        "line": 9,
+        "match": "0.8.0-preview",
+        "excerpt": "装；关闭旧应用再打开。</li><li>到“设置 → 版本与更新”核对<strong>当前安装版为 0.8.0-preview</strong>。网页内容更新，不代表安装包已更新。</li><li>点麦克风打开系统语音界面，识别后检查文字并手动发送。没有系统语音服务时，可使用输入法麦克风。</li><li>在“数据接入与权限”查看权限和实际读数；已授权但没有传感器事件时，不会补成0。城市与天气仍可使用前"
+      },
+      {
+        "file": "public/download/index.html",
+        "line": 14,
+        "match": "0.8.0-preview",
+        "excerpt": "(()=>{const current='0.8.0-preview',status=document.getElementById('release-status'),link=document.getElementById('apk-download');fetch('/download/latest.json',{cache:'no-sto"
+      },
+      {
+        "file": "public/download/latest.json",
+        "line": 3,
+        "match": "0.8.0-preview",
+        "excerpt": "  \"versionName\": \"0.8.0-preview\","
+      },
+      {
+        "file": "public/download/latest.json",
+        "line": 5,
+        "match": "0.8.0-preview",
+        "excerpt": "  \"apkUrl\": \"/download/shichen-wellness-0.8.0-preview.apk\","
+      },
+      {
+        "file": "public/download/0.8.0-preview/index.html",
+        "line": 6,
+        "match": "0.8.0-preview",
+        "excerpt": "class=\"download\" href=\"/download/shichen-wellness-0.8.0-preview.apk\" download>下载安卓体验版 APK · 0.8</a><a class=\"web\" href=\"/?mode=personal\">也可以先在网页体验</a>"
+      },
+      {
+        "file": "public/download/0.8.0-preview/index.html",
+        "line": 7,
+        "match": "0.8.0-preview",
+        "excerpt": "<p class=\"muted\">版本 0.8.0-preview · 约 3.0 MB · Android 9 及以上<br>鸿蒙手机可在支持 APK 的卓易通环境中尝试安装。与旧版同签名，可按系统提示覆盖更新，无需先卸载。</p><p id=\"release-status\" class=\"muted\" aria-live=\"polite\">"
+      },
+      {
+        "file": "public/download/0.8.0-preview/index.html",
+        "line": 9,
+        "match": "0.8.0-preview",
+        "excerpt": "装；关闭旧应用再打开。</li><li>到“设置 → 版本与更新”核对<strong>当前安装版为 0.8.0-preview</strong>。网页内容更新，不代表安装包已更新。</li><li>点麦克风打开系统语音界面，识别后检查文字并手动发送。没有系统语音服务时，可使用输入法麦克风。</li><li>在“数据接入与权限”查看权限和实际读数；已授权但没有传感器事件时，不会补成0。城市与天气仍可使用前"
+      },
+      {
+        "file": "public/download/0.8.0-preview/index.html",
+        "line": 14,
+        "match": "0.8.0-preview",
+        "excerpt": "(()=>{const current='0.8.0-preview',status=document.getElementById('release-status'),link=document.getElementById('apk-download');fetch('/download/latest.json',{cache:'no-sto"
+      },
+      {
+        "file": "public/downloads/planning.md",
+        "line": 3,
+        "match": "版本：0.8",
+        "excerpt": "版本：0.8 网页与安卓体验版。更新：2026-11-05。"
+      },
+      {
+        "file": "public/downloads/planning.md",
+        "line": 5,
+        "match": "0.8安卓",
+        "excerpt": "物渐显和底部聊天，精简主界面，并完善复合主诉、分级追问、静息复核、确认打卡与护心值。交付为独立网页及0.8安卓体验APK：网页部署使用 `care-preview` 分支，APK打开对应预览并保留已实现的原生桥接能力。真实健康后台、华为健康、关闭页面后的可靠监测与临床验证尚未完成，不能由安装成功推定这些能力已经具备。"
+      },
+      {
+        "file": "public/downloads/planning.md",
+        "line": 174,
+        "match": "0.8 APK",
+        "excerpt": "eadLatest`是待接入的真实健康适配器契约。定位、麦克风和通知授权成功，不代表华为健康已授权。0.8 APK的原生计步与屏幕使用桥只能报告当前环境实际返回的状态、片段或增量；不能宣称读取了鸿蒙宿主或华为健康。模拟心率、睡眠图不是健康后台接通证据。"
+      },
+      {
+        "file": "public/downloads/planning.md",
+        "line": 203,
+        "match": "0.8安装包",
+        "excerpt": "| 发布网页和APK | `care-preview`分支及0.8安装包可用，核对签名、下载版本与手机页面；保留原生产网页 |"
+      },
+      {
+        "file": "public/downloads/planning.md",
+        "line": 209,
+        "match": "0.8网页",
+        "excerpt": "本轮可交付物为0.8网页、安卓体验APK、规划、结构化卡库与来源、问卷及计分依据、核心规则与测试。网页入口为 https://care-preview.shichen-wellness.pages.dev/ ，APK统一从 https://shichen-wellness.pages.dev/downl"
+      }
+    ],
+    "notes": [
+      "App settings correctly show 0.9.0-preview. Remaining current-release 0.8 declarations need release-owner review. Historical 0.8 delivery records may intentionally remain historical.",
+      "Only listed source/doc/public scopes scanned; node_modules and compiled dist excluded."
+    ]
+  },
+  "sourceSnapshotHashes": {
+    "src/App.tsx": "2d832e93a0d7884ae2bc6fdfc4ad7a39cdd851ff75369bfe90befad7f13f5bd4",
+    "lib/decision.mjs": "af5e263a43543b4d6b3c56fbbf7cc61cd9ec4b94a0a04299b2f0e1d9f4389b26",
+    "lib/reminder-schedule.mjs": "bc6713b977bdf2b25ebb25943b0958074fa5017fb6e2b5addd1d678cab38de5e",
+    "lib/notification-client.mjs": "a755124a21088ad19f1aa662857b130b9b6c15fdab69dee37d4f709fdfadd67b",
+    "lib/image-share-client.mjs": "945bc4d806c681a812e63b59d3b9be5faa4f57e768669d3ea205448e402b8ef5"
+  },
+  "overall": "passed_automated_and_desktop_ui_native_device_pending"
+}

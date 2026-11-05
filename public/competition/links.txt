@@ -1,0 +1,16 @@
+正式竞赛演示
+https://shichen-wellness.pages.dev/?mode=competition&v=1.0
+
+个人使用网页
+https://shichen-wellness.pages.dev/?mode=personal&v=1.0
+
+1.0.0安卓下载页
+https://shichen-wellness.pages.dev/download/1.0.0/
+
+参赛资料入口
+https://shichen-wellness.pages.dev/competition/
+
+备用预览站
+https://care-preview.shichen-wellness.pages.dev/?mode=competition&v=1.0
+
+比赛演示链接填写第一项；提交前用无登录窗口核对可访问。

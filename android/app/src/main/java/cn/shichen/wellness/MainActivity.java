@@ -35,6 +35,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.webkit.JavaScriptReplyProxy;
 import androidx.webkit.WebViewCompat;
 import androidx.webkit.WebViewFeature;
@@ -49,8 +50,8 @@ import java.util.concurrent.atomic.AtomicLong;
 /** Android shell: trusted-origin web UI, optional on-device capabilities, no API keys. */
 public final class MainActivity extends Activity implements SensorEventListener {
     static final String ORIGIN = "https://shichen-wellness.pages.dev";
-    static final String START_URL = ORIGIN + "/?mode=app";
-    private static final int LOCATION = 41, ACTIVITY = 42, SPEECH = 43;
+    static final String START_URL = ORIGIN + "/?mode=personal";
+    private static final int LOCATION = 41, ACTIVITY = 42, SPEECH = 43, NOTIFICATIONS = 44, SAVE_IMAGE = 45;
     private WebView web;
     private LinearLayout errorView;
     private ProgressBar progress;
@@ -73,6 +74,10 @@ public final class MainActivity extends Activity implements SensorEventListener 
         }
     };
     private final ExecutorService metricWorker = Executors.newSingleThreadExecutor();
+    private final ExecutorService imageWorker = Executors.newSingleThreadExecutor();
+    private JSONObject pendingImage;
+    private long pendingPermissionGeneration;
+    private boolean imageSaveInFlight;
     private final AtomicLong usageGeneration = new AtomicLong();
     private long usageCacheAt = 0, usageCacheDay = -1;
     private long usageCacheGeneration=-1;
@@ -134,7 +139,7 @@ public final class MainActivity extends Activity implements SensorEventListener 
         ws.setMediaPlaybackRequiresUserGesture(true);
         ws.setGeolocationEnabled(true);
         ws.setSafeBrowsingEnabled(true);
-        ws.setUserAgentString(ws.getUserAgentString() + " ShichenWellness/0.5.0");
+        ws.setUserAgentString(ws.getUserAgentString() + " ShichenWellness/1.0.0");
         WebView.setWebContentsDebuggingEnabled(false);
 
         if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
@@ -147,6 +152,14 @@ public final class MainActivity extends Activity implements SensorEventListener 
         web.setWebViewClient(new WebViewClient() {
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 Uri uri = request.getUrl();
+                if (NativeActionPolicy.isEmergencyDial(uri.toString(),request.isForMainFrame(),request.hasGesture())) {
+                    // Show the dialer only after a user tap. Never place a call automatically.
+                    if (currentDocumentTrusted()) {
+                        try { startActivity(new Intent(Intent.ACTION_DIAL,uri)); }
+                        catch (Exception ignored) { Toast.makeText(MainActivity.this,"当前环境未打开拨号器，请在手机电话应用中拨打 120。",Toast.LENGTH_LONG).show(); }
+                    }
+                    return true;
+                }
                 if (NativeActionPolicy.isVersionedApk(uri.toString())) {
                     if (request.isForMainFrame() && request.hasGesture()) openExternal(uri);
                     return true;
@@ -158,7 +171,7 @@ public final class MainActivity extends Activity implements SensorEventListener 
             @Override public void onPageStarted(WebView view, String url, android.graphics.Bitmap icon) {
                 documentGeneration++;
                 // An OS activity may outlive its document; never deliver its result to a new page.
-                pendingReply=null; pendingId=null;
+                pendingReply=null; pendingId=null; pendingImage=null;
                 pendingSpeechReply=null; pendingSpeechId=null;
                 clearGeolocation(false);
                 errorView.setVisibility(View.GONE); progress.setVisibility(View.VISIBLE);
@@ -187,7 +200,12 @@ public final class MainActivity extends Activity implements SensorEventListener 
             }
             @Override public void onGeolocationPermissionsHidePrompt() { clearGeolocation(false); }
         });
-        web.loadUrl(START_URL);
+        web.loadUrl(NotificationCoordinator.launchUrl(getIntent()));
+    }
+
+    @Override protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);setIntent(intent);
+        if(web!=null)web.loadUrl(NotificationCoordinator.launchUrl(intent));
     }
 
     private static boolean trusted(Uri uri) {
@@ -216,12 +234,47 @@ public final class MainActivity extends Activity implements SensorEventListener 
     private void handleMessage(String raw, JavaScriptReplyProxy reply) {
         String id = "";
         try {
-            if (raw == null || raw.length() > 1024) throw new IllegalArgumentException("请求无效。");
+            if (raw == null || raw.length() > 12*1024*1024) throw new IllegalArgumentException("请求无效或图片过大。");
             JSONObject request = new JSONObject(raw);
             id = request.getString("id");
             if (id.length() > 80) throw new IllegalArgumentException("请求无效。");
             String method = request.getString("method");
+            if(!"saveImage".equals(method) && raw.length()>65536)throw new IllegalArgumentException("请求过大。");
+            JSONObject payload=request.optJSONObject("payload");if(payload==null)payload=new JSONObject();
             switch (method) {
+                case "getNotificationStatus": respond(reply,id,new NotificationCoordinator(this).status(),null);return;
+                case "requestNotificationPermission":
+                    NotificationCoordinator permissionCoordinator=new NotificationCoordinator(this);
+                    if(Build.VERSION.SDK_INT<33 || checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)==PackageManager.PERMISSION_GRANTED){respond(reply,id,permissionCoordinator.status(),null);return;}
+                    ensureNoActivePrompt();permissionCoordinator.markPermissionAsked();
+                    requestDevicePermission(reply,id,new String[]{Manifest.permission.POST_NOTIFICATIONS},NOTIFICATIONS);return;
+                case "openNotificationSettings":
+                    ensureNoActivePrompt();startActivity(new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(Settings.EXTRA_APP_PACKAGE,getPackageName()));
+                    respond(reply,id,new JSONObject().put("opened",true),null);return;
+                case "openExactAlarmSettings":
+                    ensureNoActivePrompt();
+                    if(Build.VERSION.SDK_INT>=31)startActivity(new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM,Uri.parse("package:"+getPackageName())));
+                    respond(reply,id,new JSONObject().put("opened",Build.VERSION.SDK_INT>=31),null);return;
+                case "openBatterySettings":
+                    ensureNoActivePrompt();
+                    try{startActivity(new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS));}
+                    catch(android.content.ActivityNotFoundException ignored){startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,Uri.parse("package:"+getPackageName())));}
+                    respond(reply,id,new JSONObject().put("opened",true),null);return;
+                case "scheduleTestNotification":respond(reply,id,new NotificationCoordinator(this).scheduleTest(payload),null);return;
+                case "showNotification": respond(reply,id,new NotificationCoordinator(this).show(payload),null);return;
+                case "syncReminders": respond(reply,id,new NotificationCoordinator(this).sync(payload),null);return;
+                case "cancelReminders": respond(reply,id,new NotificationCoordinator(this).cancel(payload.getString("mode")),null);return;
+                case "saveImage":
+                    if(imageSaveInFlight)throw new IllegalArgumentException("上一张图片仍在保存，请稍候。");
+                    if(Build.VERSION.SDK_INT<29 && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)!=PackageManager.PERMISSION_GRANTED){
+                        ensureNoActivePrompt();pendingImage=payload;
+                        try{requestDevicePermission(reply,id,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},SAVE_IMAGE);}catch(RuntimeException error){pendingImage=null;throw error;}
+                        return;
+                    }
+                    saveImage(reply,id,payload,documentGeneration);return;
+                case "shareImage":
+                    ensureNoActivePrompt();startActivity(new ImageSaver(this).share(payload.getString("uri")));
+                    respond(reply,id,new JSONObject().put("opened",true),null);return;
                 case "getCapabilities": startSteps(); sendCapabilities(reply,id); return;
                 case "startSpeechRecognition": startSpeechRecognition(reply,id); return;
                 case "openUsageSettings":
@@ -253,9 +306,17 @@ public final class MainActivity extends Activity implements SensorEventListener 
     }
     private void requestDevicePermission(JavaScriptReplyProxy reply,String id,String[] permissions,int code) {
         ensureNoActivePrompt();
-        pendingReply=reply; pendingId=id; permissionRequestInFlight=true;
+        pendingReply=reply; pendingId=id; pendingPermissionGeneration=documentGeneration; permissionRequestInFlight=true;
         try { requestPermissions(permissions,code); }
         catch (RuntimeException e) { pendingReply=null;pendingId=null;permissionRequestInFlight=false;throw e; }
+    }
+    private void saveImage(JavaScriptReplyProxy reply,String id,JSONObject payload,long generation) {
+        imageSaveInFlight=true;
+        imageWorker.execute(() -> {
+            try{JSONObject saved=new ImageSaver(this).save(payload);respond(reply,id,saved,null,generation);}
+            catch(Exception error){respond(reply,id,null,error.getMessage()==null?"图片没有保存成功，请重试。":error.getMessage(),generation);}
+            finally{runOnUiThread(()->imageSaveInFlight=false);}
+        });
     }
     private Intent speechIntent() {
         return new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
@@ -344,7 +405,10 @@ public final class MainActivity extends Activity implements SensorEventListener 
         Sensor selected=activeStepSensor;
         String stepSource=selected==null?"none":selected.getType()==Sensor.TYPE_STEP_COUNTER?"step-counter":"step-detector";
         boolean voiceAvailable=speechAvailable();
-        return new JSONObject().put("platform","android").put("appVersion","0.5.0-preview").put("versionCode",5).put("apiLevel",Build.VERSION.SDK_INT)
+        android.content.pm.PackageInfo packageInfo=getPackageManager().getPackageInfo(getPackageName(),0);
+        return new JSONObject().put("platform","android").put("appVersion",packageInfo.versionName).put("versionCode",packageInfo.getLongVersionCode()).put("apiLevel",Build.VERSION.SDK_INT)
+            .put("notifications",new NotificationCoordinator(this).status())
+            .put("images",new JSONObject().put("save",true).put("share",true).put("location","当前安卓环境的 Pictures/Shichen"))
             .put("speech",new JSONObject().put("available",voiceAvailable).put("status",voiceAvailable?"available":"unsupported")
                 .put("source","system-recognition-activity").put("language","zh-CN")
                 .put("preferOffline",true).put("offlineGuaranteed",false))
@@ -486,6 +550,7 @@ public final class MainActivity extends Activity implements SensorEventListener 
     @Override public void onAccuracyChanged(Sensor sensor,int accuracy) { }
     @Override protected void onResume(){
         super.onResume();resumed=true;usageGeneration.incrementAndGet();
+        try{new NotificationCoordinator(this).restore();}catch(Exception ignored){}
         if(web!=null){
             web.onResume();
             if(trusted(Uri.parse(web.getUrl()==null?"":web.getUrl())))
@@ -496,8 +561,19 @@ public final class MainActivity extends Activity implements SensorEventListener 
     @Override protected void onPause(){resumed=false;stopSteps();if(web!=null)web.onPause();super.onPause();}
     @Override public void onRequestPermissionsResult(int request,String[] permissions,int[] grants){
         super.onRequestPermissionsResult(request,permissions,grants);
-        if(request!=LOCATION && request!=ACTIVITY)return;
+        if(request!=LOCATION && request!=ACTIVITY && request!=NOTIFICATIONS && request!=SAVE_IMAGE)return;
         permissionRequestInFlight=false;
+        if(request==NOTIFICATIONS || request==SAVE_IMAGE){
+            JavaScriptReplyProxy reply=pendingReply;String id=pendingId;long generation=pendingPermissionGeneration;JSONObject image=pendingImage;
+            pendingReply=null;pendingId=null;pendingImage=null;
+            if(reply==null||generation!=documentGeneration||!currentDocumentTrusted())return;
+            try{
+                if(request==NOTIFICATIONS){new NotificationCoordinator(this).restore();respond(reply,id,new NotificationCoordinator(this).status(),null,generation);}
+                else if(checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED&&image!=null)saveImage(reply,id,image,generation);
+                else respond(reply,id,null,"未获得保存图片权限，没有保存到图库。",generation);
+            }catch(Exception error){respond(reply,id,null,"操作未完成，请检查系统权限后重试。",generation);}
+            return;
+        }
         if(request==LOCATION)clearGeolocation(locationAllowed());
         if(request==ACTIVITY)startSteps();
         if(pendingReply!=null){
@@ -513,7 +589,7 @@ public final class MainActivity extends Activity implements SensorEventListener 
         if(web.canGoBack())web.goBack();else super.onBackPressed();
     }
     @Override protected void onDestroy(){
-        documentGeneration++;clearSpeech();pendingReply=null;pendingId=null;permissionRequestInFlight=false;
-        clearGeolocation(false);metricWorker.shutdownNow();stopSteps();if(web!=null)web.destroy();super.onDestroy();
+        documentGeneration++;clearSpeech();pendingReply=null;pendingId=null;pendingImage=null;permissionRequestInFlight=false;
+        clearGeolocation(false);metricWorker.shutdownNow();imageWorker.shutdown();stopSteps();if(web!=null)web.destroy();super.onDestroy();
     }
 }

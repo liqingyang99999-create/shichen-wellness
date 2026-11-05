@@ -6,6 +6,10 @@ import java.net.URI;
 final class NativeActionPolicy {
     private NativeActionPolicy() { }
 
+    static boolean isEmergencyDial(String url, boolean mainFrame, boolean userGesture) {
+        return mainFrame && userGesture && "tel:120".equals(url);
+    }
+
     static boolean isVersionedApk(String url) {
         if (url==null) return false;
         try {
@@ -14,7 +18,7 @@ final class NativeActionPolicy {
                 && (uri.getPort()==-1 || uri.getPort()==443) && uri.getRawUserInfo()==null
                 && uri.getRawQuery()==null && uri.getRawFragment()==null
                 && uri.getRawPath()!=null
-                && uri.getRawPath().matches("/download/shichen-wellness-[0-9]+\\.[0-9]+\\.[0-9]+-preview\\.apk");
+                && uri.getRawPath().matches("/download/shichen-wellness-[0-9]+\\.[0-9]+\\.[0-9]+(?:-preview)?\\.apk");
         } catch (Exception ignored) { return false; }
     }
 

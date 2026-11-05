@@ -6,13 +6,14 @@ android {
         applicationId 'cn.shichen.wellness'
         minSdk 28
         targetSdk 35
-        versionCode 5
-        versionName '0.5.0'
+        versionCode 10
+        versionName '1.0.0'
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
     buildTypes {
-        debug { applicationIdSuffix '.preview'; versionNameSuffix '-preview' }
-        release { minifyEnabled false }
+        debug { applicationIdSuffix '.preview' }
+        // Keep the installed package/certificate while publishing a non-debuggable build.
+        release { applicationIdSuffix '.preview'; signingConfig signingConfigs.debug; debuggable false; minifyEnabled false }
     }
 }
 dependencies { implementation 'androidx.webkit:webkit:1.12.1' }

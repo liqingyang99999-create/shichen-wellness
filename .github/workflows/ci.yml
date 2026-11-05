@@ -1,9 +1,9 @@
-name: Validate application
+name: Validate Shichen 1.0
 on: [push, pull_request]
 permissions:
   contents: read
 jobs:
-  verify:
+  web:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,5 +14,4 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npm test
-      - run: npm run build
-      - run: node scripts/build-pages.mjs
+      - run: npm run build:pages

@@ -1,0 +1,424 @@
+{
+  "version": "0.9.0-preview",
+  "date": "2026-11-05",
+  "previewDeployment": "https://da944221.shichen-wellness.pages.dev",
+  "productionDeployment": "https://53bf8953.shichen-wellness.pages.dev",
+  "checks": [
+    {
+      "site": "production",
+      "path": "/",
+      "ok": true,
+      "sha256": "01de78d96f079740d25c5c655e7a23663ff74277fc05dcf20318879fadd584de",
+      "bytes": 603,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/download/",
+      "ok": true,
+      "sha256": "028b098fc3f74d3ce7ac4cbeb9ab8a1997fd1bb5864867682bc8bbf249101cd1",
+      "bytes": 5572,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/download/0.9.0-preview/",
+      "ok": true,
+      "sha256": "028b098fc3f74d3ce7ac4cbeb9ab8a1997fd1bb5864867682bc8bbf249101cd1",
+      "bytes": 5572,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/download/latest.json",
+      "ok": true,
+      "sha256": "0e0fba31c0bf1f3a253853c4dec0b47824115e1c0ea2f5c2993a59e46c60638a",
+      "bytes": 994,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/download/shichen-wellness-0.9.0-preview.apk",
+      "ok": true,
+      "sha256": "193d3e85acc062a21a2a2dd9b943bd34d4bfe11338ecd816f1fe51712940b652",
+      "bytes": 3267403,
+      "noStore": true,
+      "apkMime": true
+    },
+    {
+      "site": "production",
+      "path": "/download/shichen-wellness-preview.apk",
+      "ok": true,
+      "sha256": "193d3e85acc062a21a2a2dd9b943bd34d4bfe11338ecd816f1fe51712940b652",
+      "bytes": 3267403,
+      "noStore": true,
+      "apkMime": true
+    },
+    {
+      "site": "production",
+      "path": "/planning.html",
+      "ok": true,
+      "sha256": "cd7cfd109e232efb443c962c98cf6a6d5f8701a08a7079147e2dd358e5755149",
+      "bytes": 31371,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/downloads/cards.json",
+      "ok": true,
+      "sha256": "3172430c19298709d8044e75c033cd364cad781bf0dec9f83e64fb1cdfee7c2f",
+      "bytes": 278941,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/downloads/shichen-card-database.zip",
+      "ok": true,
+      "sha256": "650cc4c77b38995b69854b8c297dd08f868806fd75d5a833bcdef031d061d66a",
+      "bytes": 88425,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/downloads/shichen-care-source-0.9.zip",
+      "ok": true,
+      "sha256": "10a21ad3a6f895890ddda827ac419893684bb561fffd7a0de09e296bc44e5c5d",
+      "bytes": 1185218,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/privacy/",
+      "ok": true,
+      "sha256": "1ee7c055a4cc3bce0e200d60cbee817933d7d07405aea4eed965035b04f68326",
+      "bytes": 8602,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/terms/",
+      "ok": true,
+      "sha256": "bd995b5c7aeb2a2809e7f39fd43d9ab9bc0c65ce1f53f53223514097717cdf6f",
+      "bytes": 4864,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/sw.js",
+      "ok": true,
+      "sha256": "7440399c884ab3c5ef90e45717cfc402d3b9c0abb1593b6e0769bd9f1874502b",
+      "bytes": 1545,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/assets/index-C4qIIpc5.js",
+      "ok": true,
+      "sha256": "4752c01eab68cfefaee8cd4b9b324ec12ee7f8f076737cb319688090e1d31dbe",
+      "bytes": 597389,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/assets/index-DrPWkHKm.css",
+      "ok": true,
+      "sha256": "d53c66f8152b2c3aabf56d174e35c8222a7a5e3eb93d0d942b47c0641a2eca84",
+      "bytes": 27505,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/competition/",
+      "ok": true,
+      "sha256": "fde4c0c3496907f7bdbc3b860c22ab09ce1ee6f5ae8546e62a1a16267cacd53e",
+      "bytes": 3992,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/competition/demo.mp4",
+      "ok": true,
+      "sha256": "6a4016ad39185940aa9c5bd3af682aa27397cc88014f03932fc983bbfd633939",
+      "bytes": 3518834,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/competition/presentation.pptx",
+      "ok": true,
+      "sha256": "f97bc16964a5007ac549283019c1e6c94a22d5fa82414afbcdb23d6564cf2ad4",
+      "bytes": 559185,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/competition/presentation.pdf",
+      "ok": true,
+      "sha256": "b15689821261f3f35e0660695c249bf217bd8f751685b87fa8c7556a2ed1fd2e",
+      "bytes": 6298742,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/competition/demo.srt",
+      "ok": true,
+      "sha256": "d768dcbaaa42e12d19c288e78f17046010b37ee380de25b3791385fefedad2d5",
+      "bytes": 4467,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/competition/intro.txt",
+      "ok": true,
+      "sha256": "6b55c9d94390828f89f38885664e6bba8dde4050379d5f487e716803e4798a1c",
+      "bytes": 464,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/competition/submission.zip",
+      "ok": true,
+      "sha256": "7f9b42c9762fe168646717c94394bdde2da61b3f705bb40edf40b95a7bff44d1",
+      "bytes": 10973103,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "production",
+      "path": "/competition/manifest.json",
+      "ok": true,
+      "sha256": "406a005f179efc8bf9502e202a93b0f57367b5c757f7332cda0a16ee3fc15739",
+      "bytes": 1878,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/",
+      "ok": true,
+      "sha256": "01de78d96f079740d25c5c655e7a23663ff74277fc05dcf20318879fadd584de",
+      "bytes": 603,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/download/",
+      "ok": true,
+      "sha256": "028b098fc3f74d3ce7ac4cbeb9ab8a1997fd1bb5864867682bc8bbf249101cd1",
+      "bytes": 5572,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/download/0.9.0-preview/",
+      "ok": true,
+      "sha256": "028b098fc3f74d3ce7ac4cbeb9ab8a1997fd1bb5864867682bc8bbf249101cd1",
+      "bytes": 5572,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/download/latest.json",
+      "ok": true,
+      "sha256": "0e0fba31c0bf1f3a253853c4dec0b47824115e1c0ea2f5c2993a59e46c60638a",
+      "bytes": 994,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/download/shichen-wellness-0.9.0-preview.apk",
+      "ok": true,
+      "sha256": "193d3e85acc062a21a2a2dd9b943bd34d4bfe11338ecd816f1fe51712940b652",
+      "bytes": 3267403,
+      "noStore": true,
+      "apkMime": true
+    },
+    {
+      "site": "preview",
+      "path": "/download/shichen-wellness-preview.apk",
+      "ok": true,
+      "sha256": "193d3e85acc062a21a2a2dd9b943bd34d4bfe11338ecd816f1fe51712940b652",
+      "bytes": 3267403,
+      "noStore": true,
+      "apkMime": true
+    },
+    {
+      "site": "preview",
+      "path": "/planning.html",
+      "ok": true,
+      "sha256": "cd7cfd109e232efb443c962c98cf6a6d5f8701a08a7079147e2dd358e5755149",
+      "bytes": 31371,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/downloads/cards.json",
+      "ok": true,
+      "sha256": "3172430c19298709d8044e75c033cd364cad781bf0dec9f83e64fb1cdfee7c2f",
+      "bytes": 278941,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/downloads/shichen-card-database.zip",
+      "ok": true,
+      "sha256": "650cc4c77b38995b69854b8c297dd08f868806fd75d5a833bcdef031d061d66a",
+      "bytes": 88425,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/downloads/shichen-care-source-0.9.zip",
+      "ok": true,
+      "sha256": "10a21ad3a6f895890ddda827ac419893684bb561fffd7a0de09e296bc44e5c5d",
+      "bytes": 1185218,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/privacy/",
+      "ok": true,
+      "sha256": "1ee7c055a4cc3bce0e200d60cbee817933d7d07405aea4eed965035b04f68326",
+      "bytes": 8602,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/terms/",
+      "ok": true,
+      "sha256": "bd995b5c7aeb2a2809e7f39fd43d9ab9bc0c65ce1f53f53223514097717cdf6f",
+      "bytes": 4864,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/sw.js",
+      "ok": true,
+      "sha256": "7440399c884ab3c5ef90e45717cfc402d3b9c0abb1593b6e0769bd9f1874502b",
+      "bytes": 1545,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/assets/index-C4qIIpc5.js",
+      "ok": true,
+      "sha256": "4752c01eab68cfefaee8cd4b9b324ec12ee7f8f076737cb319688090e1d31dbe",
+      "bytes": 597389,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/assets/index-DrPWkHKm.css",
+      "ok": true,
+      "sha256": "d53c66f8152b2c3aabf56d174e35c8222a7a5e3eb93d0d942b47c0641a2eca84",
+      "bytes": 27505,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/competition/",
+      "ok": true,
+      "sha256": "fde4c0c3496907f7bdbc3b860c22ab09ce1ee6f5ae8546e62a1a16267cacd53e",
+      "bytes": 3992,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/competition/demo.mp4",
+      "ok": true,
+      "sha256": "6a4016ad39185940aa9c5bd3af682aa27397cc88014f03932fc983bbfd633939",
+      "bytes": 3518834,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/competition/presentation.pptx",
+      "ok": true,
+      "sha256": "f97bc16964a5007ac549283019c1e6c94a22d5fa82414afbcdb23d6564cf2ad4",
+      "bytes": 559185,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/competition/presentation.pdf",
+      "ok": true,
+      "sha256": "b15689821261f3f35e0660695c249bf217bd8f751685b87fa8c7556a2ed1fd2e",
+      "bytes": 6298742,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/competition/demo.srt",
+      "ok": true,
+      "sha256": "d768dcbaaa42e12d19c288e78f17046010b37ee380de25b3791385fefedad2d5",
+      "bytes": 4467,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/competition/intro.txt",
+      "ok": true,
+      "sha256": "6b55c9d94390828f89f38885664e6bba8dde4050379d5f487e716803e4798a1c",
+      "bytes": 464,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/competition/submission.zip",
+      "ok": true,
+      "sha256": "7f9b42c9762fe168646717c94394bdde2da61b3f705bb40edf40b95a7bff44d1",
+      "bytes": 10973103,
+      "noStore": true,
+      "apkMime": null
+    },
+    {
+      "site": "preview",
+      "path": "/competition/manifest.json",
+      "ok": true,
+      "sha256": "406a005f179efc8bf9502e202a93b0f57367b5c757f7332cda0a16ee3fc15739",
+      "bytes": 1878,
+      "noStore": true,
+      "apkMime": null
+    }
+  ],
+  "passed": 46,
+  "total": 46
+}

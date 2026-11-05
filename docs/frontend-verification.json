@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 2,
+  "project": "shichen-wellness",
+  "targetVersion": "1.0.0",
+  "recordDate": "2026-11-06",
+  "scope": "Final automated engineering checks and actual desktop browser rehearsal; not a phone test or a clinical evaluation.",
+  "automatedTests": {
+    "tests": 294,
+    "passed": 294,
+    "failed": 0,
+    "status": "passed",
+    "evidence": "Final release-owner test result, also recorded in docs/submission-1.0/实现与排练核对.md. This documentation update did not rerun tests."
+  },
+  "browserRehearsal": {
+    "method": "Actual CUA browser interactions using fictional competition-mode inputs",
+    "completed": true,
+    "checks": [
+      {"id": "morning_confirmation", "status": "passed", "observed": "After confirming no obvious discomfort, a low-burden support card was displayed."},
+      {"id": "compound_complaint", "status": "passed", "observed": "Anger plus mild palpitations produced a relevant AI-selected support card and one focused safety question."},
+      {"id": "uncertain_answer_continuation", "status": "passed", "observed": "An uncertain reply retained the current support card without being converted to a clinical denial. A deployment-switch fallback was visibly labelled as basic matching."},
+      {"id": "countdown_feedback_calendar", "status": "passed", "observed": "A full 30-second action followed by improved feedback reached the improvement page. The calendar value increased from 15 to 16, daily completions from 1 to 2, and the completed card and simulated timestamp appeared."},
+      {"id": "night_awake", "status": "passed", "observed": "At simulated 23:30, the selected relaxation card kept the user lying down and required no getting up."},
+      {"id": "night_asleep", "status": "passed", "observed": "Simulated sleep showed the quiet-night state without ordinary action-card buttons."},
+      {"id": "emergency_interception", "status": "passed", "observed": "Explicit severe chest pain with heavy sweating immediately showed the help page and 120 link. The dial link was not activated."}
+    ],
+    "finalConsole": {"warningsObserved": 0, "errorsObserved": 0},
+    "detail": "docs/submission-1.0/实现与排练核对.md"
+  },
+  "platformVerification": {
+    "nativeAndroidOrZhuoyitongDeviceTested": false,
+    "realPhoneBackgroundNotificationDeliveryVerified": false,
+    "realPhoneLockScreenWakeVerified": false,
+    "realPhoneGallerySaveVerified": false,
+    "realWatchDataConnected": false,
+    "nativeBuildEvidence": "docs/native-verification.json"
+  },
+  "deployment": {
+    "status": "not_asserted_by_this_record",
+    "note": "The release owner generates a separate deployment-check.json only after verifying the published endpoints and bytes. Historical 0.9 deployment checks are not 1.0 evidence."
+  },
+  "overall": "passed_automated_and_browser_rehearsal_phone_validation_pending"
+}

@@ -7,7 +7,14 @@ dist/
 *.pem
 *.log
 *.tsbuildinfo
-.DS_Store
-test/reports/
 private/
 public/download/*.apk
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+*.jks
+*.keystore
+
+public/downloads/shichen-care-source-*.zip
+public/competition/text-drafts.zip
