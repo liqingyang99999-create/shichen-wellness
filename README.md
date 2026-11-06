@@ -102,10 +102,29 @@ docs/                   规划、问卷依据和内容依据
 
 ## 1.0 发布工程
 
-本仓库是可独立构建的1.0网页、服务端和原生源码。正式站：https://shichen-wellness.pages.dev/ ；下载：https://shichen-wellness.pages.dev/download/1.0.0/ ；文字资料：https://shichen-wellness.pages.dev/competition/ 。历史发布保留，新安卓发布标签为 `mobile-v1.0.0`，避免覆盖早期同名网页标签。
+本仓库是可独立构建的1.0网页、服务端和原生源码。正式站：https://shichen-wellness.pages.dev/ ；下载：https://shichen-wellness.pages.dev/download/1.0.0/ ；参赛材料：https://shichen-wellness.pages.dev/competition/ 。历史发布保留，新安卓发布标签为 `mobile-v1.0.0`，避免覆盖早期同名网页标签。
 
 `npm ci` 后执行 `npm test`、`npm run build:pages`。Worker配置在根目录 `wrangler.jsonc`，Pages配置在 `pages/wrangler.jsonc`；运行 `npm run deploy:worker` 后，`npm run deploy:pages -- main` 发布正式站，`npm run deploy:pages -- care-preview` 同步预览站。必须先在同一Cloudflare账户配置服务端 `LLM_API_KEY` Secret，不能将密钥写入前端或提交。
 
 发布APK前把同一已签名文件放到 `public/download/` 下的正式文件名、旧壳兼容文件名与无版本别名，并在 `latest.json` 写入实际大小与SHA256；执行 `npm run verify:release -- --require-apk` 后再发布。源码CI不包含私有签名材料或APK，`npm run verify:release` 会明确报告sourceOnly。
 
-Android构建见 `android/README.md`；保留原包名和签名才能覆盖旧安装。体征接入未完成，通知的目标手机送达需使用应用内“一分钟后提醒我”实测。文字参赛材料见 `docs/submission-1.0/`；本轮没有生成1.0视频、PPTX或PDF。
+Android构建见 `android/README.md`；保留原包名和签名才能覆盖旧安装。体征接入未完成，通知的目标手机送达需使用应用内“一分钟后提醒我”实测。文字参赛材料见 `docs/submission-1.0/`；成品及制作方式见下方“1.0参赛成品”。
+
+
+
+<!-- competition-final:start -->
+## 1.0参赛成品
+
+9页PPT与PDF已生成；4分40秒界面演示视频已生成，有字幕、无配音。
+
+采用当前1.0真实界面截图、流程示意与完整30秒行动演示动画，展示“张大爷的一天”。
+
+- [在线参赛材料](https://shichen-wellness.pages.dev/competition/)
+- [竞赛演示](https://shichen-wellness.pages.dev/?mode=competition&v=1.0)
+- [9页可编辑PPT](https://shichen-wellness.pages.dev/competition/presentation.pptx)
+- [9页PDF](https://shichen-wellness.pages.dev/competition/presentation.pdf)
+- [4分40秒界面演示视频](https://shichen-wellness.pages.dev/competition/demo.mp4)
+- [配套SRT字幕](https://shichen-wellness.pages.dev/competition/subtitles.srt)
+
+制作方式见 [界面演示制作说明](docs/submission-1.0/成片制作说明.md)。二进制成品通过公开材料页与GitHub发布附件提供，源码保留文字依据。
+<!-- competition-final:end -->

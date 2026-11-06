@@ -18,3 +18,8 @@ android/local.properties
 
 public/downloads/shichen-care-source-*.zip
 public/competition/text-drafts.zip
+
+public/competition/demo.mp4
+public/competition/presentation.pptx
+public/competition/presentation.pdf
+public/competition/submission-final.zip

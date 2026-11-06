@@ -1,16 +1,46 @@
 {
   "version": "1.0.0",
-  "status": "text-drafts-for-review",
-  "introCharacters": 178,
+  "status": "complete",
+  "presentation": {
+    "pages": 9,
+    "pptxAvailable": true,
+    "pdfAvailable": true
+  },
   "slidesPlanned": 9,
   "videoPlannedSeconds": 280,
-  "videoGenerated": false,
-  "pptGenerated": false,
+  "videoGenerated": true,
+  "videoAvailable": true,
+  "pptGenerated": true,
+  "video": {
+    "kind": "interface-demonstration",
+    "description": "采用当前1.0真实界面截图、流程示意与完整30秒行动演示动画，展示“张大爷的一天”。",
+    "subtitles": "burned-in",
+    "voiceover": false,
+    "available": true,
+    "metadata": {
+      "durationSeconds": 280.0,
+      "width": 1920,
+      "height": 1080,
+      "audioTracks": 0,
+      "codec": "h264",
+      "bytes": 3944729
+    },
+    "statusMessage": ""
+  },
+  "poster": "poster.jpg",
+  "subtitlesAvailable": true,
+  "pagesAssetLimitBytes": 26214400,
+  "packagedAt": "2026-11-06T02:55:24.685546+00:00",
   "files": [
     {
       "name": "checklist.md",
-      "bytes": 2530,
-      "sha256": "cd35e72877fffad818f58762fc3b5c155ee24bee351e2a637583b2192fa96e38"
+      "bytes": 2320,
+      "sha256": "c1512f2092056161314fea97fd8ab8bec0acdf0416dba579e2ccd7dc71272578"
+    },
+    {
+      "name": "delivery-status.md",
+      "bytes": 845,
+      "sha256": "054e4d7bd6d95fa4cfd2f7b6ca4d684b62a18c07b7fabcd6b7cb3c8a062831f3"
     },
     {
       "name": "demo-draft.srt",
@@ -19,18 +49,23 @@
     },
     {
       "name": "demo-script.html",
-      "bytes": 10412,
-      "sha256": "242a821e93082ba82028b8739618072f415799f70e43e8f397b27ef1ceec3482"
+      "bytes": 10740,
+      "sha256": "e29c663e09788df3221897ff167fcad22590fd25ae68fefceb3fe1583d643a73"
     },
     {
       "name": "demo-script.md",
-      "bytes": 7743,
-      "sha256": "d0047c0bd4cd4e2b33c7a788937dd36d062ede2d67bda8d30cdea14ae9e72ba0"
+      "bytes": 8097,
+      "sha256": "69b92b6780803e7adbd6dcabcef0fccfe1e442adf781f6b3a0a2ee707debafdf"
+    },
+    {
+      "name": "demo.mp4",
+      "bytes": 3944729,
+      "sha256": "6990e173526e35cf240efbe8553fc36a5ef2167d32e228b9d8ebece18ddf0485"
     },
     {
       "name": "index.html",
-      "bytes": 4221,
-      "sha256": "3a12af63f1387bdd75813db689e4c0b5ba65edd360e7461a5efe346383cdd1b0"
+      "bytes": 5306,
+      "sha256": "9a989b2ca8b7b7f77303e9dbf1fc0a21ffc09092b9fc920b7fa0c35b5442c793"
     },
     {
       "name": "intro.txt",
@@ -39,18 +74,43 @@
     },
     {
       "name": "links.txt",
-      "bytes": 467,
-      "sha256": "bcf434f6b62bc70e68c9c0489660ce3c014a847d4da6e8d376a6b0f509d933bc"
+      "bytes": 849,
+      "sha256": "92da552769428b83beef54ee5837195f3063b348bb45f525dccbd6d1000fec12"
+    },
+    {
+      "name": "poster.jpg",
+      "bytes": 180881,
+      "sha256": "d96c9ed2d5e0ef93f46629c1390df89232b7552dfcb46667a5f11f073f8e6752"
     },
     {
       "name": "ppt-outline.html",
-      "bytes": 8812,
-      "sha256": "c6562718d1e8984f31c4f10af3d97231e37e537ff136aa2c06114491f80080e8"
+      "bytes": 9104,
+      "sha256": "37cf229aaa29ba04ba5d21887b867e90f19e625cb2280bd6b348146e35e87111"
     },
     {
       "name": "ppt-outline.md",
-      "bytes": 6184,
-      "sha256": "319d8cb95c0d84d68d5eea358ff924112c8cf0a421db1a5c569e8380cf5a2760"
+      "bytes": 6604,
+      "sha256": "355d95ece901fc899c116f7ed744cec869b851bb7af8d4501df2da3c4b5bceff"
+    },
+    {
+      "name": "presentation.pdf",
+      "bytes": 695225,
+      "sha256": "9df5ecc75c55d100e3a16be830fb8b6b1f17866f13e09b3f660867ec6a702343"
+    },
+    {
+      "name": "presentation.pptx",
+      "bytes": 6210405,
+      "sha256": "43ac6046a40ed939d52d3b04626acd3ae65cd3241f3f9a7941216c6539578051"
+    },
+    {
+      "name": "production-notes.md",
+      "bytes": 532,
+      "sha256": "49e254f7b36cb688b3252c625ce81008c6120989eadea8102954782c50111fbf"
+    },
+    {
+      "name": "subtitles.srt",
+      "bytes": 3019,
+      "sha256": "e743602a274a76bf6e2e98c1d7c8d6b56f982548b9650b62db585589088426c8"
     },
     {
       "name": "text-drafts.zip",
@@ -59,13 +119,13 @@
     },
     {
       "name": "verification.html",
-      "bytes": 8980,
-      "sha256": "d51aaab5068da247b48cdf6b6268b30bca340e39bc6504ff27cdf05ba75ab48d"
+      "bytes": 9280,
+      "sha256": "335a7d46f0b973a06d077d9eb43300901e5f00ae18aa8b47afa5188fafedcdde"
     },
     {
       "name": "verification.md",
-      "bytes": 6398,
-      "sha256": "6c8e46b0dc9114334f85e93c2b8c737cc020432a0c550a69d0c4840bbf08adfa"
+      "bytes": 6778,
+      "sha256": "00e0a0c6bc656be0a7c97abf32a83abc6c2260d6487e56a9a3aa0a2318be1af4"
     }
   ]
 }

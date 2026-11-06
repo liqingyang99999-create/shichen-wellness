@@ -14,3 +14,16 @@ https://shichen-wellness.pages.dev/competition/
 https://care-preview.shichen-wellness.pages.dev/?mode=competition&v=1.0
 
 比赛演示链接填写第一项；提交前用无登录窗口核对可访问。
+
+成品材料（发布后链接）
+9页可编辑PPT
+https://shichen-wellness.pages.dev/competition/presentation.pptx
+
+9页PDF
+https://shichen-wellness.pages.dev/competition/presentation.pdf
+
+4分40秒界面演示视频
+https://shichen-wellness.pages.dev/competition/demo.mp4
+
+配套SRT字幕
+https://shichen-wellness.pages.dev/competition/subtitles.srt
