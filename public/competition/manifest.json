@@ -29,8 +29,8 @@
     },
     {
       "name": "index.html",
-      "bytes": 4228,
-      "sha256": "bad299bda88b9beaa2704eb7f83ca4931eb09c9700ee424437b40193707489b3"
+      "bytes": 4221,
+      "sha256": "3a12af63f1387bdd75813db689e4c0b5ba65edd360e7461a5efe346383cdd1b0"
     },
     {
       "name": "intro.txt",
@@ -44,18 +44,18 @@
     },
     {
       "name": "ppt-outline.html",
-      "bytes": 9097,
-      "sha256": "516d8d6b68e8d9ac20b8a3632aced7c1c53d9883408add19d194b990305cea3e"
+      "bytes": 8812,
+      "sha256": "c6562718d1e8984f31c4f10af3d97231e37e537ff136aa2c06114491f80080e8"
     },
     {
       "name": "ppt-outline.md",
-      "bytes": 6463,
-      "sha256": "151c7e7bf64dd31413e98cba13a223ccf868041467273d358870c7e74a641ec5"
+      "bytes": 6184,
+      "sha256": "319d8cb95c0d84d68d5eea358ff924112c8cf0a421db1a5c569e8380cf5a2760"
     },
     {
       "name": "text-drafts.zip",
-      "bytes": 15767,
-      "sha256": "0fea769eadb1f8bcbba920b60e832dc27060257a516dbd2e05c5e23462ecee90"
+      "bytes": 15609,
+      "sha256": "0ed19aab45e7342297a4673a8d254f3a6d623c2c4c6913c002ded063deaf698a"
     },
     {
       "name": "verification.html",
